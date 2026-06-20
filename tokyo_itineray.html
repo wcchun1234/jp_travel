@@ -511,6 +511,13 @@
         url("https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1600&q=80") center/cover;
       box-shadow: 0 18px 44px rgba(15, 23, 42, .18);
     }
+    .travel-hero[data-jump-tab] {
+      cursor: pointer;
+    }
+    .travel-hero[data-jump-tab]:focus-visible {
+      outline: 3px solid var(--joy-sun);
+      outline-offset: 4px;
+    }
     .travel-hero-content {
       min-height: 330px;
       max-width: 660px;
@@ -560,12 +567,26 @@
       align-items: center;
       gap: 6px;
       padding: 8px 11px;
+      border: 0;
       border-radius: 999px;
       background: #fff;
       color: var(--slate-900);
+      font: inherit;
       font-size: 12px;
+      line-height: 1;
       font-weight: 800;
       box-shadow: 0 8px 18px rgba(15, 23, 42, .15);
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .hero-chip:hover {
+      background: var(--joy-sun-soft);
+      color: #92400e;
+      transform: translateY(-1px);
+    }
+    .hero-chip:focus-visible {
+      outline: 3px solid var(--joy-sun);
+      outline-offset: 3px;
     }
     .pocket-grid {
       display: grid;
@@ -1973,16 +1994,16 @@
       </div>
 
       <section id="overview" class="tab-content active">
-        <section class="travel-hero" aria-label="東京旅行視覺主頁">
+        <section class="travel-hero" tabindex="0" role="button" data-jump-tab="shopping-map" data-map-route="all-tokyo" aria-label="東京旅行視覺主頁，點擊打開全旅程地圖">
           <div class="travel-hero-content">
             <span class="hero-kicker"><span class="material-symbols-outlined">favorite</span> Couple Tokyo Adventure</span>
             <h2>16日東京約會旅行，從秋葉原玩到 DisneySea、富士山與鎌倉海邊。</h2>
             <p>這版不只是行程表，而是旅行作戰地圖：每天有節奏、有備案、有期待位，方便你們邊玩邊決定下一站。</p>
             <div class="hero-actions">
-              <span class="hero-chip"><span class="material-symbols-outlined">castle</span> DisneySea 全日</span>
-              <span class="hero-chip"><span class="material-symbols-outlined">landscape</span> 富士山窗口</span>
-              <span class="hero-chip"><span class="material-symbols-outlined">beach_access</span> 鎌倉海邊</span>
-              <span class="hero-chip"><span class="material-symbols-outlined">local_cafe</span> 咖啡散策</span>
+              <button class="hero-chip" type="button" data-jump-tab="daily-detail" data-jump-day="5"><span class="material-symbols-outlined">castle</span> DisneySea 全日</button>
+              <button class="hero-chip" type="button" data-jump-tab="daily-detail" data-jump-day="11"><span class="material-symbols-outlined">landscape</span> 富士山窗口</button>
+              <button class="hero-chip" type="button" data-jump-tab="daily-detail" data-jump-day="13"><span class="material-symbols-outlined">beach_access</span> 鎌倉海邊</button>
+              <button class="hero-chip" type="button" data-jump-tab="daily-detail" data-jump-day="12"><span class="material-symbols-outlined">local_cafe</span> 咖啡散策</button>
             </div>
           </div>
         </section>
@@ -3375,10 +3396,14 @@
       btn.addEventListener("click", () => simulateWeather(btn.dataset.plan));
     });
     document.querySelectorAll("[data-jump-tab]").forEach(btn => {
-      btn.addEventListener("click", () => handlePocketAction(btn));
+      btn.addEventListener("click", event => {
+        event.stopPropagation();
+        handlePocketAction(btn);
+      });
       btn.addEventListener("keydown", event => {
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
+          event.stopPropagation();
           handlePocketAction(btn);
         }
       });
