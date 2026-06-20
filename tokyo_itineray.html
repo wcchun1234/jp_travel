@@ -818,6 +818,125 @@
       background: #fff;
       color: var(--slate-700);
     }
+    .map-explorer {
+      display: grid;
+      grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr);
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .map-stage {
+      overflow: hidden;
+      min-height: 420px;
+      border: 1px solid var(--slate-200);
+      border-radius: 16px;
+      background: var(--surface-low);
+      box-shadow: var(--shadow-card);
+    }
+    .map-stage iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      border: 0;
+    }
+    .map-control-panel {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+      padding: 14px;
+      border: 1px solid var(--slate-200);
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: var(--shadow-card);
+    }
+    .map-control-head h3 {
+      margin: 0;
+      color: var(--slate-900);
+      font-size: 18px;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+    .map-control-head p,
+    .map-route-note {
+      margin: 6px 0 0;
+      color: var(--slate-600);
+      font-size: 12px;
+      line-height: 1.6;
+      font-weight: 600;
+    }
+    .map-route-buttons {
+      display: grid;
+      gap: 8px;
+    }
+    .map-route-btn {
+      width: 100%;
+      min-height: 48px;
+      padding: 10px 12px;
+      border: 1px solid var(--slate-200);
+      border-radius: 12px;
+      background: var(--surface-lowest);
+      color: var(--slate-700);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font: inherit;
+      font-size: 13px;
+      line-height: 1.35;
+      font-weight: 800;
+      text-align: left;
+      cursor: pointer;
+    }
+    .map-route-btn span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+    .map-route-btn small {
+      color: var(--slate-500);
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .map-route-btn.active {
+      border-color: #c4b5fd;
+      background: var(--primary-soft);
+      color: var(--primary);
+    }
+    .map-route-btn.active small { color: var(--primary); }
+    .map-stop-list {
+      display: grid;
+      gap: 8px;
+      padding: 10px;
+      border-radius: 12px;
+      background: var(--surface);
+    }
+    .map-stop {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr);
+      gap: 9px;
+      align-items: start;
+      color: var(--slate-700);
+      font-size: 12px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+    .map-stop b {
+      width: 28px;
+      height: 28px;
+      border-radius: 9px;
+      display: grid;
+      place-items: center;
+      background: var(--joy-sun-soft);
+      color: #92400e;
+      font-size: 12px;
+    }
+    .map-action-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
     .shopping-day-plan {
       display: grid;
       gap: 10px;
@@ -1350,6 +1469,10 @@
       .route-map-card { grid-template-columns: 1fr; padding: 16px; }
       .map-panel { min-height: 330px; }
       .map-line { inset: 48px 38px 60px 42px; }
+      .map-explorer { grid-template-columns: 1fr; }
+      .map-stage,
+      .map-stage iframe { min-height: 360px; }
+      .map-action-row { grid-template-columns: 1fr; }
       .shopping-grid { grid-template-columns: 1fr; }
       .shopping-day-row { grid-template-columns: 1fr; }
       .trip-strip { grid-template-columns: 1fr; gap: 10px; }
@@ -1810,6 +1933,30 @@
             <span class="badge badge-coral">Mobile ready</span>
           </div>
           <div class="card-pad">
+            <div class="map-explorer" aria-label="互動 Google Maps 行程地圖">
+              <div class="map-stage">
+                <iframe
+                  id="google-map-frame"
+                  title="Google Maps interactive itinerary preview"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                  src="https://www.google.com/maps?q=Isetan%20Shinjuku%20Tokyo%20Lumine%20Shinjuku%20NEWoMan%20Shinjuku&output=embed">
+                </iframe>
+              </div>
+              <div class="map-control-panel">
+                <div class="map-control-head">
+                  <h3 id="map-route-title">Day 14｜新宿主力購物</h3>
+                  <p id="map-route-desc">百貨、藥妝、服飾與伴手禮集中處理。雨天最穩，買重物後可直接回日本橋酒店。</p>
+                </div>
+                <div class="map-route-buttons" id="map-route-buttons"></div>
+                <div class="map-stop-list" id="map-stop-list"></div>
+                <p class="map-route-note" id="map-route-note">建議把 Isetan、Lumine、NEWoMan 先存到 Google Maps 清單，到現場按營業時間和退稅排隊狀況微調。</p>
+                <div class="map-action-row">
+                  <a class="map-link" id="map-open-link" href="https://www.google.com/maps/search/?api=1&query=Isetan%20Shinjuku%20Tokyo" target="_blank" rel="noopener"><span class="material-symbols-outlined">open_in_new</span> 開啟地圖</a>
+                  <a class="map-link secondary" id="map-directions-link" href="https://www.google.com/maps/dir/?api=1&origin=Hotel%20Horidome%20Villa%20Tokyo&destination=Isetan%20Shinjuku%20Tokyo&travelmode=transit" target="_blank" rel="noopener"><span class="material-symbols-outlined">directions</span> 交通導航</a>
+                </div>
+              </div>
+            </div>
             <div class="shopping-grid">
               <article class="shopping-card">
                 <div class="shopping-image" style="--image:url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">shopping_bag</span> 必去購物</span></div>
@@ -2223,6 +2370,81 @@
       }
     };
 
+    const mapRoutes = {
+      shinjuku: {
+        label: "新宿",
+        day: "Day 14",
+        icon: "shopping_bag",
+        title: "Day 14｜新宿主力購物",
+        desc: "百貨、藥妝、服飾與伴手禮集中處理。雨天最穩，買重物後可直接回日本橋酒店。",
+        origin: "Hotel Horidome Villa Tokyo",
+        destination: "Isetan Shinjuku Tokyo",
+        stops: ["Isetan Shinjuku Tokyo", "Lumine Shinjuku Tokyo", "NEWoMan Shinjuku Tokyo", "Shinjuku Takashimaya Tokyo"],
+        query: "Isetan Shinjuku Tokyo Lumine Shinjuku NEWoMan Shinjuku",
+        note: "建議把 Isetan、Lumine、NEWoMan 先存到 Google Maps 清單，到現場按營業時間和退稅排隊狀況微調。"
+      },
+      shibuya: {
+        label: "澀谷",
+        day: "Day 3",
+        icon: "favorite",
+        title: "Day 3｜池袋 → 澀谷 → Shibuya Sky",
+        desc: "角色店、潮流購物、晚霞展望台串成一條約會線，黃昏時段最漂亮。",
+        origin: "Sunshine City Ikebukuro Tokyo",
+        destination: "Shibuya Sky Tokyo",
+        stops: ["Sunshine City Ikebukuro Tokyo", "Shibuya PARCO Tokyo", "Miyashita Park Shibuya", "Shibuya Sky Tokyo"],
+        query: "Sunshine City Ikebukuro Shibuya PARCO Miyashita Park Shibuya Sky",
+        note: "Shibuya Sky 要預約黃昏票；如果下雨或強風，澀谷購物仍可保留，展望台按官方營運調整。"
+      },
+      harajuku: {
+        label: "原宿表參道",
+        day: "Day 8",
+        icon: "styler",
+        title: "Day 8｜明治神宮 → 原宿 → 表參道 → 新宿",
+        desc: "早上走神宮大空間，下午潮流街區，傍晚接新宿夜購，適合拍照和散步。",
+        origin: "Meiji Jingu Tokyo",
+        destination: "Isetan Shinjuku Tokyo",
+        stops: ["Meiji Jingu Tokyo", "Takeshita Street Harajuku", "Cat Street Harajuku", "Omotesando Hills", "Isetan Shinjuku Tokyo"],
+        query: "Meiji Jingu Takeshita Street Cat Street Omotesando Hills Isetan Shinjuku",
+        note: "週末原宿人多，先去明治神宮，再視體力決定 Cat Street 或直接表參道咖啡。"
+      },
+      ginza: {
+        label: "銀座東京站",
+        day: "Day 7",
+        icon: "diamond",
+        title: "Day 7｜銀座 → 有樂町 → 東京站一番街",
+        desc: "雨天購物強線。百貨、地下街、角色街和拉麵街容易連接，不怕天氣差。",
+        origin: "Ginza Six Tokyo",
+        destination: "Tokyo Character Street",
+        stops: ["GINZA SIX Tokyo", "Ginza Mitsukoshi", "MUJI Ginza", "Yurakucho Station Tokyo", "Tokyo Character Street"],
+        query: "GINZA SIX Ginza Mitsukoshi MUJI Ginza Tokyo Character Street",
+        note: "大雨時優先走地下街和百貨連接，東京站一番街可留到傍晚避開戶外。"
+      },
+      nihonbashi: {
+        label: "日本橋手信",
+        day: "Day 15",
+        icon: "redeem",
+        title: "Day 15｜日本橋 → 東京站手信收尾",
+        desc: "最後一天低風險收尾：買手信、退稅、回酒店執行李，不再跨太遠。",
+        origin: "Hotel Horidome Villa Tokyo",
+        destination: "Daimaru Tokyo",
+        stops: ["Hotel Horidome Villa Tokyo", "Coredo Muromachi Tokyo", "Nihombashi Mitsukoshi Main Store", "Tokyo Character Street", "Daimaru Tokyo"],
+        query: "Hotel Horidome Villa Coredo Muromachi Nihombashi Mitsukoshi Tokyo Character Street Daimaru Tokyo",
+        note: "買完重物先回酒店放低，再補最後缺口；這天以行李重量和回程準備為優先。"
+      },
+      odaiba: {
+        label: "台場候補",
+        day: "Day 14",
+        icon: "water",
+        title: "好天候補｜台場海景與 DiverCity",
+        desc: "如果 Day 14 天氣很好、購物已完成，可以改成海濱散步、高達與彩虹大橋夜景。",
+        origin: "Hotel Horidome Villa Tokyo",
+        destination: "DiverCity Tokyo Plaza",
+        stops: ["Odaiba Marine Park Tokyo", "DiverCity Tokyo Plaza", "Unicorn Gundam Statue Odaiba", "Rainbow Bridge Tokyo"],
+        query: "Odaiba Marine Park DiverCity Tokyo Plaza Unicorn Gundam Rainbow Bridge",
+        note: "台場不適合強風雨硬去；若下雨，留在新宿或銀座百貨會舒服很多。"
+      }
+    };
+
     function basePill(base) {
       if (base === "秋葉原") return '<span class="lodging-pill lodging-akiba">秋葉原</span>';
       if (base === "日本橋") return '<span class="lodging-pill lodging-nihonbashi">日本橋</span>';
@@ -2300,6 +2522,63 @@
       return `<div class="timeline-item"><strong>${match[1]}</strong>${match[2]}</div>`;
     }
 
+    function buildMapsSearchUrl(query) {
+      return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+    }
+
+    function buildMapsDirectionsUrl(route) {
+      const waypoints = route.stops.slice(1, -1).join("|");
+      const params = new URLSearchParams({
+        api: "1",
+        origin: route.origin,
+        destination: route.destination,
+        travelmode: "transit"
+      });
+      if (waypoints) params.set("waypoints", waypoints);
+      return `https://www.google.com/maps/dir/?${params.toString()}`;
+    }
+
+    function renderMapRoutes(activeKey = "shinjuku") {
+      const buttons = document.getElementById("map-route-buttons");
+      if (!buttons) return;
+      buttons.innerHTML = Object.entries(mapRoutes).map(([key, route]) => `
+        <button class="map-route-btn" type="button" data-map-route="${key}">
+          <span><span class="material-symbols-outlined">${route.icon}</span>${route.label}</span>
+          <small>${route.day}</small>
+        </button>
+      `).join("");
+      buttons.querySelectorAll("[data-map-route]").forEach(button => {
+        button.addEventListener("click", () => selectMapRoute(button.dataset.mapRoute));
+      });
+      selectMapRoute(activeKey);
+    }
+
+    function selectMapRoute(routeKey) {
+      const route = mapRoutes[routeKey] || mapRoutes.shinjuku;
+      const frame = document.getElementById("google-map-frame");
+      const title = document.getElementById("map-route-title");
+      const desc = document.getElementById("map-route-desc");
+      const stops = document.getElementById("map-stop-list");
+      const note = document.getElementById("map-route-note");
+      const openLink = document.getElementById("map-open-link");
+      const directionsLink = document.getElementById("map-directions-link");
+
+      if (frame) frame.src = `https://www.google.com/maps?q=${encodeURIComponent(route.query)}&output=embed`;
+      if (title) title.textContent = route.title;
+      if (desc) desc.textContent = route.desc;
+      if (note) note.textContent = route.note;
+      if (openLink) openLink.href = buildMapsSearchUrl(route.query);
+      if (directionsLink) directionsLink.href = buildMapsDirectionsUrl(route);
+      if (stops) {
+        stops.innerHTML = route.stops.map((stop, index) => `
+          <div class="map-stop"><b>${index + 1}</b><span>${stop}</span></div>
+        `).join("");
+      }
+      document.querySelectorAll("[data-map-route]").forEach(button => {
+        button.classList.toggle("active", button.dataset.mapRoute === routeKey);
+      });
+    }
+
     function switchTab(tabId, updateHash = true) {
       if (!document.getElementById(tabId)) return;
       document.querySelectorAll(".tab-content").forEach(tab => tab.classList.remove("active"));
@@ -2335,6 +2614,7 @@
     renderTable();
     renderDetails();
     renderDayIndex();
+    renderMapRoutes();
     simulateWeather("A");
     switchTab(location.hash.replace("#", "") || "overview", false);
     if (location.hash) {
