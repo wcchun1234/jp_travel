@@ -631,6 +631,22 @@
       background: var(--image) center/cover;
       box-shadow: var(--shadow-card);
     }
+    .visual-card[data-jump-tab],
+    .shopping-image[data-jump-tab],
+    .map-pin[data-jump-tab] {
+      cursor: pointer;
+    }
+    .visual-card[data-jump-tab]:hover,
+    .shopping-image[data-jump-tab]:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, .16);
+    }
+    .visual-card[data-jump-tab]:focus-visible,
+    .shopping-image[data-jump-tab]:focus-visible,
+    .map-pin[data-jump-tab]:focus-visible {
+      outline: 3px solid #fbbf24;
+      outline-offset: 3px;
+    }
     .visual-card.large { grid-row: span 2; }
     .visual-card::after {
       content: "";
@@ -660,6 +676,22 @@
       line-height: 1.4;
       font-weight: 700;
     }
+    .tap-cue {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      width: fit-content;
+      margin-top: 10px;
+      padding: 6px 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.95);
+      color: var(--primary);
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 800;
+      box-shadow: 0 6px 16px rgba(15,23,42,.16);
+    }
+    .tap-cue .material-symbols-outlined { font-size: 15px; }
     .route-map-card {
       display: grid;
       grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
@@ -710,6 +742,13 @@
       display: grid;
       justify-items: center;
       gap: 6px;
+      border: 0;
+      background: transparent;
+      padding: 0;
+      font: inherit;
+    }
+    .map-pin[data-jump-tab]:hover .pin-dot {
+      transform: translateY(-2px) scale(1.04);
     }
     .pin-dot {
       width: 42px;
@@ -800,6 +839,11 @@
       min-height: 132px;
       background: var(--image) center/cover;
       position: relative;
+      border: 0;
+      width: 100%;
+      display: block;
+      text-align: left;
+      font: inherit;
     }
     .shopping-image::after {
       content: "";
@@ -1886,46 +1930,46 @@
         </div>
 
         <section class="visual-grid" aria-label="旅行亮點圖片">
-          <article class="visual-card large" style="--image:url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1200&q=80')">
-            <div class="visual-caption"><strong>東京夜色與購物街</strong><span>秋葉原、澀谷、新宿、銀座、東京站，一路買一路吃。</span></div>
+          <article class="visual-card large" tabindex="0" role="button" data-jump-tab="shopping-map" data-map-route="shinjuku" style="--image:url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1200&q=80')">
+            <div class="visual-caption"><strong>東京夜色與購物街</strong><span>秋葉原、澀谷、新宿、銀座、東京站，一路買一路吃。</span><em class="tap-cue"><span class="material-symbols-outlined">touch_app</span> 打開購物地圖</em></div>
           </article>
-          <article class="visual-card" style="--image:url('https://images.unsplash.com/photo-1513407030348-c983a97b98d8?auto=format&fit=crop&w=900&q=80')">
-            <div class="visual-caption"><strong>東京鐵塔散策</strong><span>築地海鮮早宴後，芝公園拍照最舒服。</span></div>
+          <article class="visual-card" tabindex="0" role="button" data-jump-tab="daily-detail" data-jump-day="4" style="--image:url('https://images.unsplash.com/photo-1513407030348-c983a97b98d8?auto=format&fit=crop&w=900&q=80')">
+            <div class="visual-caption"><strong>東京鐵塔散策</strong><span>築地海鮮早宴後，芝公園拍照最舒服。</span><em class="tap-cue"><span class="material-symbols-outlined">touch_app</span> 查看 Day 4</em></div>
           </article>
-          <article class="visual-card" style="--image:url('https://images.unsplash.com/photo-1578469645742-46cae010e5d4?auto=format&fit=crop&w=900&q=80')">
-            <div class="visual-caption"><strong>富士山好天窗口</strong><span>Day 11-14 保留天氣對調，等一個清晰山景。</span></div>
+          <article class="visual-card" tabindex="0" role="button" data-jump-tab="daily-detail" data-jump-day="11" style="--image:url('https://images.unsplash.com/photo-1578469645742-46cae010e5d4?auto=format&fit=crop&w=900&q=80')">
+            <div class="visual-caption"><strong>富士山好天窗口</strong><span>Day 11-14 保留天氣對調，等一個清晰山景。</span><em class="tap-cue"><span class="material-symbols-outlined">touch_app</span> 查看 Day 11</em></div>
           </article>
-          <article class="visual-card" style="--image:url('https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&w=900&q=80')">
-            <div class="visual-caption"><strong>鎌倉海邊一日</strong><span>江之電、湘南海岸、夕方散步，放慢節奏。</span></div>
+          <article class="visual-card" tabindex="0" role="button" data-jump-tab="daily-detail" data-jump-day="13" style="--image:url('https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&w=900&q=80')">
+            <div class="visual-caption"><strong>鎌倉海邊一日</strong><span>江之電、湘南海岸、夕方散步，放慢節奏。</span><em class="tap-cue"><span class="material-symbols-outlined">touch_app</span> 查看 Day 13</em></div>
           </article>
-          <article class="visual-card" style="--image:url('https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=900&q=80')">
-            <div class="visual-caption"><strong>清澄白河咖啡日</strong><span>合羽橋、蔵前、清澄白河，富士山後休整剛好。</span></div>
+          <article class="visual-card" tabindex="0" role="button" data-jump-tab="daily-detail" data-jump-day="12" style="--image:url('https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=900&q=80')">
+            <div class="visual-caption"><strong>清澄白河咖啡日</strong><span>合羽橋、蔵前、清澄白河，富士山後休整剛好。</span><em class="tap-cue"><span class="material-symbols-outlined">touch_app</span> 查看 Day 12</em></div>
           </article>
         </section>
 
         <section class="route-map-card" aria-label="東京旅行路線地圖">
           <div class="map-panel">
             <div class="map-line"></div>
-            <div class="map-pin" style="left:30%; top:28%; --pin:#10b981">
+            <button class="map-pin" type="button" data-jump-tab="shopping-map" data-map-route="akiba-hotel" style="left:30%; top:28%; --pin:#10b981">
               <span class="pin-dot"><span class="material-symbols-outlined">hotel</span></span>
               <span class="pin-label">秋葉原基地</span>
-            </div>
-            <div class="map-pin" style="left:62%; top:30%; --pin:#fb7185">
+            </button>
+            <button class="map-pin" type="button" data-jump-tab="daily-detail" data-jump-day="5" style="left:62%; top:30%; --pin:#fb7185">
               <span class="pin-dot"><span class="material-symbols-outlined">castle</span></span>
               <span class="pin-label">DisneySea</span>
-            </div>
-            <div class="map-pin" style="left:43%; top:52%; --pin:#4f46e5">
+            </button>
+            <button class="map-pin" type="button" data-jump-tab="shopping-map" data-map-route="nihonbashi-hotel" style="left:43%; top:52%; --pin:#4f46e5">
               <span class="pin-dot"><span class="material-symbols-outlined">apartment</span></span>
               <span class="pin-label">日本橋基地</span>
-            </div>
-            <div class="map-pin" style="left:20%; top:76%; --pin:#0ea5e9">
+            </button>
+            <button class="map-pin" type="button" data-jump-tab="daily-detail" data-jump-day="11" style="left:20%; top:76%; --pin:#0ea5e9">
               <span class="pin-dot"><span class="material-symbols-outlined">landscape</span></span>
               <span class="pin-label">富士山</span>
-            </div>
-            <div class="map-pin" style="left:70%; top:76%; --pin:#f59e0b">
+            </button>
+            <button class="map-pin" type="button" data-jump-tab="daily-detail" data-jump-day="13" style="left:70%; top:76%; --pin:#f59e0b">
               <span class="pin-dot"><span class="material-symbols-outlined">beach_access</span></span>
               <span class="pin-label">鎌倉/江之島</span>
-            </div>
+            </button>
           </div>
           <div class="map-list">
             <div>
@@ -2222,7 +2266,7 @@
             </div>
             <div class="shopping-grid">
               <article class="shopping-card">
-                <div class="shopping-image" style="--image:url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">shopping_bag</span> 必去購物</span></div>
+                <button class="shopping-image" type="button" data-jump-tab="shopping-map" data-map-route="shinjuku" style="--image:url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">shopping_bag</span> 必去購物｜點圖開路線</span></button>
                 <div class="shopping-body">
                   <h3>新宿｜Isetan / Lumine / NEWoMan</h3>
                   <p>安排在 Day 14 主力購物日。百貨、藥妝、服飾、伴手禮密度高，雨天也非常穩。</p>
@@ -2234,7 +2278,7 @@
                 </div>
               </article>
               <article class="shopping-card">
-                <div class="shopping-image" style="--image:url('https://images.unsplash.com/photo-1542931287-023b922fa89b?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">favorite</span> 潮流約會</span></div>
+                <button class="shopping-image" type="button" data-jump-tab="shopping-map" data-map-route="shibuya" style="--image:url('https://images.unsplash.com/photo-1542931287-023b922fa89b?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">favorite</span> 潮流約會｜點圖開路線</span></button>
                 <div class="shopping-body">
                   <h3>澀谷｜PARCO / Scramble Square / Miyashita Park</h3>
                   <p>Day 3 已排澀谷 + Shibuya Sky。角色、潮流、餐廳和夜景可以連成一條線。</p>
@@ -2246,7 +2290,7 @@
                 </div>
               </article>
               <article class="shopping-card">
-                <div class="shopping-image" style="--image:url('https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">styler</span> 街頭時尚</span></div>
+                <button class="shopping-image" type="button" data-jump-tab="shopping-map" data-map-route="harajuku" style="--image:url('https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">styler</span> 街頭時尚｜點圖開路線</span></button>
                 <div class="shopping-body">
                   <h3>原宿 / 表參道｜Takeshita / Cat Street / Omotesando</h3>
                   <p>Day 8 明治神宮後接原宿、表參道，再可加新宿夜購。適合情侶散步和拍照。</p>
@@ -2258,7 +2302,7 @@
                 </div>
               </article>
               <article class="shopping-card">
-                <div class="shopping-image" style="--image:url('https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">diamond</span> 精品百貨</span></div>
+                <button class="shopping-image" type="button" data-jump-tab="shopping-map" data-map-route="ginza" style="--image:url('https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">diamond</span> 精品百貨｜點圖開路線</span></button>
                 <div class="shopping-body">
                   <h3>銀座 / 有樂町｜Ginza Six / Mitsukoshi / Muji</h3>
                   <p>Day 7 雨天強項。精品、百貨、地下街與東京站一番街可以全天連接。</p>
@@ -2270,7 +2314,7 @@
                 </div>
               </article>
               <article class="shopping-card">
-                <div class="shopping-image" style="--image:url('https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">toys</span> 角色與動漫</span></div>
+                <button class="shopping-image" type="button" data-jump-tab="shopping-map" data-map-route="shibuya" style="--image:url('https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">toys</span> 角色與動漫｜點圖開路線</span></button>
                 <div class="shopping-body">
                   <h3>池袋 / 秋葉原｜Sunshine City / Animate / Yodobashi</h3>
                   <p>Day 2、Day 3 覆蓋角色、動漫、電器與扭蛋。買大件先回秋葉原酒店放低。</p>
@@ -2282,7 +2326,7 @@
                 </div>
               </article>
               <article class="shopping-card">
-                <div class="shopping-image" style="--image:url('https://images.unsplash.com/photo-1513407030348-c983a97b98d8?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">redeem</span> 手信收尾</span></div>
+                <button class="shopping-image" type="button" data-jump-tab="shopping-map" data-map-route="nihonbashi" style="--image:url('https://images.unsplash.com/photo-1513407030348-c983a97b98d8?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">redeem</span> 手信收尾｜點圖開路線</span></button>
                 <div class="shopping-body">
                   <h3>東京站 / 日本橋｜Character Street / Daimaru / Coredo</h3>
                   <p>Day 15 收尾最好用。最後手信、便當、甜品、退稅和行李整理都集中處理。</p>
@@ -2980,6 +3024,12 @@
     });
     document.querySelectorAll("[data-jump-tab]").forEach(btn => {
       btn.addEventListener("click", () => handlePocketAction(btn));
+      btn.addEventListener("keydown", event => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          handlePocketAction(btn);
+        }
+      });
     });
     document.getElementById("today-reset-btn")?.addEventListener("click", () => openDayDetail(1, { compact: true }));
     document.getElementById("expand-all-days")?.addEventListener("click", expandAllDays);
