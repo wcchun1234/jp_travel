@@ -567,6 +567,55 @@
       font-weight: 800;
       box-shadow: 0 8px 18px rgba(15, 23, 42, .15);
     }
+    .pocket-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .pocket-tool {
+      min-height: 88px;
+      padding: 14px;
+      border: 1px solid var(--slate-200);
+      border-radius: 14px;
+      background: #fff;
+      color: var(--slate-900);
+      display: grid;
+      gap: 8px;
+      align-content: start;
+      text-align: left;
+      text-decoration: none;
+      box-shadow: var(--shadow-card);
+      cursor: pointer;
+    }
+    button.pocket-tool {
+      font: inherit;
+    }
+    .pocket-tool .material-symbols-outlined {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      color: var(--primary);
+      background: var(--primary-soft);
+    }
+    .pocket-tool strong {
+      display: block;
+      color: var(--slate-900);
+      font-size: 13px;
+      line-height: 1.3;
+      font-weight: 800;
+    }
+    .pocket-tool span:last-child {
+      color: var(--slate-500);
+      font-size: 11px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+    .pocket-tool:hover {
+      border-color: #c4b5fd;
+      background: #fbfbff;
+    }
     .visual-grid {
       display: grid;
       grid-template-columns: 1.35fr 1fr 1fr;
@@ -937,6 +986,23 @@
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 8px;
     }
+    .map-hint-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .map-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 8px;
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--slate-600);
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 800;
+    }
     .shopping-day-plan {
       display: grid;
       gap: 10px;
@@ -998,6 +1064,35 @@
       font-size: 12px;
       line-height: 1.55;
     }
+    .hotel-actions {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .hotel-map-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 34px;
+      padding: 8px 10px;
+      border: 1px solid #c4b5fd;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font: inherit;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 800;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .hotel-map-btn.secondary {
+      border-color: var(--slate-200);
+      background: #fff;
+      color: var(--slate-700);
+    }
     .fact-card {
       padding: 16px;
       min-height: 120px;
@@ -1052,7 +1147,29 @@
       font-weight: 600;
       overflow-wrap: anywhere;
     }
-    tbody tr:hover { background: #f8fafc; }
+    tbody tr {
+      cursor: pointer;
+      transition: background .15s ease, transform .15s ease, box-shadow .15s ease;
+    }
+    tbody tr:hover {
+      background: #f8fafc;
+      box-shadow: inset 4px 0 0 var(--primary-ui);
+    }
+    tbody tr:focus-visible {
+      outline: 3px solid #c4b5fd;
+      outline-offset: -3px;
+    }
+    .table-jump {
+      margin-top: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--primary);
+      font-size: 11px;
+      line-height: 1;
+      font-style: normal;
+      font-weight: 800;
+    }
     .day-cell {
       min-width: 130px;
       color: var(--slate-900);
@@ -1464,6 +1581,7 @@
       .travel-hero p { font-size: 13px; line-height: 1.55; }
       .hero-actions { gap: 8px; }
       .hero-chip { max-width: 100%; white-space: normal; }
+      .pocket-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .visual-grid { grid-template-columns: 1fr; grid-auto-rows: 210px; }
       .visual-card.large { grid-row: span 1; }
       .route-map-card { grid-template-columns: 1fr; padding: 16px; }
@@ -1475,6 +1593,7 @@
       .map-action-row { grid-template-columns: 1fr; }
       .shopping-grid { grid-template-columns: 1fr; }
       .shopping-day-row { grid-template-columns: 1fr; }
+      .hotel-actions { display: grid; grid-template-columns: 1fr; }
       .trip-strip { grid-template-columns: 1fr; gap: 10px; }
       .trip-tile { min-height: 76px; }
       .card-pad { padding: 18px; }
@@ -1646,6 +1765,60 @@
           </article>
         </div>
 
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h2 class="section-title"><span class="material-symbols-outlined">near_me</span> 旅行口袋工具</h2>
+              <p class="muted" style="margin:6px 0 0">旅途中常用入口集中在這裡：地圖、今日詳情、酒店、預約、天氣備案與回程交通。</p>
+            </div>
+            <span class="badge badge-emerald">Trip mode</span>
+          </div>
+          <div class="card-pad">
+            <div class="pocket-grid">
+              <button class="pocket-tool" type="button" data-jump-tab="shopping-map" data-map-route="akiba-hotel">
+                <span class="material-symbols-outlined">hotel</span>
+                <strong>秋葉原酒店地圖</strong>
+                <span>Day 1-8 基地、放低戰利品、夜晚回程。</span>
+              </button>
+              <button class="pocket-tool" type="button" data-jump-tab="shopping-map" data-map-route="nihonbashi-hotel">
+                <span class="material-symbols-outlined">apartment</span>
+                <strong>日本橋酒店地圖</strong>
+                <span>Day 9-16 基地、人形町回機場最重要。</span>
+              </button>
+              <button class="pocket-tool" type="button" data-jump-tab="daily-detail" data-jump-day="5">
+                <span class="material-symbols-outlined">castle</span>
+                <strong>DisneySea 當日</strong>
+                <span>交通、入園、App、DPA 節奏一鍵打開。</span>
+              </button>
+              <button class="pocket-tool" type="button" data-jump-tab="weather-strategy">
+                <span class="material-symbols-outlined">rainy</span>
+                <strong>天氣對調方案</strong>
+                <span>富士山、鎌倉、購物緩衝即場改排。</span>
+              </button>
+              <button class="pocket-tool" type="button" data-jump-tab="master-table">
+                <span class="material-symbols-outlined">calendar_view_week</span>
+                <strong>16日總表</strong>
+                <span>點任何一天直接跳到詳細行程。</span>
+              </button>
+              <button class="pocket-tool" type="button" data-jump-tab="shopping-map" data-map-route="all-tokyo">
+                <span class="material-symbols-outlined">map</span>
+                <strong>全部重點地圖</strong>
+                <span>酒店、購物、景點、回程站一次看。</span>
+              </button>
+              <a class="pocket-tool" href="https://www.google.com/maps/dir/?api=1&origin=Hotel%20Horidome%20Villa%20Tokyo&destination=Narita%20Airport%20Terminal%202&travelmode=transit" target="_blank" rel="noopener">
+                <span class="material-symbols-outlined">flight_takeoff</span>
+                <strong>回程成田導航</strong>
+                <span>日本橋/人形町去成田 T2，回港日專用。</span>
+              </a>
+              <button class="pocket-tool" type="button" data-jump-tab="checklist">
+                <span class="material-symbols-outlined">checklist</span>
+                <strong>預約確認清單</strong>
+                <span>門票、App、Google Maps 收藏、eSIM。</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
         <section class="visual-grid" aria-label="旅行亮點圖片">
           <article class="visual-card large" style="--image:url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1200&q=80')">
             <div class="visual-caption"><strong>東京夜色與購物街</strong><span>秋葉原、澀谷、新宿、銀座、東京站，一路買一路吃。</span></div>
@@ -1795,6 +1968,11 @@
                   <span class="material-symbols-outlined" style="color:var(--emerald)">task_alt</span>
                 </div>
                 <div class="hotel-note"><strong>適合安排：</strong>秋葉原、上野、池袋/澀谷、築地、春日部、晴空塔、DisneySea 出發。</div>
+                <div class="hotel-actions">
+                  <button class="hotel-map-btn" type="button" data-jump-tab="shopping-map" data-map-route="akiba-hotel"><span class="material-symbols-outlined">map</span> 在互動地圖標示</button>
+                  <a class="hotel-map-btn secondary" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Livemax%20Akihabara%20Kita" target="_blank" rel="noopener"><span class="material-symbols-outlined">open_in_new</span> Google Maps</a>
+                  <a class="hotel-map-btn secondary" href="https://www.google.com/maps/dir/?api=1&origin=Narita%20Airport%20Terminal%202&destination=Hotel%20Livemax%20Akihabara%20Kita&travelmode=transit" target="_blank" rel="noopener"><span class="material-symbols-outlined">directions_railway</span> 成田到酒店</a>
+                </div>
               </div>
             </article>
             <article class="hotel-card">
@@ -1809,6 +1987,11 @@
                   <span class="material-symbols-outlined" style="color:var(--primary)">task_alt</span>
                 </div>
                 <div class="hotel-note"><strong>適合安排：</strong>麻布台、台場、富士山/鎌倉集合、日本橋/東京站、合羽橋/蔵前/清澄白河、成田回程。</div>
+                <div class="hotel-actions">
+                  <button class="hotel-map-btn" type="button" data-jump-tab="shopping-map" data-map-route="nihonbashi-hotel"><span class="material-symbols-outlined">map</span> 在互動地圖標示</button>
+                  <a class="hotel-map-btn secondary" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Horidome%20Villa%20Tokyo" target="_blank" rel="noopener"><span class="material-symbols-outlined">open_in_new</span> Google Maps</a>
+                  <a class="hotel-map-btn secondary" href="https://www.google.com/maps/dir/?api=1&origin=Hotel%20Horidome%20Villa%20Tokyo&destination=Narita%20Airport%20Terminal%202&travelmode=transit" target="_blank" rel="noopener"><span class="material-symbols-outlined">flight_takeoff</span> 回程成田</a>
+                </div>
               </div>
             </article>
           </div>
@@ -1940,20 +2123,25 @@
                   title="Google Maps interactive itinerary preview"
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
-                  src="https://www.google.com/maps?q=Isetan%20Shinjuku%20Tokyo%20Lumine%20Shinjuku%20NEWoMan%20Shinjuku&output=embed">
+                  src="https://maps.google.com/maps?q=Narita%20Airport%20Terminal%202&t=&z=10&ie=UTF8&iwloc=&output=embed">
                 </iframe>
               </div>
               <div class="map-control-panel">
                 <div class="map-control-head">
-                  <h3 id="map-route-title">Day 14｜新宿主力購物</h3>
-                  <p id="map-route-desc">百貨、藥妝、服飾與伴手禮集中處理。雨天最穩，買重物後可直接回日本橋酒店。</p>
+                  <h3 id="map-route-title">Trip Map｜酒店、景點、購物、回程重點</h3>
+                  <p id="map-route-desc">把整趟最常用點位集中在一張地圖：兩間酒店、主要購物區、重點景點與成田回程。</p>
                 </div>
                 <div class="map-route-buttons" id="map-route-buttons"></div>
+                <div class="map-hint-row" aria-label="地圖功能提示">
+                  <span class="map-hint"><span class="material-symbols-outlined">pin_drop</span> 已標示重點</span>
+                  <span class="map-hint"><span class="material-symbols-outlined">directions</span> 可開交通導航</span>
+                  <span class="map-hint"><span class="material-symbols-outlined">bookmark_add</span> 適合收藏清單</span>
+                </div>
                 <div class="map-stop-list" id="map-stop-list"></div>
-                <p class="map-route-note" id="map-route-note">建議把 Isetan、Lumine、NEWoMan 先存到 Google Maps 清單，到現場按營業時間和退稅排隊狀況微調。</p>
+                <p class="map-route-note" id="map-route-note">這個總覽適合出發前收藏重點。實際移動時用下面各區路線，會比一次導航全部點更準。</p>
                 <div class="map-action-row">
-                  <a class="map-link" id="map-open-link" href="https://www.google.com/maps/search/?api=1&query=Isetan%20Shinjuku%20Tokyo" target="_blank" rel="noopener"><span class="material-symbols-outlined">open_in_new</span> 開啟地圖</a>
-                  <a class="map-link secondary" id="map-directions-link" href="https://www.google.com/maps/dir/?api=1&origin=Hotel%20Horidome%20Villa%20Tokyo&destination=Isetan%20Shinjuku%20Tokyo&travelmode=transit" target="_blank" rel="noopener"><span class="material-symbols-outlined">directions</span> 交通導航</a>
+                  <a class="map-link" id="map-open-link" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Livemax%20Akihabara%20Kita%20Tokyo%20DisneySea%20Shibuya%20Sky%20Isetan%20Shinjuku%20teamLab%20Borderless%20Hotel%20Horidome%20Villa%20Tokyo%20Character%20Street%20Narita%20Airport%20Terminal%202" target="_blank" rel="noopener"><span class="material-symbols-outlined">open_in_new</span> 開啟地圖</a>
+                  <a class="map-link secondary" id="map-directions-link" href="https://www.google.com/maps/dir/?api=1&origin=Hotel%20Livemax%20Akihabara%20Kita&destination=Narita%20Airport%20Terminal%202&travelmode=transit" target="_blank" rel="noopener"><span class="material-symbols-outlined">directions</span> 交通導航</a>
                 </div>
               </div>
             </div>
@@ -2371,6 +2559,44 @@
     };
 
     const mapRoutes = {
+      "all-tokyo": {
+        label: "全部重點",
+        day: "Trip",
+        icon: "travel_explore",
+        title: "Trip Map｜酒店、景點、購物、回程重點",
+        desc: "把整趟最常用點位集中在一張地圖：兩間酒店、主要購物區、重點景點與成田回程。",
+        origin: "Hotel Livemax Akihabara Kita",
+        destination: "Narita Airport Terminal 2",
+        stops: ["Hotel Livemax Akihabara Kita", "Tokyo DisneySea", "Shibuya Sky Tokyo", "Isetan Shinjuku Tokyo", "teamLab Borderless Azabudai Hills", "Hotel Horidome Villa Tokyo", "Tokyo Character Street", "Narita Airport Terminal 2"],
+        query: "Hotel Livemax Akihabara Kita Tokyo DisneySea Shibuya Sky Isetan Shinjuku teamLab Borderless Hotel Horidome Villa Tokyo Character Street Narita Airport Terminal 2",
+        embedQuery: "Tokyo Station",
+        zoom: 11,
+        note: "這個總覽適合出發前收藏重點。實際移動時用下面各區路線，會比一次導航全部點更準。"
+      },
+      "akiba-hotel": {
+        label: "秋葉原酒店",
+        day: "Day 1-8",
+        icon: "hotel",
+        title: "Hotel｜Hotel Livemax Akihabara Kita",
+        desc: "前半段基地。秋葉原、上野、池袋澀谷、DisneySea、春日部晴空塔都由這裡出發。",
+        origin: "Narita Airport Terminal 2",
+        destination: "Hotel Livemax Akihabara Kita",
+        stops: ["Narita Airport Terminal 2", "Keisei Ueno Station", "Hotel Livemax Akihabara Kita", "Akihabara Station Tokyo", "Naka-Okachimachi Station Tokyo"],
+        query: "Hotel Livemax Akihabara Kita Akihabara Station Naka-Okachimachi Station Keisei Ueno Station",
+        note: "到埗日行李多，Skyliner 到京成上野後可短程的士去酒店；平日出門記住先確認最近車站入口。"
+      },
+      "nihonbashi-hotel": {
+        label: "日本橋酒店",
+        day: "Day 9-16",
+        icon: "apartment",
+        title: "Hotel｜Hotel Horidome Villa",
+        desc: "後半段基地。teamLab、富士山/鎌倉集合、東京站手信與成田回程都靠這裡控風險。",
+        origin: "Hotel Livemax Akihabara Kita",
+        destination: "Hotel Horidome Villa Tokyo",
+        stops: ["Hotel Livemax Akihabara Kita", "Hotel Horidome Villa Tokyo", "Ningyocho Station Tokyo", "Kodemmacho Station Tokyo", "Tokyo Station"],
+        query: "Hotel Horidome Villa Tokyo Ningyocho Station Kodemmacho Station Tokyo Station",
+        note: "回程日重點是人形町/都營淺草線直通成田方向；最後兩天不要把重物帶太遠。"
+      },
       shinjuku: {
         label: "新宿",
         day: "Day 14",
@@ -2454,13 +2680,22 @@
     function renderTable(data = itinerary) {
       const body = document.getElementById("master-table-body");
       body.innerHTML = data.map(item => `
-        <tr class="${item.row || ""}" data-day="${item.day}">
-          <td class="day-cell" data-label="日期 / Day">${item.date}<span>Day ${item.day}</span></td>
+        <tr class="${item.row || ""}" data-day="${item.day}" tabindex="0" role="button" aria-label="打開 Day ${item.day} 詳細行程">
+          <td class="day-cell" data-label="日期 / Day">${item.date}<span>Day ${item.day}</span><em class="table-jump"><span class="material-symbols-outlined" style="font-size:14px">touch_app</span> 點擊看詳情</em></td>
           <td class="plan-cell" data-label="主行程">${item.day === 5 ? '<span class="badge badge-coral" style="margin-right:8px">DisneySea</span>' : ""}${item.plan}</td>
           <td data-label="住宿基地">${basePill(item.base)}</td>
           <td class="strategy-cell" data-label="天氣 / 人潮策略">${item.strategy}</td>
         </tr>
       `).join("");
+      body.querySelectorAll("[data-day]").forEach(row => {
+        row.addEventListener("click", () => openDayDetail(Number(row.dataset.day)));
+        row.addEventListener("keydown", event => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openDayDetail(Number(row.dataset.day));
+          }
+        });
+      });
     }
 
     function renderDetails() {
@@ -2522,6 +2757,16 @@
       return `<div class="timeline-item"><strong>${match[1]}</strong>${match[2]}</div>`;
     }
 
+    function openDayDetail(day) {
+      switchTab("daily-detail");
+      requestAnimationFrame(() => {
+        const card = document.getElementById(`day-${day}`);
+        if (!card) return;
+        card.open = true;
+        card.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    }
+
     function buildMapsSearchUrl(query) {
       return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
     }
@@ -2538,7 +2783,13 @@
       return `https://www.google.com/maps/dir/?${params.toString()}`;
     }
 
-    function renderMapRoutes(activeKey = "shinjuku") {
+    function buildMapsEmbedUrl(route) {
+      const query = route.embedQuery || route.destination || route.query;
+      const zoom = route.zoom || 14;
+      return `https://maps.google.com/maps?q=${encodeURIComponent(query)}&t=&z=${zoom}&ie=UTF8&iwloc=&output=embed`;
+    }
+
+    function renderMapRoutes(activeKey = "all-tokyo") {
       const buttons = document.getElementById("map-route-buttons");
       if (!buttons) return;
       buttons.innerHTML = Object.entries(mapRoutes).map(([key, route]) => `
@@ -2563,7 +2814,7 @@
       const openLink = document.getElementById("map-open-link");
       const directionsLink = document.getElementById("map-directions-link");
 
-      if (frame) frame.src = `https://www.google.com/maps?q=${encodeURIComponent(route.query)}&output=embed`;
+      if (frame) frame.src = buildMapsEmbedUrl(route);
       if (title) title.textContent = route.title;
       if (desc) desc.textContent = route.desc;
       if (note) note.textContent = route.note;
@@ -2574,9 +2825,22 @@
           <div class="map-stop"><b>${index + 1}</b><span>${stop}</span></div>
         `).join("");
       }
-      document.querySelectorAll("[data-map-route]").forEach(button => {
+      document.querySelectorAll(".map-route-btn[data-map-route]").forEach(button => {
         button.classList.toggle("active", button.dataset.mapRoute === routeKey);
       });
+    }
+
+    function handlePocketAction(button) {
+      const tab = button.dataset.jumpTab;
+      const day = button.dataset.jumpDay;
+      const mapRoute = button.dataset.mapRoute;
+      if (tab) switchTab(tab);
+      if (mapRoute) {
+        requestAnimationFrame(() => selectMapRoute(mapRoute));
+      }
+      if (day) {
+        requestAnimationFrame(() => openDayDetail(Number(day)));
+      }
     }
 
     function switchTab(tabId, updateHash = true) {
@@ -2609,6 +2873,9 @@
     });
     document.querySelectorAll(".weather-btn").forEach(btn => {
       btn.addEventListener("click", () => simulateWeather(btn.dataset.plan));
+    });
+    document.querySelectorAll("[data-jump-tab]").forEach(btn => {
+      btn.addEventListener("click", () => handlePocketAction(btn));
     });
 
     renderTable();
