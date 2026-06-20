@@ -500,6 +500,241 @@
     .tile-coral .material-symbols-outlined { color: #be123c; background: var(--joy-coral-soft); }
     .tile-sky .material-symbols-outlined { color: var(--blue); background: var(--joy-sky-soft); }
     .tile-mint .material-symbols-outlined { color: #047857; background: var(--joy-mint-soft); }
+    .travel-hero {
+      position: relative;
+      min-height: 330px;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.4);
+      background:
+        linear-gradient(90deg, rgba(15, 23, 42, .88), rgba(30, 27, 75, .48), rgba(251, 113, 133, .16)),
+        url("https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1600&q=80") center/cover;
+      box-shadow: 0 18px 44px rgba(15, 23, 42, .18);
+    }
+    .travel-hero-content {
+      min-height: 330px;
+      max-width: 660px;
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: #fff;
+    }
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      width: fit-content;
+      padding: 7px 11px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 999px;
+      background: rgba(255,255,255,.16);
+      font-size: 12px;
+      font-weight: 800;
+      backdrop-filter: blur(8px);
+    }
+    .travel-hero h2 {
+      margin: 14px 0 0;
+      font-size: 34px;
+      line-height: 1.12;
+      font-weight: 800;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+    .travel-hero p {
+      margin: 12px 0 0;
+      max-width: 560px;
+      color: #eef2ff;
+      font-size: 15px;
+      line-height: 1.65;
+      font-weight: 600;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .hero-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--slate-900);
+      font-size: 12px;
+      font-weight: 800;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, .15);
+    }
+    .visual-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr 1fr;
+      grid-auto-rows: 190px;
+      gap: 14px;
+    }
+    .visual-card {
+      position: relative;
+      min-height: 180px;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.55);
+      background: var(--image) center/cover;
+      box-shadow: var(--shadow-card);
+    }
+    .visual-card.large { grid-row: span 2; }
+    .visual-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15,23,42,0), rgba(15,23,42,.76));
+    }
+    .visual-caption {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 1;
+      color: #fff;
+    }
+    .visual-caption strong {
+      display: block;
+      font-size: 17px;
+      line-height: 1.25;
+      font-weight: 800;
+    }
+    .visual-caption span {
+      display: block;
+      margin-top: 5px;
+      color: #e0f2fe;
+      font-size: 12px;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+    .route-map-card {
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+      gap: 20px;
+      padding: 22px;
+      border: 1px solid #bfdbfe;
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at top left, rgba(251,191,36,.22), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(14,165,233,.16), transparent 30%),
+        #fff;
+      box-shadow: var(--shadow-card);
+    }
+    .map-panel {
+      position: relative;
+      min-height: 390px;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid #dbeafe;
+      background:
+        linear-gradient(135deg, rgba(239,246,255,.94), rgba(250,245,255,.9)),
+        url("https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=1200&q=80") center/cover;
+    }
+    .map-panel::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(79,70,229,.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79,70,229,.08) 1px, transparent 1px);
+      background-size: 34px 34px;
+      opacity: .7;
+    }
+    .map-line {
+      position: absolute;
+      inset: 52px 52px 62px 56px;
+      border: 3px dashed rgba(79,70,229,.55);
+      border-left-color: transparent;
+      border-bottom-color: rgba(251,113,133,.65);
+      border-radius: 46% 54% 42% 58%;
+      transform: rotate(-5deg);
+      z-index: 1;
+    }
+    .map-pin {
+      position: absolute;
+      z-index: 2;
+      transform: translate(-50%, -50%);
+      display: grid;
+      justify-items: center;
+      gap: 6px;
+    }
+    .pin-dot {
+      width: 42px;
+      height: 42px;
+      border: 3px solid #fff;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: var(--pin, var(--primary-ui));
+      box-shadow: 0 10px 22px rgba(15,23,42,.2);
+    }
+    .pin-label {
+      padding: 5px 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.94);
+      color: var(--slate-900);
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 800;
+      white-space: nowrap;
+      box-shadow: 0 5px 14px rgba(15,23,42,.12);
+    }
+    .map-list {
+      display: grid;
+      gap: 12px;
+    }
+    .map-list h3 {
+      margin: 0;
+      color: var(--slate-900);
+      font-size: 20px;
+      line-height: 1.3;
+      font-weight: 800;
+    }
+    .map-list p {
+      margin: 0;
+      color: var(--slate-600);
+      font-size: 13px;
+      line-height: 1.65;
+      font-weight: 600;
+    }
+    .route-step {
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr);
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid var(--slate-200);
+      border-radius: 12px;
+      background: rgba(255,255,255,.82);
+    }
+    .route-step span:first-child {
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: var(--primary-ui);
+    }
+    .route-step strong {
+      display: block;
+      color: var(--slate-900);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+    .route-step small {
+      display: block;
+      margin-top: 4px;
+      color: var(--slate-500);
+      font-size: 11px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
     .hotel-card {
       display: grid;
       grid-template-columns: 4px 1fr;
@@ -686,6 +921,14 @@
       min-width: 0;
       display: grid;
       gap: 6px;
+    }
+    .day-visual {
+      width: 58px;
+      height: 58px;
+      border-radius: 14px;
+      flex: 0 0 auto;
+      background: var(--image, linear-gradient(135deg, var(--primary-soft), var(--joy-coral-soft))) center/cover;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.55), 0 8px 18px rgba(15,23,42,.12);
     }
     .day-meta {
       display: flex;
@@ -989,6 +1232,17 @@
         max-width: 100%;
       }
       .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .travel-hero { min-height: 360px; border-radius: 16px; }
+      .travel-hero-content { min-height: 360px; max-width: 100%; padding: 22px; }
+      .travel-hero h2 { font-size: 24px; line-height: 1.18; }
+      .travel-hero p { font-size: 13px; line-height: 1.55; }
+      .hero-actions { gap: 8px; }
+      .hero-chip { max-width: 100%; white-space: normal; }
+      .visual-grid { grid-template-columns: 1fr; grid-auto-rows: 210px; }
+      .visual-card.large { grid-row: span 1; }
+      .route-map-card { grid-template-columns: 1fr; padding: 16px; }
+      .map-panel { min-height: 330px; }
+      .map-line { inset: 48px 38px 60px 42px; }
       .trip-strip { grid-template-columns: 1fr; gap: 10px; }
       .trip-tile { min-height: 76px; }
       .card-pad { padding: 18px; }
@@ -1021,6 +1275,7 @@
         width: 100%;
         max-width: 100%;
       }
+      .day-visual { display: none; }
       .day-badge { min-width: 52px; text-align: center; }
       details.day-card summary { padding: 15px; }
       .day-detail { padding: 14px; }
@@ -1124,6 +1379,20 @@
       </div>
 
       <section id="overview" class="tab-content active">
+        <section class="travel-hero" aria-label="東京旅行視覺主頁">
+          <div class="travel-hero-content">
+            <span class="hero-kicker"><span class="material-symbols-outlined">favorite</span> Couple Tokyo Adventure</span>
+            <h2>16日東京約會旅行，從秋葉原玩到 DisneySea、富士山與鎌倉海邊。</h2>
+            <p>這版不只是行程表，而是旅行作戰地圖：每天有節奏、有備案、有期待位，方便你們邊玩邊決定下一站。</p>
+            <div class="hero-actions">
+              <span class="hero-chip"><span class="material-symbols-outlined">castle</span> DisneySea 全日</span>
+              <span class="hero-chip"><span class="material-symbols-outlined">landscape</span> 富士山窗口</span>
+              <span class="hero-chip"><span class="material-symbols-outlined">beach_access</span> 鎌倉海邊</span>
+              <span class="hero-chip"><span class="material-symbols-outlined">local_cafe</span> 咖啡散策</span>
+            </div>
+          </div>
+        </section>
+
         <div class="trip-strip" aria-label="旅行快覽">
           <article class="trip-tile tile-sun">
             <span class="material-symbols-outlined">event_available</span>
@@ -1142,6 +1411,72 @@
             <div><strong>梅雨防線</strong><span>Day 11-14 可按天氣對調</span></div>
           </article>
         </div>
+
+        <section class="visual-grid" aria-label="旅行亮點圖片">
+          <article class="visual-card large" style="--image:url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1200&q=80')">
+            <div class="visual-caption"><strong>東京夜色與購物街</strong><span>秋葉原、澀谷、銀座、東京站，一路買一路吃。</span></div>
+          </article>
+          <article class="visual-card" style="--image:url('https://images.unsplash.com/photo-1513407030348-c983a97b98d8?auto=format&fit=crop&w=900&q=80')">
+            <div class="visual-caption"><strong>東京鐵塔散策</strong><span>築地海鮮早宴後，芝公園拍照最舒服。</span></div>
+          </article>
+          <article class="visual-card" style="--image:url('https://images.unsplash.com/photo-1578469645742-46cae010e5d4?auto=format&fit=crop&w=900&q=80')">
+            <div class="visual-caption"><strong>富士山好天窗口</strong><span>Day 11-14 保留天氣對調，等一個清晰山景。</span></div>
+          </article>
+          <article class="visual-card" style="--image:url('https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&w=900&q=80')">
+            <div class="visual-caption"><strong>鎌倉海邊一日</strong><span>江之電、湘南海岸、夕方散步，放慢節奏。</span></div>
+          </article>
+          <article class="visual-card" style="--image:url('https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=900&q=80')">
+            <div class="visual-caption"><strong>清澄白河咖啡日</strong><span>合羽橋、蔵前、清澄白河，富士山後休整剛好。</span></div>
+          </article>
+        </section>
+
+        <section class="route-map-card" aria-label="東京旅行路線地圖">
+          <div class="map-panel">
+            <div class="map-line"></div>
+            <div class="map-pin" style="left:30%; top:28%; --pin:#10b981">
+              <span class="pin-dot"><span class="material-symbols-outlined">hotel</span></span>
+              <span class="pin-label">秋葉原基地</span>
+            </div>
+            <div class="map-pin" style="left:62%; top:30%; --pin:#fb7185">
+              <span class="pin-dot"><span class="material-symbols-outlined">castle</span></span>
+              <span class="pin-label">DisneySea</span>
+            </div>
+            <div class="map-pin" style="left:43%; top:52%; --pin:#4f46e5">
+              <span class="pin-dot"><span class="material-symbols-outlined">apartment</span></span>
+              <span class="pin-label">日本橋基地</span>
+            </div>
+            <div class="map-pin" style="left:20%; top:76%; --pin:#0ea5e9">
+              <span class="pin-dot"><span class="material-symbols-outlined">landscape</span></span>
+              <span class="pin-label">富士山</span>
+            </div>
+            <div class="map-pin" style="left:70%; top:76%; --pin:#f59e0b">
+              <span class="pin-dot"><span class="material-symbols-outlined">beach_access</span></span>
+              <span class="pin-label">鎌倉/江之島</span>
+            </div>
+          </div>
+          <div class="map-list">
+            <div>
+              <h3>旅行路線地圖</h3>
+              <p>用兩個住宿基地控制移動成本：前半段秋葉原玩市區、池袋澀谷與 DisneySea；後半段日本橋接麻布台、台場、富士山、鎌倉與回程。</p>
+            </div>
+            <div class="route-step">
+              <span class="material-symbols-outlined">looks_one</span>
+              <div><strong>Day 1-8｜秋葉原基地</strong><small>原區熟習、池袋澀谷、築地東京鐵塔、DisneySea、春日部晴空塔。</small></div>
+            </div>
+            <div class="route-step">
+              <span class="material-symbols-outlined">looks_two</span>
+              <div><strong>Day 9｜的士轉酒店</strong><small>轉到日本橋後接麻布台 Hills + teamLab，不浪費搬行李日。</small></div>
+            </div>
+            <div class="route-step">
+              <span class="material-symbols-outlined">looks_3</span>
+              <div><strong>Day 10-14｜郊遊與天氣防線</strong><small>台場、富士山、合羽橋咖啡、鎌倉、最大購物緩衝互相支援。</small></div>
+            </div>
+            <div class="route-step">
+              <span class="material-symbols-outlined">flight_takeoff</span>
+              <div><strong>Day 15-16｜手信與回港</strong><small>日本橋/東京站最後補貨，人形町 Access 特急直達成田T2。</small></div>
+            </div>
+          </div>
+        </section>
 
         <div class="card">
           <div class="card-head">
@@ -1423,6 +1758,7 @@
         mood: "city",
         type: "抵達日",
         pace: "輕量",
+        image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=300&q=70",
         open: true,
         focus: "到埗日只處理入境、交通卡/eSIM、Skyliner 與酒店 check-in，不排景點，讓身體先適應東京節奏。",
         transport: "成田T2 → 京成 Skyliner 至京成上野 → 行李多建議短程的士到 Hotel Livemax Akihabara Kita；想省錢可轉日比谷線至仲御徒町/秋葉原。",
@@ -1434,6 +1770,7 @@
         mood: "city",
         type: "原區熟習",
         pace: "輕鬆購物",
+        image: "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=300&q=70",
         open: false,
         focus: "第一個完整日留在酒店附近與上野線上活動，熟悉車站、便利店、藥妝與退稅流程；下雨也容易退守室內。",
         transport: "Hotel Livemax Akihabara Kita 可步行到秋葉原電器街；秋葉原/御徒町/上野之間用 JR 山手線或直接步行串起，減少轉車壓力。",
@@ -1445,6 +1782,7 @@
         mood: "fun",
         type: "預約重點",
         pace: "中高",
+        image: "https://images.unsplash.com/photo-1542931287-023b922fa89b?auto=format&fit=crop&w=300&q=70",
         open: false,
         focus: "以預約型景點為核心。Chiikawa Park 若未搶到票，改為 Sunshine City / Animate / Pokemon Center，黃昏留給 Shibuya Sky。",
         transport: "秋葉原站 JR 山手線到池袋；池袋到澀谷可用 JR 埼京線或副都心線。Shibuya Sky 建議 18:15-18:45 入場。",
@@ -1456,6 +1794,7 @@
         mood: "food",
         type: "美食散策",
         pace: "中等",
+        image: "https://images.unsplash.com/photo-1513407030348-c983a97b98d8?auto=format&fit=crop&w=300&q=70",
         open: false,
         focus: "平日早上吃築地，避開週末人潮；下午轉到增上寺與東京鐵塔一帶，行程有戶外也有咖啡店可避雨。",
         transport: "秋葉原/仲御徒町上日比谷線到築地；築地到大門/芝公園可用日比谷線轉都營線，或短程的士節省體力。",
@@ -1467,6 +1806,7 @@
         mood: "fun",
         type: "重點樂園",
         pace: "高",
+        image: "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=300&q=70",
         open: true,
         focus: "V12.1 最大新增日。官方 2026/7/1 開放 9:00-21:00，成人 1-Day Passport 7,900円；此日固定性高，不建議隨便對調。",
         transport: "早到首選鐵路：酒店 → 仲御徒町/秋葉原 → 日比谷線八丁堀 → JR 京葉/武藏野線舞濱 → Disney Resort Line 到 Tokyo DisneySea Station。巴士可作少轉乘方案，但官方秋葉原巴士約50-60分鐘，班次要另查。",
@@ -1478,6 +1818,7 @@
         mood: "fun",
         type: "動漫朝聖",
         pace: "中等",
+        image: "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=300&q=70",
         open: false,
         focus: "春日部移動日改良：回程不回秋葉原，直接沿東武線到押上/晴空塔晚餐，動線比原版更順。",
         transport: "仲御徒町/秋葉原 → 北千住 → 東武晴空塔線至春日部。回程由春日部乘東武晴空塔線直達押上，逛 Solamachi 後再回秋葉原。",
@@ -1489,6 +1830,7 @@
         mood: "food",
         type: "雨天強項",
         pace: "中等",
+        image: "https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=300&q=70",
         open: false,
         focus: "強雨天也能成立的一天：百貨、地下街、東京站一番街與拉麵街連續度高，適合補買精品、伴手禮與角色商品。",
         transport: "秋葉原到銀座可用日比谷線直達銀座；銀座、有樂町、東京站之間可步行或用 JR 一站，雨大時優先走地下通道。",
@@ -1500,6 +1842,7 @@
         mood: "nature",
         type: "週末散步",
         pace: "中等",
+        image: "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&w=300&q=70",
         open: false,
         focus: "週末避開狹窄室內長排隊，早上先到明治神宮遮蔭散步，再把人潮較高的竹下通和表參道放在下午彈性處理。",
         transport: "秋葉原 JR 山手線到原宿；原宿、明治神宮前、表參道三站可步行串連。傍晚可用銀座線/千代田線接回上野或秋葉原。",
@@ -1511,6 +1854,7 @@
         mood: "fun",
         type: "換基地",
         pace: "穩定",
+        image: "https://images.unsplash.com/photo-1542931287-023b922fa89b?auto=format&fit=crop&w=300&q=70",
         open: false,
         focus: "轉酒店日不排遠行。V12.1 改為的士大移防，減少搬行李與地下鐵壓力；下午用室內展覽接續。",
         transport: "Hotel Livemax Akihabara Kita → 的士至 Hotel Horidome Villa 寄存行李；之後小傳馬町/人形町日比谷線直達神谷町，接麻布台 Hills / teamLab Borderless。",
@@ -1522,6 +1866,7 @@
         mood: "nature",
         type: "臨海放鬆",
         pace: "中等",
+        image: "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=300&q=70",
         open: false,
         focus: "臨海度假風的一天，安排在富士山前，白天不要排太滿；晚上早一點回酒店，為翌日早起留體力。",
         transport: "日本橋/人形町一帶可到新橋轉百合海鷗線往台場；若天雨，可集中 DiverCity、Aqua City、Decks 等室內商場。",
@@ -1533,6 +1878,7 @@
         mood: "nature",
         type: "好天優先",
         pace: "高",
+        image: "https://images.unsplash.com/photo-1578469645742-46cae010e5d4?auto=format&fit=crop&w=300&q=70",
         open: false,
         focus: "最高天氣優先日。若雲層厚、能見度低，直接與 Day 12 或 Day 14 對調，不要硬上看不到山的一日遊。",
         transport: "若巴士團新宿集合：由馬喰橫山搭都營新宿線至新宿，另預留20分鐘找西口集合點。若集合地改為東京站，則由日本橋步行/的士更簡單。",
@@ -1544,6 +1890,7 @@
         mood: "food",
         type: "文青休整",
         pace: "輕中",
+        image: "https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=300&q=70",
         open: false,
         focus: "承接文青行程。由日本橋出發到合羽橋、蔵前、清澄白河比原秋葉原版本更平均，也適合作為富士山後的恢復日。",
         transport: "人形町/小傳馬町出發，視當日路線用淺草線、大江戶線與短程的士組合；全日保持低強度散步。",
@@ -1555,6 +1902,7 @@
         mood: "nature",
         type: "沿海一日遊",
         pace: "高",
+        image: "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&w=300&q=70",
         open: false,
         focus: "次要好天優先日。海邊強風雨時與 Day 14 購物緩衝互換；若天氣好，早出發會舒服很多。",
         transport: "自助最順：步行至新日本橋站，乘 JR 總武快速 / 橫須賀線直達鎌倉。再接江之電到長谷、鎌倉高校前、江之島。",
@@ -1566,6 +1914,7 @@
         mood: "buffer",
         type: "終極緩衝",
         pace: "彈性",
+        image: "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=300&q=70",
         open: false,
         focus: "完全空白預約日，用作收復前段因梅雨失地的防線。若富士山或鎌倉已完成，今天就是大型購物與整理日。",
         transport: "由日本橋可快速去東京站、銀座、新宿或澀谷。雨天優先東京站一番街、銀座地下街、新宿大型百貨；晴天可補戶外街區。",
@@ -1577,6 +1926,7 @@
         mood: "city",
         type: "收尾整理",
         pace: "輕鬆",
+        image: "https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=300&q=70",
         open: false,
         focus: "最後完整日專注百貨、手信、退稅與行李重量控制，不再跨區奔走，為翌日回程降低風險。",
         transport: "Hotel Horidome Villa 可步行/短程車到人形町、日本橋、東京站。買重物後先回酒店放低，再決定是否補最後一輪。",
@@ -1588,6 +1938,7 @@
         mood: "buffer",
         type: "回程日",
         pace: "穩陣",
+        image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=300&q=70",
         open: true,
         focus: "回程日不排景點。保留退稅、行李、安檢及機場購物時間，避免最後一日交通壓力。",
         transport: "Hotel Horidome Villa → 人形町站 → 都營淺草線直通京成 Narita Sky Access / Access 特急到成田機場T2。注意 Skyliner 不經人形町。",
@@ -1683,6 +2034,7 @@
           <summary>
             <div class="summary-left">
               <span class="day-badge">Day ${item.day}</span>
+              <span class="day-visual" style="--image:url('${item.image || ""}')"></span>
               <span class="summary-copy">
                 <span class="summary-title">${item.title}</span>
                 <span class="day-meta">
