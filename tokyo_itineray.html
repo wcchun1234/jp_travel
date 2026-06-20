@@ -735,6 +735,113 @@
       line-height: 1.45;
       font-weight: 700;
     }
+    .shopping-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .shopping-card {
+      overflow: hidden;
+      border: 1px solid var(--slate-200);
+      border-radius: 16px;
+      background: #fff;
+      box-shadow: var(--shadow-card);
+    }
+    .shopping-image {
+      min-height: 132px;
+      background: var(--image) center/cover;
+      position: relative;
+    }
+    .shopping-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15,23,42,0), rgba(15,23,42,.65));
+    }
+    .shopping-image span {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.94);
+      color: var(--slate-900);
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .shopping-body {
+      padding: 14px;
+      display: grid;
+      gap: 10px;
+    }
+    .shopping-body h3 {
+      margin: 0;
+      color: var(--slate-900);
+      font-size: 16px;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+    .shopping-body p {
+      margin: 0;
+      color: var(--slate-600);
+      font-size: 12px;
+      line-height: 1.6;
+      font-weight: 600;
+    }
+    .map-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .map-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 34px;
+      padding: 8px 10px;
+      border: 1px solid #c4b5fd;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .map-link.secondary {
+      border-color: var(--slate-200);
+      background: #fff;
+      color: var(--slate-700);
+    }
+    .shopping-day-plan {
+      display: grid;
+      gap: 10px;
+    }
+    .shopping-day-row {
+      display: grid;
+      grid-template-columns: 82px minmax(0, 1fr);
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid var(--slate-200);
+      border-radius: 12px;
+      background: #fff;
+    }
+    .shopping-day-row strong {
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .shopping-day-row span {
+      color: var(--slate-700);
+      font-size: 12px;
+      line-height: 1.55;
+      font-weight: 700;
+    }
     .hotel-card {
       display: grid;
       grid-template-columns: 4px 1fr;
@@ -1243,6 +1350,8 @@
       .route-map-card { grid-template-columns: 1fr; padding: 16px; }
       .map-panel { min-height: 330px; }
       .map-line { inset: 48px 38px 60px 42px; }
+      .shopping-grid { grid-template-columns: 1fr; }
+      .shopping-day-row { grid-template-columns: 1fr; }
       .trip-strip { grid-template-columns: 1fr; gap: 10px; }
       .trip-tile { min-height: 76px; }
       .card-pad { padding: 18px; }
@@ -1354,6 +1463,7 @@
         <button class="nav-btn" type="button" data-tab="master-table"><span class="nav-label"><span class="material-symbols-outlined">calendar_view_week</span> 16日總行程表</span></button>
         <button class="nav-btn" type="button" data-tab="daily-detail"><span class="nav-label"><span class="material-symbols-outlined">directions_walk</span> 每日詳細行程 & 交通</span></button>
         <button class="nav-btn" type="button" data-tab="disney-strategy"><span class="nav-label"><span class="material-symbols-outlined">castle</span> DisneySea 攻略</span><span class="mini-dot"></span></button>
+        <button class="nav-btn" type="button" data-tab="shopping-map"><span class="nav-label"><span class="material-symbols-outlined">map</span> 地圖與購物名所</span><span class="mini-dot"></span></button>
         <button class="nav-btn" type="button" data-tab="weather-strategy"><span class="nav-label"><span class="material-symbols-outlined">routine</span> 天氣策略模擬器</span><span class="mini-dot"></span></button>
         <button class="nav-btn" type="button" data-tab="checklist"><span class="nav-label"><span class="material-symbols-outlined">checklist</span> 預約及確認清單</span></button>
       </nav>
@@ -1374,6 +1484,7 @@
         <button class="mobile-tab" type="button" data-tab="master-table">總表</button>
         <button class="mobile-tab" type="button" data-tab="daily-detail">每日</button>
         <button class="mobile-tab" type="button" data-tab="disney-strategy">DisneySea</button>
+        <button class="mobile-tab" type="button" data-tab="shopping-map">地圖</button>
         <button class="mobile-tab" type="button" data-tab="weather-strategy">天氣</button>
         <button class="mobile-tab" type="button" data-tab="checklist">清單</button>
       </div>
@@ -1414,7 +1525,7 @@
 
         <section class="visual-grid" aria-label="旅行亮點圖片">
           <article class="visual-card large" style="--image:url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1200&q=80')">
-            <div class="visual-caption"><strong>東京夜色與購物街</strong><span>秋葉原、澀谷、銀座、東京站，一路買一路吃。</span></div>
+            <div class="visual-caption"><strong>東京夜色與購物街</strong><span>秋葉原、澀谷、新宿、銀座、東京站，一路買一路吃。</span></div>
           </article>
           <article class="visual-card" style="--image:url('https://images.unsplash.com/photo-1513407030348-c983a97b98d8?auto=format&fit=crop&w=900&q=80')">
             <div class="visual-caption"><strong>東京鐵塔散策</strong><span>築地海鮮早宴後，芝公園拍照最舒服。</span></div>
@@ -1457,11 +1568,11 @@
           <div class="map-list">
             <div>
               <h3>旅行路線地圖</h3>
-              <p>用兩個住宿基地控制移動成本：前半段秋葉原玩市區、池袋澀谷與 DisneySea；後半段日本橋接 teamLab、富士山、鎌倉與回程。</p>
+              <p>用兩個住宿基地控制移動成本：前半段秋葉原玩市區、池袋澀谷、新宿與 DisneySea；後半段日本橋接 teamLab、富士山、鎌倉與回程。</p>
             </div>
             <div class="route-step">
               <span class="material-symbols-outlined">looks_one</span>
-              <div><strong>Day 1-8｜秋葉原基地</strong><small>原區熟習、池袋澀谷、築地東京鐵塔、DisneySea、春日部晴空塔。</small></div>
+              <div><strong>Day 1-8｜秋葉原基地</strong><small>原區熟習、池袋澀谷、築地東京鐵塔、DisneySea、春日部晴空塔、原宿表參道與新宿夜購。</small></div>
             </div>
             <div class="route-step">
               <span class="material-symbols-outlined">looks_two</span>
@@ -1689,6 +1800,108 @@
         </div>
       </section>
 
+      <section id="shopping-map" class="tab-content">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h2 class="section-title"><span class="material-symbols-outlined">map</span> Google Maps Ready｜購物與約會地圖</h2>
+              <p class="muted" style="margin:6px 0 0">手機使用優先：每張卡都有 Google Maps 搜尋連結，到日本後直接開啟即可導航、收藏或查看營業時間。</p>
+            </div>
+            <span class="badge badge-coral">Mobile ready</span>
+          </div>
+          <div class="card-pad">
+            <div class="shopping-grid">
+              <article class="shopping-card">
+                <div class="shopping-image" style="--image:url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">shopping_bag</span> 必去購物</span></div>
+                <div class="shopping-body">
+                  <h3>新宿｜Isetan / Lumine / NEWoMan</h3>
+                  <p>安排在 Day 14 主力購物日。百貨、藥妝、服飾、伴手禮密度高，雨天也非常穩。</p>
+                  <div class="map-actions">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Isetan%20Shinjuku%20Tokyo" target="_blank" rel="noopener"><span class="material-symbols-outlined">map</span> Isetan</a>
+                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Lumine%20Shinjuku%20Tokyo" target="_blank" rel="noopener">Lumine</a>
+                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=NEWoMan%20Shinjuku%20Tokyo" target="_blank" rel="noopener">NEWoMan</a>
+                  </div>
+                </div>
+              </article>
+              <article class="shopping-card">
+                <div class="shopping-image" style="--image:url('https://images.unsplash.com/photo-1542931287-023b922fa89b?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">favorite</span> 潮流約會</span></div>
+                <div class="shopping-body">
+                  <h3>澀谷｜PARCO / Scramble Square / Miyashita Park</h3>
+                  <p>Day 3 已排澀谷 + Shibuya Sky。角色、潮流、餐廳和夜景可以連成一條線。</p>
+                  <div class="map-actions">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Shibuya%20PARCO%20Tokyo" target="_blank" rel="noopener"><span class="material-symbols-outlined">map</span> PARCO</a>
+                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Shibuya%20Scramble%20Square%20Tokyo" target="_blank" rel="noopener">Scramble</a>
+                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Miyashita%20Park%20Shibuya" target="_blank" rel="noopener">Miyashita</a>
+                  </div>
+                </div>
+              </article>
+              <article class="shopping-card">
+                <div class="shopping-image" style="--image:url('https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">styler</span> 街頭時尚</span></div>
+                <div class="shopping-body">
+                  <h3>原宿 / 表參道｜Takeshita / Cat Street / Omotesando</h3>
+                  <p>Day 8 明治神宮後接原宿、表參道，再可加新宿夜購。適合情侶散步和拍照。</p>
+                  <div class="map-actions">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Takeshita%20Street%20Harajuku" target="_blank" rel="noopener"><span class="material-symbols-outlined">map</span> 竹下通</a>
+                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Cat%20Street%20Harajuku" target="_blank" rel="noopener">Cat St.</a>
+                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Omotesando%20Hills" target="_blank" rel="noopener">表參道</a>
+                  </div>
+                </div>
+              </article>
+              <article class="shopping-card">
+                <div class="shopping-image" style="--image:url('https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">diamond</span> 精品百貨</span></div>
+                <div class="shopping-body">
+                  <h3>銀座 / 有樂町｜Ginza Six / Mitsukoshi / Muji</h3>
+                  <p>Day 7 雨天強項。精品、百貨、地下街與東京站一番街可以全天連接。</p>
+                  <div class="map-actions">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=GINZA%20SIX%20Tokyo" target="_blank" rel="noopener"><span class="material-symbols-outlined">map</span> Ginza Six</a>
+                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Ginza%20Mitsukoshi" target="_blank" rel="noopener">三越</a>
+                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=MUJI%20Ginza" target="_blank" rel="noopener">MUJI</a>
+                  </div>
+                </div>
+              </article>
+              <article class="shopping-card">
+                <div class="shopping-image" style="--image:url('https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">toys</span> 角色與動漫</span></div>
+                <div class="shopping-body">
+                  <h3>池袋 / 秋葉原｜Sunshine City / Animate / Yodobashi</h3>
+                  <p>Day 2、Day 3 覆蓋角色、動漫、電器與扭蛋。買大件先回秋葉原酒店放低。</p>
+                  <div class="map-actions">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Sunshine%20City%20Ikebukuro" target="_blank" rel="noopener"><span class="material-symbols-outlined">map</span> Sunshine</a>
+                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Animate%20Ikebukuro" target="_blank" rel="noopener">Animate</a>
+                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Yodobashi%20Akiba" target="_blank" rel="noopener">Yodobashi</a>
+                  </div>
+                </div>
+              </article>
+              <article class="shopping-card">
+                <div class="shopping-image" style="--image:url('https://images.unsplash.com/photo-1513407030348-c983a97b98d8?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">redeem</span> 手信收尾</span></div>
+                <div class="shopping-body">
+                  <h3>東京站 / 日本橋｜Character Street / Daimaru / Coredo</h3>
+                  <p>Day 15 收尾最好用。最後手信、便當、甜品、退稅和行李整理都集中處理。</p>
+                  <div class="map-actions">
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Tokyo%20Character%20Street" target="_blank" rel="noopener"><span class="material-symbols-outlined">map</span> Character St.</a>
+                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Daimaru%20Tokyo" target="_blank" rel="noopener">Daimaru</a>
+                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Coredo%20Muromachi" target="_blank" rel="noopener">Coredo</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="card" style="margin-top:18px">
+              <div class="card-head">
+                <h2 class="section-title"><span class="material-symbols-outlined">route</span> 購物日安排</h2>
+              </div>
+              <div class="card-pad shopping-day-plan">
+                <div class="shopping-day-row"><strong>Day 2</strong><span>秋葉原 + 上野 + 阿美橫町：電器、藥妝、零食、動漫周邊。</span></div>
+                <div class="shopping-day-row"><strong>Day 3</strong><span>池袋 + 澀谷：Sunshine City、PARCO、Scramble Square，晚上海景換成 Shibuya Sky 夜景。</span></div>
+                <div class="shopping-day-row"><strong>Day 7</strong><span>銀座 + 有樂町 + 東京站：精品百貨、MUJI Ginza、一番街、拉麵街，雨天最強。</span></div>
+                <div class="shopping-day-row"><strong>Day 8</strong><span>原宿 + 表參道 + 新宿夜購：白天街頭潮流，傍晚可加新宿 Isetan / Lumine。</span></div>
+                <div class="shopping-day-row"><strong>Day 14</strong><span>新宿主力購物日：Isetan、Lumine、NEWoMan、藥妝；若好天想看海景則改台場。</span></div>
+                <div class="shopping-day-row"><strong>Day 15</strong><span>東京站 + 日本橋最後手信：Character Street、Daimaru、Coredo，買完即回酒店執行李。</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="weather-strategy" class="tab-content">
         <div class="card">
           <div class="card-head">
@@ -1724,6 +1937,7 @@
             <label class="check-row"><input type="checkbox"><span><strong>Shibuya Sky 黃昏展望台</strong><span>6月底東京日落約19:00，建議 18:15-18:45 入場；強風雨可能影響露天區。</span></span></label>
             <label class="check-row"><input type="checkbox"><span><strong>teamLab Borderless 麻布台 Hills（7月6日）</strong><span>改為早上入場，預留接近一整日慢慢看展、拍照、午餐與麻布台 Hills 散策；不要放在轉酒店日。</span></span></label>
             <label class="check-row"><input type="checkbox"><span><strong>富士山及鎌倉 Local Tour</strong><span>必查 24-48 小時改期/退款政策，保留 Day 12 / Day 14 對調空間。</span></span></label>
+            <label class="check-row"><input type="checkbox"><span><strong>Google Maps 收藏清單</strong><span>出發前把新宿 Isetan/Lumine/NEWoMan、澀谷 PARCO、Ginza Six、東京站一番街、台場 DiverCity 收藏到同一個清單。</span></span></label>
             <label class="check-row"><input type="checkbox"><span><strong>Skyliner / Access 特急 / eSIM</strong><span>去程可用 Skyliner 到上野；回程由人形町優先 Access 特急直達成田T2，Skyliner 不經人形町。</span></span></label>
           </div>
         </div>
@@ -1740,13 +1954,13 @@
       { day: 5, date: "7月1日 Wed", plan: "東京迪士尼海洋 (Tokyo DisneySea) 全日爆玩", base: "秋葉原", strategy: "人潮最少黃金平日。必須提前官網買票，早到搶 App 服務。", row: "row-disney" },
       { day: 6, date: "7月2日 Thu", plan: "春日部蠟筆小新動漫朝聖 → 傍晚直達晴空塔 Solamachi 購物晚餐", base: "秋葉原", strategy: "春日部回程東武線直達押上站，動線比原版更順。", row: "row-amber" },
       { day: 7, date: "7月3日 Fri", plan: "銀座精品百貨 ＋ 有樂町 ＋ 東京車站一番街拉麵街", base: "秋葉原", strategy: "強雨天無敵日。全日連通地下街與大型室內。", row: "" },
-      { day: 8, date: "7月4日 Sat", plan: "明治神宮 ＋ 原宿竹下通 ＋ 表參道街區散策", base: "秋葉原", strategy: "週末走大空間的原宿與表參道，早上先去神宮遮蔭。", row: "" },
+      { day: 8, date: "7月4日 Sat", plan: "明治神宮 ＋ 原宿竹下通 ＋ 表參道 ＋ 新宿夜購", base: "秋葉原", strategy: "週末先走大空間神宮/表參道，傍晚轉新宿百貨與夜景。", row: "" },
       { day: 9, date: "7月5日 Sun", plan: "轉酒店（的士大移防）＋ 日本橋/東京站輕鬆熟習", base: "日本橋", strategy: "轉酒店不排預約景點，先安頓行李與新住宿基地。", row: "row-indigo" },
       { day: 10, date: "7月6日 Mon", plan: "teamLab Borderless 早場 ＋ 麻布台 Hills 沉浸式約會日", base: "日本橋", strategy: "早上入場，接近預留一整日慢慢看展與拍照。晚上早回酒店為富士山蓄力。", row: "row-indigo" },
       { day: 11, date: "7月7日 Tue", plan: "富士山 / 河口湖絕景全景一日遊", base: "日本橋", strategy: "最高天氣優先日。視能見度隨時與 Day 12 / 14 互換。", row: "row-rose dynamic-day", dynamic: true },
       { day: 12, date: "7月8日 Wed", plan: "合羽橋道具街 ＋ 蔵前 ＋ 清澄白河咖啡區散步", base: "日本橋", strategy: "富士山後體力休整日。由日本橋出發去這三區極快。", row: "dynamic-day", dynamic: true },
       { day: 13, date: "7月9日 Thu", plan: "鎌倉古都 / 江之島一日遊（大佛、江之電、湘南海岸）", base: "日本橋", strategy: "次要好天優先日。沿海暴雨強風時隨時與 Day 14 互換。", row: "row-amber dynamic-day", dynamic: true },
-      { day: 14, date: "7月10日 Fri", plan: "全東京最大購物補遺 / 台場候補 ＋ 天氣備用終極緩衝日", base: "日本橋", strategy: "完全空白預約，用作收復前段因梅雨失地的防線；好天可補台場夜景。", row: "row-emerald dynamic-day", dynamic: true },
+      { day: 14, date: "7月10日 Fri", plan: "新宿大型百貨主力購物 / 台場候補 ＋ 天氣備用終極緩衝日", base: "日本橋", strategy: "新宿作為主力購物日；若天氣好想看海景可改台場，亦可用作補富士山/鎌倉。", row: "row-emerald dynamic-day", dynamic: true },
       { day: 15, date: "7月11日 Sat", plan: "東京站/日本橋伴手禮最後大追加 ＋ 回酒店執行李", base: "日本橋", strategy: "專注百貨公司打包手信，為回程做準備。", row: "" },
       { day: 16, date: "7月12日 Sun", plan: "日本橋酒店 Check-out ｜ 都營淺草線直達成田機場T2 ｜ 回港", base: "—", strategy: "人形町站 Access 特急直達機場。", row: "" }
     ];
@@ -1838,15 +2052,15 @@
       },
       {
         day: 8,
-        title: "7月4日 (Sat) ｜ 明治神宮 ＋ 原宿竹下通 ＋ 表參道",
+        title: "7月4日 (Sat) ｜ 明治神宮 ＋ 原宿 ＋ 表參道 ＋ 新宿夜購",
         mood: "nature",
         type: "週末散步",
         pace: "中等",
         image: "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&w=300&q=70",
         open: false,
-        focus: "週末避開狹窄室內長排隊，早上先到明治神宮遮蔭散步，再把人潮較高的竹下通和表參道放在下午彈性處理。",
-        transport: "秋葉原 JR 山手線到原宿；原宿、明治神宮前、表參道三站可步行串連。傍晚可用銀座線/千代田線接回上野或秋葉原。",
-        timeline: ["09:30 明治神宮與代代木公園外圍", "12:00 原宿午餐", "13:30 竹下通快速掃街", "15:30 表參道咖啡與選物店", "晚上回秋葉原收拾轉酒店前行李"]
+        focus: "週末避開狹窄室內長排隊，早上先到明治神宮遮蔭散步，下午原宿/表參道，傍晚轉新宿 Isetan / Lumine / NEWoMan 做第一輪百貨購物。",
+        transport: "秋葉原 JR 山手線到原宿；原宿、明治神宮前、表參道可步行串連。表參道到新宿可用 JR 山手線或副都心線轉乘；晚上由新宿 JR 直回秋葉原。",
+        timeline: ["09:30 明治神宮與代代木公園外圍", "12:00 原宿午餐", "13:30 竹下通 / Cat Street 快速掃街", "15:30 表參道咖啡與選物店", "17:30 新宿 Isetan / Lumine / NEWoMan 夜購", "晚上回秋葉原收拾轉酒店前行李"]
       },
       {
         day: 9,
@@ -1910,15 +2124,15 @@
       },
       {
         day: 14,
-        title: "7月10日 (Fri) ｜ 最大購物補遺 / 台場候補 ＋ 天氣緩衝",
+        title: "7月10日 (Fri) ｜ 新宿大型百貨主力購物 / 台場候補",
         mood: "buffer",
         type: "終極緩衝",
         pace: "彈性",
         image: "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=300&q=70",
         open: false,
-        focus: "完全空白預約日，用作收復前段因梅雨失地的防線。若富士山與鎌倉已完成，今天可做大型購物；若天氣很好且想看海景，可補台場/彩虹大橋。",
-        transport: "購物線：日本橋快速去東京站、銀座、新宿或澀谷。台場線：日本橋/人形町到新橋，轉百合海鷗線往台場；雨天不建議硬去海邊。",
-        timeline: ["10:30 根據天氣決定購物、補行程或台場", "13:00 東京站/銀座/新宿/台場擇一午餐", "15:00 補買伴手禮與退稅，或 DiverCity / Aqua City", "17:30 回酒店放低物品", "晚上若好天可看彩虹大橋夜景，否則早回酒店"]
+        focus: "完全空白預約日，用作收復前段因梅雨失地的防線。若富士山與鎌倉已完成，今天主攻新宿大型百貨與藥妝；若天氣很好且想看海景，可改台場/彩虹大橋。",
+        transport: "新宿購物線：馬喰橫山/岩本町一帶可搭都營新宿線直達新宿，或由東京站轉 JR。台場線：日本橋/人形町到新橋，轉百合海鷗線往台場；雨天不建議硬去海邊。",
+        timeline: ["10:30 新宿 Isetan / Lumine / NEWoMan 主力購物", "13:00 新宿午餐與藥妝補貨", "15:00 視體力加 Shinjuku Takashimaya / Don Quijote", "17:30 回酒店放低物品", "晚上若好天可改台場看彩虹大橋夜景，否則早回酒店"]
       },
       {
         day: 15,
@@ -1953,13 +2167,13 @@
           "7月7日 Day 11：富士山 / 河口湖一日遊。",
           "7月8日 Day 12：合羽橋 + 蔵前 + 清澄白河低強度休整。",
           "7月9日 Day 13：鎌倉 / 江之島一日遊。",
-          "7月10日 Day 14：購物補遺 / 台場候補與緩衝。"
+          "7月10日 Day 14：新宿大型百貨主力購物 / 台場候補與緩衝。"
         ],
         updates: {
           11: ["富士山 / 河口湖絕景全景一日遊", "最高天氣優先日。視能見度隨時與 Day 12 / 14 互換。"],
           12: ["合羽橋道具街 ＋ 蔵前 ＋ 清澄白河咖啡區散步", "富士山後體力休整日。由日本橋出發去這三區極快。"],
           13: ["鎌倉古都 / 江之島一日遊（大佛、江之電、湘南海岸）", "次要好天優先日。沿海暴雨強風時隨時與 Day 14 互換。"],
-          14: ["全東京最大購物補遺 / 台場候補 ＋ 天氣備用終極緩衝日", "完全空白預約，用作收復前段因梅雨失地的防線；好天可補台場夜景。"]
+          14: ["新宿大型百貨主力購物 / 台場候補 ＋ 天氣備用終極緩衝日", "新宿作為主力購物日；若好天想看海景可改台場，亦可補富士山/鎌倉。"]
         }
       },
       B: {
@@ -1974,7 +2188,7 @@
           11: ["合羽橋道具街 ＋ 蔵前 ＋ 清澄白河咖啡區散步", "因富士山天雨，今日改為市區文青低強度日。"],
           12: ["富士山 / 河口湖絕景全景一日遊", "若能見度回升，今日補做富士山。"],
           13: ["鎌倉古都 / 江之島一日遊（大佛、江之電、湘南海岸）", "維持次優先好天日。"],
-          14: ["全東京最大購物補遺 / 台場候補 ＋ 天氣備用終極緩衝日", "保留緩衝；好天可補台場，雨天留在大型商場。"]
+          14: ["新宿大型百貨主力購物 / 台場候補 ＋ 天氣備用終極緩衝日", "保留緩衝；雨天主攻新宿百貨，好天可補台場。"]
         }
       },
       C: {
