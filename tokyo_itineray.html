@@ -1515,6 +1515,33 @@
       font-weight: 650;
     }
     .daily-mini-card li + li { margin-top: 4px; }
+    .day-action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 12px;
+    }
+    .day-action-link {
+      min-height: 36px;
+      padding: 8px 11px;
+      border: 1px solid #c4b5fd;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .day-action-link.secondary {
+      border-color: var(--slate-200);
+      background: #fff;
+      color: var(--slate-700);
+    }
     .budget-line {
       display: grid;
       gap: 7px;
@@ -1817,6 +1844,10 @@
       }
       .day-section-tab {
         flex: 0 0 auto;
+      }
+      .day-action-row {
+        display: grid;
+        grid-template-columns: 1fr;
       }
       .day-index-head { align-items: flex-start; flex-direction: column; }
       .day-index-card {
@@ -2259,7 +2290,7 @@
 
       <section id="daily-detail" class="tab-content">
         <div class="info-box">
-          <strong>每日詳細行程：</strong>Day 1-16 已全部補齊。每張卡改為分頁式：重點、交通、時間、預算、食物、確認，只顯示你正在看的部分，避免展開後太長。票價/車資以 2026 出發前官方與 Google Maps 當日顯示為準。
+          <strong>每日詳細行程：</strong>Day 1-16 已全部補齊。每張卡改為分頁式：重點、交通、時間、預算、食物、確認。交通與食物分頁已加入 Google Maps 快捷鍵，可直接開 App 查最快路線、附近餐廳與即時班次。
         </div>
         <div class="day-index-card" aria-label="每日行程索引">
           <div class="day-index-head">
@@ -2813,6 +2844,25 @@
       }
     };
 
+    const dayShortcuts = {
+      1: { origin: "Narita Airport Terminal 2", destination: "Hotel Livemax Akihabara Kita", transportLabel: "成田T2 → 秋葉原酒店", foodQuery: "restaurants near Hotel Livemax Akihabara Kita Akihabara", foodLabel: "酒店附近晚餐" },
+      2: { origin: "Hotel Livemax Akihabara Kita", destination: "Ameyoko Shopping District Ueno", transportLabel: "酒店 → 上野/阿美橫町", foodQuery: "restaurants Ameyoko Ueno Tokyo", foodLabel: "阿美橫町美食" },
+      3: { origin: "Hotel Livemax Akihabara Kita", destination: "Shibuya Sky Tokyo", waypoints: ["Sunshine City Ikebukuro Tokyo"], transportLabel: "秋葉原 → 池袋 → Shibuya Sky", foodQuery: "restaurants near Shibuya PARCO Tokyo", foodLabel: "澀谷晚餐" },
+      4: { origin: "Hotel Livemax Akihabara Kita", destination: "Tokyo Tower", waypoints: ["Tsukiji Outer Market"], transportLabel: "秋葉原 → 築地 → 東京鐵塔", foodQuery: "restaurants Tsukiji Outer Market Tokyo", foodLabel: "築地早午餐" },
+      5: { origin: "Hotel Livemax Akihabara Kita", destination: "Tokyo DisneySea", transportLabel: "酒店 → Tokyo DisneySea", foodQuery: "restaurants Tokyo DisneySea", foodLabel: "DisneySea 餐廳" },
+      6: { origin: "Hotel Livemax Akihabara Kita", destination: "Tokyo Skytree Town Solamachi", waypoints: ["Kasukabe Station"], transportLabel: "秋葉原 → 春日部 → 晴空塔", foodQuery: "restaurants Tokyo Solamachi Skytree", foodLabel: "Solamachi 晚餐" },
+      7: { origin: "Hotel Livemax Akihabara Kita", destination: "Tokyo Character Street", waypoints: ["GINZA SIX Tokyo"], transportLabel: "秋葉原 → 銀座 → 東京站", foodQuery: "restaurants Tokyo Ramen Street Tokyo Station", foodLabel: "東京站晚餐" },
+      8: { origin: "Hotel Livemax Akihabara Kita", destination: "Isetan Shinjuku Tokyo", waypoints: ["Meiji Jingu Tokyo", "Omotesando Hills"], transportLabel: "秋葉原 → 原宿表參道 → 新宿", foodQuery: "restaurants Shinjuku Isetan Lumine Tokyo", foodLabel: "新宿晚餐" },
+      9: { origin: "Hotel Livemax Akihabara Kita", destination: "Hotel Horidome Villa Tokyo", transportLabel: "秋葉原酒店 → 日本橋酒店", foodQuery: "restaurants Ningyocho Nihonbashi Tokyo", foodLabel: "人形町/日本橋午餐" },
+      10: { origin: "Hotel Horidome Villa Tokyo", destination: "teamLab Borderless Azabudai Hills", transportLabel: "日本橋酒店 → teamLab", foodQuery: "restaurants Azabudai Hills Tokyo", foodLabel: "麻布台 Hills 餐廳" },
+      11: { origin: "Hotel Horidome Villa Tokyo", destination: "Shinjuku Station", transportLabel: "酒店 → 富士山團集合點", foodQuery: "restaurants near Shinjuku Station breakfast", foodLabel: "集合前早餐" },
+      12: { origin: "Hotel Horidome Villa Tokyo", destination: "Kiyosumi-Shirakawa Station", waypoints: ["Kappabashi Dougu Street", "Kuramae Station"], transportLabel: "日本橋 → 合羽橋 → 蔵前 → 清澄白河", foodQuery: "cafes Kiyosumi Shirakawa Tokyo", foodLabel: "清澄白河咖啡" },
+      13: { origin: "Hotel Horidome Villa Tokyo", destination: "Enoshima Station", waypoints: ["Kamakura Station", "Kotoku-in Kamakura"], transportLabel: "日本橋 → 鎌倉 → 江之島", foodQuery: "restaurants Komachi dori Kamakura", foodLabel: "鎌倉小町通美食" },
+      14: { origin: "Hotel Horidome Villa Tokyo", destination: "Isetan Shinjuku Tokyo", transportLabel: "日本橋 → 新宿購物", foodQuery: "restaurants Shinjuku NEWoMan Takashimaya", foodLabel: "新宿百貨餐廳" },
+      15: { origin: "Hotel Horidome Villa Tokyo", destination: "Tokyo Character Street", waypoints: ["Coredo Muromachi"], transportLabel: "酒店 → 日本橋 → 東京站", foodQuery: "restaurants Tokyo Station Daimaru Tokyo", foodLabel: "東京站收尾餐" },
+      16: { origin: "Hotel Horidome Villa Tokyo", destination: "Narita Airport Terminal 2", transportLabel: "日本橋酒店 → 成田T2", foodQuery: "restaurants Narita Airport Terminal 2", foodLabel: "成田T2 餐飲" }
+    };
+
     const plans = {
       A: {
         title: "Plan A ｜ 預設好天氣行程",
@@ -3093,6 +3143,7 @@
           <div class="day-section-panel" data-section-panel="transport">
             <div class="daily-mini-card">
               <h4><span class="material-symbols-outlined">directions_transit</span> 交通細節</h4>
+              ${renderShortcutActions(item.day, "transport")}
               <p style="margin:0 0 10px;color:var(--slate-600);font-size:12px;line-height:1.6;font-weight:650">${item.transport}</p>
               ${renderList(guide.transportSteps)}
             </div>
@@ -3116,6 +3167,7 @@
           <div class="day-section-panel" data-section-panel="food">
             <div class="daily-mini-card">
               <h4><span class="material-symbols-outlined">restaurant</span> 食物推薦方向</h4>
+              ${renderShortcutActions(item.day, "food")}
               ${renderList(guide.food)}
             </div>
           </div>
@@ -3127,6 +3179,43 @@
           </div>
         </div>
       `;
+    }
+
+    function buildDayDirectionsUrl(shortcut) {
+      const params = new URLSearchParams({
+        api: "1",
+        origin: shortcut.origin,
+        destination: shortcut.destination,
+        travelmode: "transit"
+      });
+      if (shortcut.waypoints?.length) params.set("waypoints", shortcut.waypoints.join("|"));
+      return `https://www.google.com/maps/dir/?${params.toString()}`;
+    }
+
+    function buildDayFoodUrl(shortcut) {
+      return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(shortcut.foodQuery)}`;
+    }
+
+    function renderShortcutActions(day, type) {
+      const shortcut = dayShortcuts[day];
+      if (!shortcut) return "";
+      if (type === "transport") {
+        return `
+          <div class="day-action-row">
+            <a class="day-action-link" href="${buildDayDirectionsUrl(shortcut)}" target="_blank" rel="noopener"><span class="material-symbols-outlined">directions</span> ${shortcut.transportLabel}</a>
+            <a class="day-action-link secondary" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(shortcut.destination)}" target="_blank" rel="noopener"><span class="material-symbols-outlined">pin_drop</span> 目的地地圖</a>
+          </div>
+        `;
+      }
+      if (type === "food") {
+        return `
+          <div class="day-action-row">
+            <a class="day-action-link" href="${buildDayFoodUrl(shortcut)}" target="_blank" rel="noopener"><span class="material-symbols-outlined">restaurant</span> ${shortcut.foodLabel}</a>
+            <a class="day-action-link secondary" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`cafes near ${shortcut.destination}`)}" target="_blank" rel="noopener"><span class="material-symbols-outlined">local_cafe</span> 附近咖啡</a>
+          </div>
+        `;
+      }
+      return "";
     }
 
     function selectDaySection(card, section) {
