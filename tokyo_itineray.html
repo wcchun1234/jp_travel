@@ -1296,13 +1296,17 @@
     .mood-nature { color: #047857; background: var(--joy-mint-soft); border: 1px solid #a7f3d0; }
     .mood-buffer { color: var(--primary); background: var(--primary-soft); border: 1px solid #c4b5fd; }
     .day-index-card {
+      position: sticky;
+      top: 118px;
+      z-index: 12;
       display: grid;
       gap: 12px;
       padding: 16px;
       border: 1px solid #bfdbfe;
       border-radius: var(--radius-card);
-      background: #fff;
+      background: rgba(255,255,255,.96);
       box-shadow: var(--shadow-card);
+      backdrop-filter: blur(10px);
     }
     .day-index-head {
       display: flex;
@@ -1351,6 +1355,46 @@
       border-color: #c4b5fd;
       background: var(--primary-soft);
       color: var(--primary);
+    }
+    .day-index-btn.active {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 8px 16px rgba(53, 37, 205, .18);
+    }
+    .day-index-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .day-tool-btn {
+      min-height: 34px;
+      padding: 8px 10px;
+      border: 1px solid var(--slate-200);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--slate-700);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font: inherit;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .day-tool-btn.primary {
+      border-color: #c4b5fd;
+      background: var(--primary-soft);
+      color: var(--primary);
+    }
+    .daily-compact-hint {
+      margin: 0;
+      color: var(--slate-500);
+      font-size: 12px;
+      line-height: 1.5;
+      font-weight: 700;
     }
     .day-card[open] .chevron { transform: rotate(180deg); }
     .chevron { transition: transform .15s ease; color: #94a3b8; }
@@ -1631,7 +1675,29 @@
       details.day-card summary { padding: 15px; }
       .day-detail { padding: 14px; }
       .day-index-head { align-items: flex-start; flex-direction: column; }
-      .day-index-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .day-index-card {
+        top: 54px;
+        margin-left: -2px;
+        margin-right: -2px;
+        padding: 12px;
+      }
+      .day-index-grid {
+        display: flex;
+        overflow-x: auto;
+        gap: 8px;
+        padding-bottom: 2px;
+        scroll-snap-type: x proximity;
+      }
+      .day-index-btn {
+        flex: 0 0 auto;
+        min-width: 58px;
+        scroll-snap-align: start;
+      }
+      .day-index-tools {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        width: 100%;
+      }
       table { min-width: 0; }
       .table-wrap { overflow: visible; }
       table, thead, tbody, tr, td { display: block; width: 100%; }
@@ -2053,10 +2119,19 @@
         </div>
         <div class="day-index-card" aria-label="每日行程索引">
           <div class="day-index-head">
-            <strong>16日每日行程索引</strong>
+            <div>
+              <strong>16日每日行程索引</strong>
+              <p class="daily-compact-hint">點 Day 只顯示該日詳情，避免一直向下滑；需要比較時才展開全部。</p>
+            </div>
             <span class="day-count-badge" id="day-count-badge">檢查中</span>
           </div>
           <div class="day-index-grid" id="day-index-grid"></div>
+          <div class="day-index-tools">
+            <button class="day-tool-btn primary" type="button" id="today-reset-btn"><span class="material-symbols-outlined">filter_1</span> 只看 Day 1</button>
+            <button class="day-tool-btn" type="button" id="expand-all-days"><span class="material-symbols-outlined">unfold_more</span> 展開全部</button>
+            <button class="day-tool-btn" type="button" id="collapse-all-days"><span class="material-symbols-outlined">unfold_less</span> 收起全部</button>
+            <button class="day-tool-btn" type="button" data-jump-tab="master-table"><span class="material-symbols-outlined">calendar_view_week</span> 返回總表</button>
+          </div>
         </div>
         <div class="accordion-stack" id="daily-accordion"></div>
       </section>
@@ -2732,6 +2807,11 @@
           </div>
         </details>
       `).join("");
+      box.querySelectorAll(".day-card").forEach(card => {
+        card.addEventListener("toggle", () => {
+          if (card.open) setActiveDayButton(Number(card.id.replace("day-", "")));
+        });
+      });
     }
 
     function renderDayIndex() {
@@ -2742,12 +2822,7 @@
       badge.textContent = missing.length ? `欠 Day ${missing.join(", ")}` : "Day 1-16 全齊";
       grid.innerHTML = details.map(item => `<button class="day-index-btn" type="button" data-jump-day="${item.day}">Day ${item.day}</button>`).join("");
       grid.querySelectorAll("[data-jump-day]").forEach(button => {
-        button.addEventListener("click", () => {
-          const card = document.getElementById(`day-${button.dataset.jumpDay}`);
-          if (!card) return;
-          card.open = true;
-          card.scrollIntoView({ behavior: "smooth", block: "start" });
-        });
+        button.addEventListener("click", () => openDayDetail(Number(button.dataset.jumpDay), { compact: true }));
       });
     }
 
@@ -2757,14 +2832,43 @@
       return `<div class="timeline-item"><strong>${match[1]}</strong>${match[2]}</div>`;
     }
 
-    function openDayDetail(day) {
+    function setActiveDayButton(day) {
+      document.querySelectorAll("[data-jump-day]").forEach(button => {
+        button.classList.toggle("active", Number(button.dataset.jumpDay) === day);
+      });
+    }
+
+    function openDayDetail(day, options = {}) {
+      const compact = options.compact !== false;
       switchTab("daily-detail");
       requestAnimationFrame(() => {
         const card = document.getElementById(`day-${day}`);
         if (!card) return;
+        if (compact) {
+          document.querySelectorAll(".day-card").forEach(dayCard => {
+            dayCard.open = dayCard === card;
+          });
+        }
         card.open = true;
+        setActiveDayButton(day);
         card.scrollIntoView({ behavior: "smooth", block: "start" });
       });
+    }
+
+    function expandAllDays() {
+      document.querySelectorAll(".day-card").forEach(card => { card.open = true; });
+    }
+
+    function collapseAllDays() {
+      document.querySelectorAll(".day-card").forEach(card => { card.open = false; });
+      document.querySelectorAll("[data-jump-day]").forEach(button => button.classList.remove("active"));
+    }
+
+    function initializeCompactDailyView(day = 1) {
+      document.querySelectorAll(".day-card").forEach(card => {
+        card.open = card.id === `day-${day}`;
+      });
+      setActiveDayButton(day);
     }
 
     function buildMapsSearchUrl(query) {
@@ -2877,10 +2981,14 @@
     document.querySelectorAll("[data-jump-tab]").forEach(btn => {
       btn.addEventListener("click", () => handlePocketAction(btn));
     });
+    document.getElementById("today-reset-btn")?.addEventListener("click", () => openDayDetail(1, { compact: true }));
+    document.getElementById("expand-all-days")?.addEventListener("click", expandAllDays);
+    document.getElementById("collapse-all-days")?.addEventListener("click", collapseAllDays);
 
     renderTable();
     renderDetails();
     renderDayIndex();
+    initializeCompactDailyView(1);
     renderMapRoutes();
     simulateWeather("A");
     switchTab(location.hash.replace("#", "") || "overview", false);
