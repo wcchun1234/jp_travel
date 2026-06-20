@@ -1,891 +1,1340 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>東京旅行行程計劃 Version 12 ｜ Verified Final Dashboard</title>
-    <!-- Tailwind CSS for sleek styling -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <!-- FontAwesome for beautiful Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300;400;500;700&display=swap');
-        body { font-family: 'Noto Sans HK', sans-serif; background-color: #f8fafc; }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>東京旅行行程計劃 Version 12.1 ｜ DisneySea Verified Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@400;500;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --surface: #f7f9fb;
+      --surface-lowest: #ffffff;
+      --surface-low: #f2f4f6;
+      --surface-container: #eceef0;
+      --surface-high: #e6e8ea;
+      --on-surface: #191c1e;
+      --on-variant: #464555;
+      --outline: #777587;
+      --outline-variant: #c7c4d8;
+      --slate-900: #0f172a;
+      --slate-800: #1e293b;
+      --slate-600: #334155;
+      --slate-500: #64748b;
+      --slate-300: #cbd5e1;
+      --slate-200: #e2e8f0;
+      --slate-100: #f1f5f9;
+      --primary: #3525cd;
+      --primary-ui: #4f46e5;
+      --primary-fixed: #e2dfff;
+      --primary-soft: #eef2ff;
+      --header: #1e1b4b;
+      --emerald: #059669;
+      --emerald-soft: #ecfdf5;
+      --amber: #f59e0b;
+      --amber-soft: #fffbeb;
+      --rose: #e11d48;
+      --rose-soft: #fff1f2;
+      --blue: #2563eb;
+      --blue-soft: #eff6ff;
+      --purple-soft: #faf5ff;
+      --radius-card: 12px;
+      --radius-ui: 8px;
+      --shadow-header: 0 2px 10px rgba(15, 23, 42, 0.25);
+      --shadow-card: 0 1px 4px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--on-surface);
+      background: var(--surface);
+      font-family: "Noto Sans HK", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    .material-symbols-outlined {
+      font-family: "Material Symbols Outlined";
+      font-weight: normal;
+      font-style: normal;
+      font-size: 22px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-flex;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: "liga";
+      -webkit-font-smoothing: antialiased;
+      font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 24;
+      flex: 0 0 auto;
+    }
+    .material-symbols-outlined.fill { font-variation-settings: "FILL" 1, "wght" 600, "GRAD" 0, "opsz" 24; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      color: #fff;
+      background: var(--header);
+      box-shadow: var(--shadow-header);
+    }
+    .topbar-inner {
+      width: min(100%, 1600px);
+      margin: 0 auto;
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .brand-title {
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      font-size: 26px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+    .subtitle {
+      margin: 8px 0 0;
+      color: #dbeafe;
+      font-size: 16px;
+      line-height: 1.45;
+      font-weight: 500;
+    }
+    .version-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--primary-ui);
+      color: #fff;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .principles {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+    .principle-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 32px;
+      padding: 6px 12px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 999px;
+      background: rgba(255,255,255,.12);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .shell {
+      width: min(100%, 1600px);
+      margin: 0 auto;
+      padding: 28px 20px 44px;
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 28px;
+    }
+    .sidebar {
+      position: sticky;
+      top: 118px;
+      align-self: start;
+      overflow: hidden;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-card);
+      background: var(--surface-lowest);
+      box-shadow: var(--shadow-card);
+    }
+    .sidebar-head {
+      padding: 18px 18px 14px;
+      border-bottom: 1px solid var(--slate-200);
+      background: var(--surface-low);
+    }
+    .sidebar-title {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--slate-900);
+      font-size: 15px;
+      font-weight: 800;
+    }
+    .nav-list {
+      padding: 10px;
+      display: grid;
+      gap: 4px;
+    }
+    .nav-btn {
+      width: 100%;
+      min-height: 46px;
+      padding: 11px 12px;
+      border: 0;
+      border-left: 4px solid transparent;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--on-variant);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font: inherit;
+      font-size: 14px;
+      line-height: 1.3;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+      transition: background .15s ease, color .15s ease, border .15s ease;
+    }
+    .nav-btn:hover { background: var(--surface-low); color: var(--slate-900); }
+    .nav-btn.active {
+      border-left-color: var(--primary);
+      background: var(--primary-soft);
+      color: var(--primary);
+    }
+    .nav-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .mini-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--amber);
+    }
+    .update-box {
+      margin: 10px;
+      padding: 14px;
+      border-top: 1px solid var(--slate-200);
+      background: var(--surface);
+      border-radius: 10px;
+    }
+    .update-box p {
+      margin: 0 0 8px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--slate-600);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .update-box ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--slate-600);
+      font-size: 11px;
+      line-height: 1.55;
+    }
+
+    .main {
+      min-width: 0;
+      display: grid;
+      gap: 24px;
+    }
+    .tab-content { display: none; }
+    .tab-content.active { display: grid; gap: 24px; }
+    .section-title {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--slate-900);
+      font-size: 20px;
+      line-height: 1.3;
+      font-weight: 800;
+    }
+    .muted {
+      color: var(--slate-500);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .card {
+      overflow: hidden;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-card);
+      background: var(--surface-lowest);
+      box-shadow: var(--shadow-card);
+    }
+    .card-pad { padding: 24px; }
+    .card-head {
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--slate-200);
+      background: var(--surface-low);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .flight-card, .fact-card, .hotel-card, .guide-card {
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-card);
+      background: #fff;
+      box-shadow: var(--shadow-card);
+    }
+    .flight-card { padding: 22px; position: relative; overflow: hidden; }
+    .flight-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 74px;
+      height: 74px;
+      border-bottom-left-radius: 999px;
+      background: var(--primary-soft);
+      z-index: 0;
+    }
+    .flight-card > * { position: relative; z-index: 1; }
+    .flight-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--slate-100);
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      min-height: 22px;
+      padding: 4px 8px;
+      border-radius: 7px;
+      font-size: 10px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .badge-indigo { color: var(--primary); background: var(--primary-soft); }
+    .badge-emerald { color: var(--emerald); background: var(--emerald-soft); border: 1px solid #bbf7d0; }
+    .badge-blue { color: var(--blue); background: var(--blue-soft); }
+    .badge-amber { color: #92400e; background: var(--amber-soft); border: 1px solid #fde68a; }
+    .badge-rose { color: var(--rose); background: var(--rose-soft); border: 1px solid #fecdd3; }
+    .flight-number {
+      margin: 8px 0 0;
+      color: var(--slate-900);
+      font-size: 16px;
+      font-weight: 800;
+    }
+    .flight-path {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1fr minmax(120px, .8fr) 1fr;
+      align-items: center;
+      gap: 14px;
+    }
+    .time {
+      color: var(--slate-900);
+      font-size: 26px;
+      line-height: 1;
+      font-weight: 800;
+    }
+    .airport {
+      margin-top: 7px;
+      color: var(--slate-600);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .terminal {
+      margin-top: 4px;
+      color: var(--slate-500);
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .route-line {
+      display: grid;
+      place-items: center;
+      gap: 6px;
+      color: #94a3b8;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .route-line .line {
+      width: 100%;
+      height: 1px;
+      background: var(--slate-300);
+      position: relative;
+    }
+    .route-line .material-symbols-outlined {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      color: #94a3b8;
+      padding: 0 8px;
+      font-size: 20px;
+    }
+    .price-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 14px;
+      border: 1px solid #c4b5fd;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: var(--primary);
+      font-size: 16px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .info-box {
+      padding: 13px 14px;
+      border: 1px solid #bfdbfe;
+      border-radius: 10px;
+      background: var(--blue-soft);
+      color: #1e3a8a;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+    .info-box strong { color: #1d4ed8; }
+    .hotel-card {
+      display: grid;
+      grid-template-columns: 4px 1fr;
+      overflow: hidden;
+    }
+    .hotel-accent-emerald { background: #34d399; }
+    .hotel-accent-indigo { background: var(--primary); }
+    .hotel-body { padding: 20px 22px; }
+    .hotel-title-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .hotel-title {
+      margin: 10px 0 0;
+      color: var(--slate-900);
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+    .hotel-meta {
+      margin: 7px 0 0;
+      color: var(--slate-500);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+    .hotel-note {
+      margin-top: 14px;
+      padding: 11px 12px;
+      border: 1px solid var(--slate-200);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--slate-600);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+    .fact-card {
+      padding: 16px;
+      min-height: 120px;
+    }
+    .fact-card h3 {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--slate-900);
+      font-size: 15px;
+      font-weight: 800;
+    }
+    .fact-card p {
+      margin: 10px 0 0;
+      color: var(--slate-600);
+      font-size: 12px;
+      line-height: 1.65;
+    }
+    .disney-card {
+      border: 1px solid #ddd6fe;
+      background: linear-gradient(180deg, #fff, #f8f7ff);
+    }
+    .strategy-card {
+      border: 1px solid #fde68a;
+      background: linear-gradient(180deg, #fff, #fffbeb);
+    }
+
+    .table-wrap { overflow-x: auto; }
+    table {
+      width: 100%;
+      min-width: 980px;
+      border-collapse: collapse;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    th {
+      padding: 16px 18px;
+      background: var(--surface-low);
+      color: var(--slate-900);
+      font-size: 13px;
+      font-weight: 800;
+      text-align: left;
+      border-bottom: 1px solid var(--outline-variant);
+      white-space: nowrap;
+    }
+    td {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--slate-200);
+      vertical-align: top;
+      color: var(--slate-800);
+      font-weight: 600;
+    }
+    tbody tr:hover { background: #f8fafc; }
+    .day-cell {
+      min-width: 130px;
+      color: var(--slate-900);
+      font-weight: 800;
+    }
+    .day-cell span {
+      display: block;
+      margin-top: 4px;
+      color: var(--primary-ui);
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .row-indigo { background: rgba(238, 242, 255, .65); }
+    .row-amber { background: rgba(255, 251, 235, .8); }
+    .row-rose { background: rgba(255, 241, 242, .75); }
+    .row-emerald { background: rgba(236, 253, 245, .75); }
+    .row-disney {
+      background: #f5f3ff;
+      box-shadow: inset 4px 0 0 var(--primary-ui);
+    }
+    .lodging-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 58px;
+      padding: 4px 9px;
+      border-radius: 7px;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .lodging-akiba { color: #047857; background: var(--emerald-soft); border: 1px solid #a7f3d0; }
+    .lodging-nihonbashi { color: #1d4ed8; background: #eff6ff; border: 1px solid #bfdbfe; }
+    .priority {
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .accordion-stack { display: grid; gap: 14px; }
+    details.day-card {
+      overflow: hidden;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-card);
+      background: var(--surface-lowest);
+      box-shadow: var(--shadow-card);
+    }
+    details.day-card[open] { border-color: #c7d2fe; }
+    details.day-card summary {
+      list-style: none;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      cursor: pointer;
+      background: #fff;
+    }
+    details.day-card summary::-webkit-details-marker { display: none; }
+    .summary-left {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .day-badge {
+      padding: 5px 8px;
+      border-radius: 7px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .summary-title {
+      color: var(--slate-900);
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.4;
+    }
+    .day-card[open] .chevron { transform: rotate(180deg); }
+    .chevron { transition: transform .15s ease; color: #94a3b8; }
+    .day-detail {
+      padding: 18px;
+      border-top: 1px solid var(--slate-200);
+      background: var(--surface);
+      display: grid;
+      gap: 14px;
+    }
+    .guide-card { padding: 14px; }
+    .guide-card h4 {
+      margin: 0 0 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--slate-800);
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .guide-card p, .guide-card li {
+      color: var(--slate-600);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .guide-card p { margin: 0; }
+    .guide-card ol, .guide-card ul { margin: 8px 0 0; padding-left: 18px; }
+    .timeline {
+      display: grid;
+      gap: 12px;
+      padding-left: 18px;
+      border-left: 2px solid var(--slate-200);
+    }
+    .timeline-item {
+      position: relative;
+      color: var(--slate-600);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -24px;
+      top: 5px;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      border: 2px solid var(--slate-300);
+      background: #fff;
+    }
+    .timeline-item strong {
+      display: block;
+      color: var(--slate-900);
+      font-size: 13px;
+    }
+
+    .weather-buttons {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .weather-btn {
+      min-height: 64px;
+      border: 1px solid var(--slate-200);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--slate-700);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background .15s ease, border .15s ease, color .15s ease;
+    }
+    .weather-btn span {
+      display: block;
+      margin-top: 5px;
+      color: var(--slate-500);
+      font-size: 10px;
+      font-weight: 600;
+    }
+    .weather-btn.active {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: #fff;
+    }
+    .weather-btn.active span { color: rgba(255,255,255,.82); }
+    .feedback {
+      margin-top: 18px;
+      padding: 18px;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-card);
+      background: var(--surface);
+    }
+    .feedback-title {
+      margin: 0 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--slate-900);
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .feedback-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--slate-600);
+      font-size: 12px;
+      line-height: 1.75;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 12px;
+    }
+    .check-row {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 12px;
+      padding: 14px;
+      border: 1px solid var(--slate-200);
+      border-radius: 10px;
+      background: var(--surface);
+    }
+    .check-row input {
+      width: 18px;
+      height: 18px;
+      margin: 2px 0 0;
+      accent-color: var(--primary);
+    }
+    .check-row strong {
+      display: block;
+      color: var(--slate-900);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .check-row span {
+      display: block;
+      margin-top: 4px;
+      color: var(--slate-600);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .mobile-tabs {
+      display: none;
+      position: sticky;
+      top: 91px;
+      z-index: 40;
+      margin: -12px -20px 8px;
+      padding: 10px 20px;
+      overflow-x: auto;
+      gap: 8px;
+      background: rgba(247, 249, 251, .94);
+      border-bottom: 1px solid var(--slate-200);
+      backdrop-filter: blur(8px);
+    }
+    .mobile-tab {
+      flex: 0 0 auto;
+      min-height: 34px;
+      padding: 7px 11px;
+      border: 1px solid var(--slate-200);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--slate-600);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .mobile-tab.active { color: var(--primary); border-color: #c4b5fd; background: var(--primary-soft); }
+
+    @media (max-width: 1120px) {
+      .shell { grid-template-columns: 1fr; }
+      .sidebar { display: none; }
+      .mobile-tabs { display: flex; }
+    }
+    @media (max-width: 780px) {
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px;
+      }
+      .brand-title { font-size: 24px; }
+      .subtitle { font-size: 14px; }
+      .principles { justify-content: flex-start; overflow-x: auto; width: 100%; flex-wrap: nowrap; padding-bottom: 1px; }
+      .shell { padding: 22px 16px 36px; }
+      .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .card-pad { padding: 18px; }
+      .card-head { padding: 16px 18px; align-items: flex-start; flex-direction: column; }
+      .flight-path { grid-template-columns: 1fr; text-align: left; }
+      .route-line { place-items: start; }
+      .route-line .line { width: 180px; }
+      .weather-buttons { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .summary-left { align-items: flex-start; }
+      .time { font-size: 24px; }
+      table { min-width: 900px; }
+    }
+  </style>
 </head>
-<body class="text-slate-800 antialiased">
-
-    <!-- Top Premium Header -->
-    <header class="bg-indigo-950 text-white shadow-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div>
-                <h1 class="text-xl font-bold tracking-wide flex items-center gap-2">
-                    <i class="fa-solid fa-plane-departure text-indigo-400"></i> 東京旅行行程計劃 <span class="text-xs bg-indigo-500 px-2 py-0.5 rounded-full">V12 Verified</span>
-                </h1>
-                <p class="text-xs text-indigo-200 mt-1">2026年6月27日 – 7月12日 (16日15夜) ｜ 同行：2成人</p>
-            </div>
-            <!-- Core Principles Badge -->
-            <div class="flex gap-2 text-xs overflow-x-auto max-w-full py-1">
-                <span class="bg-indigo-900/60 border border-indigo-700/50 px-3 py-1 rounded text-indigo-200 whitespace-nowrap"><i class="fa-solid fa-leaf mr-1 text-green-400"></i> 不排太滿</span>
-                <span class="bg-indigo-900/60 border border-indigo-700/50 px-3 py-1 rounded text-indigo-200 whitespace-nowrap"><i class="fa-solid fa-map-pin mr-1 text-red-400"></i> 順路安排</span>
-                <span class="bg-indigo-900/60 border border-indigo-700/50 px-3 py-1 rounded text-indigo-200 whitespace-nowrap"><i class="fa-solid fa-cloud-sun mr-1 text-amber-400"></i> 天氣彈性</span>
-            </div>
-        </div>
-    </header>
-
-    <div class="max-w-7xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-4 gap-6">
-        
-        <!-- Sidebar Navigation Menu -->
-        <aside class="lg:col-span-1">
-            <div class="bg-white rounded-xl shadow-xs border border-slate-200/80 p-4 sticky top-24">
-                <nav class="space-y-1" id="main-nav">
-                    <button onclick="switchTab('overview')" id="btn-overview" class="w-full text-left px-4 py-3 rounded-lg font-medium text-sm flex items-center justify-between bg-indigo-50 text-indigo-700 border-l-4 border-indigo-600 transition-all">
-                        <span class="flex items-center gap-3"><i class="fa-solid fa-circle-info w-5"></i> 總覽與航班酒店</span>
-                        <i class="fa-solid fa-chevron-right text-xs"></i>
-                    </button>
-                    <button onclick="switchTab('master-table')" id="btn-master-table" class="w-full text-left px-4 py-3 rounded-lg font-medium text-sm flex items-center justify-between text-slate-600 hover:bg-slate-50 transition-all">
-                        <span class="flex items-center gap-3"><i class="fa-solid fa-calendar-days w-5"></i> 16日總行程表</span>
-                        <i class="fa-solid fa-chevron-right text-xs"></i>
-                    </button>
-                    <button onclick="switchTab('daily-detail')" id="btn-daily-detail" class="w-full text-left px-4 py-3 rounded-lg font-medium text-sm flex items-center justify-between text-slate-600 hover:bg-slate-50 transition-all">
-                        <span class="flex items-center gap-3"><i class="fa-solid fa-route w-5"></i> 每日詳細行程 & 交通</span>
-                        <i class="fa-solid fa-chevron-right text-xs"></i>
-                    </button>
-                    <button onclick="switchTab('weather-strategy')" id="btn-weather-strategy" class="w-full text-left px-4 py-3 rounded-lg font-medium text-sm flex items-center justify-between text-slate-600 hover:bg-slate-50 transition-all">
-                        <span class="flex items-center gap-3"><i class="fa-solid fa-cloud-sun-rain w-5"></i> 天氣策略模擬器</span>
-                        <span class="bg-amber-500 text-white text-[10px] px-1.5 py-0.5 rounded-sm font-bold">核心</span>
-                    </button>
-                    <button onclick="switchTab('checklist')" id="btn-checklist" class="w-full text-left px-4 py-3 rounded-lg font-medium text-sm flex items-center justify-between text-slate-600 hover:bg-slate-50 transition-all">
-                        <span class="flex items-center gap-3"><i class="fa-solid fa-list-check w-5"></i> 預約及確認清單</span>
-                        <i class="fa-solid fa-chevron-right text-xs"></i>
-                    </button>
-                </nav>
-
-                <div class="mt-6 pt-4 border-t border-slate-100 bg-slate-50/50 p-3 rounded-lg">
-                    <p class="text-xs text-slate-500 font-medium mb-2"><i class="fa-solid fa-bell text-amber-500 mr-1"></i> Version 12 核對更新：</p>
-                    <ul class="text-[11px] text-slate-600 space-y-1 list-disc list-inside pl-1">
-                        <li>修正 GitHub Pages 入口檔名</li>
-                        <li>核對 HK Express T2 / Narita T2 資訊</li>
-                        <li>修正合羽橋、高輪、成田回程交通</li>
-                        <li>更新 Chiikawa、Shibuya Sky、teamLab 預約提醒</li>
-                    </ul>
-                </div>
-            </div>
-        </aside>
-
-        <!-- Main Content Area -->
-        <main class="lg:col-span-3 space-y-6">
-
-            <!-- TAB 1: OVERVIEW & LOGISTICS -->
-            <section id="overview" class="tab-content active space-y-6">
-                <!-- Flight Logistics Cards -->
-                <div class="bg-white rounded-xl shadow-xs border border-slate-200/80 p-6">
-                    <h2 class="text-lg font-bold border-b border-slate-100 pb-3 flex items-center gap-2 text-indigo-950">
-                        <i class="fa-solid fa-plane text-indigo-600"></i> 已訂航班資訊
-                    </h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-                        <!-- Outbound -->
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 relative overflow-hidden">
-                            <div class="absolute top-0 right-0 bg-emerald-500 text-white text-[10px] uppercase font-bold px-3 py-1 rounded-bl">去程 ｜ UO848</div>
-                            <div class="text-xs font-bold text-slate-400 mb-1">2026年6月27日 (Sat)</div>
-                            <div class="flex items-center justify-between mt-2">
-                                <div>
-                                    <div class="text-xl font-extrabold text-indigo-950">09:15</div>
-                                    <div class="text-xs font-medium text-slate-600">香港國際機場 HKG</div>
-                                    <div class="text-[11px] text-slate-400 mt-0.5">Terminal 2 / Aisle U</div>
-                                </div>
-                                <div class="text-center px-2">
-                                    <div class="text-[11px] text-slate-400 font-medium whitespace-nowrap">4小時30分鐘</div>
-                                    <div class="w-20 h-[2px] bg-slate-300 relative mx-auto my-1">
-                                        <i class="fa-solid fa-chevron-right text-[8px] text-slate-400 absolute right-0 -top-[3px]"></i>
-                                    </div>
-                                </div>
-                                <div class="text-right">
-                                    <div class="text-xl font-extrabold text-indigo-950">14:45</div>
-                                    <div class="text-xs font-medium text-slate-600">成田國際機場 NRT</div>
-                                    <div class="text-[11px] text-slate-400 mt-0.5">Terminal 2</div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Inbound -->
-                        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 relative overflow-hidden">
-                            <div class="absolute top-0 right-0 bg-indigo-500 text-white text-[10px] uppercase font-bold px-3 py-1 rounded-bl">回程 ｜ UO871</div>
-                            <div class="text-xs font-bold text-slate-400 mb-1">2026年7月12日 (Sun)</div>
-                            <div class="flex items-center justify-between mt-2">
-                                <div>
-                                    <div class="text-xl font-extrabold text-indigo-950">17:05</div>
-                                    <div class="text-xs font-medium text-slate-600">成田國際機場 NRT</div>
-                                    <div class="text-[11px] text-slate-400 mt-0.5">Terminal 2</div>
-                                </div>
-                                <div class="text-center px-2">
-                                    <div class="text-[11px] text-slate-400 font-medium whitespace-nowrap">4小時55分鐘</div>
-                                    <div class="w-20 h-[2px] bg-slate-300 relative mx-auto my-1">
-                                        <i class="fa-solid fa-chevron-right text-[8px] text-slate-400 absolute right-0 -top-[3px]"></i>
-                                    </div>
-                                </div>
-                                <div class="text-right">
-                                    <div class="text-xl font-extrabold text-indigo-950">21:00</div>
-                                    <div class="text-xs font-medium text-slate-600">香港國際機場 HKG</div>
-                                    <div class="text-[11px] text-slate-400 mt-0.5">Terminal 1 arrivals</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-4 text-right">
-                        <span class="text-sm font-medium text-slate-500">機票總價：</span>
-                        <span class="text-lg font-extrabold text-slate-900">HKD 8,312</span>
-                    </div>
-                    <div class="mt-4 bg-blue-50 border border-blue-100 rounded-xl p-3 text-xs text-blue-900 space-y-1.5">
-                        <div class="font-bold"><i class="fa-solid fa-circle-check mr-1 text-blue-600"></i> 2026年6月20日已核對</div>
-                        <div>HK Express 香港出發已改用 <strong>香港機場 Terminal 2 Aisle U</strong> 辦理 check-in / bag drop；抵港仍按 Terminal 1 到達安排。</div>
-                        <div>HK Express 於成田機場使用 <strong>Terminal 2 / 3F</strong>。航班時間、閘口及櫃位仍以航空公司與機場即日公告為準。</div>
-                    </div>
-                </div>
-
-                <!-- Hotel Stays -->
-                <div class="bg-white rounded-xl shadow-xs border border-slate-200/80 p-6">
-                    <h2 class="text-lg font-bold border-b border-slate-100 pb-3 flex items-center gap-2 text-indigo-950">
-                        <i class="fa-solid fa-hotel text-indigo-600"></i> 已確認住宿酒店
-                    </h2>
-                    <div class="space-y-6 mt-4">
-                        <!-- Hotel 1 -->
-                        <div class="border-l-4 border-emerald-500 bg-emerald-50/20 p-4 rounded-r-xl">
-                            <div class="flex flex-col sm:flex-row justify-between items-start gap-2">
-                                <div>
-                                    <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2 py-0.5 rounded">第一段住宿 ｜ 6月27日 – 7月5日 (8夜)</span>
-                                    <h3 class="text-base font-bold text-slate-900 mt-2">Hotel Livemax Akihabara Kita (ホテルリブマックス秋葉原北)</h3>
-                                    <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-location-dot text-red-500 mr-1"></i> 2-5-2 Taito, 秋葉原, 東京, 日本, 110-0016 (秋葉原 / 台東區)</p>
-                                    <p class="text-xs font-medium text-slate-600 mt-1">房型：Semi Double Room - Non-Smoking ｜ 人數：2成人</p>
-                                </div>
-                            </div>
-                            <div class="mt-3 bg-white border border-slate-100 p-2.5 rounded text-xs text-slate-600">
-                                <strong class="text-emerald-700"><i class="fa-solid fa-map-location-dot mr-1"></i> 適合安排景點：</strong>
-                                秋葉原、上野、合羽橋、蔵前、清澄白河、東京站、銀座、春日部。
-                            </div>
-                        </div>
-
-                        <!-- Hotel 2 -->
-                        <div class="border-l-4 border-indigo-500 bg-indigo-50/20 p-4 rounded-r-xl">
-                            <div class="flex flex-col sm:flex-row justify-between items-start gap-2">
-                                <div>
-                                    <span class="bg-indigo-100 text-indigo-800 text-xs font-bold px-2 py-0.5 rounded">第二段住宿 ｜ 7月5日 – 7月12日 (7夜)</span>
-                                    <h3 class="text-base font-bold text-slate-900 mt-2">Hotel Horidome Villa (ホテル堀留ヴィラ)</h3>
-                                    <p class="text-xs text-slate-500 mt-1"><i class="fa-solid fa-location-dot text-red-500 mr-1"></i> 1-10-10 Horidome-Cho, Nihonbashi, Chuo-Ku, 東京, 日本 (日本橋 / 東京站區)</p>
-                                    <p class="text-xs font-medium text-slate-600 mt-1">房型：小型雙人床禁煙房 ｜ 人數：2成人</p>
-                                </div>
-                            </div>
-                            <div class="mt-3 bg-white border border-slate-100 p-2.5 rounded text-xs text-slate-600">
-                                <strong class="text-indigo-700"><i class="fa-solid fa-map-location-dot mr-1"></i> 適合安排景點：</strong>
-                                東京站、銀座、麻布台、台場、品川 / 高輪、成田機場回程。
-                                <div class="mt-1.5 text-[11px] text-amber-700 bg-amber-50 p-1.5 rounded border border-amber-100/50">
-                                    <i class="fa-solid fa-triangle-exclamation mr-1"></i> <strong>注意：</strong>富士山和鎌倉一日遊如果由新宿集合，當日早晨請預留45-60分鐘由酒店出門至集合點，避免新宿站出口與巴士集合點尋路壓力。
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Verified Booking Facts -->
-                <div class="bg-white rounded-xl shadow-xs border border-slate-200/80 p-6">
-                    <h2 class="text-lg font-bold border-b border-slate-100 pb-3 flex items-center gap-2 text-indigo-950">
-                        <i class="fa-solid fa-shield-halved text-indigo-600"></i> 已核對重點事實
-                    </h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mt-4 text-xs">
-                        <div class="bg-slate-50 border border-slate-100 rounded-lg p-3">
-                            <div class="font-bold text-slate-900">Chiikawa Park</div>
-                            <p class="text-slate-600 mt-1">地點為池袋 Sunshine City Annex B1F / 1F，營業時間 10:00-21:00，最後入場 19:00。門票需預先於 asoview 購買；每月15日日本時間12:00發售兩個月後整月票，售完即止，購買後不可取消或改期。</p>
-                        </div>
-                        <div class="bg-slate-50 border border-slate-100 rounded-lg p-3">
-                            <div class="font-bold text-slate-900">Shibuya Sky</div>
-                            <p class="text-slate-600 mt-1">官方旅遊資料顯示開放 10:00-22:30，最遲入場 21:20；6月底東京日落約19:00，建議預約 18:15-18:45 入場並預留排隊時間。露天區遇強風雨可能關閉。</p>
-                        </div>
-                        <div class="bg-slate-50 border border-slate-100 rounded-lg p-3">
-                            <div class="font-bold text-slate-900">teamLab Borderless</div>
-                            <p class="text-slate-600 mt-1">麻布台 Hills 常設館，官方時間為 8:30-21:00，最後入場為閉館前1小時。7月5日安排 14:00 後入場合理，能避開轉酒店與寄放行李壓力。</p>
-                        </div>
-                        <div class="bg-slate-50 border border-slate-100 rounded-lg p-3">
-                            <div class="font-bold text-slate-900">春日部小新</div>
-                            <p class="text-slate-600 mt-1">LaLa Garden 春日部 3F 的蠟筆小新遊戲中心通常 10:00-20:00，春日部站步行約4分鐘。此日放在秋葉原住宿期間最順，晚上可回秋葉原補逛。</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- TAB 2: MASTER ITINERARY TABLE -->
-            <section id="master-table" class="tab-content space-y-4">
-                <div class="bg-white rounded-xl shadow-xs border border-slate-200/80 overflow-hidden">
-                    <div class="p-4 bg-slate-50 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                        <h2 class="text-base font-bold text-slate-900 flex items-center gap-2">
-                            <i class="fa-solid fa-table-list text-indigo-600"></i> Version 12 最終核對總行程快覽
-                        </h2>
-                        <span class="text-xs text-slate-500">點擊右側選單「每日詳細行程」可查看對應詳細鐵路路線</span>
-                    </div>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left border-collapse text-sm">
-                            <thead>
-                                <tr class="bg-slate-100/70 text-slate-600 text-xs uppercase font-bold border-b border-slate-200">
-                                    <th class="py-3 px-4 w-28">日期 / Day</th>
-                                    <th class="py-3 px-4">主行程景點規劃</th>
-                                    <th class="py-3 px-4 w-28 text-center">住宿基地</th>
-                                    <th class="py-3 px-4 w-44">策略特色</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-slate-100" id="master-table-body">
-                                <!-- Days will populate here or stay hardcoded for pristine styling -->
-                                <tr class="hover:bg-slate-50/50">
-                                    <td class="py-3 px-4 font-medium text-slate-900">6月27日 Sat <span class="block text-xs font-bold text-indigo-500">Day 1</span></td>
-                                    <td class="py-3 px-4 font-medium text-slate-800">香港 → 成田機場 → 秋葉原酒店 check-in ｜ 附近晚餐</td>
-                                    <td class="py-3 px-4 text-center"><span class="bg-emerald-50 text-emerald-700 text-xs px-2 py-0.5 rounded border border-emerald-100">秋葉原</span></td>
-                                    <td class="py-3 px-4 text-xs text-slate-500">到埗日，純休息，不排景點</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50">
-                                    <td class="py-3 px-4 font-medium text-slate-900">6月28日 Sun <span class="block text-xs font-bold text-indigo-500">Day 2</span></td>
-                                    <td class="py-3 px-4 font-medium text-slate-800">秋葉原 ＋ 上野 ＋ 阿美橫町購物街 ＋ 御徒町</td>
-                                    <td class="py-3 px-4 text-center"><span class="bg-emerald-50 text-emerald-700 text-xs px-2 py-0.5 rounded border border-emerald-100">秋葉原</span></td>
-                                    <td class="py-3 px-4 text-xs text-slate-500">輕鬆熟悉周邊，不跨區遠行</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50 bg-indigo-50/10">
-                                    <td class="py-3 px-4 font-medium text-slate-900">6月29日 Mon <span class="block text-xs font-bold text-indigo-500">Day 3</span></td>
-                                    <td class="py-3 px-4 font-medium text-slate-800">Chiikawa Park（Sunshine City Annex）＋ 池袋 Sunshine City ＋ 澀谷 ＋ Shibuya Sky 日落夜景</td>
-                                    <td class="py-3 px-4 text-center"><span class="bg-emerald-50 text-emerald-700 text-xs px-2 py-0.5 rounded border border-emerald-100">秋葉原</span></td>
-                                    <td class="py-3 px-4 text-xs text-indigo-600 font-medium">精準預約 ｜ 室內商場＋黃昏高空觀景</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50">
-                                    <td class="py-3 px-4 font-medium text-slate-900">6月30日 Tue <span class="block text-xs font-bold text-indigo-500">Day 4</span></td>
-                                    <td class="py-3 px-4 font-medium text-slate-800">明治神宮 ＋ 原宿竹下通 ＋ 表參道散策與特色咖啡店</td>
-                                    <td class="py-3 px-4 text-center"><span class="bg-emerald-50 text-emerald-700 text-xs px-2 py-0.5 rounded border border-emerald-100">秋葉原</span></td>
-                                    <td class="py-3 px-4 text-xs text-slate-500">山手線直達，市區全流暢順路</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50">
-                                    <td class="py-3 px-4 font-medium text-slate-900">7月1日 Wed <span class="block text-xs font-bold text-indigo-500">Day 5</span></td>
-                                    <td class="py-3 px-4 font-medium text-slate-800">合羽橋道具街 → 蔵前 → 清澄白河咖啡 → 東京晴空塔 Solamachi</td>
-                                    <td class="py-3 px-4 text-center"><span class="bg-emerald-50 text-emerald-700 text-xs px-2 py-0.5 rounded border border-emerald-100">秋葉原</span></td>
-                                    <td class="py-3 px-4 text-xs text-emerald-600">不走回頭路 ｜ 雨天靈活斬斷戶外</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50 bg-amber-50/10">
-                                    <td class="py-3 px-4 font-medium text-slate-900">7月2日 Thu <span class="block text-xs font-bold text-indigo-500">Day 6</span></td>
-                                    <td class="py-3 px-4 font-medium text-slate-800">春日部小新動漫朝聖一日/半日遊 → 傍晚回秋葉原補逛</td>
-                                    <td class="py-3 px-4 text-center"><span class="bg-emerald-50 text-emerald-700 text-xs px-2 py-0.5 rounded border border-emerald-100">秋葉原</span></td>
-                                    <td class="py-3 px-4 text-xs text-amber-700 font-medium">新企劃 ｜ 東武線北上直達，避開後段天氣彈性區</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50">
-                                    <td class="py-3 px-4 font-medium text-slate-900">7月3日 Fri <span class="block text-xs font-bold text-indigo-500">Day 7</span></td>
-                                    <td class="py-3 px-4 font-medium text-slate-800">銀座精品百貨 ＋ 有樂町 ＋ 東京車站一番街拉麵街晚餐</td>
-                                    <td class="py-3 px-4 text-center"><span class="bg-emerald-50 text-emerald-700 text-xs px-2 py-0.5 rounded border border-emerald-100">秋葉原</span></td>
-                                    <td class="py-3 px-4 text-xs text-blue-600 font-medium">強雨天完全無敵 ｜ 全室內/地下街連通</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50">
-                                    <td class="py-3 px-4 font-medium text-slate-900">7月4日 Sat <span class="block text-xs font-bold text-indigo-500">Day 8</span></td>
-                                    <td class="py-3 px-4 font-medium text-slate-800">築地場外市場海鮮美食 ＋ 增上寺 ＋ 芝公園東京鐵塔極致景觀</td>
-                                    <td class="py-3 px-4 text-center"><span class="bg-emerald-50 text-emerald-700 text-xs px-2 py-0.5 rounded border border-emerald-100">秋葉原</span></td>
-                                    <td class="py-3 px-4 text-xs text-slate-500">能見度高首選黃昏登塔，大雨啟動備案</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50 bg-indigo-50/20">
-                                    <td class="py-3 px-4 font-medium text-slate-900">7月5日 Sun <span class="block text-xs font-bold text-indigo-500">Day 9</span></td>
-                                    <td class="py-3 px-4 font-medium text-slate-800">退房行李轉移酒店 ＋ 麻布台 Hills ＋ teamLab Borderless 沉浸體驗</td>
-                                    <td class="py-3 px-4 text-center"><span class="bg-indigo-50 text-indigo-700 text-xs px-2 py-0.5 rounded border border-indigo-100">日本橋</span></td>
-                                    <td class="py-3 px-4 text-xs text-indigo-600 font-medium">轉酒店過渡日 ｜ 精準控制體力不排遠行</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50">
-                                    <td class="py-3 px-4 font-medium text-slate-900">7月6日 Mon <span class="block text-xs font-bold text-indigo-500">Day 10</span></td>
-                                    <td class="py-3 px-4 font-medium text-slate-800">台場海濱公園 ＋ DiverCity 獨角獸高達打卡 ＋ 彩虹大橋精緻夜景</td>
-                                    <td class="py-3 px-4 text-center"><span class="bg-indigo-50 text-indigo-700 text-xs px-2 py-0.5 rounded border border-indigo-100">日本橋</span></td>
-                                    <td class="py-3 px-4 text-xs text-slate-500">臨海度假日，早回酒店蓄力明日富士山</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50 font-semibold text-rose-700 bg-rose-50/20 dynamic-day" data-default-day="11">
-                                    <td class="py-3 px-4 font-medium text-slate-900">7月7日 Tue <span class="block text-xs font-bold text-indigo-500">Day 11</span></td>
-                                    <td class="py-3 px-4 font-medium text-slate-800 flex items-center gap-2">
-                                        <span class="day-content">富士山 / 河口湖全景一日遊 (新倉山、忍野八海、大石公園)</span>
-                                    </td>
-                                    <td class="py-3 px-4 text-center"><span class="bg-indigo-50 text-indigo-700 text-xs px-2 py-0.5 rounded border border-indigo-100">日本橋</span></td>
-                                    <td class="py-3 px-4 text-xs text-rose-600 font-medium day-strategy">第一優先好天日 ｜ 隨時可用D12或D14對調</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50 dynamic-day" data-default-day="12">
-                                    <td class="py-3 px-4 font-medium text-slate-900">7月8日 Wed <span class="block text-xs font-bold text-indigo-500">Day 12</span></td>
-                                    <td class="py-3 px-4 font-medium text-slate-800"><span class="day-content">高輪 Gateway City / NEWoMan 高輪 ＋ 品川 ＋ 日本橋/東京站深度散步</span></td>
-                                    <td class="py-3 px-4 text-center"><span class="bg-indigo-50 text-indigo-700 text-xs px-2 py-0.5 rounded border border-indigo-100">日本橋</span></td>
-                                    <td class="py-3 px-4 text-xs text-slate-500 day-strategy">富士山後休整緩衝 ｜ 極致彈性後備空間</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50 font-semibold text-amber-700 bg-amber-50/20 dynamic-day" data-default-day="13">
-                                    <td class="py-3 px-4 font-medium text-slate-900">7月9日 Thu <span class="block text-xs font-bold text-indigo-500">Day 13</span></td>
-                                    <td class="py-3 px-4 font-medium text-slate-800"><span class="day-content">鎌倉古都 / 江之島一日遊 (大佛、江之電、湘南海岸)</span></td>
-                                    <td class="py-3 px-4 text-center"><span class="bg-indigo-50 text-indigo-700 text-xs px-2 py-0.5 rounded border border-indigo-100">日本橋</span></td>
-                                    <td class="py-3 px-4 text-xs text-amber-600 font-medium day-strategy">次優先海岸好天日 ｜ 隨時移至D14補救</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50 bg-emerald-50/10 dynamic-day" data-default-day="14">
-                                    <td class="py-3 px-4 font-medium text-slate-900">7月10日 Fri <span class="block text-xs font-bold text-indigo-500">Day 14</span></td>
-                                    <td class="py-3 px-4 font-medium text-slate-800"><span class="day-content">新宿/澀谷最後大購物 ＋ 補遺未到景點 ＋ 天氣備用彈性緩衝日</span></td>
-                                    <td class="py-3 px-4 text-center"><span class="bg-indigo-50 text-indigo-700 text-xs px-2 py-0.5 rounded border border-indigo-100">日本橋</span></td>
-                                    <td class="py-3 px-4 text-xs text-emerald-600 font-medium day-strategy">全行程最大防線 ｜ 可承接富士山/鎌倉改期</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50">
-                                    <td class="py-3 px-4 font-medium text-slate-900">7月11日 Sat <span class="block text-xs font-bold text-indigo-500">Day 15</span></td>
-                                    <td class="py-3 px-4 font-medium text-slate-800">東京站/日本橋最後手信追加 ＋ 回酒店打包行李 ＋ 最後晚餐</td>
-                                    <td class="py-3 px-4 text-center"><span class="bg-indigo-50 text-indigo-700 text-xs px-2 py-0.5 rounded border border-indigo-100">日本橋</span></td>
-                                    <td class="py-3 px-4 text-xs text-slate-500">絕不排遠行，極度放鬆步調</td>
-                                </tr>
-                                <tr class="hover:bg-slate-50/50">
-                                    <td class="py-3 px-4 font-medium text-slate-900">7月12日 Sun <span class="block text-xs font-bold text-indigo-500">Day 16</span></td>
-                                    <td class="py-3 px-4 font-medium text-slate-800">日本橋酒店 Check-out ｜ 人形町乘 Access 特急直達成田T2 ｜ 返回香港</td>
-                                    <td class="py-3 px-4 text-center"><span class="text-slate-400">—</span></td>
-                                    <td class="py-3 px-4 text-xs text-slate-500">回程日，不設正規行程，專注買伴手禮</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
-
-            <!-- TAB 3: DAILY DETAILS & DETAILED TRANSPORTATION -->
-            <section id="daily-detail" class="tab-content space-y-4">
-                <div class="bg-amber-50 border border-amber-200 text-amber-900 p-4 rounded-xl text-xs flex gap-3 items-start">
-                    <i class="fa-solid fa-circle-info text-amber-600 mt-0.5 text-base"></i>
-                    <div>
-                        <strong>鐵路與步行指南：</strong>以下交通方式已精確匹配您入住的兩家酒店位置 (Hotel Livemax 秋葉原北 / Hotel Horidome Villa)。所有轉乘規劃以最少步行及最順路為主。
-                    </div>
-                </div>
-
-                <!-- Accordion Master -->
-                <div class="space-y-3">
-                    
-                    <!-- Day 1 -->
-                    <div class="bg-white rounded-xl shadow-xs border border-slate-200/80 overflow-hidden">
-                        <details class="group">
-                            <summary class="flex justify-between items-center p-4 font-bold text-sm cursor-pointer select-none hover:bg-slate-50">
-                                <span class="flex items-center gap-3">
-                                    <span class="bg-indigo-600 text-white text-xs px-2 py-0.5 rounded">Day 1</span>
-                                    <span>6月27日 (Sat) ｜ 香港 → 成田 → 秋葉原酒店熟習</span>
-                                </span>
-                                <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-slate-400 text-xs"></i>
-                            </summary>
-                            <div class="p-4 border-t border-slate-100 bg-slate-50/30 text-xs space-y-3">
-                                <p><strong>🎯 今日重點：</strong>平穩入境、換/買交通卡、抵達酒店辦理入住、周邊簡單晚餐。</p>
-                                <div class="bg-white p-3 rounded border border-slate-200/60 space-y-1.5">
-                                    <div class="flex items-center gap-2 font-bold text-slate-700 mb-1"><i class="fa-solid fa-train text-indigo-500"></i> 精確交通指南：</div>
-                                    <div><strong>第一步 (成田 → 上野)：</strong>於成田機場第2航廈乘 <strong>京成電鐵 Skyliner</strong> 直達「京成上野站」(約41分鐘；票價以當日官方公告為準)。</div>
-                                    <div><strong>第二步 (上野 → 酒店)：</strong>行李多時建議由京成上野站直接短程的士前往 Hotel Livemax Akihabara Kita；想省錢可步行至上野站轉 <strong>東京地下鐵日比谷線</strong> 到「仲御徒町站」或「秋葉原站」，再步行約8-10分鐘抵達。</div>
-                                </div>
-                                <div class="text-slate-600"><strong>📋 時間表參考：</strong>06:15 抵香港機場T2 Aisle U → 09:15 航班起飛 → 14:45 抵達成田T2 → 14:45-16:15 入境拿行李及辦通訊 → 16:15-17:45 乘 Skyliner 抵達市區 → 18:00 前後酒店Check-in → 19:00 後秋葉原漫步晚餐。</div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <!-- Day 2 -->
-                    <div class="bg-white rounded-xl shadow-xs border border-slate-200/80 overflow-hidden">
-                        <details class="group">
-                            <summary class="flex justify-between items-center p-4 font-bold text-sm cursor-pointer select-none hover:bg-slate-50">
-                                <span class="flex items-center gap-3">
-                                    <span class="bg-indigo-600 text-white text-xs px-2 py-0.5 rounded">Day 2</span>
-                                    <span>6月28日 (Sun) ｜ 秋葉原 ＋ 上野 ＋ 阿美橫町</span>
-                                </span>
-                                <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-slate-400 text-xs"></i>
-                            </summary>
-                            <div class="p-4 border-t border-slate-100 bg-slate-50/30 text-xs space-y-3">
-                                <p><strong>🎯 今日重點：</strong>完全不跨遠區，熟悉酒店周邊，開啟動漫與藥妝掃貨模式。</p>
-                                <div class="bg-white p-3 rounded border border-slate-200/60 space-y-1.5">
-                                    <div class="flex items-center gap-2 font-bold text-slate-700 mb-1"><i class="fa-solid fa-route text-indigo-500"></i> 精確交通指南：</div>
-                                    <div><strong>全日交通：</strong>酒店地理位置偏北秋葉原，步行 600 米即到御徒町與阿美橫町南端。前往秋葉原電器街、Animate 亦可直接徒步前往（步行約8-10分鐘）。若想省力，可利用 <strong>JR山手線</strong> 往返「秋葉原站」與「御徒町/上野站」（僅1-2站，約2-3分鐘）。</div>
-                                    <div class="text-blue-700 bg-blue-50 p-2 rounded mt-1">☔ <strong>雨天備案：</strong>上野站內 Atre、松坂屋上野店、秋葉原 Radio Kaikan、Yodobashi Camera 均可作為室內替代點，大雨時減少阿美橫町戶外停留。</div>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <!-- Day 3 -->
-                    <div class="bg-white rounded-xl shadow-xs border border-slate-200/80 overflow-hidden">
-                        <details class="group">
-                            <summary class="flex justify-between items-center p-4 font-bold text-sm cursor-pointer select-none hover:bg-slate-50">
-                                <span class="flex items-center gap-3">
-                                    <span class="bg-indigo-600 text-white text-xs px-2 py-0.5 rounded">Day 3</span>
-                                    <span>6月29日 (Mon) ｜ Chiikawa Park ＋ 池袋 ＋ 澀谷 ＋ Shibuya Sky</span>
-                                </span>
-                                <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-slate-400 text-xs"></i>
-                            </summary>
-                            <div class="p-4 border-t border-slate-100 bg-slate-50/30 text-xs space-y-3">
-                                <p><strong>🎯 今日重點：</strong>Chiikawa Park 需預約時段入場，傍晚鎖定澀谷十字路口與 Shibuya Sky 高空日落夜景。</p>
-                                <div class="bg-white p-3 rounded border border-slate-200/60 space-y-1.5">
-                                    <div class="flex items-center gap-2 font-bold text-slate-700 mb-1"><i class="fa-solid fa-train text-indigo-500"></i> 精確交通指南：</div>
-                                    <div><strong>1. 酒店 → 池袋：</strong>由「秋葉原站」乘 <strong>JR山手線 (外環方向)</strong> 直達「池袋站」(約20分鐘)，由東口步行前往 Sunshine City Annex B1F / 1F Chiikawa Park；若由有樂町線「東池袋站」前往，地下通道步行更短。</div>
-                                    <div><strong>2. 池袋 → 澀谷：</strong>由「池袋站」乘 <strong>JR埼京線</strong> 或 <strong>東京地下鐵副都心線</strong> 直達「澀谷站」(快車僅需11-12分鐘)。</div>
-                                    <div><strong>3. 澀谷 → 酒店：</strong>由「澀谷站」直接搭乘 <strong>JR山手線 (內環方向)</strong> 回「秋葉原站」(約30分鐘)，或搭乘地下鐵銀座線至末廣町站步行回酒店。</div>
-                                </div>
-                                <div class="text-amber-700 bg-amber-50 p-2 rounded">⚠️ <strong>預約備註：</strong>Chiikawa Park 門票售完即止且不可取消/改期；若未成功購票，改為 Sunshine City、Pokemon Center MEGA TOKYO、Animate 池袋與澀谷購物。Shibuya Sky 露天平台若遇大雨強風會局部關閉，建議買 18:15-18:45 入場時段並當日早上再確認天氣。</div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <!-- Day 4 -->
-                    <div class="bg-white rounded-xl shadow-xs border border-slate-200/80 overflow-hidden">
-                        <details class="group">
-                            <summary class="flex justify-between items-center p-4 font-bold text-sm cursor-pointer select-none hover:bg-slate-50">
-                                <span class="flex items-center gap-3">
-                                    <span class="bg-indigo-600 text-white text-xs px-2 py-0.5 rounded">Day 4</span>
-                                    <span>6月30日 (Tue) ｜ 明治神宮 ＋ 原宿 ＋ 表參道散策</span>
-                                </span>
-                                <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-slate-400 text-xs"></i>
-                            </summary>
-                            <div class="p-4 border-t border-slate-100 bg-slate-50/30 text-xs space-y-3">
-                                <p><strong>🎯 今日重點：</strong>體驗一條龍順路走完。森林神宮、原宿潮流街區與表參道高級建築咖啡店。</p>
-                                <div class="bg-white p-3 rounded border border-slate-200/60 space-y-1.5">
-                                    <div class="flex items-center gap-2 font-bold text-slate-700 mb-1"><i class="fa-solid fa-train text-indigo-500"></i> 精確交通指南：</div>
-                                    <div><strong>去程：</strong>於「秋葉原站」乘 <strong>JR總武線</strong> 至「代代木站」轉 <strong>JR山手線</strong> 1站至「原宿站」(約25分鐘)；或者直接秋葉原山手線坐到原宿(28分鐘)。</div>
-                                    <div><strong>回程：</strong>在表參道逛完後，於「表參道站」搭乘 <strong>東京地下鐵銀座線</strong> 直達「末廣町站」(約22分鐘)，出站即可輕鬆步行回到秋葉原北酒店。</div>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <!-- Day 5 -->
-                    <div class="bg-white rounded-xl shadow-xs border border-slate-200/80 overflow-hidden">
-                        <details class="group">
-                            <summary class="flex justify-between items-center p-4 font-bold text-sm cursor-pointer select-none hover:bg-slate-50">
-                                <span class="flex items-center gap-3">
-                                    <span class="bg-indigo-600 text-white text-xs px-2 py-0.5 rounded">Day 5</span>
-                                    <span>7月1日 (Wed) ｜ 合羽橋 ＋ 蔵前/清澄白河 ＋ 晴空塔 Solamachi</span>
-                                </span>
-                                <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-slate-400 text-xs"></i>
-                            </summary>
-                            <div class="p-4 border-t border-slate-100 bg-slate-50/30 text-xs space-y-3">
-                                <p><strong>🎯 今日重點：</strong>徹底避開雷門人潮！專注職人道具街、文青手沖咖啡店與晴空塔大型購物商圈。</p>
-                                <div class="bg-white p-3 rounded border border-slate-200/60 space-y-1.5">
-                                    <div class="flex items-center gap-2 font-bold text-slate-700 mb-1"><i class="fa-solid fa-train text-indigo-500"></i> 精確交通指南：</div>
-                                    <div><strong>1. 酒店 → 合羽橋：</strong>從酒店步行至「末廣町站」乘 <strong>東京地下鐵銀座線</strong> 到「田原町站」，再步行前往合羽橋道具街；想省轉乘也可由酒店直接步行約20-25分鐘。</div>
-                                    <div><strong>2. 合羽橋 → 蔵前 → 清澄白河：</strong>合羽橋逛完可步行/短程的士到蔵前，之後由「蔵前站」乘 <strong>都營大江戶線</strong> 直達「清澄白河站」品嚐精品咖啡。</div>
-                                    <div><strong>3. 清澄白河 → 晴空塔：</strong>從「清澄白河站」乘 <strong>東京地下鐵半藏門線</strong> 直達「押上(晴空塔)站」(約7分鐘)。</div>
-                                    <div><strong>回程：</strong>由「押上站」乘 <strong>都營淺草線</strong> 至「淺草橋站」轉 <strong>JR總武線</strong> 回秋葉原。</div>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <!-- Day 6 -->
-                    <div class="bg-white rounded-xl shadow-xs border border-slate-200/80 overflow-hidden">
-                        <details class="group">
-                            <summary class="flex justify-between items-center p-4 font-bold text-sm cursor-pointer select-none hover:bg-slate-50">
-                                <span class="flex items-center gap-3">
-                                    <span class="bg-indigo-600 text-white text-xs px-2 py-0.5 rounded">Day 6</span>
-                                    <span>7月2日 (Thu) ｜ 春日部蠟筆小新動漫朝聖一日/半日遊</span>
-                                </span>
-                                <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-slate-400 text-xs"></i>
-                            </summary>
-                            <div class="p-4 border-t border-slate-100 bg-slate-50/30 text-xs space-y-3">
-                                <p><strong>🎯 今日重點：</strong>粉絲必備！造訪春日部站、LaLa Garden 春日部 3F 小新遊戲中心與周邊街道慢步。</p>
-                                <div class="bg-white p-3 rounded border border-slate-200/60 space-y-1.5">
-                                    <div class="flex items-center gap-2 font-bold text-slate-700 mb-1"><i class="fa-solid fa-train text-indigo-500"></i> 精確交通指南：</div>
-                                    <div><strong>去程：</strong>從酒店步行至「仲御徒町站」搭乘 <strong>東京地下鐵日比谷線</strong> 到「北千住站」，轉乘 <strong>東武晴空塔線急行/準急</strong> 往春日部方向；部分日比谷線直通東武線班次亦可減少轉乘，但以當日 Google Maps / NAVITIME 顯示班次為準。全段約45-60分鐘。</div>
-                                    <div><strong>回程：</strong>循原路坐東武線接續日比谷線回到秋葉原一帶，晚上可輕鬆補逛秋葉原電器街。小新遊戲中心通常 10:00-20:00，若只朝聖拍照半日已足夠。</div>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <!-- Day 7 -->
-                    <div class="bg-white rounded-xl shadow-xs border border-slate-200/80 overflow-hidden">
-                        <details class="group">
-                            <summary class="flex justify-between items-center p-4 font-bold text-sm cursor-pointer select-none hover:bg-slate-50">
-                                <span class="flex items-center gap-3">
-                                    <span class="bg-indigo-600 text-white text-xs px-2 py-0.5 rounded">Day 7</span>
-                                    <span>7月3日 (Fri) ｜ 銀座百貨 ＋ 有樂町 ＋ 東京車站拉麵街</span>
-                                </span>
-                                <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-slate-400 text-xs"></i>
-                            </summary>
-                            <div class="p-4 border-t border-slate-100 bg-slate-50/30 text-xs space-y-3">
-                                <p><strong>🎯 今日重點：</strong>購物主力日，晚上前往東京車站一番街大快朵頤，無懼任何惡劣梅雨天氣。</p>
-                                <div class="bg-white p-3 rounded border border-slate-200/60 space-y-1.5">
-                                    <div class="flex items-center gap-2 font-bold text-slate-700 mb-1"><i class="fa-solid fa-train text-indigo-500"></i> 精確交通指南：</div>
-                                    <div><strong>去程：</strong>於酒店附近的「仲御徒町站」或「秋葉原站」搭乘 <strong>東京地下鐵日比谷線</strong> 直達「銀座站」(約13分鐘)。</div>
-                                    <div><strong>市區徒步：</strong>銀座、有樂町與東京車站之間極度接近，建議直接靠地下聯通道或步行街散步步行過去 (步行約10-15分鐘)。</div>
-                                    <div><strong>回程：</strong>從「東京站」搭乘 <strong>JR山手線</strong> 或 <strong>京濱東北線</strong> 僅需2站即刻回到「秋葉原站」(約4分鐘)。</div>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <!-- Day 8 -->
-                    <div class="bg-white rounded-xl shadow-xs border border-slate-200/80 overflow-hidden">
-                        <details class="group">
-                            <summary class="flex justify-between items-center p-4 font-bold text-sm cursor-pointer select-none hover:bg-slate-50">
-                                <span class="flex items-center gap-3">
-                                    <span class="bg-indigo-600 text-white text-xs px-2 py-0.5 rounded">Day 8</span>
-                                    <span>7月4日 (Sat) ｜ 築地市場 ＋ 增上寺 ＋ 東京鐵塔日落</span>
-                                </span>
-                                <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-slate-400 text-xs"></i>
-                            </summary>
-                            <div class="p-4 border-t border-slate-100 bg-slate-50/30 text-xs space-y-3">
-                                <p><strong>🎯 今日重點：</strong>海鮮早宴、古剎與鐵塔同框經典機位、好天氣登塔觀景。</p>
-                                <div class="bg-white p-3 rounded border border-slate-200/60 space-y-1.5">
-                                    <div class="flex items-center gap-2 font-bold text-slate-700 mb-1"><i class="fa-solid fa-train text-indigo-500"></i> 精確交通指南：</div>
-                                    <div><strong>1. 酒店 → 築地：</strong>由「仲御徒町站」乘 <strong>東京地下鐵日比谷線</strong> 直達「築地站」(約10分鐘)。</div>
-                                    <div><strong>2. 築地 → 增上寺：</strong>由築地市場步行至「築地市場站」乘 <strong>都營大江戶線</strong> 至「大門站」，出站後即可步行至增上寺與芝公園。</div>
-                                    <div><strong>3. 東京鐵塔 → 酒店：</strong>登塔結束後，步行至「神谷町站」搭乘 <strong>東京地下鐵日比谷線</strong> 直達回「秋葉原站」。</div>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <!-- Day 9 -->
-                    <div class="bg-white rounded-xl shadow-xs border border-slate-200/80 overflow-hidden">
-                        <details class="group">
-                            <summary class="flex justify-between items-center p-4 font-bold text-sm cursor-pointer select-none hover:bg-slate-50">
-                                <span class="flex items-center gap-3">
-                                    <span class="bg-indigo-600 text-white text-xs px-2 py-0.5 rounded">Day 9</span>
-                                    <span>7月5日 (Sun) ｜ 轉酒店基地 ＋ 麻布台 Hills ＋ teamLab</span>
-                                </span>
-                                <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-slate-400 text-xs"></i>
-                            </summary>
-                            <div class="p-4 border-t border-slate-100 bg-slate-50/30 text-xs space-y-3">
-                                <p><strong>🎯 今日重點：</strong>無縫過渡新酒店，下午投身麻布台全新數位藝術美術館與奢華地標商場。</p>
-                                <div class="bg-white p-3 rounded border border-slate-200/60 space-y-1.5">
-                                    <div class="flex items-center gap-2 font-bold text-slate-700 mb-1"><i class="fa-solid fa-train text-indigo-500"></i> 精確交通指南：</div>
-                                    <div><strong>1. 行李大轉移：</strong>從舊酒店辦理 Check-out，到「仲御徒町站/秋葉原站」搭乘 <strong>日比谷線</strong> 僅需 2-3 站直達「小傳馬町站」或「人形町站」，步行至新酒店 <strong>Hotel Horidome Villa</strong> 寄放行李。</div>
-                                    <div><strong>2. 新酒店 → 麻布台 Hills：</strong>從酒店旁的「小傳馬町站」或「人形町站」直接搭乘 <strong>東京地下鐵日比谷線</strong> 毋需轉乘，直達「神谷町站」(地下通道直接連通麻布台 Hills 與 teamLab 入口，極為方便！)。</div>
-                                    <div><strong>3. 建議節奏：</strong>11:00 前完成寄放行李 → 12:00 麻布台午餐 → 14:00 teamLab Borderless 入場 → 17:00 後回日本橋酒店正式 Check-in。</div>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <!-- Day 10 -->
-                    <div class="bg-white rounded-xl shadow-xs border border-slate-200/80 overflow-hidden">
-                        <details class="group">
-                            <summary class="flex justify-between items-center p-4 font-bold text-sm cursor-pointer select-none hover:bg-slate-50">
-                                <span class="flex items-center gap-3">
-                                    <span class="bg-indigo-600 text-white text-xs px-2 py-0.5 rounded">Day 10</span>
-                                    <span>7月6日 (Mon) ｜ 台場海濱 ＋ 1:1 巨型鋼彈 ＋ 彩虹大橋夜景</span>
-                                </span>
-                                <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-slate-400 text-xs"></i>
-                            </summary>
-                            <div class="p-4 border-t border-slate-100 bg-slate-50/30 text-xs space-y-3">
-                                <p><strong>🎯 今日重點：</strong>鋼彈基地高規格打卡，欣賞東京灣唯美黃昏日落。晚上提早回酒店充電，準備明日硬仗。</p>
-                                <div class="bg-white p-3 rounded border border-slate-200/60 space-y-1.5">
-                                    <div class="flex items-center gap-2 font-bold text-slate-700 mb-1"><i class="fa-solid fa-train text-indigo-500"></i> 精確交通指南：</div>
-                                    <div><strong>去程路線：</strong>從新酒店所在之「人形町站」搭乘 <strong>都營淺草線</strong> 直達「新橋站」(約7分鐘)，於新橋站轉乘無人駕駛海鷗線 <strong>百合鷗號 (Yurikamome)</strong> 抵達「台場站」或「台場海濱公園站」(約15分鐘)。</div>
-                                    <div><strong>回程路線：</strong>循原路搭乘百合鷗號至新橋站，轉淺草線直回人形町站。</div>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <!-- Day 11 -->
-                    <div class="bg-white rounded-xl shadow-xs border border-slate-200/80 overflow-hidden">
-                        <details class="group">
-                            <summary class="flex justify-between items-center p-4 font-bold text-sm cursor-pointer select-none hover:bg-slate-50">
-                                <span class="flex items-center gap-3">
-                                    <span class="bg-indigo-600 text-white text-xs px-2 py-0.5 rounded">Day 11</span>
-                                    <span>7月7日 (Tue) ｜ 富士山 ＆ 河口湖全景絕景一日遊</span>
-                                </span>
-                                <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-slate-400 text-xs"></i>
-                            </summary>
-                            <div class="p-4 border-t border-slate-100 bg-slate-50/30 text-xs space-y-3">
-                                <p class="text-rose-700 font-bold">🔴 核心警告：本項目為最高天氣優先級別。如氣象預報顯示白茫茫，請利用「天氣策略模擬器」分頁與 Day 12 / Day 14 調整交換！</p>
-                                <div class="bg-white p-3 rounded border border-slate-200/60 space-y-1.5">
-                                    <div class="flex items-center gap-2 font-bold text-slate-700 mb-1"><i class="fa-solid fa-train text-indigo-500"></i> 新宿集合交通指南：</div>
-                                    <div><strong>出發當朝 (日本橋 → 新宿集合點)：</strong>一日遊通常在 07:15-07:30 於「新宿站西口」或附近指定集合。當天早晨建議 06:15-06:25 出門，步行至「馬喰橫山站」搭乘 <strong>都營新宿線</strong> 直達「新宿站」；車程約15-20分鐘，但新宿站出口與集合點尋路需額外預留20分鐘。</div>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <!-- Day 12 -->
-                    <div class="bg-white rounded-xl shadow-xs border border-slate-200/80 overflow-hidden">
-                        <details class="group">
-                            <summary class="flex justify-between items-center p-4 font-bold text-sm cursor-pointer select-none hover:bg-slate-50">
-                                <span class="flex items-center gap-3">
-                                    <span class="bg-indigo-600 text-white text-xs px-2 py-0.5 rounded">Day 12</span>
-                                    <span>7月8日 (Wed) ｜ 高輪 Gateway City / NEWoMan 高輪 ＋ 品川 ＋ 日本橋</span>
-                                </span>
-                                <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-slate-400 text-xs"></i>
-                            </summary>
-                            <div class="p-4 border-t border-slate-100 bg-slate-50/30 text-xs space-y-3">
-                                <p><strong>🎯 今日重點：</strong>富士山遠行後的舒適休整期。探訪高輪 Gateway City、NEWoMan 高輪與品川一帶，再回日本橋/東京站慢逛。</p>
-                                <div class="bg-white p-3 rounded border border-slate-200/60 space-y-1.5">
-                                    <div class="flex items-center gap-2 font-bold text-slate-700 mb-1"><i class="fa-solid fa-train text-indigo-500"></i> 精確交通指南：</div>
-                                    <div><strong>去程：</strong>從酒店旁的「人形町站」搭乘 <strong>都營淺草線</strong> 至「泉岳寺站」(約12分鐘)，出站後步行約8-10分鐘可到高輪 Gateway City / NEWoMan 高輪一帶；若要先到品川，可繼續搭乘直通京急線班次至「品川站」。</div>
-                                    <div><strong>回程：</strong>由「高輪 Gateway站」或「品川站」搭 JR 到「東京站」，再散步/短程地鐵回日本橋酒店。</div>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <!-- Day 13 -->
-                    <div class="bg-white rounded-xl shadow-xs border border-slate-200/80 overflow-hidden">
-                        <details class="group">
-                            <summary class="flex justify-between items-center p-4 font-bold text-sm cursor-pointer select-none hover:bg-slate-50">
-                                <span class="flex items-center gap-3">
-                                    <span class="bg-indigo-600 text-white text-xs px-2 py-0.5 rounded">Day 13</span>
-                                    <span>7月9日 (Thu) ｜ 鎌倉古都 ＆ 江之島海岸線一日遊</span>
-                                </span>
-                                <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-slate-400 text-xs"></i>
-                            </summary>
-                            <div class="p-4 border-t border-slate-100 bg-slate-50/30 text-xs space-y-3">
-                                <p><strong>🎯 今日重點：</strong>次要天氣好天日。鎌倉高校前、江之電復古鐵路、沿海散步感受關東海岸風情。</p>
-                                <div class="bg-white p-3 rounded border border-slate-200/60 space-y-1.5">
-                                    <div class="flex items-center gap-2 font-bold text-slate-700 mb-1"><i class="fa-solid fa-train text-indigo-500"></i> 自助或集合交通指南：</div>
-                                    <div><strong>若為巴士團：</strong>依照 Day 11 模式，利用都營新宿線前往新宿西口集合。</div>
-                                    <div><strong>若為自助鐵路行：</strong>從酒店步行約7-10分鐘至「新日本橋站」，直接搭乘 <strong>JR總武快速 / 橫須賀線 (逗子、久里濱方向)</strong>，不需要轉乘，大約55-65分鐘直達「鎌倉站」。抵達後順序建議：小町通 → 鶴岡八幡宮 → 長谷大佛 → 江之電 → 鎌倉高校前/江之島。</div>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <!-- Day 14 -->
-                    <div class="bg-white rounded-xl shadow-xs border border-slate-200/80 overflow-hidden">
-                        <details class="group">
-                            <summary class="flex justify-between items-center p-4 font-bold text-sm cursor-pointer select-none hover:bg-slate-50">
-                                <span class="flex items-center gap-3">
-                                    <span class="bg-indigo-600 text-white text-xs px-2 py-0.5 rounded">Day 14</span>
-                                    <span>7月10日 (Fri) ｜ 最大天氣後備緩衝日 ＋ 新宿/澀谷</span>
-                                </span>
-                                <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-slate-400 text-xs"></i>
-                            </summary>
-                            <div class="p-4 border-t border-slate-100 bg-slate-50/30 text-xs space-y-3">
-                                <p><strong>🎯 今日重點：</strong>不作硬性限制。若前面富士山或鎌倉因雨被迫改期，今天就是主要替補日。若一切順利，則作為市區大型藥妝電器服飾補買日。</p>
-                                <div class="bg-white p-3 rounded border border-slate-200/60 space-y-1.5">
-                                    <div class="flex items-center gap-2 font-bold text-slate-700 mb-1"><i class="fa-solid fa-train text-indigo-500"></i> 市區穿梭：</div>
-                                    <div><strong>去新宿：</strong>「馬喰橫山站」搭乘 <strong>都營新宿線</strong> 直達新宿。</div>
-                                    <div><strong>去澀谷：</strong>步行至「水天宮前站」搭乘 <strong>東京地下鐵半藏門線</strong> 直達澀谷。</div>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <!-- Day 15 -->
-                    <div class="bg-white rounded-xl shadow-xs border border-slate-200/80 overflow-hidden">
-                        <details class="group">
-                            <summary class="flex justify-between items-center p-4 font-bold text-sm cursor-pointer select-none hover:bg-slate-50">
-                                <span class="flex items-center gap-3">
-                                    <span class="bg-indigo-600 text-white text-xs px-2 py-0.5 rounded">Day 15</span>
-                                    <span>7月11日 (Sat) ｜ 東京站/日本橋伴手禮最後追加 & 打包</span>
-                                </span>
-                                <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-slate-400 text-xs"></i>
-                            </summary>
-                            <div class="p-4 border-t border-slate-100 bg-slate-50/30 text-xs space-y-3">
-                                <p><strong>🎯 今日重點：</strong>絕對不走遠。日本橋大丸百貨、高島屋、東京車站地下街掃蕩手信，下午回酒店優雅整理箱子。</p>
-                                <div class="bg-white p-3 rounded border border-slate-200/60 space-y-1.5">
-                                    <div class="flex items-center gap-2 font-bold text-slate-700 mb-1"><i class="fa-solid fa-route text-indigo-500"></i> 交通：</div>
-                                    <div>直接步行或搭乘計程車/短途地鐵前往東京車站丸之內或日本橋核心商圈（均在 1.5 公里範圍之內）。</div>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <!-- Day 16 -->
-                    <div class="bg-white rounded-xl shadow-xs border border-slate-200/80 overflow-hidden">
-                        <details class="group">
-                            <summary class="flex justify-between items-center p-4 font-bold text-sm cursor-pointer select-none hover:bg-slate-50">
-                                <span class="flex items-center gap-3">
-                                    <span class="bg-indigo-600 text-white text-xs px-2 py-0.5 rounded">Day 16</span>
-                                    <span>7月12日 (Sun) ｜ 日本橋 → 成田機場 → 返回香港</span>
-                                </span>
-                                <i class="fa-solid fa-chevron-down group-open:rotate-180 transition-transform text-slate-400 text-xs"></i>
-                            </summary>
-                            <div class="p-4 border-t border-slate-100 bg-slate-50/30 text-xs space-y-3">
-                                <p><strong>🎯 今日重點：</strong>不設任何景點，安全第一，從容辦理退稅與登機手續。</p>
-                                <div class="bg-white p-3 rounded border border-slate-200/60 space-y-1.5">
-                                    <div class="flex items-center gap-2 font-bold text-slate-700 mb-1"><i class="fa-solid fa-train text-indigo-500"></i> 回程直達路線（少搬行李）：</div>
-                                    <div>新酒店 <strong>Hotel Horidome Villa</strong> 最強特點就在此！退房後直接步行至「人形町站」，優先搭乘 <strong>都營淺草線直通京成 Narita Sky Access / Access 特急</strong> 的成田機場方向班次。不需搬行李轉車，一線直達成田機場第2航廈 (約60-75分鐘；票價以當日 IC / 車站公告為準)。注意：<strong>Skyliner 不經人形町站</strong>，如想坐 Skyliner 需改去京成上野/日暮里。</div>
-                                </div>
-                                <div class="text-slate-500">建議 12:15-12:30 市區出發 → 13:45-14:00 抵達成田T2 → 預留退稅、行李與安檢時間 → 17:05 航班起飛 → 21:00 抵達香港T1。</div>
-                            </div>
-                        </details>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- TAB 4: WEATHER STRATEGY INTERACTIVE SIMULATOR -->
-            <section id="weather-strategy" class="tab-content space-y-4">
-                <div class="bg-white rounded-xl shadow-xs border border-slate-200/80 p-6">
-                    <h2 class="text-lg font-bold text-indigo-950 flex items-center gap-2"><i class="fa-solid fa-wand-magic-sparkles text-amber-500"></i> 梅雨季天氣智能對調方案動態模擬</h2>
-                    <p class="text-xs text-slate-500 mt-1">根據 6 月尾 7 月初日本梅雨天氣的不確定性，點擊下方不同氣象情境，即時切換 Day 11 – Day 14 的動態調配策略：</p>
-                    
-                    <!-- Buttons Container -->
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-4">
-                        <button onclick="simulateWeather('A')" id="btn-plan-a" class="weather-plan-btn p-3 text-xs font-bold rounded-xl border text-center transition-all bg-indigo-600 text-white border-indigo-600 shadow-xs">
-                            ☀️ Plan A<br><span class="font-normal text-[10px] opacity-90">預設好天氣</span>
-                        </button>
-                        <button onclick="simulateWeather('B')" id="btn-plan-b" class="weather-plan-btn p-3 text-xs font-bold rounded-xl border text-center transition-all bg-white text-slate-700 border-slate-200 hover:bg-slate-50">
-                            🌧️ Plan B<br><span class="font-normal text-[10px] opacity-70">7/7 富士山大雨</span>
-                        </button>
-                        <button onclick="simulateWeather('C')" id="btn-plan-c" class="weather-plan-btn p-3 text-xs font-bold rounded-xl border text-center transition-all bg-white text-slate-700 border-slate-200 hover:bg-slate-50">
-                            🌊 Plan C<br><span class="font-normal text-[10px] opacity-70">7/9 鎌倉強風雨</span>
-                        </button>
-                        <button onclick="simulateWeather('D')" id="btn-plan-d" class="weather-plan-btn p-3 text-xs font-bold rounded-xl border text-center transition-all bg-white text-slate-700 border-slate-200 hover:bg-slate-50">
-                            ⛈️ Plan D<br><span class="font-normal text-[10px] opacity-70">雙一日遊皆遇雨</span>
-                        </button>
-                    </div>
-
-                    <!-- Dynamic Feedback Box -->
-                    <div class="mt-6 p-4 rounded-xl bg-slate-50 border border-slate-200/60" id="weather-feedback-box">
-                        <div class="flex items-center gap-2 font-bold text-sm text-indigo-950">
-                            <i class="fa-solid fa-circle-check text-emerald-500"></i> 當前生效：<span id="current-plan-title">Plan A ｜ 預設好天氣行程</span>
-                        </div>
-                        <div class="mt-3 text-xs text-slate-600 space-y-2" id="current-plan-desc">
-                            <div>• <strong>7月7日 (Day 11):</strong> 富士山 / 河口湖全景一日遊 <span class="bg-emerald-100 text-emerald-800 px-1 py-0.5 rounded text-[10px]">精準執行</span></div>
-                            <div>• <strong>7月8日 (Day 12):</strong> 高輪 Gateway City / NEWoMan 高輪 ＋ 品川舒適休整日</div>
-                            <div>• <strong>7月9日 (Day 13):</strong> 鎌倉古都 / 江之島一日遊 <span class="bg-emerald-100 text-emerald-800 px-1 py-0.5 rounded text-[10px]">精準執行</span></div>
-                            <div>• <strong>7月10日 (Day 14):</strong> 新宿/澀谷最後大採購 ＆ 天氣大緩衝</div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- TAB 5: CHECKLIST & BOOKINGS -->
-            <section id="checklist" class="tab-content space-y-4">
-                <div class="bg-white rounded-xl shadow-xs border border-slate-200/80 p-6">
-                    <h2 class="text-lg font-bold text-indigo-950 border-b border-slate-100 pb-3 flex items-center gap-2">
-                        <i class="fa-solid fa-list-check text-indigo-600"></i> 必備行程預約與確認清單 (出發前倒數)
-                    </h2>
-                    
-                    <div class="mt-4 space-y-3">
-                        <label class="flex items-start gap-3 p-3 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100/70 transition-colors">
-                            <input type="checkbox" class="mt-1 accent-indigo-600 rounded">
-                            <div class="text-xs">
-                                <span class="font-bold text-slate-900">Chiikawa Park（預計 6月29日行程）</span>
-                                <p class="text-slate-500 mt-0.5">官方採 asoview 預售：每月15日日本時間12:00發售兩個月後整月票，先到先得，售完即止。6月29日門票應已開售，需立即確認是否仍有合適時段。</p>
-                            </div>
-                        </label>
-
-                        <label class="flex items-start gap-3 p-3 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100/70 transition-colors">
-                            <input type="checkbox" class="mt-1 accent-indigo-600 rounded">
-                            <div class="text-xs">
-                                <span class="font-bold text-slate-900">Shibuya Sky 黃昏展望台門票 (預計 6月29日 17:00 時段)</span>
-                                <p class="text-slate-500 mt-0.5">官方開放 10:00-22:30，最遲入場 21:20。6月尾東京日落約19:00，建議優先 18:15-18:45 入場；購票前先看天氣，強風雨可能影響露天區。</p>
-                            </div>
-                        </label>
-
-                        <label class="flex items-start gap-3 p-3 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100/70 transition-colors">
-                            <input type="checkbox" class="mt-1 accent-indigo-600 rounded">
-                            <div class="text-xs">
-                                <span class="font-bold text-slate-900">teamLab Borderless 麻布台 Hills 門票 (7月5日 14:00 批次)</span>
-                                <p class="text-slate-500 mt-0.5">搬遷至麻布台後人氣依舊爆棚，建議提早2-3週預約。因當天需要辦理轉酒店寄存手續，14:00 入場最為穩妥從容。</p>
-                            </div>
-                        </label>
-
-                        <label class="flex items-start gap-3 p-3 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100/70 transition-colors">
-                            <input type="checkbox" class="mt-1 accent-indigo-600 rounded">
-                            <div class="text-xs">
-                                <span class="font-bold text-slate-900">富士山及鎌倉 Local Tour 巴士團 (Klook / KKday 預訂)</span>
-                                <p class="text-slate-500 mt-0.5">請額外核對所選產品的「改期與退款政策」。確保出發前 24-48 小時能根據氣象廳（JMA）最新降雨能見度預報進行線上彈性改期。</p>
-                            </div>
-                        </label>
-
-                        <label class="flex items-start gap-3 p-3 bg-slate-50 rounded-lg cursor-pointer hover:bg-slate-100/70 transition-colors">
-                            <input type="checkbox" class="mt-1 accent-indigo-600 rounded">
-                            <div class="text-xs">
-                                <span class="font-bold text-slate-900">東京電鐵 Skyliner 車票 ＆ 日本網卡/eSIM</span>
-                                <p class="text-slate-500 mt-0.5">提前在線上買好 QR Code，到達成田機場第2航廈一鍵換票最流暢。</p>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-            </section>
-
-        </main>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div>
+        <h1 class="brand-title">
+          <span class="material-symbols-outlined fill">travel_explore</span>
+          東京旅行行程計劃
+          <span class="version-pill">V12.1 DisneySea</span>
+        </h1>
+        <p class="subtitle">2026年6月27日 – 7月12日 (16日15夜) ｜ 同行：2成人 ｜ 迪士尼海洋強勢進駐總表</p>
+      </div>
+      <div class="principles" aria-label="行程原則">
+        <span class="principle-chip"><span class="material-symbols-outlined">verified</span> 已核對</span>
+        <span class="principle-chip"><span class="material-symbols-outlined">route</span> 順路安排</span>
+        <span class="principle-chip"><span class="material-symbols-outlined">rainy</span> 天氣彈性</span>
+      </div>
     </div>
+  </header>
 
-    <!-- Interactive JS Core Logic -->
-    <script>
-        // Tab Switcher Logic
-        function switchTab(tabId) {
-            // Hide all tab contents
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            // Display targeted tab content
-            document.getElementById(tabId).classList.add('active');
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="sidebar-head">
+        <h2 class="sidebar-title"><span class="material-symbols-outlined">menu_open</span> 導航選單</h2>
+      </div>
+      <nav class="nav-list" id="main-nav" aria-label="主要分頁">
+        <button class="nav-btn active" type="button" data-tab="overview"><span class="nav-label"><span class="material-symbols-outlined fill">dashboard</span> 總覽與航班酒店</span></button>
+        <button class="nav-btn" type="button" data-tab="master-table"><span class="nav-label"><span class="material-symbols-outlined">calendar_view_week</span> 16日總行程表</span></button>
+        <button class="nav-btn" type="button" data-tab="daily-detail"><span class="nav-label"><span class="material-symbols-outlined">directions_walk</span> 每日詳細行程 & 交通</span></button>
+        <button class="nav-btn" type="button" data-tab="disney-strategy"><span class="nav-label"><span class="material-symbols-outlined">castle</span> DisneySea 攻略</span><span class="mini-dot"></span></button>
+        <button class="nav-btn" type="button" data-tab="weather-strategy"><span class="nav-label"><span class="material-symbols-outlined">routine</span> 天氣策略模擬器</span><span class="mini-dot"></span></button>
+        <button class="nav-btn" type="button" data-tab="checklist"><span class="nav-label"><span class="material-symbols-outlined">checklist</span> 預約及確認清單</span></button>
+      </nav>
+      <div class="update-box">
+        <p><span class="material-symbols-outlined">update</span> Version 12.1 更新</p>
+        <ul>
+          <li>7月1日加入東京迪士尼海洋全日行程</li>
+          <li>合羽橋/蔵前/清澄白河移至日本橋住宿段</li>
+          <li>春日部回程串聯晴空塔 Solamachi</li>
+          <li>Fantasy Springs 攻略改用 2026 App/DPA 規則</li>
+        </ul>
+      </div>
+    </aside>
 
-            // Reset navigation menu styling
-            const navButtons = document.querySelectorAll('#main-nav button');
-            navButtons.forEach(btn => {
-                btn.className = "w-full text-left px-4 py-3 rounded-lg font-medium text-sm flex items-center justify-between text-slate-600 hover:bg-slate-50 transition-all";
-            });
+    <main class="main">
+      <div class="mobile-tabs" id="mobile-nav" aria-label="流動分頁">
+        <button class="mobile-tab active" type="button" data-tab="overview">總覽</button>
+        <button class="mobile-tab" type="button" data-tab="master-table">總表</button>
+        <button class="mobile-tab" type="button" data-tab="daily-detail">每日</button>
+        <button class="mobile-tab" type="button" data-tab="disney-strategy">DisneySea</button>
+        <button class="mobile-tab" type="button" data-tab="weather-strategy">天氣</button>
+        <button class="mobile-tab" type="button" data-tab="checklist">清單</button>
+      </div>
 
-            // Set styling for active tab button
-            const activeBtn = document.getElementById(`btn-${tabId}`);
-            activeBtn.className = "w-full text-left px-4 py-3 rounded-lg font-medium text-sm flex items-center justify-between bg-indigo-50 text-indigo-700 border-l-4 border-indigo-600 transition-all";
+      <section id="overview" class="tab-content active">
+        <div class="card">
+          <div class="card-head">
+            <h2 class="section-title"><span class="material-symbols-outlined fill">flight_takeoff</span> 已訂航班資訊</h2>
+            <span class="price-pill">總價 HKD 8,312 <span class="material-symbols-outlined">verified</span></span>
+          </div>
+          <div class="card-pad">
+            <div class="grid-2">
+              <article class="flight-card">
+                <div class="flight-top">
+                  <div>
+                    <span class="badge badge-indigo">去程 Outbound</span>
+                    <p class="flight-number">HK Express UO848</p>
+                  </div>
+                  <span class="material-symbols-outlined">flight_takeoff</span>
+                </div>
+                <div class="flight-path">
+                  <div>
+                    <div class="time">09:15</div>
+                    <div class="airport">HKG 香港國際機場</div>
+                    <div class="terminal">6月27日 Sat ｜ Terminal 2 / Aisle U</div>
+                  </div>
+                  <div class="route-line">
+                    <span>4小時30分鐘</span>
+                    <div class="line"><span class="material-symbols-outlined">flight</span></div>
+                    <span>直飛</span>
+                  </div>
+                  <div style="text-align:right">
+                    <div class="time">14:45</div>
+                    <div class="airport">NRT 成田國際機場</div>
+                    <div class="terminal">Terminal 2</div>
+                  </div>
+                </div>
+              </article>
+              <article class="flight-card">
+                <div class="flight-top">
+                  <div>
+                    <span class="badge badge-blue">回程 Inbound</span>
+                    <p class="flight-number">HK Express UO871</p>
+                  </div>
+                  <span class="material-symbols-outlined">flight_land</span>
+                </div>
+                <div class="flight-path">
+                  <div>
+                    <div class="time">17:05</div>
+                    <div class="airport">NRT 成田國際機場</div>
+                    <div class="terminal">7月12日 Sun ｜ Terminal 2</div>
+                  </div>
+                  <div class="route-line">
+                    <span>4小時55分鐘</span>
+                    <div class="line"><span class="material-symbols-outlined">flight</span></div>
+                    <span>直飛</span>
+                  </div>
+                  <div style="text-align:right">
+                    <div class="time">21:00</div>
+                    <div class="airport">HKG 香港國際機場</div>
+                    <div class="terminal">Terminal 1 arrivals</div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="info-box" style="margin-top:18px">
+              <strong>2026年6月20日已核對：</strong>HK Express 香港出發使用香港機場 Terminal 2 Aisle U 辦理 check-in / bag drop；成田使用 Terminal 2 / 3F。航班時間、閘口與櫃位仍以航空公司及機場即日公告為準。
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h2 class="section-title"><span class="material-symbols-outlined">hotel</span> 已確認住宿酒店</h2>
+          </div>
+          <div class="card-pad grid-2">
+            <article class="hotel-card">
+              <div class="hotel-accent-emerald"></div>
+              <div class="hotel-body">
+                <div class="hotel-title-row">
+                  <div>
+                    <span class="badge badge-emerald">Stay 1 ｜ 6月27日 – 7月5日 (8夜)</span>
+                    <h3 class="hotel-title">Hotel Livemax Akihabara Kita</h3>
+                    <p class="hotel-meta">2-5-2 Taito, 秋葉原 / 台東區 ｜ Semi Double Room - Non-Smoking</p>
+                  </div>
+                  <span class="material-symbols-outlined" style="color:var(--emerald)">task_alt</span>
+                </div>
+                <div class="hotel-note"><strong>適合安排：</strong>秋葉原、上野、池袋/澀谷、築地、春日部、晴空塔、DisneySea 出發。</div>
+              </div>
+            </article>
+            <article class="hotel-card">
+              <div class="hotel-accent-indigo"></div>
+              <div class="hotel-body">
+                <div class="hotel-title-row">
+                  <div>
+                    <span class="badge badge-indigo">Stay 2 ｜ 7月5日 – 7月12日 (7夜)</span>
+                    <h3 class="hotel-title">Hotel Horidome Villa</h3>
+                    <p class="hotel-meta">1-10-10 Horidome-Cho, Nihonbashi ｜ 小型雙人床禁煙房</p>
+                  </div>
+                  <span class="material-symbols-outlined" style="color:var(--primary)">task_alt</span>
+                </div>
+                <div class="hotel-note"><strong>適合安排：</strong>麻布台、台場、富士山/鎌倉集合、日本橋/東京站、合羽橋/蔵前/清澄白河、成田回程。</div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h2 class="section-title"><span class="material-symbols-outlined">push_pin</span> 已核對重點事實</h2>
+          </div>
+          <div class="card-pad grid-4">
+            <article class="fact-card disney-card">
+              <h3><span class="material-symbols-outlined" style="color:var(--primary)">castle</span> DisneySea 7/1</h3>
+              <p>官方月曆顯示 2026年7月1日 (Wed) 東京迪士尼海洋開放 9:00-21:00，成人 1-Day Passport 為 7,900円。此日為週三，符合「平日避人潮」策略。</p>
+            </article>
+            <article class="fact-card">
+              <h3><span class="material-symbols-outlined" style="color:var(--blue)">confirmation_number</span> 迪士尼門票</h3>
+              <p>官方門票每日日本時間 14:00 開售「兩個月後同日」入園票。7月1日門票理論上 5月1日 14:00 起可買，售罄亦可能再釋出。</p>
+            </article>
+            <article class="fact-card strategy-card">
+              <h3><span class="material-symbols-outlined" style="color:var(--amber)">smartphone</span> App / DPA</h3>
+              <p>Disney Premier Access 需在官方 App 購買，Fantasy Springs 熱門項目如 Frozen、Rapunzel、Peter Pan 為 2,000円級別，數量有限。</p>
+            </article>
+            <article class="fact-card">
+              <h3><span class="material-symbols-outlined" style="color:var(--emerald)">train</span> 交通策略</h3>
+              <p>早到優先用 JR：日比谷線接八丁堀，轉 JR 京葉/武藏野線到舞濱，再乘 Disney Resort Line 到 Tokyo DisneySea Station。</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="master-table" class="tab-content">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h2 class="section-title"><span class="material-symbols-outlined">table</span> Version 12.1｜迪士尼海洋強勢進駐總表</h2>
+              <p class="muted" style="margin:6px 0 0">以人潮、天氣與酒店基地重新排序：DisneySea 放在 7月1日黃金平日，合羽橋文青線移至日本橋住宿段。</p>
+            </div>
+            <span class="badge badge-indigo">16 days locked</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>日期 / Day</th>
+                  <th>修改後的主行程規劃</th>
+                  <th>住宿基地</th>
+                  <th>天氣 / 人潮防線策略</th>
+                </tr>
+              </thead>
+              <tbody id="master-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="daily-detail" class="tab-content">
+        <div class="info-box">
+          <strong>每日詳細行程：</strong>以下只展開關鍵日與交通變更日。DisneySea、春日部/晴空塔、富士山、鎌倉與回程已加入最新動線；其餘日保持可彈性慢行。
+        </div>
+        <div class="accordion-stack" id="daily-accordion"></div>
+      </section>
+
+      <section id="disney-strategy" class="tab-content">
+        <div class="card">
+          <div class="card-head">
+            <h2 class="section-title"><span class="material-symbols-outlined fill">castle</span> 7月1日 (Day 5) 東京迪士尼海洋作戰室</h2>
+            <span class="badge badge-indigo">9:00-21:00 ｜ Adult 7,900円</span>
+          </div>
+          <div class="card-pad">
+            <div class="grid-2">
+              <article class="guide-card disney-card">
+                <h4><span class="material-symbols-outlined">directions_bus</span> 方案 A｜直達巴士（少轉乘）</h4>
+                <p>東京迪士尼度假區官方列出由秋葉原出發巴士約 50-60 分鐘。優點是免轉車、雨天少走路；缺點是班次可能較少，未必適合 07:45 抵達排隊目標。出發前一晚必須查官方/營運公司時刻表與乘車位置。</p>
+              </article>
+              <article class="guide-card">
+                <h4><span class="material-symbols-outlined">train</span> 方案 B｜JR 鐵路（早到首選）</h4>
+                <p>由酒店步行至仲御徒町/秋葉原，乘日比谷線到八丁堀，再轉 JR 京葉線或武藏野線往舞濱。抵達舞濱後左轉往 Resort Gateway Station，乘 Disney Resort Line 到 Tokyo DisneySea Station。</p>
+              </article>
+            </div>
+            <div class="grid-3" style="margin-top:18px">
+              <article class="fact-card">
+                <h3><span class="material-symbols-outlined">alarm</span> 07:45 抵達排隊</h3>
+                <p>官方開園為 09:00，但官方亦提醒部分情況可能提早開始入園。若想搶 DPA / Priority Pass，建議 06:25-06:40 由酒店出發，目標 07:45 到閘口外。</p>
+              </article>
+              <article class="fact-card strategy-card">
+                <h3><span class="material-symbols-outlined">bolt</span> 入園瞬間 App 流程</h3>
+                <p>過閘後立即開官方 App：先確認整團門票，購買 Disney Premier Access；再查看 40週年 Priority Pass、Entry Request、Mobile Order 與 Standby Pass 狀態。</p>
+              </article>
+              <article class="fact-card">
+                <h3><span class="material-symbols-outlined">warning</span> Fantasy Springs 修正</h3>
+                <p>Fantasy Springs 於 2024年6月開幕。2026年請以 App 顯示為準；目前官方 Standby Pass 清單主要是商店/膠囊玩具等指定場地，不應假設新園區機動遊戲仍需免費 Standby Pass。</p>
+              </article>
+            </div>
+            <div class="guide-card" style="margin-top:18px">
+              <h4><span class="material-symbols-outlined">format_list_numbered</span> 建議當日節奏</h4>
+              <ol>
+                <li><strong>06:25-06:40</strong> 酒店出發，使用 JR 鐵路線做早到主方案。</li>
+                <li><strong>07:45</strong> 抵達東京迪士尼海洋入園排隊，先整理 App、信用卡與門票群組。</li>
+                <li><strong>入園後 0-5 分鐘</strong> 優先搶 Fantasy Springs 熱門 DPA：Anna and Elsa's Frozen Journey、Rapunzel's Lantern Festival、Peter Pan's Never Land Adventure。</li>
+                <li><strong>中午後</strong> 用 Mobile Order / 餐廳預約減少排隊，保留體力到 Believe! Sea of Dreams 或夜間散步。</li>
+                <li><strong>20:45-21:30</strong> 視體力與人潮離園，JR 舞濱回市區；若有回程巴士班次再考慮巴士。</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="weather-strategy" class="tab-content">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <h2 class="section-title"><span class="material-symbols-outlined">routine</span> 梅雨季天氣智能對調方案</h2>
+              <p class="muted" style="margin:6px 0 0">Day 5 DisneySea 是門票型固定日，除非颱風級惡劣天氣或官方營運變更，不建議與其他日對調。Day 11-14 仍是富士山/鎌倉的天氣防線。</p>
+            </div>
+          </div>
+          <div class="card-pad">
+            <div class="weather-buttons">
+              <button class="weather-btn active" type="button" data-plan="A">Plan A<span>預設好天氣</span></button>
+              <button class="weather-btn" type="button" data-plan="B">Plan B<span>7/7 富士山大雨</span></button>
+              <button class="weather-btn" type="button" data-plan="C">Plan C<span>7/9 鎌倉強風雨</span></button>
+              <button class="weather-btn" type="button" data-plan="D">Plan D<span>雙一日遊皆遇雨</span></button>
+            </div>
+            <div class="feedback">
+              <p class="feedback-title"><span class="material-symbols-outlined" style="color:var(--emerald)">task_alt</span><span id="current-plan-title">Plan A ｜ 預設好天氣行程</span></p>
+              <ul class="feedback-list" id="current-plan-desc"></ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="checklist" class="tab-content">
+        <div class="card">
+          <div class="card-head">
+            <h2 class="section-title"><span class="material-symbols-outlined">checklist</span> 必備行程預約與確認清單</h2>
+          </div>
+          <div class="card-pad checklist">
+            <label class="check-row"><input type="checkbox"><span><strong>Tokyo DisneySea 1-Day Passport（7月1日）</strong><span>官方門票 5月1日 14:00 起可買 7月1日入園票；買票後先加入官方 App，並預設付款卡。</span></span></label>
+            <label class="check-row"><input type="checkbox"><span><strong>Tokyo Disney Resort App / MyDisney Account</strong><span>出發前下載、登入、綁定信用卡，建立同行群組；DPA、Priority Pass、Entry Request、Mobile Order 都依賴 App。</span></span></label>
+            <label class="check-row"><input type="checkbox"><span><strong>Chiikawa Park（6月29日）</strong><span>asoview 預售售完即止且不可取消/改期；若未成功購票，改用 Sunshine City、Pokemon Center、Animate 池袋。</span></span></label>
+            <label class="check-row"><input type="checkbox"><span><strong>Shibuya Sky 黃昏展望台</strong><span>6月底東京日落約19:00，建議 18:15-18:45 入場；強風雨可能影響露天區。</span></span></label>
+            <label class="check-row"><input type="checkbox"><span><strong>teamLab Borderless 麻布台 Hills（7月5日）</strong><span>轉酒店日建議 14:00 後入場，避免退房、行李寄存與正式 check-in 撞時間。</span></span></label>
+            <label class="check-row"><input type="checkbox"><span><strong>富士山及鎌倉 Local Tour</strong><span>必查 24-48 小時改期/退款政策，保留 Day 12 / Day 14 對調空間。</span></span></label>
+            <label class="check-row"><input type="checkbox"><span><strong>Skyliner / Access 特急 / eSIM</strong><span>去程可用 Skyliner 到上野；回程由人形町優先 Access 特急直達成田T2，Skyliner 不經人形町。</span></span></label>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const itinerary = [
+      { day: 1, date: "6月27日 Sat", plan: "香港 → 成田機場 → Skyliner → 秋葉原酒店 Check-in", base: "秋葉原", strategy: "到埗日休息。", row: "" },
+      { day: 2, date: "6月28日 Sun", plan: "秋葉原電器街 ＋ 上野 ＋ 阿美橫町購物街 ＋ 御徒町", base: "秋葉原", strategy: "原區輕鬆熟習，大雨可退守室內商場。", row: "" },
+      { day: 3, date: "6月29日 Mon", plan: "Chiikawa Park ＋ 池袋 Sunshine City ＋ 澀谷 ＋ Shibuya Sky", base: "秋葉原", strategy: "平日避人潮。Shibuya Sky 必須提早搶黃昏票。", row: "row-indigo" },
+      { day: 4, date: "6月30日 Tue", plan: "築地市場海鮮早宴 ＋ 增上寺 ＋ 芝公園東京鐵塔", base: "秋葉原", strategy: "平日大啖築地美食，避開週末市場人潮。", row: "" },
+      { day: 5, date: "7月1日 Wed", plan: "東京迪士尼海洋 (Tokyo DisneySea) 全日爆玩", base: "秋葉原", strategy: "人潮最少黃金平日。必須提前官網買票，早到搶 App 服務。", row: "row-disney" },
+      { day: 6, date: "7月2日 Thu", plan: "春日部蠟筆小新動漫朝聖 → 傍晚直達晴空塔 Solamachi 購物晚餐", base: "秋葉原", strategy: "春日部回程東武線直達押上站，動線比原版更順。", row: "row-amber" },
+      { day: 7, date: "7月3日 Fri", plan: "銀座精品百貨 ＋ 有樂町 ＋ 東京車站一番街拉麵街", base: "秋葉原", strategy: "強雨天無敵日。全日連通地下街與大型室內。", row: "" },
+      { day: 8, date: "7月4日 Sat", plan: "明治神宮 ＋ 原宿竹下通 ＋ 表參道街區散策", base: "秋葉原", strategy: "週末走大空間的原宿與表參道，早上先去神宮遮蔭。", row: "" },
+      { day: 9, date: "7月5日 Sun", plan: "轉酒店（的士大移防）＋ 麻布台 Hills ＋ teamLab Borderless", base: "日本橋", strategy: "轉酒店不排遠行，的士無縫接駁行李。", row: "row-indigo" },
+      { day: 10, date: "7月6日 Mon", plan: "台場海濱公園 ＋ DiverCity 獨角獸高達 ＋ 彩虹大橋夜景", base: "日本橋", strategy: "臨海度假風。晚上提早回酒店為翌日富士山蓄力。", row: "" },
+      { day: 11, date: "7月7日 Tue", plan: "富士山 / 河口湖絕景全景一日遊", base: "日本橋", strategy: "最高天氣優先日。視能見度隨時與 Day 12 / 14 互換。", row: "row-rose dynamic-day", dynamic: true },
+      { day: 12, date: "7月8日 Wed", plan: "合羽橋道具街 ＋ 蔵前 ＋ 清澄白河咖啡區散步", base: "日本橋", strategy: "富士山後體力休整日。由日本橋出發去這三區極快。", row: "dynamic-day", dynamic: true },
+      { day: 13, date: "7月9日 Thu", plan: "鎌倉古都 / 江之島一日遊（大佛、江之電、湘南海岸）", base: "日本橋", strategy: "次要好天優先日。沿海暴雨強風時隨時與 Day 14 互換。", row: "row-amber dynamic-day", dynamic: true },
+      { day: 14, date: "7月10日 Fri", plan: "全東京最大購物補遺 ＋ 天氣備用彈性終極緩衝日", base: "日本橋", strategy: "完全空白預約，用作收復前段因梅雨失地的防線。", row: "row-emerald dynamic-day", dynamic: true },
+      { day: 15, date: "7月11日 Sat", plan: "東京站/日本橋伴手禮最後大追加 ＋ 回酒店執行李", base: "日本橋", strategy: "專注百貨公司打包手信，為回程做準備。", row: "" },
+      { day: 16, date: "7月12日 Sun", plan: "日本橋酒店 Check-out ｜ 都營淺草線直達成田機場T2 ｜ 回港", base: "—", strategy: "人形町站 Access 特急直達機場。", row: "" }
+    ];
+
+    const details = [
+      {
+        day: 1,
+        title: "6月27日 (Sat) ｜ 香港 → 成田 → 秋葉原酒店",
+        open: true,
+        focus: "到埗日只處理入境、交通卡/eSIM、Skyliner 與酒店 check-in，不排景點。",
+        transport: "成田T2 → 京成 Skyliner 至京成上野 → 行李多建議短程的士到 Hotel Livemax Akihabara Kita；想省錢可轉日比谷線至仲御徒町/秋葉原。",
+        timeline: ["06:15 抵香港機場 T2 Aisle U", "09:15 UO848 起飛", "14:45 抵成田T2", "16:15-17:45 Skyliner 入市區", "18:00 前後酒店 check-in，晚上秋葉原簡單晚餐"]
+      },
+      {
+        day: 3,
+        title: "6月29日 (Mon) ｜ Chiikawa Park ＋ 池袋 ＋ 澀谷 ＋ Shibuya Sky",
+        open: false,
+        focus: "以預約型景點為核心。Chiikawa Park 若未搶到票，改為 Sunshine City / Animate / Pokemon Center。",
+        transport: "秋葉原站 JR 山手線到池袋；池袋到澀谷可用 JR 埼京線或副都心線。Shibuya Sky 建議 18:15-18:45 入場。",
+        timeline: ["早上池袋 Sunshine City", "Chiikawa Park 按預約時段入場", "下午澀谷購物", "黃昏 Shibuya Sky", "晚上山手線或銀座線回秋葉原"]
+      },
+      {
+        day: 5,
+        title: "7月1日 (Wed) ｜ 東京迪士尼海洋全日",
+        open: true,
+        focus: "V12.1 最大新增日。官方 2026/7/1 開放 9:00-21:00，成人 1-Day Passport 7,900円。",
+        transport: "早到首選鐵路：酒店 → 仲御徒町/秋葉原 → 日比谷線八丁堀 → JR 京葉/武藏野線舞濱 → Disney Resort Line 到 Tokyo DisneySea Station。巴士可作少轉乘方案，但官方秋葉原巴士約50-60分鐘，班次要另查。",
+        timeline: ["06:25-06:40 酒店出發", "07:45 目標抵達入園排隊", "入園即開 App 購買 DPA / 查 Priority Pass", "上午優先 Fantasy Springs 熱門項目", "晚間視體力看 Believe! Sea of Dreams 或提早離園"]
+      },
+      {
+        day: 6,
+        title: "7月2日 (Thu) ｜ 春日部小新 → 晴空塔 Solamachi",
+        open: false,
+        focus: "春日部移動日改良：回程不回秋葉原，直接沿東武線到押上/晴空塔晚餐。",
+        transport: "仲御徒町/秋葉原 → 北千住 → 東武晴空塔線至春日部。回程由春日部乘東武晴空塔線直達押上，逛 Solamachi 後再回秋葉原。",
+        timeline: ["上午春日部站 / LaLa Garden 小新", "下午春日部街區慢行", "傍晚東武線到押上", "Solamachi 購物晚餐", "淺草線/總武線回秋葉原"]
+      },
+      {
+        day: 9,
+        title: "7月5日 (Sun) ｜ 轉酒店 ＋ 麻布台 Hills ＋ teamLab",
+        open: false,
+        focus: "轉酒店日不排遠行。V12.1 改為的士大移防，減少搬行李與地下鐵壓力。",
+        transport: "Hotel Livemax Akihabara Kita → 的士至 Hotel Horidome Villa 寄存行李；之後小傳馬町/人形町日比谷線直達神谷町，接麻布台 Hills / teamLab Borderless。",
+        timeline: ["10:00 舊酒店退房", "10:15-10:45 的士轉移行李", "12:00 麻布台午餐", "14:00 teamLab Borderless", "17:00 後回日本橋 check-in"]
+      },
+      {
+        day: 11,
+        title: "7月7日 (Tue) ｜ 富士山 / 河口湖",
+        open: false,
+        focus: "最高天氣優先日。若雲層厚、能見度低，直接與 Day 12 或 Day 14 對調。",
+        transport: "若巴士團新宿集合：由馬喰橫山搭都營新宿線至新宿，另預留20分鐘找西口集合點。",
+        timeline: ["06:15-06:25 酒店出門", "07:15-07:30 新宿集合", "新倉山、忍野八海、大石公園視所選團而定", "晚上回新宿後直接回日本橋"]
+      },
+      {
+        day: 12,
+        title: "7月8日 (Wed) ｜ 合羽橋 ＋ 蔵前 ＋ 清澄白河",
+        open: false,
+        focus: "承接文青行程。由日本橋出發到合羽橋、蔵前、清澄白河比原秋葉原版本更平均。",
+        transport: "人形町/小傳馬町出發，視當日路線用淺草線、大江戶線與短程的士組合；全日保持低強度散步。",
+        timeline: ["上午合羽橋道具街", "中午蔵前咖啡/雜貨", "下午清澄白河咖啡散步", "傍晚回日本橋/東京站晚餐"]
+      },
+      {
+        day: 13,
+        title: "7月9日 (Thu) ｜ 鎌倉 / 江之島",
+        open: false,
+        focus: "次要好天優先日。海邊強風雨時與 Day 14 購物緩衝互換。",
+        transport: "自助最順：步行至新日本橋站，乘 JR 總武快速 / 橫須賀線直達鎌倉。再接江之電到長谷、鎌倉高校前、江之島。",
+        timeline: ["上午鎌倉站 / 小町通", "鶴岡八幡宮", "長谷大佛", "江之電沿海段", "江之島或湘南海岸視天氣決定"]
+      },
+      {
+        day: 16,
+        title: "7月12日 (Sun) ｜ 日本橋 → 成田T2 → 回港",
+        open: true,
+        focus: "回程日不排景點。保留退稅、行李、安檢及機場購物時間。",
+        transport: "Hotel Horidome Villa → 人形町站 → 都營淺草線直通京成 Narita Sky Access / Access 特急到成田機場T2。注意 Skyliner 不經人形町。",
+        timeline: ["12:15-12:30 市區出發", "13:45-14:00 抵成田T2", "17:05 UO871 起飛", "21:00 抵香港T1"]
+      }
+    ];
+
+    const plans = {
+      A: {
+        title: "Plan A ｜ 預設好天氣行程",
+        items: [
+          "7月7日 Day 11：富士山 / 河口湖一日遊。",
+          "7月8日 Day 12：合羽橋 + 蔵前 + 清澄白河低強度休整。",
+          "7月9日 Day 13：鎌倉 / 江之島一日遊。",
+          "7月10日 Day 14：新宿/澀谷/東京站購物補遺與緩衝。"
+        ],
+        updates: {
+          11: ["富士山 / 河口湖絕景全景一日遊", "最高天氣優先日。視能見度隨時與 Day 12 / 14 互換。"],
+          12: ["合羽橋道具街 ＋ 蔵前 ＋ 清澄白河咖啡區散步", "富士山後體力休整日。由日本橋出發去這三區極快。"],
+          13: ["鎌倉古都 / 江之島一日遊（大佛、江之電、湘南海岸）", "次要好天優先日。沿海暴雨強風時隨時與 Day 14 互換。"],
+          14: ["全東京最大購物補遺 ＋ 天氣備用彈性終極緩衝日", "完全空白預約，用作收復前段因梅雨失地的防線。"]
         }
-
-        // Weather Simulator Dynamic Updates Data Matrix
-        const plans = {
-            'A': {
-                title: 'Plan A ｜ 預設好天氣行程',
-                desc: `<div>• <strong>7月7日 (Day 11):</strong> 富士山 / 河口湖全景一日遊 <span class="bg-emerald-100 text-emerald-800 px-1 py-0.5 rounded text-[10px]">精準執行</span></div>
-                       <div>• <strong>7月8日 (Day 12):</strong> 高輪 Gateway City / NEWoMan 高輪 ＋ 品川舒適休整日</div>
-                       <div>• <strong>7月9日 (Day 13):</strong> 鎌倉古都 / 江之島一日遊 <span class="bg-emerald-100 text-emerald-800 px-1 py-0.5 rounded text-[10px]">精準執行</span></div>
-                       <div>• <strong>7月10日 (Day 14):</strong> 新宿/澀谷最後大採購 ＆ 天氣大緩衝</div>`,
-                updates: {
-                    11: ["富士山 / 河口湖全景一日遊 (新倉山、忍野八海、大石公園)", "第一優先好天日 ｜ 隨時可用D12或D14對調"],
-                    12: ["高輪 Gateway City / NEWoMan 高輪 ＋ 品川 ＋ 日本橋/東京站深度散步", "富士山後休整緩衝 ｜ 室內外都可調整"],
-                    13: ["鎌倉古都 / 江之島一日遊 (大佛、江之電、湘南海岸)", "次優先海岸好天日 ｜ 隨時移至D14補救"],
-                    14: ["新宿/澀谷最後大購物 ＋ 補遺未到景點 ＋ 天氣備用彈性緩衝日", "全行程最大防線 ｜ 可承接富士山/鎌倉改期"]
-                }
-            },
-            'B': {
-                title: 'Plan B ｜ 7月7日富士山大雨 ⚡ 動態與 Day 12 舒適對調',
-                desc: `<div>• <strong>7月7日 (Day 11):</strong> 改為室內為主：高輪 Gateway City / NEWoMan 高輪 / 日本橋購物 <span class="bg-blue-100 text-blue-800 px-1 py-0.5 rounded text-[10px]">雨天調動</span></div>
-                       <div>• <strong>7月8日 (Day 12):</strong> 迎來大晴天！出發 <strong>富士山 / 河口湖一日遊</strong> <span class="bg-amber-100 text-amber-800 px-1 py-0.5 rounded text-[10px]">補救成功</span></div>
-                       <div>• <strong>7月9日 (Day 13):</strong> 鎌倉古都 / 江之島一日遊 (維持不變)</div>
-                       <div>• <strong>7月10日 (Day 14):</strong> 新宿/澀谷最後大採購 ＆ 天氣大緩衝</div>`,
-                updates: {
-                    11: ["高輪 Gateway City / NEWoMan 高輪 ＋ 品川 ＋ 日本橋/東京站深度散步", "🔄 因富士山天雨，今日啟動室內對調機制"],
-                    12: ["富士山 / 河口湖全景一日遊 (新倉山、忍野八海、大石公園)", "☀️ 天氣放晴！今日全力衝鋒富士山絕景"],
-                    13: ["鎌倉古都 / 江之島一日遊 (大佛、江之電、湘南海岸)", "次優先海岸好天日 ｜ 維持正常運行"],
-                    14: ["新宿/澀谷最後大購物 ＋ 補遺未到景點 ＋ 天氣備用彈性緩衝日", "保持原定緩衝"]
-                }
-            },
-            'C': {
-                title: 'Plan C ｜ 7月9日鎌倉迎強雨 🌊 動態平移移至 Day 14 補救',
-                desc: `<div>• <strong>7月7日 (Day 11):</strong> 富士山 / 河口湖全景一日遊 (順利完成)</div>
-                       <div>• <strong>7月8日 (Day 12):</strong> 高輪 Gateway City / NEWoMan 高輪 ＋ 品川舒適休整日</div>
-                       <div>• <strong>7月9日 (Day 13):</strong> 鎌倉強風雨：改為新宿/澀谷室內大型百貨瘋狂購物街 <span class="bg-blue-100 text-blue-800 px-1 py-0.5 rounded text-[10px]">避雨更動</span></div>
-                       <div>• <strong>7月10日 (Day 14):</strong> 天氣放晴，改做 <strong>鎌倉古都 / 江之島一日遊</strong> <span class="bg-emerald-100 text-emerald-800 px-1 py-0.5 rounded text-[10px]">成功接替</span></div>`,
-                updates: {
-                    11: ["富士山 / 河口湖全景一日遊 (新倉山、忍野八海、大石公園)", "第一優先好天日 ｜ 已順利完成"],
-                    12: ["高輪 Gateway City / NEWoMan 高輪 ＋ 品川 ＋ 日本橋/東京站深度散步", "正常休整"],
-                    13: ["新宿/澀谷全日室內旗艦店爆買購物行程 (避開海邊強風雨)", "🔄 因鎌倉暴雨，今日與D14購物完成互換"],
-                    14: ["鎌倉古都 / 江之島一日遊 (大佛、江之電、湘南海岸)", "☀️ 海岸線放晴！成功利用最大後備日補上鎌倉"]
-                }
-            },
-            'D': {
-                title: 'Plan D ｜ 梅雨夾擊！原定兩日皆不理想之極限雙重變陣',
-                desc: `<div>• <strong>7月7日 (Day 11):</strong> 改為室內為主：高輪 Gateway City / NEWoMan 高輪 / 日本橋散策</div>
-                       <div>• <strong>7月8日 (Day 12):</strong> 搶奪黃金好天氣：<strong>富士山 / 河口湖一日遊</strong> <span class="bg-amber-100 text-amber-800 px-1 py-0.5 rounded text-[10px]">變陣 A</span></div>
-                       <div>• <strong>7月9日 (Day 13):</strong> 改為新宿/澀谷室內瘋狂血拼購物日</div>
-                       <div>• <strong>7月10日 (Day 14):</strong> 絕地反擊：<strong>鎌倉古都 / 江之島一日遊</strong> <span class="bg-amber-100 text-amber-800 px-1 py-0.5 rounded text-[10px]">變陣 B</span></div>`,
-                updates: {
-                    11: ["高輪 Gateway City / NEWoMan 高輪 ＋ 品川 ＋ 日本橋/東京站深度散步", "🚨 雙重預警：今日改以室內避雨為主"],
-                    12: ["富士山 / 河口湖全景一日遊 (新倉山、忍野八海、大石公園)", "⚡ 搶天晴！今日優先補做富士山行程"],
-                    13: ["新宿/澀谷全日室內旗艦店爆買購物行程 (避開沿海惡劣天氣)", "🚨 避雨作戰：全力保留精華景點給明日"],
-                    14: ["鎌倉古都 / 江之島一日遊 (大佛、江之電、湘南海岸)", "☀️ 終極大後備發揮奇效！今日順利收復鎌倉"]
-                }
-            }
-        };
-
-        function simulateWeather(planKey) {
-            // Update button styles
-            document.querySelectorAll('.weather-plan-btn').forEach(btn => {
-                btn.className = "p-3 text-xs font-bold rounded-xl border text-center transition-all bg-white text-slate-700 border-slate-200 hover:bg-slate-50";
-            });
-            const selectedBtn = document.getElementById(`btn-plan-${planKey.toLowerCase()}`);
-            selectedBtn.className = "p-3 text-xs font-bold rounded-xl border text-center transition-all bg-indigo-600 text-white border-indigo-600 shadow-xs";
-
-            // Update UI descriptor feedback box
-            document.getElementById('current-plan-title').innerText = plans[planKey].title;
-            document.getElementById('current-plan-desc').innerHTML = plans[planKey].desc;
-
-            // Dynamically alter Master Itinerary preview table rows (Days 11, 12, 13, 14)
-            const rows = document.querySelectorAll('.dynamic-day');
-            rows.forEach(row => {
-                const dayNum = row.getAttribute('data-default-day');
-                if (plans[planKey].updates[dayNum]) {
-                    row.querySelector('.day-content').innerText = plans[planKey].updates[dayNum][0];
-                    row.querySelector('.day-strategy').innerText = plans[planKey].updates[dayNum][1];
-                }
-            });
+      },
+      B: {
+        title: "Plan B ｜ 7月7日富士山大雨，與 Day 12 對調",
+        items: [
+          "7月7日 Day 11：改做合羽橋 + 蔵前 + 清澄白河。",
+          "7月8日 Day 12：若轉晴，補做富士山 / 河口湖。",
+          "7月9日 Day 13：鎌倉維持。",
+          "7月10日 Day 14：保留最大緩衝。"
+        ],
+        updates: {
+          11: ["合羽橋道具街 ＋ 蔵前 ＋ 清澄白河咖啡區散步", "因富士山天雨，今日改為市區文青低強度日。"],
+          12: ["富士山 / 河口湖絕景全景一日遊", "若能見度回升，今日補做富士山。"],
+          13: ["鎌倉古都 / 江之島一日遊（大佛、江之電、湘南海岸）", "維持次優先好天日。"],
+          14: ["全東京最大購物補遺 ＋ 天氣備用彈性終極緩衝日", "保留緩衝。"]
         }
-    </script>
+      },
+      C: {
+        title: "Plan C ｜ 7月9日鎌倉強風雨，與 Day 14 互換",
+        items: [
+          "7月7日 Day 11：富士山照原定完成。",
+          "7月8日 Day 12：合羽橋 + 蔵前 + 清澄白河。",
+          "7月9日 Day 13：改為大型購物補遺。",
+          "7月10日 Day 14：天氣回穩後補鎌倉/江之島。"
+        ],
+        updates: {
+          11: ["富士山 / 河口湖絕景全景一日遊", "已順利完成。"],
+          12: ["合羽橋道具街 ＋ 蔵前 ＋ 清澄白河咖啡區散步", "正常休整。"],
+          13: ["全東京最大購物補遺（新宿/澀谷/東京站）", "因沿海強風雨，今日與 Day 14 互換。"],
+          14: ["鎌倉古都 / 江之島一日遊（大佛、江之電、湘南海岸）", "利用緩衝日補上鎌倉。"]
+        }
+      },
+      D: {
+        title: "Plan D ｜ 富士山與鎌倉兩日皆遇雨",
+        items: [
+          "7月7日 Day 11：合羽橋 + 蔵前 + 清澄白河。",
+          "7月8日 Day 12：搶好天補富士山。",
+          "7月9日 Day 13：室內購物補遺。",
+          "7月10日 Day 14：補鎌倉/江之島。"
+        ],
+        updates: {
+          11: ["合羽橋道具街 ＋ 蔵前 ＋ 清澄白河咖啡區散步", "全面退守市區低風險行程。"],
+          12: ["富士山 / 河口湖絕景全景一日遊", "搶天氣窗口補做富士山。"],
+          13: ["全東京最大購物補遺（新宿/澀谷/東京站）", "避開沿海惡劣天氣，保留鎌倉給明日。"],
+          14: ["鎌倉古都 / 江之島一日遊（大佛、江之電、湘南海岸）", "使用終極緩衝日補鎌倉。"]
+        }
+      }
+    };
+
+    function basePill(base) {
+      if (base === "秋葉原") return '<span class="lodging-pill lodging-akiba">秋葉原</span>';
+      if (base === "日本橋") return '<span class="lodging-pill lodging-nihonbashi">日本橋</span>';
+      return '<span style="color:#94a3b8">—</span>';
+    }
+
+    function renderTable(data = itinerary) {
+      const body = document.getElementById("master-table-body");
+      body.innerHTML = data.map(item => `
+        <tr class="${item.row || ""}" data-day="${item.day}">
+          <td class="day-cell">${item.date}<span>Day ${item.day}</span></td>
+          <td class="plan-cell">${item.day === 5 ? '<span class="badge badge-indigo" style="margin-right:8px">DisneySea</span>' : ""}${item.plan}</td>
+          <td>${basePill(item.base)}</td>
+          <td class="strategy-cell">${item.strategy}</td>
+        </tr>
+      `).join("");
+    }
+
+    function renderDetails() {
+      const box = document.getElementById("daily-accordion");
+      box.innerHTML = details.map(item => `
+        <details class="day-card" ${item.open ? "open" : ""}>
+          <summary>
+            <div class="summary-left">
+              <span class="day-badge">Day ${item.day}</span>
+              <span class="summary-title">${item.title}</span>
+            </div>
+            <span class="material-symbols-outlined chevron">expand_more</span>
+          </summary>
+          <div class="day-detail">
+            <div class="guide-card">
+              <h4><span class="material-symbols-outlined">flag</span> 今日重點</h4>
+              <p>${item.focus}</p>
+            </div>
+            <div class="guide-card">
+              <h4><span class="material-symbols-outlined">train</span> 交通攻略</h4>
+              <p>${item.transport}</p>
+            </div>
+            <div class="guide-card">
+              <h4><span class="material-symbols-outlined">timeline</span> 時間線</h4>
+              <div class="timeline">${item.timeline.map(formatTimelineItem).join("")}</div>
+            </div>
+          </div>
+        </details>
+      `).join("");
+    }
+
+    function formatTimelineItem(text) {
+      const match = text.match(/^(\d{2}:\d{2}(?:-\d{2}:\d{2})?)\s+(.+)$/);
+      if (!match) return `<div class="timeline-item">${text}</div>`;
+      return `<div class="timeline-item"><strong>${match[1]}</strong>${match[2]}</div>`;
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll(".tab-content").forEach(tab => tab.classList.remove("active"));
+      document.getElementById(tabId).classList.add("active");
+      document.querySelectorAll(".nav-btn, .mobile-tab").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.tab === tabId);
+      });
+    }
+
+    function simulateWeather(planKey) {
+      const plan = plans[planKey];
+      document.getElementById("current-plan-title").textContent = plan.title;
+      document.getElementById("current-plan-desc").innerHTML = plan.items.map(item => `<li>${item}</li>`).join("");
+      document.querySelectorAll(".weather-btn").forEach(btn => btn.classList.toggle("active", btn.dataset.plan === planKey));
+
+      const rows = document.querySelectorAll("[data-day]");
+      rows.forEach(row => {
+        const day = Number(row.dataset.day);
+        if (!plan.updates[day]) return;
+        row.querySelector(".plan-cell").textContent = plan.updates[day][0];
+        row.querySelector(".strategy-cell").textContent = plan.updates[day][1];
+      });
+    }
+
+    document.querySelectorAll("[data-tab]").forEach(btn => {
+      btn.addEventListener("click", () => switchTab(btn.dataset.tab));
+    });
+    document.querySelectorAll(".weather-btn").forEach(btn => {
+      btn.addEventListener("click", () => simulateWeather(btn.dataset.plan));
+    });
+
+    renderTable();
+    renderDetails();
+    simulateWeather("A");
+  </script>
 </body>
 </html>
