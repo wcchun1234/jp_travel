@@ -20,6 +20,7 @@
       --outline-variant: #c7c4d8;
       --slate-900: #0f172a;
       --slate-800: #1e293b;
+      --slate-700: #334155;
       --slate-600: #334155;
       --slate-500: #64748b;
       --slate-300: #cbd5e1;
@@ -39,10 +40,18 @@
       --blue: #2563eb;
       --blue-soft: #eff6ff;
       --purple-soft: #faf5ff;
+      --joy-coral: #fb7185;
+      --joy-coral-soft: #fff1f2;
+      --joy-sun: #fbbf24;
+      --joy-sun-soft: #fffbeb;
+      --joy-sky: #0ea5e9;
+      --joy-sky-soft: #eff6ff;
+      --joy-mint: #10b981;
+      --joy-mint-soft: #ecfdf5;
       --radius-card: 12px;
       --radius-ui: 8px;
       --shadow-header: 0 2px 10px rgba(15, 23, 42, 0.25);
-      --shadow-card: 0 1px 4px rgba(15, 23, 42, 0.08);
+      --shadow-card: 0 8px 22px rgba(15, 23, 42, 0.06);
     }
 
     * { box-sizing: border-box; }
@@ -53,6 +62,7 @@
       color: var(--on-surface);
       background: var(--surface);
       font-family: "Noto Sans HK", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
@@ -82,6 +92,7 @@
       color: #fff;
       background: var(--header);
       box-shadow: var(--shadow-header);
+      border-bottom: 4px solid var(--joy-sun);
     }
     .topbar-inner {
       width: min(100%, 1600px);
@@ -103,19 +114,29 @@
       font-weight: 800;
       letter-spacing: 0;
     }
+    .topbar-inner > div:first-child {
+      min-width: 0;
+      width: 100%;
+      max-width: 100%;
+    }
     .subtitle {
       margin: 8px 0 0;
       color: #dbeafe;
       font-size: 16px;
       line-height: 1.45;
       font-weight: 500;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 10px;
+      overflow-wrap: anywhere;
     }
+    .subtitle span { white-space: nowrap; }
     .version-pill {
       display: inline-flex;
       align-items: center;
       padding: 5px 10px;
       border-radius: 999px;
-      background: var(--primary-ui);
+      background: var(--joy-coral);
       color: #fff;
       font-size: 12px;
       line-height: 1;
@@ -205,7 +226,7 @@
     .nav-btn:hover { background: var(--surface-low); color: var(--slate-900); }
     .nav-btn.active {
       border-left-color: var(--primary);
-      background: var(--primary-soft);
+      background: #f7f7ff;
       color: var(--primary);
     }
     .nav-label {
@@ -249,8 +270,15 @@
       display: grid;
       gap: 24px;
     }
-    .tab-content { display: none; }
+    .tab-content {
+      display: none;
+      min-width: 0;
+    }
     .tab-content.active { display: grid; gap: 24px; }
+    .tab-content.active > * {
+      min-width: 0;
+      max-width: 100%;
+    }
     .section-title {
       margin: 0;
       display: flex;
@@ -267,8 +295,9 @@
       line-height: 1.55;
     }
     .card {
+      max-width: 100%;
       overflow: hidden;
-      border: 1px solid var(--slate-200);
+      border: 1px solid #dbeafe;
       border-radius: var(--radius-card);
       background: var(--surface-lowest);
       box-shadow: var(--shadow-card);
@@ -277,7 +306,7 @@
     .card-head {
       padding: 18px 22px;
       border-bottom: 1px solid var(--slate-200);
-      background: var(--surface-low);
+      background: #f8fbff;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -299,6 +328,8 @@
       gap: 16px;
     }
     .flight-card, .fact-card, .hotel-card, .guide-card {
+      min-width: 0;
+      max-width: 100%;
       border: 1px solid var(--slate-200);
       border-radius: var(--radius-card);
       background: #fff;
@@ -313,7 +344,7 @@
       width: 74px;
       height: 74px;
       border-bottom-left-radius: 999px;
-      background: var(--primary-soft);
+      background: var(--joy-sun-soft);
       z-index: 0;
     }
     .flight-card > * { position: relative; z-index: 1; }
@@ -344,6 +375,7 @@
     .badge-blue { color: var(--blue); background: var(--blue-soft); }
     .badge-amber { color: #92400e; background: var(--amber-soft); border: 1px solid #fde68a; }
     .badge-rose { color: var(--rose); background: var(--rose-soft); border: 1px solid #fecdd3; }
+    .badge-coral { color: #be123c; background: var(--joy-coral-soft); border: 1px solid #fecdd3; }
     .flight-number {
       margin: 8px 0 0;
       color: var(--slate-900);
@@ -413,6 +445,8 @@
       white-space: nowrap;
     }
     .info-box {
+      min-width: 0;
+      max-width: 100%;
       padding: 13px 14px;
       border: 1px solid #bfdbfe;
       border-radius: 10px;
@@ -420,8 +454,52 @@
       color: #1e3a8a;
       font-size: 12px;
       line-height: 1.55;
+      overflow-wrap: anywhere;
     }
     .info-box strong { color: #1d4ed8; }
+    .trip-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .trip-tile {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 86px;
+      padding: 14px;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius-card);
+      background: #fff;
+      box-shadow: var(--shadow-card);
+    }
+    .trip-tile .material-symbols-outlined {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      display: inline-grid;
+      place-items: center;
+      font-size: 23px;
+    }
+    .trip-tile strong {
+      display: block;
+      color: var(--slate-900);
+      font-size: 14px;
+      line-height: 1.3;
+      font-weight: 800;
+    }
+    .trip-tile span:last-child {
+      display: block;
+      margin-top: 4px;
+      color: var(--slate-500);
+      font-size: 11px;
+      line-height: 1.4;
+      font-weight: 700;
+    }
+    .tile-sun .material-symbols-outlined { color: #b45309; background: var(--joy-sun-soft); }
+    .tile-coral .material-symbols-outlined { color: #be123c; background: var(--joy-coral-soft); }
+    .tile-sky .material-symbols-outlined { color: var(--blue); background: var(--joy-sky-soft); }
+    .tile-mint .material-symbols-outlined { color: #047857; background: var(--joy-mint-soft); }
     .hotel-card {
       display: grid;
       grid-template-columns: 4px 1fr;
@@ -480,11 +558,11 @@
     }
     .disney-card {
       border: 1px solid #ddd6fe;
-      background: linear-gradient(180deg, #fff, #f8f7ff);
+      background: #faf5ff;
     }
     .strategy-card {
       border: 1px solid #fde68a;
-      background: linear-gradient(180deg, #fff, #fffbeb);
+      background: #fffbeb;
     }
 
     .table-wrap { overflow-x: auto; }
@@ -511,6 +589,7 @@
       vertical-align: top;
       color: var(--slate-800);
       font-weight: 600;
+      overflow-wrap: anywhere;
     }
     tbody tr:hover { background: #f8fafc; }
     .day-cell {
@@ -530,7 +609,7 @@
     .row-rose { background: rgba(255, 241, 242, .75); }
     .row-emerald { background: rgba(236, 253, 245, .75); }
     .row-disney {
-      background: #f5f3ff;
+      background: #faf5ff;
       box-shadow: inset 4px 0 0 var(--primary-ui);
     }
     .lodging-pill {
@@ -551,8 +630,15 @@
       font-weight: 800;
     }
 
-    .accordion-stack { display: grid; gap: 14px; }
+    .accordion-stack {
+      display: grid;
+      gap: 14px;
+      min-width: 0;
+    }
     details.day-card {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
       overflow: hidden;
       border: 1px solid var(--slate-200);
       border-radius: var(--radius-card);
@@ -561,6 +647,7 @@
     }
     details.day-card[open] { border-color: #c7d2fe; }
     details.day-card summary {
+      min-width: 0;
       list-style: none;
       padding: 16px 18px;
       display: flex;
@@ -572,9 +659,10 @@
     }
     details.day-card summary::-webkit-details-marker { display: none; }
     .summary-left {
+      flex: 1 1 auto;
       min-width: 0;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 12px;
     }
     .day-badge {
@@ -587,14 +675,44 @@
       white-space: nowrap;
     }
     .summary-title {
+      display: block;
       color: var(--slate-900);
       font-size: 14px;
       font-weight: 800;
       line-height: 1.4;
+      overflow-wrap: anywhere;
     }
+    .summary-copy {
+      min-width: 0;
+      display: grid;
+      gap: 6px;
+    }
+    .day-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .meta-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      min-height: 22px;
+      padding: 4px 7px;
+      border-radius: 999px;
+      font-size: 10px;
+      line-height: 1;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .mood-city { color: #1d4ed8; background: var(--joy-sky-soft); border: 1px solid #bfdbfe; }
+    .mood-food { color: #b45309; background: var(--joy-sun-soft); border: 1px solid #fde68a; }
+    .mood-fun { color: #be123c; background: var(--joy-coral-soft); border: 1px solid #fecdd3; }
+    .mood-nature { color: #047857; background: var(--joy-mint-soft); border: 1px solid #a7f3d0; }
+    .mood-buffer { color: var(--primary); background: var(--primary-soft); border: 1px solid #c4b5fd; }
     .day-card[open] .chevron { transform: rotate(180deg); }
     .chevron { transition: transform .15s ease; color: #94a3b8; }
     .day-detail {
+      min-width: 0;
       padding: 18px;
       border-top: 1px solid var(--slate-200);
       background: var(--surface);
@@ -615,6 +733,7 @@
       color: var(--slate-600);
       font-size: 12px;
       line-height: 1.6;
+      overflow-wrap: anywhere;
     }
     .guide-card p { margin: 0; }
     .guide-card ol, .guide-card ul { margin: 8px 0 0; padding-left: 18px; }
@@ -629,6 +748,7 @@
       color: var(--slate-600);
       font-size: 12px;
       line-height: 1.6;
+      overflow-wrap: anywhere;
     }
     .timeline-item::before {
       content: "";
@@ -767,27 +887,122 @@
       .shell { grid-template-columns: 1fr; }
       .sidebar { display: none; }
       .mobile-tabs { display: flex; }
+      .trip-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 780px) {
+      body {
+        width: 100%;
+        max-width: 100vw;
+      }
+      .topbar { position: relative; }
       .topbar-inner {
         align-items: flex-start;
         flex-direction: column;
         padding: 16px;
+        gap: 12px;
       }
-      .brand-title { font-size: 24px; }
-      .subtitle { font-size: 14px; }
+      .brand-title { font-size: 22px; }
+      .subtitle {
+        display: grid;
+        gap: 2px;
+        font-size: 14px;
+      }
+      .subtitle span { white-space: normal; }
       .principles { justify-content: flex-start; overflow-x: auto; width: 100%; flex-wrap: nowrap; padding-bottom: 1px; }
-      .shell { padding: 22px 16px 36px; }
+      .principle-chip { min-height: 30px; padding: 6px 10px; font-size: 12px; }
+      .shell {
+        width: 100%;
+        max-width: 100vw;
+        margin: 0;
+        padding: 14px 16px 36px;
+        overflow-x: hidden;
+      }
+      .main,
+      .tab-content.active,
+      .accordion-stack {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+      .tab-content.active > *,
+      .day-card *,
+      .guide-card,
+      .info-box {
+        min-width: 0;
+        max-width: 100%;
+      }
       .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .trip-strip { grid-template-columns: 1fr; gap: 10px; }
+      .trip-tile { min-height: 76px; }
       .card-pad { padding: 18px; }
       .card-head { padding: 16px 18px; align-items: flex-start; flex-direction: column; }
       .flight-path { grid-template-columns: 1fr; text-align: left; }
+      .flight-path > div:last-child { text-align: left !important; }
       .route-line { place-items: start; }
       .route-line .line { width: 180px; }
       .weather-buttons { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .summary-left { align-items: flex-start; }
       .time { font-size: 24px; }
-      table { min-width: 900px; }
+      .price-pill { width: 100%; justify-content: center; font-size: 14px; }
+      .mobile-tabs {
+        top: 0;
+        margin: -4px -16px 10px;
+        padding: 10px 16px;
+        box-shadow: 0 8px 18px rgba(15, 23, 42, .08);
+      }
+      .mobile-tab { min-height: 38px; padding: 8px 12px; }
+      .section-title { font-size: 18px; }
+      details.day-card summary {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 24px;
+        align-items: start;
+        gap: 10px;
+      }
+      .summary-left {
+        display: grid;
+        grid-template-columns: 52px minmax(0, 1fr);
+        gap: 10px;
+        width: 100%;
+        max-width: 100%;
+      }
+      .day-badge { min-width: 52px; text-align: center; }
+      details.day-card summary { padding: 15px; }
+      .day-detail { padding: 14px; }
+      table { min-width: 0; }
+      .table-wrap { overflow: visible; }
+      table, thead, tbody, tr, td { display: block; width: 100%; }
+      thead { display: none; }
+      tbody { display: grid; gap: 12px; padding: 14px; }
+      tbody tr {
+        overflow: hidden;
+        border: 1px solid var(--slate-200);
+        border-radius: 12px;
+        background: #fff;
+        box-shadow: var(--shadow-card);
+      }
+      tbody tr.row-indigo { background: #f8f7ff; }
+      tbody tr.row-amber { background: #fffbeb; }
+      tbody tr.row-rose { background: #fff1f2; }
+      tbody tr.row-emerald { background: #ecfdf5; }
+      tbody tr.row-disney { background: #faf5ff; box-shadow: inset 4px 0 0 var(--primary-ui), var(--shadow-card); }
+      td {
+        border-bottom: 0;
+        padding: 10px 14px;
+      }
+      td::before {
+        content: attr(data-label);
+        display: block;
+        margin-bottom: 3px;
+        color: var(--slate-500);
+        font-size: 10px;
+        line-height: 1.2;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+      td.day-cell {
+        padding-top: 14px;
+        font-size: 15px;
+      }
+      td.day-cell::before { display: none; }
     }
   </style>
 </head>
@@ -800,7 +1015,12 @@
           東京旅行行程計劃
           <span class="version-pill">V12.1 DisneySea</span>
         </h1>
-        <p class="subtitle">2026年6月27日 – 7月12日 (16日15夜) ｜ 同行：2成人 ｜ 迪士尼海洋強勢進駐總表</p>
+        <p class="subtitle">
+          <span>2026年6月27日 – 7月12日</span>
+          <span>16日15夜</span>
+          <span>同行：2成人</span>
+          <span>DisneySea 進駐版</span>
+        </p>
       </div>
       <div class="principles" aria-label="行程原則">
         <span class="principle-chip"><span class="material-symbols-outlined">verified</span> 已核對</span>
@@ -845,6 +1065,25 @@
       </div>
 
       <section id="overview" class="tab-content active">
+        <div class="trip-strip" aria-label="旅行快覽">
+          <article class="trip-tile tile-sun">
+            <span class="material-symbols-outlined">event_available</span>
+            <div><strong>16日15夜</strong><span>6月27日出發，7月12日回港</span></div>
+          </article>
+          <article class="trip-tile tile-coral">
+            <span class="material-symbols-outlined">castle</span>
+            <div><strong>DisneySea Day 5</strong><span>7月1日週三，黃金平日入園</span></div>
+          </article>
+          <article class="trip-tile tile-sky">
+            <span class="material-symbols-outlined">hotel</span>
+            <div><strong>雙基地動線</strong><span>秋葉原 8夜，日本橋 7夜</span></div>
+          </article>
+          <article class="trip-tile tile-mint">
+            <span class="material-symbols-outlined">rainy</span>
+            <div><strong>梅雨防線</strong><span>Day 11-14 可按天氣對調</span></div>
+          </article>
+        </div>
+
         <div class="card">
           <div class="card-head">
             <h2 class="section-title"><span class="material-symbols-outlined fill">flight_takeoff</span> 已訂航班資訊</h2>
@@ -999,7 +1238,7 @@
 
       <section id="daily-detail" class="tab-content">
         <div class="info-box">
-          <strong>每日詳細行程：</strong>以下只展開關鍵日與交通變更日。DisneySea、春日部/晴空塔、富士山、鎌倉與回程已加入最新動線；其餘日保持可彈性慢行。
+          <strong>每日詳細行程：</strong>Day 1-16 已全部補齊。每張卡包含今日重點、交通攻略與簡明時間線；DisneySea、春日部/晴空塔、富士山、鎌倉與回程已加入最新動線。
         </div>
         <div class="accordion-stack" id="daily-accordion"></div>
       </section>
@@ -1115,74 +1354,178 @@
       {
         day: 1,
         title: "6月27日 (Sat) ｜ 香港 → 成田 → 秋葉原酒店",
+        mood: "city",
+        type: "抵達日",
+        pace: "輕量",
         open: true,
-        focus: "到埗日只處理入境、交通卡/eSIM、Skyliner 與酒店 check-in，不排景點。",
+        focus: "到埗日只處理入境、交通卡/eSIM、Skyliner 與酒店 check-in，不排景點，讓身體先適應東京節奏。",
         transport: "成田T2 → 京成 Skyliner 至京成上野 → 行李多建議短程的士到 Hotel Livemax Akihabara Kita；想省錢可轉日比谷線至仲御徒町/秋葉原。",
         timeline: ["06:15 抵香港機場 T2 Aisle U", "09:15 UO848 起飛", "14:45 抵成田T2", "16:15-17:45 Skyliner 入市區", "18:00 前後酒店 check-in，晚上秋葉原簡單晚餐"]
       },
       {
+        day: 2,
+        title: "6月28日 (Sun) ｜ 秋葉原 ＋ 上野 ＋ 阿美橫町",
+        mood: "city",
+        type: "原區熟習",
+        pace: "輕鬆購物",
+        open: false,
+        focus: "第一個完整日留在酒店附近與上野線上活動，熟悉車站、便利店、藥妝與退稅流程；下雨也容易退守室內。",
+        transport: "Hotel Livemax Akihabara Kita 可步行到秋葉原電器街；秋葉原/御徒町/上野之間用 JR 山手線或直接步行串起，減少轉車壓力。",
+        timeline: ["10:00 秋葉原電器街慢逛", "12:30 上野午餐", "14:00 阿美橫町與御徒町購物", "17:30 回秋葉原放低戰利品", "晚上視體力補逛 Yodobashi / Animate"]
+      },
+      {
         day: 3,
         title: "6月29日 (Mon) ｜ Chiikawa Park ＋ 池袋 ＋ 澀谷 ＋ Shibuya Sky",
+        mood: "fun",
+        type: "預約重點",
+        pace: "中高",
         open: false,
-        focus: "以預約型景點為核心。Chiikawa Park 若未搶到票，改為 Sunshine City / Animate / Pokemon Center。",
+        focus: "以預約型景點為核心。Chiikawa Park 若未搶到票，改為 Sunshine City / Animate / Pokemon Center，黃昏留給 Shibuya Sky。",
         transport: "秋葉原站 JR 山手線到池袋；池袋到澀谷可用 JR 埼京線或副都心線。Shibuya Sky 建議 18:15-18:45 入場。",
-        timeline: ["早上池袋 Sunshine City", "Chiikawa Park 按預約時段入場", "下午澀谷購物", "黃昏 Shibuya Sky", "晚上山手線或銀座線回秋葉原"]
+        timeline: ["10:30 池袋 Sunshine City / 角色商店", "Chiikawa Park 按預約時段入場", "15:30 前往澀谷購物", "18:15-18:45 Shibuya Sky 入場", "晚上山手線或銀座線回秋葉原"]
+      },
+      {
+        day: 4,
+        title: "6月30日 (Tue) ｜ 築地市場 ＋ 增上寺 ＋ 芝公園東京鐵塔",
+        mood: "food",
+        type: "美食散策",
+        pace: "中等",
+        open: false,
+        focus: "平日早上吃築地，避開週末人潮；下午轉到增上寺與東京鐵塔一帶，行程有戶外也有咖啡店可避雨。",
+        transport: "秋葉原/仲御徒町上日比谷線到築地；築地到大門/芝公園可用日比谷線轉都營線，或短程的士節省體力。",
+        timeline: ["09:30 築地場外市場早午餐", "12:30 移動至增上寺", "14:00 芝公園與東京鐵塔拍照", "16:00 找咖啡店休息或回酒店", "晚上秋葉原/上野簡單晚餐"]
       },
       {
         day: 5,
         title: "7月1日 (Wed) ｜ 東京迪士尼海洋全日",
+        mood: "fun",
+        type: "重點樂園",
+        pace: "高",
         open: true,
-        focus: "V12.1 最大新增日。官方 2026/7/1 開放 9:00-21:00，成人 1-Day Passport 7,900円。",
+        focus: "V12.1 最大新增日。官方 2026/7/1 開放 9:00-21:00，成人 1-Day Passport 7,900円；此日固定性高，不建議隨便對調。",
         transport: "早到首選鐵路：酒店 → 仲御徒町/秋葉原 → 日比谷線八丁堀 → JR 京葉/武藏野線舞濱 → Disney Resort Line 到 Tokyo DisneySea Station。巴士可作少轉乘方案，但官方秋葉原巴士約50-60分鐘，班次要另查。",
-        timeline: ["06:25-06:40 酒店出發", "07:45 目標抵達入園排隊", "入園即開 App 購買 DPA / 查 Priority Pass", "上午優先 Fantasy Springs 熱門項目", "晚間視體力看 Believe! Sea of Dreams 或提早離園"]
+        timeline: ["06:25-06:40 酒店出發", "07:45 目標抵達入園排隊", "入園即開 App 購買 DPA / 查 Priority Pass", "上午優先 Fantasy Springs 熱門項目", "20:45-21:30 視體力看 Believe! Sea of Dreams 或提早離園"]
       },
       {
         day: 6,
         title: "7月2日 (Thu) ｜ 春日部小新 → 晴空塔 Solamachi",
+        mood: "fun",
+        type: "動漫朝聖",
+        pace: "中等",
         open: false,
-        focus: "春日部移動日改良：回程不回秋葉原，直接沿東武線到押上/晴空塔晚餐。",
+        focus: "春日部移動日改良：回程不回秋葉原，直接沿東武線到押上/晴空塔晚餐，動線比原版更順。",
         transport: "仲御徒町/秋葉原 → 北千住 → 東武晴空塔線至春日部。回程由春日部乘東武晴空塔線直達押上，逛 Solamachi 後再回秋葉原。",
-        timeline: ["上午春日部站 / LaLa Garden 小新", "下午春日部街區慢行", "傍晚東武線到押上", "Solamachi 購物晚餐", "淺草線/總武線回秋葉原"]
+        timeline: ["09:30 出發往春日部", "11:00 春日部站 / LaLa Garden 小新", "14:30 春日部街區慢行", "17:00 東武線到押上", "晚上 Solamachi 購物晚餐後回秋葉原"]
+      },
+      {
+        day: 7,
+        title: "7月3日 (Fri) ｜ 銀座 ＋ 有樂町 ＋ 東京車站一番街",
+        mood: "food",
+        type: "雨天強項",
+        pace: "中等",
+        open: false,
+        focus: "強雨天也能成立的一天：百貨、地下街、東京站一番街與拉麵街連續度高，適合補買精品、伴手禮與角色商品。",
+        transport: "秋葉原到銀座可用日比谷線直達銀座；銀座、有樂町、東京站之間可步行或用 JR 一站，雨大時優先走地下通道。",
+        timeline: ["10:30 銀座百貨與品牌店", "13:00 有樂町午餐/商場", "15:30 東京站一番街角色街", "18:00 東京拉麵街晚餐", "晚上 JR / 日比谷線回秋葉原"]
+      },
+      {
+        day: 8,
+        title: "7月4日 (Sat) ｜ 明治神宮 ＋ 原宿竹下通 ＋ 表參道",
+        mood: "nature",
+        type: "週末散步",
+        pace: "中等",
+        open: false,
+        focus: "週末避開狹窄室內長排隊，早上先到明治神宮遮蔭散步，再把人潮較高的竹下通和表參道放在下午彈性處理。",
+        transport: "秋葉原 JR 山手線到原宿；原宿、明治神宮前、表參道三站可步行串連。傍晚可用銀座線/千代田線接回上野或秋葉原。",
+        timeline: ["09:30 明治神宮與代代木公園外圍", "12:00 原宿午餐", "13:30 竹下通快速掃街", "15:30 表參道咖啡與選物店", "晚上回秋葉原收拾轉酒店前行李"]
       },
       {
         day: 9,
         title: "7月5日 (Sun) ｜ 轉酒店 ＋ 麻布台 Hills ＋ teamLab",
+        mood: "fun",
+        type: "換基地",
+        pace: "穩定",
         open: false,
-        focus: "轉酒店日不排遠行。V12.1 改為的士大移防，減少搬行李與地下鐵壓力。",
+        focus: "轉酒店日不排遠行。V12.1 改為的士大移防，減少搬行李與地下鐵壓力；下午用室內展覽接續。",
         transport: "Hotel Livemax Akihabara Kita → 的士至 Hotel Horidome Villa 寄存行李；之後小傳馬町/人形町日比谷線直達神谷町，接麻布台 Hills / teamLab Borderless。",
-        timeline: ["10:00 舊酒店退房", "10:15-10:45 的士轉移行李", "12:00 麻布台午餐", "14:00 teamLab Borderless", "17:00 後回日本橋 check-in"]
+        timeline: ["10:00 舊酒店退房", "10:15-10:45 的士轉移行李", "12:00 麻布台 Hills 午餐", "14:00 teamLab Borderless", "17:00 後回日本橋 check-in"]
+      },
+      {
+        day: 10,
+        title: "7月6日 (Mon) ｜ 台場海濱公園 ＋ DiverCity ＋ 彩虹大橋",
+        mood: "nature",
+        type: "臨海放鬆",
+        pace: "中等",
+        open: false,
+        focus: "臨海度假風的一天，安排在富士山前，白天不要排太滿；晚上早一點回酒店，為翌日早起留體力。",
+        transport: "日本橋/人形町一帶可到新橋轉百合海鷗線往台場；若天雨，可集中 DiverCity、Aqua City、Decks 等室內商場。",
+        timeline: ["10:30 新橋轉百合海鷗線", "11:30 台場海濱公園散步", "13:00 DiverCity 午餐與獨角獸高達", "16:00 Aqua City / Decks 彈性購物", "19:00 彩虹大橋夜景後回日本橋"]
       },
       {
         day: 11,
         title: "7月7日 (Tue) ｜ 富士山 / 河口湖",
+        mood: "nature",
+        type: "好天優先",
+        pace: "高",
         open: false,
-        focus: "最高天氣優先日。若雲層厚、能見度低，直接與 Day 12 或 Day 14 對調。",
-        transport: "若巴士團新宿集合：由馬喰橫山搭都營新宿線至新宿，另預留20分鐘找西口集合點。",
-        timeline: ["06:15-06:25 酒店出門", "07:15-07:30 新宿集合", "新倉山、忍野八海、大石公園視所選團而定", "晚上回新宿後直接回日本橋"]
+        focus: "最高天氣優先日。若雲層厚、能見度低，直接與 Day 12 或 Day 14 對調，不要硬上看不到山的一日遊。",
+        transport: "若巴士團新宿集合：由馬喰橫山搭都營新宿線至新宿，另預留20分鐘找西口集合點。若集合地改為東京站，則由日本橋步行/的士更簡單。",
+        timeline: ["06:15-06:25 酒店出門", "07:15-07:30 新宿或東京站集合", "新倉山、忍野八海、大石公園視所選團而定", "18:30-20:00 回到市區", "晚上直接回日本橋休息"]
       },
       {
         day: 12,
         title: "7月8日 (Wed) ｜ 合羽橋 ＋ 蔵前 ＋ 清澄白河",
+        mood: "food",
+        type: "文青休整",
+        pace: "輕中",
         open: false,
-        focus: "承接文青行程。由日本橋出發到合羽橋、蔵前、清澄白河比原秋葉原版本更平均。",
+        focus: "承接文青行程。由日本橋出發到合羽橋、蔵前、清澄白河比原秋葉原版本更平均，也適合作為富士山後的恢復日。",
         transport: "人形町/小傳馬町出發，視當日路線用淺草線、大江戶線與短程的士組合；全日保持低強度散步。",
-        timeline: ["上午合羽橋道具街", "中午蔵前咖啡/雜貨", "下午清澄白河咖啡散步", "傍晚回日本橋/東京站晚餐"]
+        timeline: ["10:30 合羽橋道具街", "12:30 蔵前午餐/咖啡", "14:30 蔵前雜貨與文具店", "16:00 清澄白河咖啡區散步", "傍晚回日本橋/東京站晚餐"]
       },
       {
         day: 13,
         title: "7月9日 (Thu) ｜ 鎌倉 / 江之島",
+        mood: "nature",
+        type: "沿海一日遊",
+        pace: "高",
         open: false,
-        focus: "次要好天優先日。海邊強風雨時與 Day 14 購物緩衝互換。",
+        focus: "次要好天優先日。海邊強風雨時與 Day 14 購物緩衝互換；若天氣好，早出發會舒服很多。",
         transport: "自助最順：步行至新日本橋站，乘 JR 總武快速 / 橫須賀線直達鎌倉。再接江之電到長谷、鎌倉高校前、江之島。",
-        timeline: ["上午鎌倉站 / 小町通", "鶴岡八幡宮", "長谷大佛", "江之電沿海段", "江之島或湘南海岸視天氣決定"]
+        timeline: ["08:30-09:00 日本橋出發", "10:00 鎌倉站 / 小町通", "11:30 鶴岡八幡宮", "13:30 長谷大佛與江之電沿海段", "16:30 江之島或湘南海岸視天氣決定"]
+      },
+      {
+        day: 14,
+        title: "7月10日 (Fri) ｜ 最大購物補遺 ＋ 天氣緩衝",
+        mood: "buffer",
+        type: "終極緩衝",
+        pace: "彈性",
+        open: false,
+        focus: "完全空白預約日，用作收復前段因梅雨失地的防線。若富士山或鎌倉已完成，今天就是大型購物與整理日。",
+        transport: "由日本橋可快速去東京站、銀座、新宿或澀谷。雨天優先東京站一番街、銀座地下街、新宿大型百貨；晴天可補戶外街區。",
+        timeline: ["10:30 根據天氣決定補行程或購物", "13:00 東京站/銀座/新宿擇一午餐", "15:00 補買伴手禮與退稅", "17:30 回酒店放低物品", "晚上保留彈性，不再硬排行程"]
+      },
+      {
+        day: 15,
+        title: "7月11日 (Sat) ｜ 東京站/日本橋手信 ＋ 執行李",
+        mood: "city",
+        type: "收尾整理",
+        pace: "輕鬆",
+        open: false,
+        focus: "最後完整日專注百貨、手信、退稅與行李重量控制，不再跨區奔走，為翌日回程降低風險。",
+        transport: "Hotel Horidome Villa 可步行/短程車到人形町、日本橋、東京站。買重物後先回酒店放低，再決定是否補最後一輪。",
+        timeline: ["10:30 日本橋百貨/藥妝", "12:30 東京站午餐與伴手禮", "15:30 回酒店整理行李", "17:30 最後補買缺口", "晚上早回酒店完成打包"]
       },
       {
         day: 16,
         title: "7月12日 (Sun) ｜ 日本橋 → 成田T2 → 回港",
+        mood: "buffer",
+        type: "回程日",
+        pace: "穩陣",
         open: true,
-        focus: "回程日不排景點。保留退稅、行李、安檢及機場購物時間。",
+        focus: "回程日不排景點。保留退稅、行李、安檢及機場購物時間，避免最後一日交通壓力。",
         transport: "Hotel Horidome Villa → 人形町站 → 都營淺草線直通京成 Narita Sky Access / Access 特急到成田機場T2。注意 Skyliner 不經人形町。",
-        timeline: ["12:15-12:30 市區出發", "13:45-14:00 抵成田T2", "17:05 UO871 起飛", "21:00 抵香港T1"]
+        timeline: ["10:30 最後檢查行李與護照", "12:15-12:30 市區出發", "13:45-14:00 抵成田T2", "17:05 UO871 起飛", "21:00 抵香港T1"]
       }
     ];
 
@@ -1259,10 +1602,10 @@
       const body = document.getElementById("master-table-body");
       body.innerHTML = data.map(item => `
         <tr class="${item.row || ""}" data-day="${item.day}">
-          <td class="day-cell">${item.date}<span>Day ${item.day}</span></td>
-          <td class="plan-cell">${item.day === 5 ? '<span class="badge badge-indigo" style="margin-right:8px">DisneySea</span>' : ""}${item.plan}</td>
-          <td>${basePill(item.base)}</td>
-          <td class="strategy-cell">${item.strategy}</td>
+          <td class="day-cell" data-label="日期 / Day">${item.date}<span>Day ${item.day}</span></td>
+          <td class="plan-cell" data-label="主行程">${item.day === 5 ? '<span class="badge badge-coral" style="margin-right:8px">DisneySea</span>' : ""}${item.plan}</td>
+          <td data-label="住宿基地">${basePill(item.base)}</td>
+          <td class="strategy-cell" data-label="天氣 / 人潮策略">${item.strategy}</td>
         </tr>
       `).join("");
     }
@@ -1274,7 +1617,13 @@
           <summary>
             <div class="summary-left">
               <span class="day-badge">Day ${item.day}</span>
-              <span class="summary-title">${item.title}</span>
+              <span class="summary-copy">
+                <span class="summary-title">${item.title}</span>
+                <span class="day-meta">
+                  <span class="meta-pill mood-${item.mood || "city"}">${item.type || "行程"}</span>
+                  <span class="meta-pill mood-buffer">${item.pace || "彈性"}</span>
+                </span>
+              </span>
             </div>
             <span class="material-symbols-outlined chevron">expand_more</span>
           </summary>
@@ -1302,12 +1651,14 @@
       return `<div class="timeline-item"><strong>${match[1]}</strong>${match[2]}</div>`;
     }
 
-    function switchTab(tabId) {
+    function switchTab(tabId, updateHash = true) {
+      if (!document.getElementById(tabId)) return;
       document.querySelectorAll(".tab-content").forEach(tab => tab.classList.remove("active"));
       document.getElementById(tabId).classList.add("active");
       document.querySelectorAll(".nav-btn, .mobile-tab").forEach(btn => {
         btn.classList.toggle("active", btn.dataset.tab === tabId);
       });
+      if (updateHash) history.replaceState(null, "", `#${tabId}`);
     }
 
     function simulateWeather(planKey) {
@@ -1335,6 +1686,13 @@
     renderTable();
     renderDetails();
     simulateWeather("A");
+    switchTab(location.hash.replace("#", "") || "overview", false);
+    if (location.hash) {
+      requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+        setTimeout(() => window.scrollTo(0, 0), 80);
+      });
+    }
   </script>
 </body>
 </html>
