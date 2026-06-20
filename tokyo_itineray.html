@@ -1450,11 +1450,44 @@
       display: grid;
       gap: 14px;
     }
-    .daily-extra-grid {
+    .day-guide-shell {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
     }
+    .day-section-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 8px;
+      border: 1px solid var(--slate-200);
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: var(--shadow-card);
+    }
+    .day-section-tab {
+      min-height: 34px;
+      padding: 8px 10px;
+      border: 1px solid var(--slate-200);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--slate-700);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font: inherit;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .day-section-tab.active {
+      border-color: #c4b5fd;
+      background: var(--primary-soft);
+      color: var(--primary);
+    }
+    .day-section-panel { display: none; }
+    .day-section-panel.active { display: block; }
     .daily-mini-card {
       min-width: 0;
       padding: 14px;
@@ -1777,7 +1810,14 @@
       .day-badge { min-width: 52px; text-align: center; }
       details.day-card summary { padding: 15px; }
       .day-detail { padding: 14px; }
-      .daily-extra-grid { grid-template-columns: 1fr; }
+      .day-section-tabs {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        margin: -2px -2px 0;
+      }
+      .day-section-tab {
+        flex: 0 0 auto;
+      }
       .day-index-head { align-items: flex-start; flex-direction: column; }
       .day-index-card {
         top: 54px;
@@ -2219,13 +2259,13 @@
 
       <section id="daily-detail" class="tab-content">
         <div class="info-box">
-          <strong>每日詳細行程：</strong>Day 1-16 已全部補齊。每張卡包含今日重點、交通攻略、時間線、預算估算、食物推薦與出發前確認。票價/車資以 2026 出發前官方與 Google Maps 當日顯示為準。
+          <strong>每日詳細行程：</strong>Day 1-16 已全部補齊。每張卡改為分頁式：重點、交通、時間、預算、食物、確認，只顯示你正在看的部分，避免展開後太長。票價/車資以 2026 出發前官方與 Google Maps 當日顯示為準。
         </div>
         <div class="day-index-card" aria-label="每日行程索引">
           <div class="day-index-head">
             <div>
               <strong>16日每日行程索引</strong>
-              <p class="daily-compact-hint">點 Day 只顯示該日詳情，避免一直向下滑；需要比較時才展開全部。</p>
+              <p class="daily-compact-hint">點 Day 只顯示該日詳情；進入卡內再切換重點/交通/預算/食物，避免一直向下滑。</p>
             </div>
             <span class="day-count-badge" id="day-count-badge">檢查中</span>
           </div>
@@ -2994,20 +3034,8 @@
             </div>
             <span class="material-symbols-outlined chevron">expand_more</span>
           </summary>
-          <div class="day-detail">
-            <div class="guide-card">
-              <h4><span class="material-symbols-outlined">flag</span> 今日重點</h4>
-              <p>${item.focus}</p>
-            </div>
-            <div class="guide-card">
-              <h4><span class="material-symbols-outlined">train</span> 交通攻略</h4>
-              <p>${item.transport}</p>
-            </div>
-            <div class="guide-card">
-              <h4><span class="material-symbols-outlined">timeline</span> 時間線</h4>
-              <div class="timeline">${item.timeline.map(formatTimelineItem).join("")}</div>
-            </div>
-            ${renderDayGuide(item.day)}
+          <div class="day-detail day-guide-shell">
+            ${renderDayGuide(item)}
           </div>
         </details>
       `).join("");
@@ -3015,6 +3043,9 @@
         card.addEventListener("toggle", () => {
           if (card.open) setActiveDayButton(Number(card.id.replace("day-", "")));
         });
+      });
+      box.querySelectorAll("[data-day-section]").forEach(button => {
+        button.addEventListener("click", () => selectDaySection(button.closest(".day-card"), button.dataset.daySection));
       });
     }
 
@@ -3040,33 +3071,72 @@
       return `<ul>${items.map(item => `<li>${item}</li>`).join("")}</ul>`;
     }
 
-    function renderDayGuide(day) {
-      const guide = dayGuides[day];
+    function renderDayGuide(item) {
+      const guide = dayGuides[item.day];
       if (!guide) return "";
       return `
-        <div class="daily-extra-grid">
-          <div class="daily-mini-card">
+        <div class="day-section-tabs" aria-label="Day ${item.day} 詳情分頁">
+          <button class="day-section-tab active" type="button" data-day-section="focus"><span class="material-symbols-outlined">flag</span> 重點</button>
+          <button class="day-section-tab" type="button" data-day-section="transport"><span class="material-symbols-outlined">train</span> 交通</button>
+          <button class="day-section-tab" type="button" data-day-section="timeline"><span class="material-symbols-outlined">timeline</span> 時間</button>
+          <button class="day-section-tab" type="button" data-day-section="budget"><span class="material-symbols-outlined">payments</span> 預算</button>
+          <button class="day-section-tab" type="button" data-day-section="food"><span class="material-symbols-outlined">restaurant</span> 食物</button>
+          <button class="day-section-tab" type="button" data-day-section="ready"><span class="material-symbols-outlined">task_alt</span> 確認</button>
+        </div>
+        <div class="day-section-panels">
+          <div class="day-section-panel active" data-section-panel="focus">
+            <div class="guide-card">
+              <h4><span class="material-symbols-outlined">flag</span> 今日重點</h4>
+              <p>${item.focus}</p>
+            </div>
+          </div>
+          <div class="day-section-panel" data-section-panel="transport">
+            <div class="daily-mini-card">
+              <h4><span class="material-symbols-outlined">directions_transit</span> 交通細節</h4>
+              <p style="margin:0 0 10px;color:var(--slate-600);font-size:12px;line-height:1.6;font-weight:650">${item.transport}</p>
+              ${renderList(guide.transportSteps)}
+            </div>
+          </div>
+          <div class="day-section-panel" data-section-panel="timeline">
+            <div class="guide-card">
+              <h4><span class="material-symbols-outlined">timeline</span> 時間線</h4>
+              <div class="timeline">${item.timeline.map(formatTimelineItem).join("")}</div>
+            </div>
+          </div>
+          <div class="day-section-panel" data-section-panel="budget">
+            <div class="daily-mini-card">
             <h4><span class="material-symbols-outlined">payments</span> 預算與價格估算</h4>
             <div class="budget-line">
               <span class="budget-total">${guide.budget.total}</span>
               ${renderList(guide.budget.lines)}
               <span class="daily-note">價格會因日期、匯率、排隊/購物選擇改變；出發前以官方與 Google Maps 當日顯示為準。</span>
             </div>
+            </div>
           </div>
-          <div class="daily-mini-card">
-            <h4><span class="material-symbols-outlined">directions_transit</span> 交通細節</h4>
-            ${renderList(guide.transportSteps)}
+          <div class="day-section-panel" data-section-panel="food">
+            <div class="daily-mini-card">
+              <h4><span class="material-symbols-outlined">restaurant</span> 食物推薦方向</h4>
+              ${renderList(guide.food)}
+            </div>
           </div>
-          <div class="daily-mini-card">
-            <h4><span class="material-symbols-outlined">restaurant</span> 食物推薦方向</h4>
-            ${renderList(guide.food)}
-          </div>
-          <div class="daily-mini-card">
-            <h4><span class="material-symbols-outlined">task_alt</span> 出發前確認</h4>
-            ${renderList(guide.ready)}
+          <div class="day-section-panel" data-section-panel="ready">
+            <div class="daily-mini-card">
+              <h4><span class="material-symbols-outlined">task_alt</span> 出發前確認</h4>
+              ${renderList(guide.ready)}
+            </div>
           </div>
         </div>
       `;
+    }
+
+    function selectDaySection(card, section) {
+      if (!card) return;
+      card.querySelectorAll("[data-day-section]").forEach(button => {
+        button.classList.toggle("active", button.dataset.daySection === section);
+      });
+      card.querySelectorAll("[data-section-panel]").forEach(panel => {
+        panel.classList.toggle("active", panel.dataset.sectionPanel === section);
+      });
     }
 
     function setActiveDayButton(day) {
