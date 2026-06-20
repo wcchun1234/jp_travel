@@ -1450,6 +1450,65 @@
       display: grid;
       gap: 14px;
     }
+    .daily-extra-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .daily-mini-card {
+      min-width: 0;
+      padding: 14px;
+      border: 1px solid var(--slate-200);
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: var(--shadow-card);
+    }
+    .daily-mini-card h4 {
+      margin: 0 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--slate-800);
+      font-size: 13px;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+    .daily-mini-card ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--slate-600);
+      font-size: 12px;
+      line-height: 1.65;
+      font-weight: 650;
+    }
+    .daily-mini-card li + li { margin-top: 4px; }
+    .budget-line {
+      display: grid;
+      gap: 7px;
+      color: var(--slate-700);
+      font-size: 12px;
+      line-height: 1.55;
+      font-weight: 700;
+    }
+    .budget-total {
+      display: inline-flex;
+      width: fit-content;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--joy-sun-soft);
+      color: #92400e;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 800;
+    }
+    .daily-note {
+      color: var(--slate-500);
+      font-size: 11px;
+      line-height: 1.5;
+      font-weight: 700;
+    }
     .guide-card { padding: 14px; }
     .guide-card h4 {
       margin: 0 0 8px;
@@ -1718,6 +1777,7 @@
       .day-badge { min-width: 52px; text-align: center; }
       details.day-card summary { padding: 15px; }
       .day-detail { padding: 14px; }
+      .daily-extra-grid { grid-template-columns: 1fr; }
       .day-index-head { align-items: flex-start; flex-direction: column; }
       .day-index-card {
         top: 54px;
@@ -2159,7 +2219,7 @@
 
       <section id="daily-detail" class="tab-content">
         <div class="info-box">
-          <strong>每日詳細行程：</strong>Day 1-16 已全部補齊。每張卡包含今日重點、交通攻略與簡明時間線；DisneySea、春日部/晴空塔、富士山、鎌倉與回程已加入最新動線。
+          <strong>每日詳細行程：</strong>Day 1-16 已全部補齊。每張卡包含今日重點、交通攻略、時間線、預算估算、食物推薦與出發前確認。票價/車資以 2026 出發前官方與 Google Maps 當日顯示為準。
         </div>
         <div class="day-index-card" aria-label="每日行程索引">
           <div class="day-index-head">
@@ -2614,6 +2674,105 @@
       }
     ];
 
+    const dayGuides = {
+      1: {
+        budget: { total: "約 ¥4,500-7,500 / 人 + 晚餐", lines: ["Skyliner + JR/地鐵約 ¥2,600-2,700；短程的士到酒店約 ¥1,500-2,500 / 車。", "晚餐建議 ¥1,200-2,500 / 人；便利店補水/早餐約 ¥800-1,500。", "費用以 2026 出發前官方/Google Maps 顯示為準。"] },
+        transportSteps: ["成田T2 入境後先處理 eSIM / Suica / Skyliner。", "Skyliner 到京成上野或日暮里，再用 JR/的士到秋葉原北。", "行李多直接的士到 Hotel Livemax Akihabara Kita，今天不省這段體力。"],
+        food: ["秋葉原：拉麵、牛丼、壽司郎/迴轉壽司，選不用排隊的。", "便利店買水、早餐、濕紙巾；回酒店前先補齊。", "如果太累，直接附近商場或車站便當。"],
+        ready: ["護照、入境 QR、酒店地址截圖。", "Skyliner / IC 卡付款方式。", "Google Maps 先收藏酒店與京成上野。"]
+      },
+      2: {
+        budget: { total: "約 ¥3,500-8,000 / 人 + 購物", lines: ["市區交通約 ¥300-700；步行可壓低成本。", "午晚餐約 ¥2,500-5,000；藥妝/電器另計。", "若一天搭多次 Metro/Toei，可比較 24h 地鐵券 ¥1,000。"] },
+        transportSteps: ["秋葉原、御徒町、上野可 JR 一兩站或直接步行串起。", "買重物先回酒店放低，再出第二輪。", "雨大時優先 Yodobashi、atre、上野商場與地下通道。"],
+        food: ["阿美橫町：海鮮丼、串燒、街頭小食。", "上野：洋食、拉麵、甜品咖啡都多。", "秋葉原晚餐：拉麵、燒肉、牛丼，選離酒店近的。"],
+        ready: ["列好藥妝/電器清單和退稅護照。", "確認酒店附近超市/便利店。", "第一天不要買太多大件。"]
+      },
+      3: {
+        budget: { total: "約 ¥8,000-18,000 / 人 + 角色商品", lines: ["交通約 ¥600-1,000；池袋到澀谷可 JR/副都心線。", "Shibuya Sky 票價以官方當日為準，先預約黃昏時段。", "Chiikawa Park / 角色商品按實際抽選與購買控制預算。"] },
+        transportSteps: ["秋葉原 → 池袋：JR 山手線最簡單。", "池袋 → 澀谷：JR 埼京線/山手線或副都心線。", "Shibuya Sky 入場前 30-45 分鐘到澀谷，避免找入口慌張。"],
+        food: ["池袋 Sunshine City：午餐選商場餐廳，穩定少風險。", "澀谷：PARCO / Scramble Square 餐廳，適合接夜景。", "甜品：Miyashita Park / 澀谷咖啡店作休息點。"],
+        ready: ["Chiikawa 票/抽選截圖。", "Shibuya Sky QR 與天氣風險確認。", "角色商品優先清單，避免失控。"]
+      },
+      4: {
+        budget: { total: "約 ¥5,000-10,000 / 人", lines: ["地鐵/JR 約 ¥500-900；短程的士備用約 ¥1,500-2,500 / 車。", "築地早午餐約 ¥2,500-5,000；咖啡/甜品約 ¥800-1,500。", "東京鐵塔若入場需另計門票，純外拍免費。"] },
+        transportSteps: ["仲御徒町/秋葉原 → 築地：日比谷線最順。", "築地 → 增上寺/芝公園：地鐵轉都營線或短程的士。", "雨天把戶外拍照縮短，改咖啡店/商場。"],
+        food: ["築地場外市場是海鮮與傳統食材集中地，適合早午餐。", "推薦方向：壽司、海鮮丼、玉子燒、烤海鮮。", "下午芝公園附近找咖啡店休腳。"],
+        ready: ["築地熱門店早去，不要排一間排太久。", "帶現金，小店未必完全支援卡。", "雨傘/防曬，東京鐵塔拍照看天氣。"]
+      },
+      5: {
+        budget: { total: "約 ¥18,000-35,000 / 人", lines: ["1-Day Passport 成人官方顯示由 ¥7,900 起，日期變動價。", "市區往返 + Resort Line 約 ¥1,200-2,000。", "DPA / 餐飲 / 週邊可快速增加，建議先定上限。"] },
+        transportSteps: ["早到首選：日比谷線八丁堀 → JR 京葉線舞濱 → Resort Line。", "06:25-06:40 出門，目標 07:45 到閘口。", "回程看體力，閉園人潮大時不要急衝。"],
+        food: ["早餐：酒店附近便利店飯糰/咖啡，入園前先吃。", "午晚餐：用官方 App 看 Mobile Order / 餐廳等候。", "下午補水和小食，比硬排餐廳更重要。"],
+        ready: ["官方 App 登入、門票加入 App、信用卡綁定。", "DPA / Priority Pass 目標排序。", "雨衣、行動電源、輕便鞋。"]
+      },
+      6: {
+        budget: { total: "約 ¥5,000-11,000 / 人 + 購物", lines: ["東武/JR/地鐵交通約 ¥1,200-2,000。", "春日部小新周邊與 Solamachi 購物另計。", "晚餐晴空塔商場約 ¥1,500-3,500 / 人。"] },
+        transportSteps: ["秋葉原/仲御徒町 → 北千住 → 東武線至春日部。", "回程春日部 → 押上，直接接晴空塔 Solamachi。", "晚上押上/淺草線或 JR 組合回秋葉原。"],
+        food: ["春日部午餐：車站附近簡單定食/拉麵。", "Solamachi 晚餐：商場餐廳選擇多，雨天穩。", "想甜品可留在 Solamachi 吃。"],
+        ready: ["小新目標點先存 Google Maps。", "不要買太重，晚上還要轉車。", "查東武線回押上班次。"]
+      },
+      7: {
+        budget: { total: "約 ¥6,000-15,000 / 人 + 精品購物", lines: ["市區交通約 ¥400-900。", "午晚餐約 ¥3,000-7,000；百貨甜品另計。", "東京站角色街/手信購物另計。"] },
+        transportSteps: ["秋葉原 → 銀座：日比谷線直達方便。", "銀座、有樂町、東京站可步行/JR 一站串連。", "強雨時優先地下街和百貨連通路線。"],
+        food: ["銀座/有樂町：百貨餐廳、喫茶店、甜品。", "東京站：拉麵街、Character Street 附近晚餐。", "雨天不要排戶外店，選商場內。"],
+        ready: ["退稅護照放隨身袋。", "東京站一番街店鋪位置先存。", "買重物後評估是否先回酒店。"]
+      },
+      8: {
+        budget: { total: "約 ¥5,000-14,000 / 人 + 新宿購物", lines: ["JR/地鐵約 ¥500-1,000。", "午餐/咖啡/晚餐約 ¥3,500-7,000。", "新宿百貨、服飾、藥妝另計。"] },
+        transportSteps: ["秋葉原 → 原宿：JR 山手線最直覺。", "明治神宮、竹下通、Cat Street、表參道以步行串起。", "表參道/原宿 → 新宿，JR 或副都心線；晚上 JR 回秋葉原。"],
+        food: ["原宿：可麗餅、小食、咖啡，但週末人多。", "表參道：咖啡/甜品休息點較舒服。", "新宿：百貨餐廳或地下食品樓，晚餐選擇穩。"],
+        ready: ["週末早點出門，避開竹下通最高峰。", "穿好走的鞋。", "新宿購物清單先分百貨/藥妝/服飾。"]
+      },
+      9: {
+        budget: { total: "約 ¥6,000-12,000 / 人", lines: ["的士轉酒店約 ¥2,000-4,000 / 車，視交通與行李。", "日本橋/東京站輕食晚餐約 ¥2,500-5,000。", "今日避免高額預約，留作轉場緩衝。"] },
+        transportSteps: ["舊酒店退房後直接的士移防，減少拖行李轉車。", "新酒店寄存行李後只走日本橋/東京站周邊。", "熟習人形町、馬喰橫山、小傳馬町入口。"],
+        food: ["人形町：親子丼、天婦羅、咖啡老店方向。", "日本橋：Coredo / 百貨餐廳穩定。", "東京站：便當、甜品、拉麵都可作輕鬆選項。"],
+        ready: ["兩間酒店地址與入住時間截圖。", "行李重新分配，把後半段要用的放易取。", "洗衣/補給日用品。"]
+      },
+      10: {
+        budget: { total: "約 ¥9,000-18,000 / 人", lines: ["teamLab Borderless 門票以官方日期價格為準，需預約早場。", "地鐵約 ¥400-800；麻布台 Hills 餐飲約 ¥2,500-6,000。", "拍照/咖啡/甜品另計。"] },
+        transportSteps: ["日本橋/人形町 → 神谷町方向，步行接麻布台 Hills。", "teamLab 早場入場，預留 3-4 小時以上。", "晚餐不要排太遠，翌日富士山要早起。"],
+        food: ["麻布台 Hills：午餐、咖啡、甜品集中，適合慢慢拍照休息。", "六本木/神谷町周邊可作候補。", "晚餐回日本橋會更穩。"],
+        ready: ["teamLab QR、入場時間、充電。", "穿淺色/好拍但好走的鞋。", "相機/手機容量清空。"]
+      },
+      11: {
+        budget: { total: "約 ¥12,000-25,000 / 人", lines: ["Local tour / 巴士團價格依平台與路線而定；集合交通另計。", "早餐/午餐/晚餐約 ¥3,000-6,000。", "天氣差時不要硬去，改 Day 12/14 可保護體驗。"] },
+        transportSteps: ["若新宿集合：都營新宿線到新宿，預留找集合點時間。", "若東京站集合：日本橋基地更方便，的士/步行可控。", "回程晚，直接回酒店，不再加購物。"],
+        food: ["早餐便利店先買好，在集合前吃。", "午餐多數看團安排/河口湖周邊。", "回市區後簡單定食/便利店，重點是休息。"],
+        ready: ["前一晚看能見度/雲量/雨量。", "集合點截圖、導遊聯絡、退款改期政策。", "薄外套、暈車藥、行動電源。"]
+      },
+      12: {
+        budget: { total: "約 ¥5,000-11,000 / 人", lines: ["地鐵/短程轉車約 ¥500-1,200。", "咖啡/午餐/晚餐約 ¥3,500-7,000。", "合羽橋廚具/雜貨購物另計。"] },
+        transportSteps: ["日本橋 → 合羽橋，可地鐵 + 步行或短程的士。", "合羽橋 → 蔵前 → 清澄白河，保持單向移動。", "體力不足可刪清澄白河，早回酒店。"],
+        food: ["合羽橋/淺草周邊：定食、蕎麥、甜品。", "蔵前：咖啡、烘焙、文具雜貨。", "清澄白河：咖啡散步日重點。"],
+        ready: ["想買廚具先量行李空間。", "咖啡店收藏 2-3 間，不排死一間。", "今天是恢復日，不排太滿。"]
+      },
+      13: {
+        budget: { total: "約 ¥7,000-15,000 / 人", lines: ["JR 往返鎌倉 + 江之電約 ¥2,000-3,500。", "寺院/大佛等小額門票另計。", "午晚餐約 ¥3,500-7,000，沿海咖啡另計。"] },
+        transportSteps: ["新日本橋 → JR 總武快速/橫須賀線直達鎌倉最順。", "鎌倉站 → 長谷大佛 → 江之電沿海段 → 江之島視天氣。", "強風雨時直接與 Day 14 互換。"],
+        food: ["小町通：小食、甜品、抹茶。", "長谷/江之島：海鮮、咖啡、海景餐廳。", "回東京後若累，東京站買便當。"],
+        ready: ["查沿海風雨與江之電狀態。", "穿防滑好走鞋。", "海邊防曬/帽/小毛巾。"]
+      },
+      14: {
+        budget: { total: "約 ¥5,000-20,000+ / 人", lines: ["新宿交通約 ¥500-900；台場候補交通約 ¥1,000-1,800。", "餐飲約 ¥3,000-6,000；購物按清單控制。", "若補富士山/鎌倉，改用相應預算。"] },
+        transportSteps: ["日本橋/馬喰橫山 → 新宿：都營新宿線或 JR 轉乘。", "新宿站大，先定 Isetan / Lumine / NEWoMan 順序。", "台場候補：新橋轉百合海鷗線，強風雨不去。"],
+        food: ["新宿：百貨餐廳、地下食品樓、咖啡甜品都穩。", "想輕鬆可在 NEWoMan / Takashimaya 內解決。", "台場候補：DiverCity / Aqua City 餐廳。"],
+        ready: ["購物清單分必買/可買。", "退稅護照、信用卡、行李空間。", "保留天氣對調權，不要預約死。"]
+      },
+      15: {
+        budget: { total: "約 ¥5,000-16,000 / 人 + 手信", lines: ["交通低，主要步行/短程地鐵約 ¥300-800。", "餐飲約 ¥3,000-6,000。", "手信、甜品、藥妝、退稅按最後清單。"] },
+        transportSteps: ["日本橋、人形町、東京站集中處理。", "買重物後先回酒店放低，再出第二輪。", "晚上留 90 分鐘以上執行李與秤重。"],
+        food: ["東京站：便當、甜品、拉麵街、Character Street 附近。", "日本橋百貨：餐廳和食品樓適合手信收尾。", "人形町：最後一餐可選附近老店方向。"],
+        ready: ["整理退稅單/收據。", "確認行李重量和液體限制。", "回程交通路線截圖。"]
+      },
+      16: {
+        budget: { total: "約 ¥3,500-7,000 / 人 + 機場購物", lines: ["人形町至成田T2 Access 特急/都營淺草線直通約 ¥1,500-2,000 量級，實際以當日 IC 顯示為準。", "機場餐飲/手信約 ¥2,000-5,000。", "預留交通備用金，不要最後花光現金。"] },
+        transportSteps: ["Hotel Horidome Villa → 人形町站，搭都營淺草線直通京成方向。", "確認列車是往成田機場方向，不要上錯羽田方向。", "13:45-14:00 抵成田T2，留足退稅/安檢/購物。"],
+        food: ["酒店附近簡單早餐或便利店。", "成田T2：過安檢前後都有餐飲，時間比市區更重要。", "上機前買水與小食。"],
+        ready: ["護照、機票、行李、退稅品。", "Access 特急路線截圖。", "UO871 17:05 起飛，至少提前 3 小時到機場。"]
+      }
+    };
+
     const plans = {
       A: {
         title: "Plan A ｜ 預設好天氣行程",
@@ -2848,6 +3007,7 @@
               <h4><span class="material-symbols-outlined">timeline</span> 時間線</h4>
               <div class="timeline">${item.timeline.map(formatTimelineItem).join("")}</div>
             </div>
+            ${renderDayGuide(item.day)}
           </div>
         </details>
       `).join("");
@@ -2874,6 +3034,39 @@
       const match = text.match(/^(\d{2}:\d{2}(?:-\d{2}:\d{2})?)\s+(.+)$/);
       if (!match) return `<div class="timeline-item">${text}</div>`;
       return `<div class="timeline-item"><strong>${match[1]}</strong>${match[2]}</div>`;
+    }
+
+    function renderList(items = []) {
+      return `<ul>${items.map(item => `<li>${item}</li>`).join("")}</ul>`;
+    }
+
+    function renderDayGuide(day) {
+      const guide = dayGuides[day];
+      if (!guide) return "";
+      return `
+        <div class="daily-extra-grid">
+          <div class="daily-mini-card">
+            <h4><span class="material-symbols-outlined">payments</span> 預算與價格估算</h4>
+            <div class="budget-line">
+              <span class="budget-total">${guide.budget.total}</span>
+              ${renderList(guide.budget.lines)}
+              <span class="daily-note">價格會因日期、匯率、排隊/購物選擇改變；出發前以官方與 Google Maps 當日顯示為準。</span>
+            </div>
+          </div>
+          <div class="daily-mini-card">
+            <h4><span class="material-symbols-outlined">directions_transit</span> 交通細節</h4>
+            ${renderList(guide.transportSteps)}
+          </div>
+          <div class="daily-mini-card">
+            <h4><span class="material-symbols-outlined">restaurant</span> 食物推薦方向</h4>
+            ${renderList(guide.food)}
+          </div>
+          <div class="daily-mini-card">
+            <h4><span class="material-symbols-outlined">task_alt</span> 出發前確認</h4>
+            ${renderList(guide.ready)}
+          </div>
+        </div>
+      `;
     }
 
     function setActiveDayButton(day) {
