@@ -709,6 +709,63 @@
     .mood-fun { color: #be123c; background: var(--joy-coral-soft); border: 1px solid #fecdd3; }
     .mood-nature { color: #047857; background: var(--joy-mint-soft); border: 1px solid #a7f3d0; }
     .mood-buffer { color: var(--primary); background: var(--primary-soft); border: 1px solid #c4b5fd; }
+    .day-index-card {
+      display: grid;
+      gap: 12px;
+      padding: 16px;
+      border: 1px solid #bfdbfe;
+      border-radius: var(--radius-card);
+      background: #fff;
+      box-shadow: var(--shadow-card);
+    }
+    .day-index-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .day-index-head strong {
+      color: var(--slate-900);
+      font-size: 14px;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+    .day-count-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 26px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      background: var(--joy-mint-soft);
+      color: #047857;
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .day-index-grid {
+      display: grid;
+      grid-template-columns: repeat(8, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .day-index-btn {
+      min-height: 34px;
+      border: 1px solid var(--slate-200);
+      border-radius: 9px;
+      background: #fff;
+      color: var(--slate-700);
+      font: inherit;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .day-index-btn:hover {
+      border-color: #c4b5fd;
+      background: var(--primary-soft);
+      color: var(--primary);
+    }
     .day-card[open] .chevron { transform: rotate(180deg); }
     .chevron { transition: transform .15s ease; color: #94a3b8; }
     .day-detail {
@@ -967,6 +1024,8 @@
       .day-badge { min-width: 52px; text-align: center; }
       details.day-card summary { padding: 15px; }
       .day-detail { padding: 14px; }
+      .day-index-head { align-items: flex-start; flex-direction: column; }
+      .day-index-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
       table { min-width: 0; }
       .table-wrap { overflow: visible; }
       table, thead, tbody, tr, td { display: block; width: 100%; }
@@ -1239,6 +1298,13 @@
       <section id="daily-detail" class="tab-content">
         <div class="info-box">
           <strong>每日詳細行程：</strong>Day 1-16 已全部補齊。每張卡包含今日重點、交通攻略與簡明時間線；DisneySea、春日部/晴空塔、富士山、鎌倉與回程已加入最新動線。
+        </div>
+        <div class="day-index-card" aria-label="每日行程索引">
+          <div class="day-index-head">
+            <strong>16日每日行程索引</strong>
+            <span class="day-count-badge" id="day-count-badge">檢查中</span>
+          </div>
+          <div class="day-index-grid" id="day-index-grid"></div>
         </div>
         <div class="accordion-stack" id="daily-accordion"></div>
       </section>
@@ -1613,7 +1679,7 @@
     function renderDetails() {
       const box = document.getElementById("daily-accordion");
       box.innerHTML = details.map(item => `
-        <details class="day-card" ${item.open ? "open" : ""}>
+        <details class="day-card" id="day-${item.day}" ${item.open ? "open" : ""}>
           <summary>
             <div class="summary-left">
               <span class="day-badge">Day ${item.day}</span>
@@ -1643,6 +1709,23 @@
           </div>
         </details>
       `).join("");
+    }
+
+    function renderDayIndex() {
+      const grid = document.getElementById("day-index-grid");
+      const badge = document.getElementById("day-count-badge");
+      const days = details.map(item => item.day);
+      const missing = Array.from({ length: 16 }, (_, index) => index + 1).filter(day => !days.includes(day));
+      badge.textContent = missing.length ? `欠 Day ${missing.join(", ")}` : "Day 1-16 全齊";
+      grid.innerHTML = details.map(item => `<button class="day-index-btn" type="button" data-jump-day="${item.day}">Day ${item.day}</button>`).join("");
+      grid.querySelectorAll("[data-jump-day]").forEach(button => {
+        button.addEventListener("click", () => {
+          const card = document.getElementById(`day-${button.dataset.jumpDay}`);
+          if (!card) return;
+          card.open = true;
+          card.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
     }
 
     function formatTimelineItem(text) {
@@ -1685,6 +1768,7 @@
 
     renderTable();
     renderDetails();
+    renderDayIndex();
     simulateWeather("A");
     switchTab(location.hash.replace("#", "") || "overview", false);
     if (location.hash) {
