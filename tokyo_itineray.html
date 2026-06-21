@@ -1502,6 +1502,88 @@
       flex-wrap: wrap;
       gap: 8px;
     }
+    .day-command-card {
+      display: grid;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid #ddd6fe;
+      border-radius: 14px;
+      background:
+        linear-gradient(135deg, rgba(238,242,255,.98), rgba(255,255,255,.98));
+    }
+    .day-command-top {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 10px;
+    }
+    .day-command-title {
+      min-width: 0;
+      display: grid;
+      gap: 3px;
+    }
+    .day-command-title strong {
+      color: var(--slate-900);
+      font-size: 14px;
+      line-height: 1.35;
+      font-weight: 850;
+    }
+    .day-command-title span {
+      color: var(--slate-500);
+      font-size: 11px;
+      line-height: 1.35;
+      font-weight: 750;
+    }
+    .day-command-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 28px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+    .day-command-actions {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .day-command-link,
+    .day-command-action {
+      min-height: 38px;
+      padding: 8px 10px;
+      border: 1px solid var(--slate-200);
+      border-radius: 12px;
+      background: #fff;
+      color: var(--slate-700);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font: inherit;
+      font-size: 12px;
+      line-height: 1.15;
+      font-weight: 850;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .day-command-link.primary,
+    .day-command-action.primary {
+      border-color: #c4b5fd;
+      background: var(--primary-soft);
+      color: var(--primary);
+    }
+    .day-command-link:hover,
+    .day-command-action:hover {
+      border-color: #c4b5fd;
+      transform: translateY(-1px);
+    }
     .day-tool-btn {
       min-height: 34px;
       padding: 8px 10px;
@@ -2016,6 +2098,20 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         width: 100%;
       }
+      .day-command-top {
+        grid-template-columns: 1fr;
+      }
+      .day-command-badge {
+        width: fit-content;
+      }
+      .day-command-actions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .day-command-link,
+      .day-command-action {
+        min-height: 42px;
+        white-space: normal;
+      }
       table { min-width: 0; }
       .table-wrap { overflow: visible; }
       table, thead, tbody, tr, td { display: block; width: 100%; }
@@ -2463,6 +2559,7 @@
             <button class="day-tool-btn" type="button" id="collapse-all-days"><span class="material-symbols-outlined">unfold_less</span> 收起全部</button>
             <button class="day-tool-btn" type="button" data-jump-tab="master-table"><span class="material-symbols-outlined">calendar_view_week</span> 返回總表</button>
           </div>
+          <div class="day-command-card" id="day-command-card" aria-live="polite"></div>
         </div>
         <div class="accordion-stack" id="daily-accordion"></div>
       </section>
@@ -3381,6 +3478,32 @@
       return "";
     }
 
+    function updateActiveDayCommand(day) {
+      const command = document.getElementById("day-command-card");
+      if (!command) return;
+      const item = details.find(detail => detail.day === day);
+      const shortcut = dayShortcuts[day];
+      if (!item || !shortcut) {
+        command.innerHTML = "";
+        return;
+      }
+      command.innerHTML = `
+        <div class="day-command-top">
+          <div class="day-command-title">
+            <strong>${item.title}</strong>
+            <span>${item.type} ｜ ${item.pace} ｜ ${item.focus}</span>
+          </div>
+          <span class="day-command-badge">目前選擇 Day ${item.day}</span>
+        </div>
+        <div class="day-command-actions">
+          <a class="day-command-link primary" href="${buildDayDirectionsUrl(shortcut)}" target="_blank" rel="noopener"><span class="material-symbols-outlined">directions</span> 最快交通</a>
+          <a class="day-command-link" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(shortcut.destination)}" target="_blank" rel="noopener"><span class="material-symbols-outlined">pin_drop</span> 目的地</a>
+          <a class="day-command-link" href="${buildDayFoodUrl(shortcut)}" target="_blank" rel="noopener"><span class="material-symbols-outlined">restaurant</span> 食物</a>
+          <button class="day-command-action" type="button" data-command-day="${item.day}" data-command-section="budget"><span class="material-symbols-outlined">payments</span> 預算</button>
+        </div>
+      `;
+    }
+
     function selectDaySection(card, section) {
       if (!card) return;
       card.querySelectorAll("[data-day-section]").forEach(button => {
@@ -3395,10 +3518,12 @@
       document.querySelectorAll("[data-jump-day]").forEach(button => {
         button.classList.toggle("active", Number(button.dataset.jumpDay) === day);
       });
+      updateActiveDayCommand(day);
     }
 
     function openDayDetail(day, options = {}) {
       const compact = options.compact !== false;
+      const shouldScroll = options.scroll !== false;
       switchTab("daily-detail");
       requestAnimationFrame(() => {
         const card = document.getElementById(`day-${day}`);
@@ -3410,7 +3535,8 @@
         }
         card.open = true;
         setActiveDayButton(day);
-        card.scrollIntoView({ behavior: "smooth", block: "start" });
+        if (options.section) selectDaySection(card, options.section);
+        if (shouldScroll) card.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     }
 
@@ -3562,6 +3688,14 @@
     document.getElementById("today-reset-btn")?.addEventListener("click", () => openDayDetail(1, { compact: true }));
     document.getElementById("expand-all-days")?.addEventListener("click", expandAllDays);
     document.getElementById("collapse-all-days")?.addEventListener("click", collapseAllDays);
+    document.addEventListener("click", event => {
+      const action = event.target.closest("[data-command-day][data-command-section]");
+      if (!action) return;
+      openDayDetail(Number(action.dataset.commandDay), {
+        compact: true,
+        section: action.dataset.commandSection
+      });
+    });
 
     renderTable();
     renderDetails();
