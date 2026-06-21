@@ -1857,6 +1857,142 @@
       font-size: 12px;
       line-height: 1.75;
     }
+    .weather-lab {
+      margin-top: 18px;
+      display: grid;
+      gap: 14px;
+      padding: 16px;
+      border: 1px solid #bfdbfe;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #eff6ff, #ffffff);
+      box-shadow: var(--shadow-card);
+    }
+    .weather-lab-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .weather-lab-head h3 {
+      margin: 0;
+      color: var(--slate-900);
+      font-size: 15px;
+      line-height: 1.35;
+      font-weight: 850;
+    }
+    .weather-lab-head p {
+      margin: 5px 0 0;
+      color: var(--slate-600);
+      font-size: 12px;
+      line-height: 1.55;
+      font-weight: 700;
+    }
+    .weather-source-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .weather-source-link {
+      min-height: 32px;
+      padding: 7px 10px;
+      border: 1px solid var(--slate-200);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--slate-700);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 850;
+      text-decoration: none;
+    }
+    .weather-input-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .weather-input-card {
+      display: grid;
+      gap: 8px;
+      padding: 12px;
+      border: 1px solid var(--slate-200);
+      border-radius: 12px;
+      background: rgba(255,255,255,.92);
+    }
+    .weather-input-card strong {
+      color: var(--slate-900);
+      font-size: 12px;
+      line-height: 1.35;
+      font-weight: 850;
+    }
+    .weather-input-card span {
+      color: var(--slate-500);
+      font-size: 11px;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+    .weather-select {
+      width: 100%;
+      min-height: 36px;
+      border: 1px solid var(--slate-200);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--slate-800);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .weather-smart-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .weather-smart-btn {
+      min-height: 36px;
+      padding: 8px 12px;
+      border: 1px solid #c4b5fd;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font: inherit;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 850;
+      cursor: pointer;
+    }
+    .weather-smart-btn.secondary {
+      border-color: var(--slate-200);
+      background: #fff;
+      color: var(--slate-700);
+    }
+    .weather-result {
+      display: grid;
+      gap: 8px;
+      padding: 12px;
+      border: 1px solid var(--slate-200);
+      border-radius: 12px;
+      background: #fff;
+    }
+    .weather-result strong {
+      color: var(--slate-900);
+      font-size: 13px;
+      line-height: 1.35;
+      font-weight: 850;
+    }
+    .weather-result ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--slate-600);
+      font-size: 12px;
+      line-height: 1.65;
+      font-weight: 700;
+    }
 
     .checklist {
       display: grid;
@@ -2048,6 +2184,16 @@
       .route-line { place-items: start; }
       .route-line .line { width: 180px; }
       .weather-buttons { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .weather-lab-head {
+        flex-direction: column;
+      }
+      .weather-input-grid {
+        grid-template-columns: 1fr;
+      }
+      .weather-smart-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
       .time { font-size: 24px; }
       .price-pill { width: 100%; justify-content: center; font-size: 14px; }
       .mobile-tabs {
@@ -2779,6 +2925,78 @@
               <p class="feedback-title"><span class="material-symbols-outlined" style="color:var(--emerald)">task_alt</span><span id="current-plan-title">Plan A ｜ 預設好天氣行程</span></p>
               <ul class="feedback-list" id="current-plan-desc"></ul>
             </div>
+            <section class="weather-lab" aria-label="即時天氣對調模擬器">
+              <div class="weather-lab-head">
+                <div>
+                  <h3><span class="material-symbols-outlined">emergency_home</span> 即時天氣對調模擬器</h3>
+                  <p>出發前 24-48 小時，把天氣 App 看到的 Day 11-14 狀態填入；系統會把富士山、鎌倉、市區咖啡和新宿購物重新排序。</p>
+                </div>
+                <div class="weather-source-row" aria-label="天氣查詢快捷">
+                  <a class="weather-source-link" href="https://www.google.com/search?q=Tokyo+weather" target="_blank" rel="noopener"><span class="material-symbols-outlined">open_in_new</span> 東京</a>
+                  <a class="weather-source-link" href="https://www.google.com/search?q=Kawaguchiko+weather" target="_blank" rel="noopener"><span class="material-symbols-outlined">landscape</span> 河口湖</a>
+                  <a class="weather-source-link" href="https://www.google.com/search?q=Kamakura+weather" target="_blank" rel="noopener"><span class="material-symbols-outlined">beach_access</span> 鎌倉</a>
+                </div>
+              </div>
+              <div class="weather-input-grid">
+                <label class="weather-input-card">
+                  <strong>Day 11｜7月7日 Tue</strong>
+                  <span>原定：富士山 / 河口湖</span>
+                  <select class="weather-select" data-weather-day="11">
+                    <option value="clear">好天 / 能見度高</option>
+                    <option value="cloudy">多雲但少雨</option>
+                    <option value="rain">一般下雨</option>
+                    <option value="heavy">大雨 / 雷雨</option>
+                    <option value="wind">強風 / 沿海不穩</option>
+                  </select>
+                </label>
+                <label class="weather-input-card">
+                  <strong>Day 12｜7月8日 Wed</strong>
+                  <span>原定：合羽橋 / 蔵前 / 清澄白河</span>
+                  <select class="weather-select" data-weather-day="12">
+                    <option value="cloudy">多雲但少雨</option>
+                    <option value="clear">好天 / 能見度高</option>
+                    <option value="rain">一般下雨</option>
+                    <option value="heavy">大雨 / 雷雨</option>
+                    <option value="wind">強風 / 沿海不穩</option>
+                  </select>
+                </label>
+                <label class="weather-input-card">
+                  <strong>Day 13｜7月9日 Thu</strong>
+                  <span>原定：鎌倉 / 江之島</span>
+                  <select class="weather-select" data-weather-day="13">
+                    <option value="clear">好天 / 海邊舒服</option>
+                    <option value="cloudy">多雲但少雨</option>
+                    <option value="rain">一般下雨</option>
+                    <option value="heavy">大雨 / 雷雨</option>
+                    <option value="wind">強風 / 沿海不穩</option>
+                  </select>
+                </label>
+                <label class="weather-input-card">
+                  <strong>Day 14｜7月10日 Fri</strong>
+                  <span>原定：新宿購物 / 終極緩衝</span>
+                  <select class="weather-select" data-weather-day="14">
+                    <option value="rain">一般下雨</option>
+                    <option value="clear">好天 / 能見度高</option>
+                    <option value="cloudy">多雲但少雨</option>
+                    <option value="heavy">大雨 / 雷雨</option>
+                    <option value="wind">強風 / 沿海不穩</option>
+                  </select>
+                </label>
+              </div>
+              <div class="weather-smart-actions">
+                <button class="weather-smart-btn" type="button" id="weather-smart-simulate"><span class="material-symbols-outlined">auto_awesome</span> 智能模擬最佳對調</button>
+                <button class="weather-smart-btn secondary" type="button" id="weather-smart-apply"><span class="material-symbols-outlined">calendar_month</span> 套用到總表預覽</button>
+                <button class="weather-smart-btn secondary" type="button" data-jump-tab="master-table"><span class="material-symbols-outlined">table</span> 查看總表</button>
+              </div>
+              <div class="weather-result" id="weather-smart-result">
+                <strong>等待輸入天氣狀態</strong>
+                <ul>
+                  <li>富士山最重視能見度；好天優先排富士山。</li>
+                  <li>鎌倉 / 江之島怕強風與暴雨；風雨大時交給新宿或市區咖啡日。</li>
+                  <li>Day 14 保持最大彈性，適合作為補富士山 / 鎌倉的保險位。</li>
+                </ul>
+              </div>
+            </section>
           </div>
         </div>
       </section>
@@ -3205,6 +3423,52 @@
         }
       }
     };
+
+    const weatherStateLabels = {
+      clear: "好天 / 能見度高",
+      cloudy: "多雲但少雨",
+      rain: "一般下雨",
+      heavy: "大雨 / 雷雨",
+      wind: "強風 / 沿海不穩"
+    };
+
+    const flexibleWeatherDays = [11, 12, 13, 14];
+
+    const weatherActivities = {
+      fuji: {
+        name: "富士山 / 河口湖絕景全景一日遊",
+        short: "富士山",
+        strategy: "好天及能見度優先；若雲厚或雨大，寧願換去市區日。",
+        score: { clear: 10, cloudy: 5, rain: 1, heavy: -4, wind: 0 }
+      },
+      city: {
+        name: "合羽橋道具街 ＋ 蔵前 ＋ 清澄白河咖啡區散步",
+        short: "市區咖啡",
+        strategy: "雨天可縮短步行並多用咖啡店/雜貨店休息，適合承接壞天氣。",
+        score: { clear: 6, cloudy: 8, rain: 8, heavy: 5, wind: 7 }
+      },
+      kamakura: {
+        name: "鎌倉古都 / 江之島一日遊（大佛、江之電、湘南海岸）",
+        short: "鎌倉",
+        strategy: "海邊怕強風與暴雨；好天或多雲少雨才值得早出發。",
+        score: { clear: 9, cloudy: 7, rain: 2, heavy: -4, wind: -5 }
+      },
+      shopping: {
+        name: "新宿大型百貨主力購物 / 台場候補 ＋ 天氣備用終極緩衝日",
+        short: "新宿購物",
+        strategy: "雨天最穩的防線；好天時可改台場或補回富士山/鎌倉。",
+        score: { clear: 6, cloudy: 8, rain: 10, heavy: 9, wind: 9 }
+      }
+    };
+
+    const defaultWeatherActivityByDay = {
+      11: "fuji",
+      12: "city",
+      13: "kamakura",
+      14: "shopping"
+    };
+
+    let latestSmartWeatherPlan = null;
 
     const mapRoutes = {
       "all-tokyo": {
@@ -3677,19 +3941,88 @@
       if (updateHash) history.replaceState(null, "", `#${tabId}`);
     }
 
+    function applyPlanUpdates(updates) {
+      const rows = document.querySelectorAll("[data-day]");
+      rows.forEach(row => {
+        const day = Number(row.dataset.day);
+        if (!updates[day]) return;
+        row.querySelector(".plan-cell").textContent = updates[day][0];
+        row.querySelector(".strategy-cell").textContent = updates[day][1];
+      });
+    }
+
     function simulateWeather(planKey) {
       const plan = plans[planKey];
       document.getElementById("current-plan-title").textContent = plan.title;
       document.getElementById("current-plan-desc").innerHTML = plan.items.map(item => `<li>${item}</li>`).join("");
       document.querySelectorAll(".weather-btn").forEach(btn => btn.classList.toggle("active", btn.dataset.plan === planKey));
+      applyPlanUpdates(plan.updates);
+    }
 
-      const rows = document.querySelectorAll("[data-day]");
-      rows.forEach(row => {
-        const day = Number(row.dataset.day);
-        if (!plan.updates[day]) return;
-        row.querySelector(".plan-cell").textContent = plan.updates[day][0];
-        row.querySelector(".strategy-cell").textContent = plan.updates[day][1];
+    function getWeatherInputs() {
+      return Object.fromEntries([...document.querySelectorAll("[data-weather-day]")].map(select => [
+        Number(select.dataset.weatherDay),
+        select.value
+      ]));
+    }
+
+    function permutations(items) {
+      if (items.length <= 1) return [items];
+      return items.flatMap((item, index) => {
+        const rest = [...items.slice(0, index), ...items.slice(index + 1)];
+        return permutations(rest).map(result => [item, ...result]);
       });
+    }
+
+    function calculateSmartWeatherPlan() {
+      const states = getWeatherInputs();
+      const activityKeys = Object.keys(weatherActivities);
+      let best = null;
+      permutations(activityKeys).forEach(order => {
+        let score = 0;
+        const updates = {};
+        const items = [];
+        order.forEach((activityKey, index) => {
+          const day = flexibleWeatherDays[index];
+          const activity = weatherActivities[activityKey];
+          const state = states[day] || "cloudy";
+          score += activity.score[state] || 0;
+          if (defaultWeatherActivityByDay[day] === activityKey) score += 0.4;
+          updates[day] = [activity.name, `${weatherStateLabels[state]}：${activity.strategy}`];
+          items.push(`Day ${day}：${activity.short} ｜ ${weatherStateLabels[state]}`);
+        });
+        if (!best || score > best.score) best = { score, updates, items, states, order };
+      });
+      return best;
+    }
+
+    function renderSmartWeatherPlan() {
+      latestSmartWeatherPlan = calculateSmartWeatherPlan();
+      const result = document.getElementById("weather-smart-result");
+      if (!result || !latestSmartWeatherPlan) return;
+      const warnings = [];
+      Object.entries(latestSmartWeatherPlan.states).forEach(([day, state]) => {
+        if (state === "heavy") warnings.push(`Day ${day} 大雨/雷雨：優先留在室內或縮短跨區移動。`);
+        if (state === "wind") warnings.push(`Day ${day} 強風：鎌倉、台場、展望台類活動要保守處理。`);
+      });
+      result.innerHTML = `
+        <strong>智能建議：按目前輸入天氣重排 Day 11-14</strong>
+        <ul>
+          ${latestSmartWeatherPlan.items.map(item => `<li>${item}</li>`).join("")}
+          ${warnings.map(item => `<li>${item}</li>`).join("")}
+        </ul>
+      `;
+    }
+
+    function applySmartWeatherPlan() {
+      if (!latestSmartWeatherPlan) renderSmartWeatherPlan();
+      if (!latestSmartWeatherPlan) return;
+      applyPlanUpdates(latestSmartWeatherPlan.updates);
+      document.querySelectorAll(".weather-btn").forEach(btn => btn.classList.remove("active"));
+      document.getElementById("current-plan-title").textContent = "Smart Weather ｜ 已按即時天氣套用到總表預覽";
+      document.getElementById("current-plan-desc").innerHTML = latestSmartWeatherPlan.items.map(item => `<li>${item}</li>`).join("");
+      switchTab("master-table");
+      requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "smooth" }));
     }
 
     document.querySelectorAll("[data-tab]").forEach(btn => {
@@ -3701,6 +4034,11 @@
     document.querySelectorAll(".weather-btn").forEach(btn => {
       btn.addEventListener("click", () => simulateWeather(btn.dataset.plan));
     });
+    document.querySelectorAll("[data-weather-day]").forEach(select => {
+      select.addEventListener("change", renderSmartWeatherPlan);
+    });
+    document.getElementById("weather-smart-simulate")?.addEventListener("click", renderSmartWeatherPlan);
+    document.getElementById("weather-smart-apply")?.addEventListener("click", applySmartWeatherPlan);
     document.querySelectorAll("[data-jump-tab]").forEach(btn => {
       btn.addEventListener("click", event => {
         event.stopPropagation();
