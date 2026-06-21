@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1e1b4b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Tokyo Trip">
+  <link rel="manifest" href="manifest.webmanifest">
   <title>東京旅行行程計劃 Version 12.1 ｜ DisneySea Verified Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -457,6 +461,218 @@
       overflow-wrap: anywhere;
     }
     .info-box strong { color: #1d4ed8; }
+    .today-dashboard {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
+      gap: 18px;
+    }
+    .today-card {
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid #c7d2fe;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #ffffff, #f8fbff);
+      box-shadow: 0 18px 44px rgba(15, 23, 42, .10);
+    }
+    .today-hero-card {
+      padding: 20px;
+      display: grid;
+      gap: 16px;
+    }
+    .today-topline {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .today-title {
+      margin: 0;
+      color: var(--slate-900);
+      font-size: 28px;
+      line-height: 1.18;
+      font-weight: 900;
+    }
+    .today-subtitle {
+      margin: 6px 0 0;
+      color: var(--slate-600);
+      font-size: 13px;
+      line-height: 1.5;
+      font-weight: 750;
+    }
+    .today-status-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+    .status-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      min-height: 26px;
+      padding: 5px 8px;
+      border-radius: 999px;
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+    .status-fixed { color: #be123c; background: var(--joy-coral-soft); border: 1px solid #fecdd3; }
+    .status-flex { color: var(--primary); background: var(--primary-soft); border: 1px solid #c4b5fd; }
+    .status-booked { color: #047857; background: var(--joy-mint-soft); border: 1px solid #a7f3d0; }
+    .status-check { color: #92400e; background: var(--joy-sun-soft); border: 1px solid #fde68a; }
+    .today-action-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .today-action {
+      min-height: 48px;
+      padding: 10px 12px;
+      border: 1px solid var(--slate-200);
+      border-radius: 14px;
+      background: #fff;
+      color: var(--slate-700);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      font: inherit;
+      font-size: 12px;
+      line-height: 1.15;
+      font-weight: 850;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .today-action.primary {
+      border-color: #c4b5fd;
+      background: var(--primary);
+      color: #fff;
+    }
+    .today-action.alert {
+      border-color: #fecdd3;
+      background: var(--joy-coral-soft);
+      color: #be123c;
+    }
+    .today-action:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-card);
+    }
+    .today-fact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .today-fact {
+      padding: 12px;
+      border: 1px solid var(--slate-200);
+      border-radius: 14px;
+      background: #fff;
+    }
+    .today-fact span {
+      display: block;
+      color: var(--slate-500);
+      font-size: 10px;
+      line-height: 1.3;
+      font-weight: 850;
+      text-transform: uppercase;
+    }
+    .today-fact strong {
+      display: block;
+      margin-top: 5px;
+      color: var(--slate-900);
+      font-size: 14px;
+      line-height: 1.35;
+      font-weight: 850;
+    }
+    .today-note-box {
+      padding: 13px;
+      border: 1px solid #bfdbfe;
+      border-radius: 14px;
+      background: var(--blue-soft);
+      color: #1e3a8a;
+      font-size: 12px;
+      line-height: 1.6;
+      font-weight: 750;
+    }
+    .today-side {
+      display: grid;
+      gap: 14px;
+    }
+    .today-picker-card,
+    .panic-card {
+      padding: 16px;
+      display: grid;
+      gap: 12px;
+    }
+    .today-picker-card h3,
+    .panic-card h3 {
+      margin: 0;
+      color: var(--slate-900);
+      font-size: 15px;
+      line-height: 1.35;
+      font-weight: 850;
+    }
+    .today-picker-card p,
+    .panic-card p {
+      margin: 0;
+      color: var(--slate-600);
+      font-size: 12px;
+      line-height: 1.55;
+      font-weight: 700;
+    }
+    .today-day-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 7px;
+    }
+    .today-day-btn {
+      min-height: 34px;
+      border: 1px solid var(--slate-200);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--slate-700);
+      font: inherit;
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 850;
+      cursor: pointer;
+    }
+    .today-day-btn.active {
+      border-color: var(--primary);
+      background: var(--primary);
+      color: #fff;
+    }
+    .today-checklist {
+      display: grid;
+      gap: 8px;
+    }
+    .today-check-row {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 9px;
+      align-items: start;
+      padding: 10px;
+      border: 1px solid var(--slate-200);
+      border-radius: 12px;
+      background: #fff;
+      color: var(--slate-700);
+      font-size: 12px;
+      line-height: 1.45;
+      font-weight: 800;
+    }
+    .today-check-row input {
+      width: 18px;
+      height: 18px;
+      margin: 0;
+      accent-color: var(--primary);
+    }
+    .panic-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
     .trip-strip {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -2147,6 +2363,23 @@
         max-width: 100%;
       }
       .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+      .today-dashboard { grid-template-columns: 1fr; }
+      .today-title { font-size: 24px; }
+      .today-action-grid,
+      .today-fact-grid,
+      .panic-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .today-day-grid {
+        display: flex;
+        overflow-x: auto;
+        gap: 8px;
+        padding-bottom: 2px;
+      }
+      .today-day-btn {
+        flex: 0 0 auto;
+        min-width: 58px;
+      }
       .travel-hero { min-height: 360px; border-radius: 16px; }
       .travel-hero-content { min-height: 360px; max-width: 100%; padding: 22px; }
       .travel-hero h2 { font-size: 24px; line-height: 1.18; }
@@ -2347,12 +2580,14 @@
         <h2 class="sidebar-title"><span class="material-symbols-outlined">menu_open</span> 導航選單</h2>
       </div>
       <nav class="nav-list" id="main-nav" aria-label="主要分頁">
-        <button class="nav-btn active" type="button" data-tab="overview"><span class="nav-label"><span class="material-symbols-outlined fill">dashboard</span> 總覽與航班酒店</span></button>
+        <button class="nav-btn active" type="button" data-tab="today-mode"><span class="nav-label"><span class="material-symbols-outlined fill">today</span> 今日模式</span></button>
+        <button class="nav-btn" type="button" data-tab="overview"><span class="nav-label"><span class="material-symbols-outlined fill">dashboard</span> 總覽與航班酒店</span></button>
         <button class="nav-btn" type="button" data-tab="master-table"><span class="nav-label"><span class="material-symbols-outlined">calendar_view_week</span> 16日總行程表</span></button>
         <button class="nav-btn" type="button" data-tab="daily-detail"><span class="nav-label"><span class="material-symbols-outlined">directions_walk</span> 每日詳細行程 & 交通</span></button>
         <button class="nav-btn" type="button" data-tab="disney-strategy"><span class="nav-label"><span class="material-symbols-outlined">castle</span> DisneySea 攻略</span><span class="mini-dot"></span></button>
         <button class="nav-btn" type="button" data-tab="shopping-map"><span class="nav-label"><span class="material-symbols-outlined">map</span> 地圖與購物名所</span><span class="mini-dot"></span></button>
         <button class="nav-btn" type="button" data-tab="weather-strategy"><span class="nav-label"><span class="material-symbols-outlined">routine</span> 天氣策略模擬器</span><span class="mini-dot"></span></button>
+        <button class="nav-btn" type="button" data-tab="return-help"><span class="nav-label"><span class="material-symbols-outlined">emergency_home</span> Return / Help</span><span class="mini-dot"></span></button>
         <button class="nav-btn" type="button" data-tab="checklist"><span class="nav-label"><span class="material-symbols-outlined">checklist</span> 預約及確認清單</span></button>
       </nav>
       <div class="update-box">
@@ -2368,16 +2603,59 @@
 
     <main class="main">
       <div class="mobile-tabs" id="mobile-nav" aria-label="流動分頁">
-        <button class="mobile-tab active" type="button" data-tab="overview">總覽</button>
+        <button class="mobile-tab active" type="button" data-tab="today-mode">今日</button>
+        <button class="mobile-tab" type="button" data-tab="overview">總覽</button>
         <button class="mobile-tab" type="button" data-tab="master-table">總表</button>
         <button class="mobile-tab" type="button" data-tab="daily-detail">每日</button>
         <button class="mobile-tab" type="button" data-tab="disney-strategy">DisneySea</button>
         <button class="mobile-tab" type="button" data-tab="shopping-map">地圖</button>
         <button class="mobile-tab" type="button" data-tab="weather-strategy">天氣</button>
+        <button class="mobile-tab" type="button" data-tab="return-help">Return</button>
         <button class="mobile-tab" type="button" data-tab="checklist">清單</button>
       </div>
 
-      <section id="overview" class="tab-content active">
+      <section id="today-mode" class="tab-content active">
+        <div class="today-dashboard">
+          <section class="today-card today-hero-card" aria-label="今日旅行模式">
+            <div class="today-topline">
+              <div>
+                <h2 class="today-title" id="today-mode-title">Today Mode</h2>
+                <p class="today-subtitle" id="today-mode-subtitle">正在載入今日行程...</p>
+              </div>
+              <div class="today-status-row" id="today-status-row"></div>
+            </div>
+            <div class="today-fact-grid">
+              <div class="today-fact"><span>Leave</span><strong id="today-leave-time">--</strong></div>
+              <div class="today-fact"><span>Target</span><strong id="today-target-time">--</strong></div>
+              <div class="today-fact"><span>Base</span><strong id="today-base">--</strong></div>
+            </div>
+            <div class="today-note-box" id="today-focus">今日重點會按旅行日期自動顯示，也可以手動選 Day。</div>
+            <div class="today-action-grid" aria-label="今日主要操作">
+              <a class="today-action primary" id="today-route-link" href="#" target="_blank" rel="noopener"><span class="material-symbols-outlined">directions</span> Start Navigation</a>
+              <a class="today-action" id="today-place-link" href="#" target="_blank" rel="noopener"><span class="material-symbols-outlined">pin_drop</span> Open Map</a>
+              <a class="today-action" id="today-food-link" href="#" target="_blank" rel="noopener"><span class="material-symbols-outlined">restaurant</span> Nearby Food</a>
+              <button class="today-action alert" type="button" data-jump-tab="return-help"><span class="material-symbols-outlined">emergency_home</span> Return / Help</button>
+              <button class="today-action" type="button" id="today-detail-btn"><span class="material-symbols-outlined">article</span> Day Detail</button>
+              <button class="today-action" type="button" data-jump-tab="weather-strategy"><span class="material-symbols-outlined">rainy</span> Weather Plan</button>
+              <button class="today-action" type="button" data-jump-tab="checklist"><span class="material-symbols-outlined">checklist</span> Full Checklist</button>
+              <button class="today-action" type="button" data-jump-tab="shopping-map" data-map-route="all-tokyo"><span class="material-symbols-outlined">map</span> Trip Map</button>
+            </div>
+          </section>
+          <aside class="today-side">
+            <section class="today-card today-picker-card">
+              <h3><span class="material-symbols-outlined">touch_app</span> 選擇今日 Day</h3>
+              <p>系統會按 2026年6月27日自動計算；出發前或補行程時可手動切換。</p>
+              <div class="today-day-grid" id="today-day-grid"></div>
+            </section>
+            <section class="today-card today-picker-card">
+              <h3><span class="material-symbols-outlined">task_alt</span> 今日出門前確認</h3>
+              <div class="today-checklist" id="today-checklist"></div>
+            </section>
+          </aside>
+        </div>
+      </section>
+
+      <section id="overview" class="tab-content">
         <section class="travel-hero" tabindex="0" role="button" data-jump-tab="shopping-map" data-map-route="all-tokyo" aria-label="東京旅行視覺主頁，點擊打開全旅程地圖">
           <div class="travel-hero-content">
             <span class="hero-kicker"><span class="material-symbols-outlined">favorite</span> Couple Tokyo Adventure</span>
@@ -3001,30 +3279,62 @@
         </div>
       </section>
 
+      <section id="return-help" class="tab-content">
+        <div class="today-dashboard">
+          <section class="today-card panic-card">
+            <h2 class="section-title"><span class="material-symbols-outlined">emergency_home</span> Return / Help 快速救援</h2>
+            <p>迷路、太累、下大雨、行李太重時，先用這頁。所有按鈕都是直接行動，不需要再翻長文。</p>
+            <div class="panic-grid">
+              <a class="today-action primary" href="https://www.google.com/maps/dir/?api=1&destination=Hotel%20Livemax%20Akihabara%20Kita&travelmode=transit" target="_blank" rel="noopener"><span class="material-symbols-outlined">home_pin</span> 回秋葉原酒店</a>
+              <a class="today-action primary" href="https://www.google.com/maps/dir/?api=1&destination=Hotel%20Horidome%20Villa%20Tokyo&travelmode=transit" target="_blank" rel="noopener"><span class="material-symbols-outlined">apartment</span> 回日本橋酒店</a>
+              <a class="today-action" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Livemax%20Akihabara%20Kita" target="_blank" rel="noopener"><span class="material-symbols-outlined">pin_drop</span> 秋葉原地址</a>
+              <a class="today-action" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Horidome%20Villa%20Tokyo" target="_blank" rel="noopener"><span class="material-symbols-outlined">pin_drop</span> 日本橋地址</a>
+              <a class="today-action alert" href="https://www.google.com/maps/dir/?api=1&origin=Hotel%20Horidome%20Villa%20Tokyo&destination=Narita%20Airport%20Terminal%202&travelmode=transit" target="_blank" rel="noopener"><span class="material-symbols-outlined">flight_takeoff</span> 回程去成田T2</a>
+              <button class="today-action" type="button" data-jump-tab="overview"><span class="material-symbols-outlined">flight</span> 查看航班酒店</button>
+            </div>
+          </section>
+          <aside class="today-side">
+            <section class="today-card panic-card">
+              <h3><span class="material-symbols-outlined">flight</span> 回程航班</h3>
+              <p><strong>UO871</strong><br>2026年7月12日 Sun｜NRT T2 17:05 → HKG T1 21:00</p>
+              <p>建議 13:45-14:00 抵達成田 T2。人形町站 Access 特急直達機場方向，注意不要上錯羽田方向。</p>
+            </section>
+            <section class="today-card panic-card">
+              <h3><span class="material-symbols-outlined">assignment</span> 壓力情況先檢查</h3>
+              <div class="today-checklist">
+                <label class="today-check-row"><input type="checkbox" data-check="panic-passport"><span>護照 / 手機 / 錢包都在身上</span></label>
+                <label class="today-check-row"><input type="checkbox" data-check="panic-signal"><span>eSIM 或 Wi-Fi 可用；不行先截圖酒店地址</span></label>
+                <label class="today-check-row"><input type="checkbox" data-check="panic-train"><span>Google Maps 顯示的是「現在出發」交通</span></label>
+              </div>
+            </section>
+          </aside>
+        </div>
+      </section>
+
       <section id="checklist" class="tab-content">
         <div class="card">
           <div class="card-head">
             <h2 class="section-title"><span class="material-symbols-outlined">checklist</span> 必備行程預約與確認清單</h2>
           </div>
           <div class="card-pad checklist">
-            <label class="check-row"><input type="checkbox"><span><strong>Tokyo DisneySea 1-Day Passport（7月1日）</strong><span>官方門票 5月1日 14:00 起可買 7月1日入園票；買票後先加入官方 App，並預設付款卡。</span></span></label>
-            <label class="check-row"><input type="checkbox"><span><strong>Tokyo Disney Resort App / MyDisney Account</strong><span>出發前下載、登入、綁定信用卡，建立同行群組；DPA、Priority Pass、Entry Request、Mobile Order 都依賴 App。</span></span></label>
-            <label class="check-row"><input type="checkbox"><span><strong>Chiikawa Park（6月29日）</strong><span>asoview 預售售完即止且不可取消/改期；若未成功購票，改用 Sunshine City、Pokemon Center、Animate 池袋。</span></span></label>
-            <label class="check-row"><input type="checkbox"><span><strong>Shibuya Sky 黃昏展望台</strong><span>6月底東京日落約19:00，建議 18:15-18:45 入場；強風雨可能影響露天區。</span></span></label>
-            <label class="check-row"><input type="checkbox"><span><strong>teamLab Borderless 麻布台 Hills（7月6日）</strong><span>改為早上入場，預留接近一整日慢慢看展、拍照、午餐與麻布台 Hills 散策；不要放在轉酒店日。</span></span></label>
-            <label class="check-row"><input type="checkbox"><span><strong>富士山及鎌倉 Local Tour</strong><span>必查 24-48 小時改期/退款政策，保留 Day 12 / Day 14 對調空間。</span></span></label>
-            <label class="check-row"><input type="checkbox"><span><strong>Google Maps 收藏清單</strong><span>出發前把新宿 Isetan/Lumine/NEWoMan、澀谷 PARCO、Ginza Six、東京站一番街、台場 DiverCity 收藏到同一個清單。</span></span></label>
-            <label class="check-row"><input type="checkbox"><span><strong>Skyliner / Access 特急 / eSIM</strong><span>去程可用 Skyliner 到上野；回程由人形町優先 Access 特急直達成田T2，Skyliner 不經人形町。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="disney-ticket"><span><strong>Tokyo DisneySea 1-Day Passport（7月1日）</strong><span>官方門票 5月1日 14:00 起可買 7月1日入園票；買票後先加入官方 App，並預設付款卡。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="disney-app"><span><strong>Tokyo Disney Resort App / MyDisney Account</strong><span>出發前下載、登入、綁定信用卡，建立同行群組；DPA、Priority Pass、Entry Request、Mobile Order 都依賴 App。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="chiikawa"><span><strong>Chiikawa Park（6月29日）</strong><span>asoview 預售售完即止且不可取消/改期；若未成功購票，改用 Sunshine City、Pokemon Center、Animate 池袋。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="shibuya-sky"><span><strong>Shibuya Sky 黃昏展望台</strong><span>6月底東京日落約19:00，建議 18:15-18:45 入場；強風雨可能影響露天區。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="teamlab"><span><strong>teamLab Borderless 麻布台 Hills（7月6日）</strong><span>改為早上入場，預留接近一整日慢慢看展、拍照、午餐與麻布台 Hills 散策；不要放在轉酒店日。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="local-tours"><span><strong>富士山及鎌倉 Local Tour</strong><span>必查 24-48 小時改期/退款政策，保留 Day 12 / Day 14 對調空間。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="google-maps-list"><span><strong>Google Maps 收藏清單</strong><span>出發前把新宿 Isetan/Lumine/NEWoMan、澀谷 PARCO、Ginza Six、東京站一番街、台場 DiverCity 收藏到同一個清單。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="transport-esim"><span><strong>Skyliner / Access 特急 / eSIM</strong><span>去程可用 Skyliner 到上野；回程由人形町優先 Access 特急直達成田T2，Skyliner 不經人形町。</span></span></label>
           </div>
         </div>
       </section>
     </main>
     <nav class="mobile-trip-dock" aria-label="旅行快捷工具列">
-      <button class="dock-btn active" type="button" data-tab="overview"><span class="material-symbols-outlined">home</span>總覽</button>
-      <button class="dock-btn" type="button" data-jump-tab="daily-detail" data-jump-day="1"><span class="material-symbols-outlined">today</span>每日</button>
+      <button class="dock-btn active" type="button" data-tab="today-mode"><span class="material-symbols-outlined">today</span>Today</button>
       <button class="dock-btn" type="button" data-jump-tab="shopping-map" data-map-route="all-tokyo"><span class="material-symbols-outlined">map</span>地圖</button>
-      <button class="dock-btn" type="button" data-jump-tab="daily-detail" data-jump-day="5"><span class="material-symbols-outlined">castle</span>Disney</button>
-      <button class="dock-btn" type="button" data-jump-tab="checklist"><span class="material-symbols-outlined">checklist</span>清單</button>
+      <button class="dock-btn" type="button" data-jump-tab="shopping-map" data-map-route="nihonbashi-hotel"><span class="material-symbols-outlined">hotel</span>酒店</button>
+      <button class="dock-btn" type="button" data-jump-tab="weather-strategy"><span class="material-symbols-outlined">rainy</span>天氣</button>
+      <button class="dock-btn" type="button" data-tab="return-help"><span class="material-symbols-outlined">emergency_home</span>Return</button>
     </nav>
   </div>
 
@@ -3361,6 +3671,25 @@
       16: { origin: "Hotel Horidome Villa Tokyo", destination: "Narita Airport Terminal 2", transportLabel: "日本橋酒店 → 成田T2", foodQuery: "restaurants Narita Airport Terminal 2", foodLabel: "成田T2 餐飲" }
     };
 
+    const todayModeMeta = {
+      1: { leave: "14:45 到埗後", target: "18:00 Check-in", statuses: ["Need check", "Arrival"], checks: ["護照與入境 QR", "eSIM / Suica 可用", "Skyliner / 交通付款準備好", "酒店地址已截圖"] },
+      2: { leave: "10:00", target: "上野午餐", statuses: ["Flexible", "Rain OK"], checks: ["帶購物袋", "酒店附近車站先收藏", "退稅護照帶身上", "雨具按天氣決定"] },
+      3: { leave: "10:00", target: "18:15 Shibuya Sky", statuses: ["Booked?", "High priority"], checks: ["Chiikawa / 候補方案確認", "Shibuya Sky 票券", "手機電量足夠", "晚霞時段天氣再確認"] },
+      4: { leave: "09:15", target: "築地早午餐", statuses: ["Food", "Flexible"], checks: ["早上先查築地店舖營業", "雨具", "東京鐵塔路線收藏", "晚餐保留彈性"] },
+      5: { leave: "06:25-06:40", target: "07:45 DisneySea", statuses: ["Fixed", "Booked", "High priority"], checks: ["DisneySea ticket in App", "Credit card linked", "Power bank", "eSIM working"] },
+      6: { leave: "09:30", target: "17:00 Solamachi", statuses: ["Anime", "Route day"], checks: ["春日部/押上路線收藏", "小新景點營業確認", "回程直達晴空塔", "買重物後早回酒店"] },
+      7: { leave: "10:30", target: "東京站晚餐", statuses: ["Rain OK", "Shopping"], checks: ["退稅護照", "購物清單", "東京站一番街收藏", "行李空間確認"] },
+      8: { leave: "09:30", target: "17:30 新宿", statuses: ["Weekend", "Shopping"], checks: ["好走鞋", "明治神宮先去", "新宿百貨收藏", "轉酒店前整理行李"] },
+      9: { leave: "10:00", target: "17:00 Check-in", statuses: ["Hotel move", "Low stress"], checks: ["舊酒店退房", "的士/行李路線", "新酒店地址截圖", "不要排預約景點"] },
+      10: { leave: "09:00-09:30", target: "10:00 teamLab", statuses: ["Booked", "Photo day"], checks: ["teamLab QR", "相機/手機容量", "好走鞋", "晚上早回酒店"] },
+      11: { leave: "06:15-06:25", target: "07:15 集合", statuses: ["Weather flexible", "Nature"], checks: ["前一晚查能見度", "集合點截圖", "暈車藥/外套", "雨天啟動天氣模擬"] },
+      12: { leave: "10:30", target: "咖啡休整", statuses: ["Flexible", "Rain OK"], checks: ["咖啡店收藏", "合羽橋購物空間", "保持低強度", "可與富士山互換"] },
+      13: { leave: "08:30-09:00", target: "鎌倉午前到", statuses: ["Weather flexible", "Coast"], checks: ["查沿海風雨", "江之電狀態", "防滑鞋", "強風改 Day 14"] },
+      14: { leave: "10:30", target: "新宿購物", statuses: ["Buffer", "Rain OK"], checks: ["購物清單", "退稅護照", "天氣模擬是否要補行程", "買重物先回酒店"] },
+      15: { leave: "10:30", target: "15:30 整理行李", statuses: ["Packing", "Low risk"], checks: ["手信清單", "行李重量", "退稅收據", "回程路線截圖"] },
+      16: { leave: "12:15-12:30", target: "13:45 成田T2", statuses: ["Return", "Fixed"], checks: ["護照機票", "Access 特急方向", "退稅品", "17:05 UO871"] }
+    };
+
     const plans = {
       A: {
         title: "Plan A ｜ 預設好天氣行程",
@@ -3608,6 +3937,69 @@
           }
         });
       });
+    }
+
+    function clampTripDay(day) {
+      return Math.min(16, Math.max(1, day));
+    }
+
+    function getAutoTripDay() {
+      const tripStart = new Date("2026-06-27T00:00:00+09:00");
+      const now = new Date();
+      return clampTripDay(Math.floor((now - tripStart) / 86400000) + 1);
+    }
+
+    function statusClass(label) {
+      if (/Fixed|Return|High/.test(label)) return "status-fixed";
+      if (/Booked|Arrival/.test(label)) return "status-booked";
+      if (/Need|Weather|Buffer|Rain/.test(label)) return "status-check";
+      return "status-flex";
+    }
+
+    function renderTodayDayGrid(activeDay) {
+      const grid = document.getElementById("today-day-grid");
+      if (!grid) return;
+      grid.innerHTML = details.map(item => `
+        <button class="today-day-btn ${item.day === activeDay ? "active" : ""}" type="button" data-today-day="${item.day}">Day ${item.day}</button>
+      `).join("");
+      grid.querySelectorAll("[data-today-day]").forEach(button => {
+        button.addEventListener("click", () => renderTodayMode(Number(button.dataset.todayDay)));
+      });
+    }
+
+    function renderTodayMode(day = getAutoTripDay()) {
+      const activeDay = clampTripDay(day);
+      const detail = details.find(item => item.day === activeDay);
+      const itineraryItem = itinerary.find(item => item.day === activeDay);
+      const shortcut = dayShortcuts[activeDay];
+      const meta = todayModeMeta[activeDay] || {};
+      if (!detail || !shortcut) return;
+
+      document.getElementById("today-mode-title").textContent = `Today：Day ${activeDay} — ${detail.title.replace(/^.*?｜\s*/, "")}`;
+      document.getElementById("today-mode-subtitle").textContent = `${itineraryItem?.date || ""} ｜ ${detail.type} ｜ ${detail.pace}`;
+      document.getElementById("today-leave-time").textContent = meta.leave || detail.timeline?.[0] || "--";
+      document.getElementById("today-target-time").textContent = meta.target || shortcut.destination;
+      document.getElementById("today-base").textContent = itineraryItem?.base || "--";
+      document.getElementById("today-focus").textContent = detail.focus;
+      document.getElementById("today-status-row").innerHTML = (meta.statuses || [detail.type, detail.pace]).map(label => `
+        <span class="status-label ${statusClass(label)}">${label}</span>
+      `).join("");
+
+      const routeLink = document.getElementById("today-route-link");
+      const placeLink = document.getElementById("today-place-link");
+      const foodLink = document.getElementById("today-food-link");
+      routeLink.href = buildDayDirectionsUrl(shortcut);
+      routeLink.innerHTML = `<span class="material-symbols-outlined">directions</span> ${shortcut.transportLabel}`;
+      placeLink.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(shortcut.destination)}`;
+      foodLink.href = buildDayFoodUrl(shortcut);
+      foodLink.innerHTML = `<span class="material-symbols-outlined">restaurant</span> ${shortcut.foodLabel}`;
+      document.getElementById("today-detail-btn").onclick = () => openDayDetail(activeDay, { compact: true });
+
+      document.getElementById("today-checklist").innerHTML = (meta.checks || dayGuides[activeDay]?.ready || []).map((item, index) => `
+        <label class="today-check-row"><input type="checkbox" data-check="today-${activeDay}-${index}"><span>${item}</span></label>
+      `).join("");
+      renderTodayDayGrid(activeDay);
+      hydrateSavedChecks(document.getElementById("today-checklist"));
     }
 
     function renderDetails() {
@@ -4025,6 +4417,23 @@
       requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "smooth" }));
     }
 
+    function hydrateSavedChecks(root = document) {
+      root.querySelectorAll("[data-check]").forEach(box => {
+        const key = `jp-travel-check-${box.dataset.check}`;
+        box.checked = localStorage.getItem(key) === "true";
+        if (box.dataset.boundCheck === "true") return;
+        box.dataset.boundCheck = "true";
+        box.addEventListener("change", () => {
+          localStorage.setItem(key, String(box.checked));
+        });
+      });
+    }
+
+    function registerServiceWorker() {
+      if (!("serviceWorker" in navigator)) return;
+      navigator.serviceWorker.register("./sw.js").catch(() => {});
+    }
+
     document.querySelectorAll("[data-tab]").forEach(btn => {
       btn.addEventListener("click", () => {
         switchTab(btn.dataset.tab);
@@ -4068,9 +4477,12 @@
     renderDetails();
     renderDayIndex();
     initializeCompactDailyView(1);
+    renderTodayMode();
+    hydrateSavedChecks();
     renderMapRoutes();
     simulateWeather("A");
-    switchTab(location.hash.replace("#", "") || "overview", false);
+    registerServiceWorker();
+    switchTab(location.hash.replace("#", "") || "today-mode", false);
     if (location.hash) {
       requestAnimationFrame(() => {
         window.scrollTo(0, 0);

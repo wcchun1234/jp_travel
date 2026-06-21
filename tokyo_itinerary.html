@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#1e1b4b">
-  <link rel="manifest" href="manifest.webmanifest">
   <meta http-equiv="refresh" content="0; url=tokyo_itineray.html">
-  <title>東京旅行行程計劃</title>
+  <title>Tokyo Travel Dashboard</title>
+  <script>
+    location.replace(`tokyo_itineray.html${location.hash || ""}`);
+  </script>
 </head>
 <body>
   <p><a href="tokyo_itineray.html">Open Tokyo Travel Dashboard</a></p>
