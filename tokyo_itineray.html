@@ -1553,6 +1553,12 @@
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 8px;
     }
+    .day-command-sections {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding-top: 2px;
+    }
     .day-command-link,
     .day-command-action {
       min-height: 38px;
@@ -1572,6 +1578,13 @@
       text-align: center;
       text-decoration: none;
       cursor: pointer;
+    }
+    .day-command-sections .day-command-action {
+      min-height: 30px;
+      padding: 6px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      background: rgba(255,255,255,.78);
     }
     .day-command-link.primary,
     .day-command-action.primary {
@@ -2107,10 +2120,17 @@
       .day-command-actions {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
+      .day-command-sections {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
       .day-command-link,
       .day-command-action {
         min-height: 42px;
         white-space: normal;
+      }
+      .day-command-sections .day-command-action {
+        min-height: 34px;
       }
       table { min-width: 0; }
       .table-wrap { overflow: visible; }
@@ -3501,6 +3521,12 @@
           <a class="day-command-link" href="${buildDayFoodUrl(shortcut)}" target="_blank" rel="noopener"><span class="material-symbols-outlined">restaurant</span> 食物</a>
           <button class="day-command-action" type="button" data-command-day="${item.day}" data-command-section="budget"><span class="material-symbols-outlined">payments</span> 預算</button>
         </div>
+        <div class="day-command-sections" aria-label="Day ${item.day} 內容快速跳轉">
+          <button class="day-command-action primary" type="button" data-command-day="${item.day}" data-command-section="transport"><span class="material-symbols-outlined">train</span> 交通</button>
+          <button class="day-command-action" type="button" data-command-day="${item.day}" data-command-section="timeline"><span class="material-symbols-outlined">timeline</span> 時間</button>
+          <button class="day-command-action" type="button" data-command-day="${item.day}" data-command-section="food"><span class="material-symbols-outlined">restaurant</span> 食物頁</button>
+          <button class="day-command-action" type="button" data-command-day="${item.day}" data-command-section="ready"><span class="material-symbols-outlined">task_alt</span> 確認</button>
+        </div>
       `;
     }
 
@@ -3667,7 +3693,10 @@
     }
 
     document.querySelectorAll("[data-tab]").forEach(btn => {
-      btn.addEventListener("click", () => switchTab(btn.dataset.tab));
+      btn.addEventListener("click", () => {
+        switchTab(btn.dataset.tab);
+        requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "smooth" }));
+      });
     });
     document.querySelectorAll(".weather-btn").forEach(btn => {
       btn.addEventListener("click", () => simulateWeather(btn.dataset.plan));
