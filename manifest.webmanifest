@@ -1,7 +1,7 @@
 {
   "name": "Tokyo Travel Dashboard",
   "short_name": "Tokyo Trip",
-  "start_url": "./tokyo_itineray.html",
+  "start_url": "./tokyo_itinerary.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
