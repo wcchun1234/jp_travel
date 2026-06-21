@@ -471,7 +471,21 @@
       border: 1px solid var(--slate-200);
       border-radius: var(--radius-card);
       background: #fff;
+      color: inherit;
+      text-align: left;
+      text-decoration: none;
+      font: inherit;
       box-shadow: var(--shadow-card);
+      cursor: pointer;
+    }
+    .trip-tile:hover {
+      border-color: #c4b5fd;
+      background: #fbfbff;
+      transform: translateY(-1px);
+    }
+    .trip-tile:focus-visible {
+      outline: 3px solid #c4b5fd;
+      outline-offset: 3px;
     }
     .trip-tile .material-symbols-outlined {
       width: 40px;
@@ -500,6 +514,62 @@
     .tile-coral .material-symbols-outlined { color: #be123c; background: var(--joy-coral-soft); }
     .tile-sky .material-symbols-outlined { color: var(--blue); background: var(--joy-sky-soft); }
     .tile-mint .material-symbols-outlined { color: #047857; background: var(--joy-mint-soft); }
+    .today-ops {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding: 16px;
+      border: 1px solid #bfdbfe;
+      border-radius: 16px;
+      background:
+        linear-gradient(135deg, rgba(239,246,255,.98), rgba(255,255,255,.96));
+      box-shadow: var(--shadow-card);
+    }
+    .today-ops h3 {
+      margin: 0;
+      color: var(--slate-900);
+      font-size: 16px;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+    .today-ops p {
+      margin: 5px 0 0;
+      color: var(--slate-600);
+      font-size: 12px;
+      line-height: 1.55;
+      font-weight: 700;
+    }
+    .today-ops-actions {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+    .ops-btn {
+      min-height: 36px;
+      padding: 8px 10px;
+      border: 1px solid #c4b5fd;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font: inherit;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .ops-btn.secondary {
+      border-color: var(--slate-200);
+      background: #fff;
+      color: var(--slate-700);
+    }
     .travel-hero {
       position: relative;
       min-height: 330px;
@@ -1867,6 +1937,15 @@
       .hotel-actions { display: grid; grid-template-columns: 1fr; }
       .trip-strip { grid-template-columns: 1fr; gap: 10px; }
       .trip-tile { min-height: 76px; }
+      .today-ops {
+        grid-template-columns: 1fr;
+      }
+      .today-ops-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        justify-content: stretch;
+      }
+      .ops-btn { white-space: normal; }
       .card-pad { padding: 18px; }
       .card-head { padding: 16px 18px; align-items: flex-start; flex-direction: column; }
       .flight-path { grid-template-columns: 1fr; text-align: left; }
@@ -2052,23 +2131,36 @@
         </section>
 
         <div class="trip-strip" aria-label="旅行快覽">
-          <article class="trip-tile tile-sun">
+          <button class="trip-tile tile-sun" type="button" data-jump-tab="master-table">
             <span class="material-symbols-outlined">event_available</span>
             <div><strong>16日15夜</strong><span>6月27日出發，7月12日回港</span></div>
-          </article>
-          <article class="trip-tile tile-coral">
+          </button>
+          <button class="trip-tile tile-coral" type="button" data-jump-tab="daily-detail" data-jump-day="5">
             <span class="material-symbols-outlined">castle</span>
             <div><strong>DisneySea Day 5</strong><span>7月1日週三，黃金平日入園</span></div>
-          </article>
-          <article class="trip-tile tile-sky">
+          </button>
+          <button class="trip-tile tile-sky" type="button" data-jump-tab="shopping-map" data-map-route="all-tokyo">
             <span class="material-symbols-outlined">hotel</span>
             <div><strong>雙基地動線</strong><span>秋葉原 8夜，日本橋 7夜</span></div>
-          </article>
-          <article class="trip-tile tile-mint">
+          </button>
+          <button class="trip-tile tile-mint" type="button" data-jump-tab="weather-strategy">
             <span class="material-symbols-outlined">rainy</span>
             <div><strong>梅雨防線</strong><span>Day 11-14 可按天氣對調</span></div>
-          </article>
+          </button>
         </div>
+
+        <section class="today-ops" aria-label="旅行快速操作">
+          <div>
+            <h3>到東京後優先用這 4 個入口</h3>
+            <p>每日只看一日、交通開 Google Maps、天氣可即時改排、清單確認票券與回程。</p>
+          </div>
+          <div class="today-ops-actions">
+            <button class="ops-btn" type="button" data-jump-tab="daily-detail" data-jump-day="1"><span class="material-symbols-outlined">today</span> 今日行程</button>
+            <button class="ops-btn" type="button" data-jump-tab="shopping-map" data-map-route="all-tokyo"><span class="material-symbols-outlined">map</span> 全旅程地圖</button>
+            <button class="ops-btn secondary" type="button" data-jump-tab="weather-strategy"><span class="material-symbols-outlined">rainy</span> 天氣改排</button>
+            <button class="ops-btn secondary" type="button" data-jump-tab="checklist"><span class="material-symbols-outlined">checklist</span> 出發清單</button>
+          </div>
+        </section>
 
         <div class="card">
           <div class="card-head">
