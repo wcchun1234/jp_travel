@@ -1,0 +1,47 @@
+{
+  "version": "12.2-offline",
+  "trip": {
+    "title": "Tokyo Travel Dashboard",
+    "start": "2026-06-27",
+    "end": "2026-07-12",
+    "nights": "16日15夜",
+    "people": "2 adults"
+  },
+  "hotels": [
+    {
+      "key": "akihabara",
+      "name": "Hotel Livemax Akihabara Kita",
+      "period": "2026-06-27 to 2026-07-05",
+      "japaneseAddress": "〒110-0016 東京都台東区台東2-5-2",
+      "englishAddress": "2-5-2 Taito, Taito-ku, Tokyo 110-0016",
+      "telephone": "+81-3-3834-8900",
+      "nearestStation": "Naka-Okachimachi Station Exit 1, about 5 minutes on foot. JR Akihabara Station, about 8 minutes on foot.",
+      "taxiText": "ホテルリブマックス秋葉原北（東京都台東区台東2-5-2）までお願いします。",
+      "returnNote": "If data is weak, go to Naka-Okachimachi Station or Akihabara Station first, then walk to 2-5-2 Taito."
+    },
+    {
+      "key": "nihonbashi",
+      "name": "Hotel Horidome Villa",
+      "period": "2026-07-05 to 2026-07-12",
+      "japaneseAddress": "〒103-0012 東京都中央区日本橋堀留町1-10-10",
+      "englishAddress": "1-10-10 Nihonbashi Horidome-cho, Chuo-ku, Tokyo 103-0012",
+      "telephone": "+81-3-3664-0840",
+      "nearestStation": "Kodenmacho Station / Ningyocho Station area, about 3-5 minutes on foot.",
+      "taxiText": "ホテル堀留ヴィラ（東京都中央区日本橋堀留町1-10-10）までお願いします。",
+      "returnNote": "If lost, go to Ningyocho, Kodemmacho, or Bakuro-yokoyama area and show the hotel name/address to station staff."
+    }
+  ],
+  "critical": {
+    "airport": "Return day: Hotel Horidome Villa -> Ningyocho Station -> Toei Asakusa Line through service / Keisei Narita Sky Access direction -> Narita Airport Terminal 2. Do not board a Haneda-bound train.",
+    "flight": "UO871, 2026-07-12 Sun, NRT Terminal 2 17:05 -> HKG Terminal 1 21:00. Target arrival at Narita T2: 13:45-14:00.",
+    "emergency": "First check passport, phone, wallet and travel documents. If data fails, show the hotel taxi text/address to station staff or taxi driver."
+  },
+  "offlineFiles": [
+    "./assets/offline/hotel-akihabara.md",
+    "./assets/offline/hotel-nihonbashi.md",
+    "./assets/offline/airport-return.md",
+    "./assets/offline/disneysea.md",
+    "./assets/offline/emergency.md",
+    "./assets/offline/map-notes.md"
+  ]
+}

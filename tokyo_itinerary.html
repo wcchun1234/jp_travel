@@ -9,26 +9,29 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="apple-touch-icon" href="./assets/icons/icon-180.png">
-  <title>東京旅行行程計劃 Version 12.1 ｜ DisneySea Verified Dashboard</title>
+  <title>東京旅行行程計劃 Version 12.2 ｜ Offline Ready Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@400;500;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+  <div id="connection-status" class="connection-status" hidden>
+    Offline Mode｜已離線：只顯示已儲存資料，Google Maps / 天氣 / 即時班次可能不能更新
+  </div>
   <header class="topbar">
     <div class="topbar-inner">
       <div>
         <h1 class="brand-title">
           <span class="material-symbols-outlined fill">travel_explore</span>
           東京旅行行程計劃
-          <span class="version-pill">V12.1 DisneySea</span>
+          <span class="version-pill">V12.2 Offline</span>
         </h1>
         <p class="subtitle">
           <span>2026年6月27日 – 7月12日</span>
           <span>16日15夜</span>
           <span>同行：2成人</span>
-          <span>DisneySea 進駐版</span>
+          <span>Offline Ready 旅行安全版</span>
         </p>
       </div>
       <div class="principles" aria-label="行程原則">
@@ -62,7 +65,7 @@
           <li>7月1日加入東京迪士尼海洋全日行程</li>
           <li>合羽橋/蔵前/清澄白河移至日本橋住宿段</li>
           <li>春日部回程串聯晴空塔 Solamachi</li>
-          <li>Fantasy Springs 攻略改用 2026 App/DPA 規則</li>
+          <li>加入 Offline Pack、酒店地址、回程資料與離線路線圖</li>
         </ul>
       </div>
     </aside>
@@ -816,6 +819,68 @@
             </section>
           </aside>
         </div>
+        <section class="card offline-card" id="offline-return-card">
+          <div class="card-head">
+            <div>
+              <p class="eyebrow">Offline Safe Return</p>
+              <h2 class="section-title"><span class="material-symbols-outlined">signal_wifi_off</span> 無網絡回酒店資料</h2>
+              <p class="muted" style="margin:6px 0 0">這部分全部會放入離線快取。沒有網絡時，可直接顯示地址、的士日文、最近車站與簡化路線圖。</p>
+            </div>
+            <span class="badge badge-amber">Offline Pack</span>
+          </div>
+          <div class="card-pad">
+            <div class="offline-pack-control">
+              <div>
+                <strong>出發前先按一次</strong>
+                <span>會把主頁、CSS/JS、酒店資料、回程資料與離線路線圖放入瀏覽器快取。</span>
+              </div>
+              <button class="offline-pack-btn" id="preload-offline-pack" type="button"><span class="material-symbols-outlined">download_for_offline</span> Download Offline Pack</button>
+              <p id="offline-pack-status" class="offline-pack-status" role="status" aria-live="polite"></p>
+            </div>
+            <div class="offline-return-grid">
+              <article class="offline-return-item">
+                <img src="./assets/offline/maps/akihabara-hotel-area.webp" alt="Akihabara hotel offline route diagram" loading="lazy">
+                <div class="offline-return-body">
+                  <h3>Hotel Livemax Akihabara Kita</h3>
+                  <p><strong>日文地址：</strong><span id="akihabara-address">〒110-0016 東京都台東区台東2-5-2</span></p>
+                  <p><strong>英文地址：</strong>2-5-2 Taito, Taito-ku, Tokyo 110-0016</p>
+                  <p><strong>最近車站：</strong>仲御徒町站 1號出口約5分鐘；JR 秋葉原站約8分鐘。</p>
+                  <p><strong>的士用：</strong><span id="akihabara-taxi">ホテルリブマックス秋葉原北（東京都台東区台東2-5-2）までお願いします。</span></p>
+                  <div class="offline-action-row">
+                    <button class="copy-btn" type="button" data-copy="#akihabara-address" data-copy-label="Copy Address">Copy Address</button>
+                    <button class="copy-btn secondary" type="button" data-copy="#akihabara-taxi" data-copy-label="Copy Taxi Text">Copy Taxi Text</button>
+                    <a class="copy-btn secondary" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Livemax%20Akihabara%20Kita" target="_blank" rel="noopener">Google Maps</a>
+                  </div>
+                </div>
+              </article>
+              <article class="offline-return-item">
+                <img src="./assets/offline/maps/nihonbashi-hotel-area.webp" alt="Nihonbashi hotel offline route diagram" loading="lazy">
+                <div class="offline-return-body">
+                  <h3>Hotel Horidome Villa</h3>
+                  <p><strong>日文地址：</strong><span id="nihonbashi-address">〒103-0012 東京都中央区日本橋堀留町1-10-10</span></p>
+                  <p><strong>英文地址：</strong>1-10-10 Nihonbashi Horidome-cho, Chuo-ku, Tokyo 103-0012</p>
+                  <p><strong>最近車站：</strong>小傳馬町 / 人形町一帶，步行約3-5分鐘。</p>
+                  <p><strong>的士用：</strong><span id="nihonbashi-taxi">ホテル堀留ヴィラ（東京都中央区日本橋堀留町1-10-10）までお願いします。</span></p>
+                  <div class="offline-action-row">
+                    <button class="copy-btn" type="button" data-copy="#nihonbashi-address" data-copy-label="Copy Address">Copy Address</button>
+                    <button class="copy-btn secondary" type="button" data-copy="#nihonbashi-taxi" data-copy-label="Copy Taxi Text">Copy Taxi Text</button>
+                    <a class="copy-btn secondary" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Horidome%20Villa%20Tokyo" target="_blank" rel="noopener">Google Maps</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="offline-map-grid">
+              <figure>
+                <img src="./assets/offline/maps/narita-return-summary.webp" alt="Narita Terminal 2 offline return summary" loading="lazy">
+                <figcaption>回程：日本橋酒店 → 人形町 → 成田 Sky Access 方向 → 成田T2</figcaption>
+              </figure>
+              <figure>
+                <img src="./assets/offline/maps/disneysea-arrival-summary.webp" alt="DisneySea offline arrival summary" loading="lazy">
+                <figcaption>DisneySea：秋葉原一帶 → 八丁堀 → 舞濱 → DisneySea</figcaption>
+              </figure>
+            </div>
+          </div>
+        </section>
       </section>
 
       <section id="checklist" class="tab-content">
@@ -832,6 +897,14 @@
             <label class="check-row"><input type="checkbox" data-check="local-tours"><span><strong>富士山及鎌倉 Local Tour</strong><span>必查 24-48 小時改期/退款政策，保留 Day 12 / Day 14 對調空間。</span></span></label>
             <label class="check-row"><input type="checkbox" data-check="google-maps-list"><span><strong>Google Maps 收藏清單</strong><span>出發前把新宿 Isetan/Lumine/NEWoMan、澀谷 PARCO、Ginza Six、東京站一番街、台場 DiverCity 收藏到同一個清單。</span></span></label>
             <label class="check-row"><input type="checkbox" data-check="transport-esim"><span><strong>Skyliner / Access 特急 / eSIM</strong><span>去程可用 Skyliner 到上野；回程由人形町優先 Access 特急直達成田T2，Skyliner 不經人形町。</span></span></label>
+            <div class="check-group-title"><span class="material-symbols-outlined">download_for_offline</span> Offline Ready</div>
+            <label class="check-row"><input type="checkbox" data-check="offline-open-latest"><span><strong>Open app once after latest update</strong><span>出發前用 Wi-Fi 開一次 GitHub Pages 版本，確認已是 V12.2 Offline。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="offline-home-screen"><span><strong>Add app to iPhone Home Screen</strong><span>Safari 開啟後加入主畫面，旅途中像 App 一樣使用。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="offline-download-pack"><span><strong>Download Offline Pack</strong><span>到 Return / Help 按 Download Offline Pack，等待 Ready 訊息。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="offline-airplane-test"><span><strong>Airplane Mode 測試</strong><span>開飛行模式後確認 Today / Hotel / Return 可正常打開。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="offline-google-area"><span><strong>Save Google Maps offline area</strong><span>在 Google Maps App 預先下載東京 / 成田常用區域。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="offline-booking-screenshots"><span><strong>Screenshot hotel / flight bookings</strong><span>酒店、機票、保險、護照頁面分別截圖，亦存到 Notes / iCloud。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="offline-address-notes"><span><strong>Save hotel address in Notes</strong><span>把兩間酒店日文地址和的士句子貼到 Apple Notes / Wallet 備份。</span></span></label>
           </div>
         </div>
       </section>

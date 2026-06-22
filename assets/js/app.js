@@ -588,6 +588,35 @@
       }
     };
 
+    const OFFLINE_PACK_CACHE = "tokyo-trip-manual-offline-pack-v12-2";
+    const OFFLINE_PACK = [
+      "./",
+      "./index.html",
+      "./tokyo_itinerary.html",
+      "./tokyo_itineray.html",
+      "./offline.html",
+      "./manifest.webmanifest",
+      "./service-worker.js",
+      "./sw.js",
+      "./assets/css/style.css",
+      "./assets/js/app.js",
+      "./assets/icons/icon-180.png",
+      "./assets/icons/icon-192.png",
+      "./assets/icons/icon-512.png",
+      "./assets/icons/maskable-512.png",
+      "./assets/offline/offline-data.json",
+      "./assets/offline/hotel-akihabara.md",
+      "./assets/offline/hotel-nihonbashi.md",
+      "./assets/offline/airport-return.md",
+      "./assets/offline/disneysea.md",
+      "./assets/offline/emergency.md",
+      "./assets/offline/map-notes.md",
+      "./assets/offline/maps/akihabara-hotel-area.webp",
+      "./assets/offline/maps/nihonbashi-hotel-area.webp",
+      "./assets/offline/maps/narita-return-summary.webp",
+      "./assets/offline/maps/disneysea-arrival-summary.webp"
+    ];
+
     function basePill(base) {
       if (base === "秋葉原") return '<span class="lodging-pill lodging-akiba">秋葉原</span>';
       if (base === "日本橋") return '<span class="lodging-pill lodging-nihonbashi">日本橋</span>';
@@ -1158,6 +1187,14 @@
       navigator.serviceWorker.register("./service-worker.js").catch(() => {});
     }
 
+    function updateConnectionStatus() {
+      const banner = document.getElementById("connection-status");
+      const offline = !navigator.onLine;
+      document.documentElement.classList.toggle("is-offline", offline);
+      if (!banner) return;
+      banner.hidden = !offline;
+    }
+
     function isStandaloneApp() {
       return window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
     }
@@ -1168,6 +1205,84 @@
 
     applyStandaloneMode();
     window.matchMedia("(display-mode: standalone)").addEventListener?.("change", applyStandaloneMode);
+    updateConnectionStatus();
+    window.addEventListener("online", updateConnectionStatus);
+    window.addEventListener("offline", updateConnectionStatus);
+
+    async function fallbackCopyText(text) {
+      const textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.left = "-9999px";
+      document.body.append(textarea);
+      textarea.select();
+      const copied = document.execCommand("copy");
+      textarea.remove();
+      if (!copied) throw new Error("copy failed");
+    }
+
+    async function copyText(text) {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+        return;
+      }
+      await fallbackCopyText(text);
+    }
+
+    function bindCopyButtons() {
+      document.querySelectorAll("[data-copy]").forEach(button => {
+        if (button.dataset.copyBound === "true") return;
+        button.dataset.copyBound = "true";
+        const originalLabel = button.dataset.copyLabel || button.textContent.trim();
+        button.addEventListener("click", async () => {
+          const target = document.querySelector(button.dataset.copy);
+          if (!target) return;
+          try {
+            await copyText(target.textContent.trim());
+            button.classList.add("is-copied");
+            button.textContent = "Copied";
+            setTimeout(() => {
+              button.classList.remove("is-copied");
+              button.textContent = originalLabel;
+            }, 1600);
+          } catch (error) {
+            button.textContent = "Copy failed";
+            setTimeout(() => {
+              button.textContent = originalLabel;
+            }, 1800);
+          }
+        });
+      });
+    }
+
+    function bindOfflinePreload() {
+      const button = document.getElementById("preload-offline-pack");
+      const status = document.getElementById("offline-pack-status");
+      if (!button || button.dataset.offlineBound === "true") return;
+      button.dataset.offlineBound = "true";
+      button.addEventListener("click", async () => {
+        if (!("caches" in window)) {
+          if (status) status.textContent = "This browser cannot manually cache the offline pack.";
+          button.classList.add("is-error");
+          return;
+        }
+        button.classList.remove("is-ready", "is-error");
+        button.disabled = true;
+        if (status) status.textContent = "Downloading offline pack...";
+        try {
+          const cache = await caches.open(OFFLINE_PACK_CACHE);
+          await cache.addAll(OFFLINE_PACK);
+          button.classList.add("is-ready");
+          if (status) status.textContent = "Offline Pack ready. Test once with Airplane Mode before departure.";
+        } catch (error) {
+          button.classList.add("is-error");
+          if (status) status.textContent = "Offline Pack failed. Open with stable Wi-Fi and try again.";
+        } finally {
+          button.disabled = false;
+        }
+      });
+    }
 
     document.querySelectorAll("[data-tab]").forEach(btn => {
       btn.addEventListener("click", () => {
@@ -1218,6 +1333,8 @@
     hydrateSavedChecks();
     renderMapRoutes();
     simulateWeather("A");
+    bindCopyButtons();
+    bindOfflinePreload();
     registerServiceWorker();
     switchTab(location.hash.replace("#", "") || "today-mode", false);
     if (location.hash) {
