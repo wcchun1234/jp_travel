@@ -1,18 +1,22 @@
-const CACHE_NAME = "jp-travel-v4";
-const ASSETS = [
+const CACHE_NAME = "tokyo-trip-v12-3";
+const APP_SHELL = [
   "./",
   "./index.html",
   "./tokyo_itinerary.html",
   "./tokyo_itineray.html",
   "./assets/css/style.css",
   "./assets/js/app.js",
+  "./assets/icons/icon-180.png",
+  "./assets/icons/icon-192.png",
+  "./assets/icons/icon-512.png",
+  "./assets/icons/maskable-512.png",
   "./manifest.webmanifest",
   "./service-worker.js",
   "./sw.js"
 ];
 
 self.addEventListener("install", event => {
-  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS)));
+  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)));
   self.skipWaiting();
 });
 

@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#1e1b4b">
+  <meta name="theme-color" content="#171343">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="Tokyo Trip">
-  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="apple-touch-icon" href="./assets/icons/icon-180.png">
   <title>東京旅行行程計劃 Version 12.1 ｜ DisneySea Verified Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,6 +51,7 @@
         <button class="nav-btn" type="button" data-tab="daily-detail"><span class="nav-label"><span class="material-symbols-outlined">directions_walk</span> 每日詳細行程 & 交通</span></button>
         <button class="nav-btn" type="button" data-tab="disney-strategy"><span class="nav-label"><span class="material-symbols-outlined">castle</span> DisneySea 攻略</span><span class="mini-dot"></span></button>
         <button class="nav-btn" type="button" data-tab="shopping-map"><span class="nav-label"><span class="material-symbols-outlined">map</span> 地圖與購物名所</span><span class="mini-dot"></span></button>
+        <button class="nav-btn" type="button" data-tab="hotel-panel"><span class="nav-label"><span class="material-symbols-outlined">hotel</span> 酒店快速卡</span><span class="mini-dot"></span></button>
         <button class="nav-btn" type="button" data-tab="weather-strategy"><span class="nav-label"><span class="material-symbols-outlined">routine</span> 天氣策略模擬器</span><span class="mini-dot"></span></button>
         <button class="nav-btn" type="button" data-tab="return-help"><span class="nav-label"><span class="material-symbols-outlined">emergency_home</span> Return / Help</span><span class="mini-dot"></span></button>
         <button class="nav-btn" type="button" data-tab="checklist"><span class="nav-label"><span class="material-symbols-outlined">checklist</span> 預約及確認清單</span></button>
@@ -72,6 +75,7 @@
         <button class="mobile-tab" type="button" data-tab="daily-detail">每日</button>
         <button class="mobile-tab" type="button" data-tab="disney-strategy">DisneySea</button>
         <button class="mobile-tab" type="button" data-tab="shopping-map">地圖</button>
+        <button class="mobile-tab" type="button" data-tab="hotel-panel">酒店</button>
         <button class="mobile-tab" type="button" data-tab="weather-strategy">天氣</button>
         <button class="mobile-tab" type="button" data-tab="return-help">Return</button>
         <button class="mobile-tab" type="button" data-tab="checklist">清單</button>
@@ -516,6 +520,46 @@
         </div>
       </section>
 
+      <section id="hotel-panel" class="tab-content">
+        <div class="today-dashboard">
+          <section class="today-card panic-card">
+            <h2 class="section-title"><span class="material-symbols-outlined">hotel</span> 酒店快速卡</h2>
+            <p>旅途中最常用的酒店入口。系統會按旅程日期顯示目前基地，也可直接打開兩間酒店地圖或回程導航。</p>
+            <div class="today-fact-grid">
+              <div class="today-fact"><span>Current Stay</span><strong id="hotel-panel-current">Hotel Livemax Akihabara Kita</strong></div>
+              <div class="today-fact"><span>Base</span><strong id="hotel-panel-base">秋葉原</strong></div>
+              <div class="today-fact"><span>Period</span><strong id="hotel-panel-period">6月27日 - 7月5日</strong></div>
+            </div>
+            <div class="panic-grid">
+              <a class="today-action primary" id="hotel-panel-map" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Livemax%20Akihabara%20Kita" target="_blank" rel="noopener"><span class="material-symbols-outlined">pin_drop</span> 開啟目前酒店</a>
+              <a class="today-action primary" id="hotel-panel-route" href="https://www.google.com/maps/dir/?api=1&destination=Hotel%20Livemax%20Akihabara%20Kita&travelmode=transit" target="_blank" rel="noopener"><span class="material-symbols-outlined">directions</span> 由目前位置回酒店</a>
+              <a class="today-action" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Livemax%20Akihabara%20Kita" target="_blank" rel="noopener"><span class="material-symbols-outlined">home_pin</span> 秋葉原酒店</a>
+              <a class="today-action" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Horidome%20Villa%20Tokyo" target="_blank" rel="noopener"><span class="material-symbols-outlined">apartment</span> 日本橋酒店</a>
+              <a class="today-action alert" href="https://www.google.com/maps/dir/?api=1&origin=Hotel%20Horidome%20Villa%20Tokyo&destination=Narita%20Airport%20Terminal%202&travelmode=transit" target="_blank" rel="noopener"><span class="material-symbols-outlined">flight_takeoff</span> 成田T2回程</a>
+              <button class="today-action" type="button" data-jump-tab="shopping-map"><span class="material-symbols-outlined">map</span> 打開地圖中心</button>
+            </div>
+          </section>
+          <aside class="today-side">
+            <section class="today-card panic-card">
+              <h3><span class="material-symbols-outlined">home_pin</span> Stay 1｜秋葉原</h3>
+              <p><strong>Hotel Livemax Akihabara Kita</strong><br>2-5-2 Taito, 台東區｜6月27日 - 7月5日</p>
+              <div class="panic-grid">
+                <a class="today-action" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Livemax%20Akihabara%20Kita" target="_blank" rel="noopener">酒店地圖</a>
+                <a class="today-action" href="https://www.google.com/maps/dir/?api=1&destination=Hotel%20Livemax%20Akihabara%20Kita&travelmode=transit" target="_blank" rel="noopener">回酒店</a>
+              </div>
+            </section>
+            <section class="today-card panic-card">
+              <h3><span class="material-symbols-outlined">apartment</span> Stay 2｜日本橋</h3>
+              <p><strong>Hotel Horidome Villa</strong><br>1-10-10 Horidome-Cho, Nihonbashi｜7月5日 - 7月12日</p>
+              <div class="panic-grid">
+                <a class="today-action" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Horidome%20Villa%20Tokyo" target="_blank" rel="noopener">酒店地圖</a>
+                <a class="today-action" href="https://www.google.com/maps/dir/?api=1&destination=Hotel%20Horidome%20Villa%20Tokyo&travelmode=transit" target="_blank" rel="noopener">回酒店</a>
+              </div>
+            </section>
+          </aside>
+        </div>
+      </section>
+
       <section id="shopping-map" class="tab-content">
         <div class="card">
           <div class="card-head">
@@ -793,9 +837,9 @@
       </section>
     </main>
     <nav class="mobile-trip-dock" aria-label="旅行快捷工具列">
-      <button class="dock-btn is-active" type="button" data-tab="today-mode" data-dock-key="today" aria-current="page"><span class="material-symbols-outlined">today</span>今日</button>
+      <button class="dock-btn is-dock-active" type="button" data-tab="today-mode" data-dock-key="today" aria-current="page"><span class="material-symbols-outlined">today</span>今日</button>
       <button class="dock-btn" type="button" data-jump-tab="shopping-map" data-map-route="all-tokyo" data-dock-key="map"><span class="material-symbols-outlined">map</span>地圖</button>
-      <button class="dock-btn" type="button" data-jump-tab="shopping-map" data-map-route="nihonbashi-hotel" data-dock-key="hotel"><span class="material-symbols-outlined">hotel</span>酒店</button>
+      <button class="dock-btn" type="button" data-tab="hotel-panel" data-dock-key="hotel"><span class="material-symbols-outlined">hotel</span>酒店</button>
       <button class="dock-btn" type="button" data-jump-tab="weather-strategy" data-dock-key="weather"><span class="material-symbols-outlined">rainy</span>天氣</button>
       <button class="dock-btn" type="button" data-tab="return-help" data-dock-key="return"><span class="material-symbols-outlined">emergency_home</span>回程</button>
     </nav>

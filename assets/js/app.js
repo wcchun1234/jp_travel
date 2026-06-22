@@ -330,6 +330,23 @@
       16: { origin: "Hotel Horidome Villa Tokyo", destination: "Narita Airport Terminal 2", transportLabel: "日本橋酒店 → 成田T2", foodQuery: "restaurants Narita Airport Terminal 2", foodLabel: "成田T2 餐飲" }
     };
 
+    const hotelStays = {
+      akiba: {
+        name: "Hotel Livemax Akihabara Kita",
+        base: "秋葉原",
+        period: "6月27日 - 7月5日",
+        query: "Hotel Livemax Akihabara Kita",
+        routeLabel: "由目前位置回秋葉原酒店"
+      },
+      nihonbashi: {
+        name: "Hotel Horidome Villa",
+        base: "日本橋",
+        period: "7月5日 - 7月12日",
+        query: "Hotel Horidome Villa Tokyo",
+        routeLabel: "由目前位置回日本橋酒店"
+      }
+    };
+
     const todayModeMeta = {
       1: { leave: "14:45 到埗後", target: "18:00 Check-in", statuses: ["Need check", "Arrival"], checks: ["護照與入境 QR", "eSIM / Suica 可用", "Skyliner / 交通付款準備好", "酒店地址已截圖"] },
       2: { leave: "10:00", target: "上野午餐", statuses: ["Flexible", "Rain OK"], checks: ["帶購物袋", "酒店附近車站先收藏", "退稅護照帶身上", "雨具按天氣決定"] },
@@ -659,6 +676,29 @@
       `).join("");
       renderTodayDayGrid(activeDay);
       hydrateSavedChecks(document.getElementById("today-checklist"));
+      renderHotelPanel(activeDay);
+    }
+
+    function getHotelStayKey(day = getAutoTripDay()) {
+      return clampTripDay(day) <= 8 ? "akiba" : "nihonbashi";
+    }
+
+    function renderHotelPanel(day = getAutoTripDay()) {
+      const stay = hotelStays[getHotelStayKey(day)];
+      if (!stay) return;
+      const current = document.getElementById("hotel-panel-current");
+      const base = document.getElementById("hotel-panel-base");
+      const period = document.getElementById("hotel-panel-period");
+      const mapLink = document.getElementById("hotel-panel-map");
+      const routeLink = document.getElementById("hotel-panel-route");
+      if (current) current.textContent = stay.name;
+      if (base) base.textContent = stay.base;
+      if (period) period.textContent = stay.period;
+      if (mapLink) mapLink.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(stay.query)}`;
+      if (routeLink) {
+        routeLink.href = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(stay.query)}&travelmode=transit`;
+        routeLink.innerHTML = `<span class="material-symbols-outlined">directions</span> ${stay.routeLabel}`;
+      }
     }
 
     function renderDetails() {
@@ -958,22 +998,25 @@
       document.querySelectorAll(".map-route-btn[data-map-route]").forEach(button => {
         button.classList.toggle("active", button.dataset.mapRoute === routeKey);
       });
-      setDockActive(dockKeyForTarget("shopping-map", routeKey));
+      setDockActive(dockKeyForTarget("shopping-map"));
     }
 
-    function dockKeyForTarget(tabId, mapRoute = "") {
-      if (tabId === "today-mode") return "today";
-      if (tabId === "weather-strategy") return "weather";
-      if (tabId === "return-help") return "return";
-      if (tabId === "shopping-map") return mapRoute.includes("hotel") ? "hotel" : "map";
-      return "";
+    function dockKeyForTarget(tabId) {
+      const dockMap = {
+        "today-mode": "today",
+        "shopping-map": "map",
+        "hotel-panel": "hotel",
+        "weather-strategy": "weather",
+        "return-help": "return"
+      };
+      return dockMap[tabId] || "";
     }
 
     function setDockActive(key) {
       document.querySelectorAll(".dock-btn").forEach(button => {
         const isActive = Boolean(key) && button.dataset.dockKey === key;
         button.classList.remove("active");
-        button.classList.toggle("is-active", isActive);
+        button.classList.toggle("is-dock-active", isActive);
         if (isActive) {
           button.setAttribute("aria-current", "page");
         } else {
@@ -987,7 +1030,7 @@
       const day = button.dataset.jumpDay;
       const mapRoute = button.dataset.mapRoute;
       if (tab) switchTab(tab);
-      const dockKey = dockKeyForTarget(tab, mapRoute);
+      const dockKey = dockKeyForTarget(tab);
       if (dockKey) setDockActive(dockKey);
       if (button.classList.contains("dock-btn")) button.blur();
       if (mapRoute) {
@@ -1115,6 +1158,17 @@
       navigator.serviceWorker.register("./service-worker.js").catch(() => {});
     }
 
+    function isStandaloneApp() {
+      return window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
+    }
+
+    function applyStandaloneMode() {
+      document.documentElement.classList.toggle("is-standalone", isStandaloneApp());
+    }
+
+    applyStandaloneMode();
+    window.matchMedia("(display-mode: standalone)").addEventListener?.("change", applyStandaloneMode);
+
     document.querySelectorAll("[data-tab]").forEach(btn => {
       btn.addEventListener("click", () => {
         switchTab(btn.dataset.tab);
@@ -1160,6 +1214,7 @@
     renderDayIndex();
     initializeCompactDailyView(1);
     renderTodayMode();
+    renderHotelPanel();
     hydrateSavedChecks();
     renderMapRoutes();
     simulateWeather("A");

@@ -8,6 +8,7 @@ The app is designed for real trip usage: open phone, see Today Mode, tap the rou
 
 - Today Mode with auto trip-day detection and manual Day 1-16 switching
 - Sticky mobile bottom navigation: Today, Map, Hotel, Weather, Return
+- Dedicated Hotel quick card with current-stay detection and direct Google Maps return links
 - Google Maps route buttons for daily transport, hotels, shopping, food, and airport return
 - Return / Help panic screen for hotel return, Narita T2 route, flight info, and stress checks
 - DisneySea day guide with route and App/DPA flow
@@ -23,6 +24,7 @@ The app is designed for real trip usage: open phone, see Today Mode, tap the rou
 /tokyo_itineray.html        # legacy misspelled redirect
 /assets/css/style.css
 /assets/js/app.js
+/assets/icons/*.png
 /manifest.webmanifest
 /service-worker.js
 /sw.js                      # legacy service worker shim

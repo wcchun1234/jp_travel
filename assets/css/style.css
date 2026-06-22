@@ -166,6 +166,9 @@
       box-shadow: var(--shadow-header);
       border-bottom: 4px solid var(--joy-sun);
     }
+    html.is-standalone .topbar {
+      padding-top: env(safe-area-inset-top);
+    }
     .topbar-inner {
       width: min(100%, 1600px);
       margin: 0 auto;
@@ -2354,6 +2357,9 @@
       grid-template-columns: repeat(5, minmax(0, 1fr));
       gap: 6px;
     }
+    html.is-standalone .mobile-trip-dock {
+      bottom: calc(18px + env(safe-area-inset-bottom));
+    }
     .dock-btn {
       min-width: 0;
       min-height: 48px;
@@ -2378,16 +2384,20 @@
     .dock-btn:hover {
       color: var(--primary);
     }
+    .dock-btn.active {
+      background: transparent;
+      color: var(--slate-600);
+    }
     .dock-btn:focus {
       outline: 2px solid rgba(53, 37, 205, .24);
       outline-offset: 3px;
       background: transparent;
     }
-    .dock-btn.is-active {
+    .dock-btn.is-dock-active {
       background: var(--primary-soft);
       color: var(--primary);
     }
-    .dock-btn.is-active:focus {
+    .dock-btn.is-dock-active:focus {
       background: var(--primary-soft);
     }
 
