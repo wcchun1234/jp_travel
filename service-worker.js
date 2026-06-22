@@ -1,4 +1,4 @@
-const CACHE_NAME = "jp-travel-v3";
+const CACHE_NAME = "jp-travel-v4";
 const ASSETS = [
   "./",
   "./index.html",

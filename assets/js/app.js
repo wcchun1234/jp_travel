@@ -958,6 +958,28 @@
       document.querySelectorAll(".map-route-btn[data-map-route]").forEach(button => {
         button.classList.toggle("active", button.dataset.mapRoute === routeKey);
       });
+      setDockActive(dockKeyForTarget("shopping-map", routeKey));
+    }
+
+    function dockKeyForTarget(tabId, mapRoute = "") {
+      if (tabId === "today-mode") return "today";
+      if (tabId === "weather-strategy") return "weather";
+      if (tabId === "return-help") return "return";
+      if (tabId === "shopping-map") return mapRoute.includes("hotel") ? "hotel" : "map";
+      return "";
+    }
+
+    function setDockActive(key) {
+      document.querySelectorAll(".dock-btn").forEach(button => {
+        const isActive = Boolean(key) && button.dataset.dockKey === key;
+        button.classList.remove("active");
+        button.classList.toggle("is-active", isActive);
+        if (isActive) {
+          button.setAttribute("aria-current", "page");
+        } else {
+          button.removeAttribute("aria-current");
+        }
+      });
     }
 
     function handlePocketAction(button) {
@@ -965,6 +987,9 @@
       const day = button.dataset.jumpDay;
       const mapRoute = button.dataset.mapRoute;
       if (tab) switchTab(tab);
+      const dockKey = dockKeyForTarget(tab, mapRoute);
+      if (dockKey) setDockActive(dockKey);
+      if (button.classList.contains("dock-btn")) button.blur();
       if (mapRoute) {
         requestAnimationFrame(() => {
           selectMapRoute(mapRoute);
@@ -985,10 +1010,7 @@
       document.querySelectorAll(".nav-btn, .mobile-tab").forEach(btn => {
         btn.classList.toggle("active", btn.dataset.tab === tabId);
       });
-      document.querySelectorAll(".dock-btn").forEach(btn => {
-        const target = btn.dataset.tab || btn.dataset.jumpTab;
-        btn.classList.toggle("active", target === tabId);
-      });
+      setDockActive(dockKeyForTarget(tabId));
       if (updateHash) history.replaceState(null, "", `#${tabId}`);
     }
 
@@ -1096,6 +1118,7 @@
     document.querySelectorAll("[data-tab]").forEach(btn => {
       btn.addEventListener("click", () => {
         switchTab(btn.dataset.tab);
+        if (btn.classList.contains("dock-btn")) btn.blur();
         requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "smooth" }));
       });
     });
