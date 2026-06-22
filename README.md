@@ -13,6 +13,7 @@ The app is designed for real trip usage: open phone, see Today Mode, tap the rou
 - Return / Help panic screen for hotel return, Narita T2 route, flight info, and stress checks
 - Offline survival pack with hotel addresses, taxi text, airport return notes, route diagrams, and an offline status banner
 - DisneySea day guide with route and App/DPA flow
+- Early Trip Weather Check for Day 1-7 with rain-aware operating advice
 - Weather backup simulator for Day 11-14 swaps
 - Local checklist saving in the browser
 - PWA manifest and service worker for poor-signal loading

@@ -1,4 +1,4 @@
-const CACHE_NAME = "tokyo-trip-v12-2-offline";
+const CACHE_NAME = "tokyo-trip-v12-3-weather";
 const CACHE_PREFIX = "tokyo-trip-";
 const MANUAL_CACHE_PREFIX = "tokyo-trip-manual-offline-pack";
 const APP_SHELL = [

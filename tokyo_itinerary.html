@@ -9,7 +9,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="apple-touch-icon" href="./assets/icons/icon-180.png">
-  <title>東京旅行行程計劃 Version 12.2 ｜ Offline Ready Dashboard</title>
+  <title>東京旅行行程計劃 Version 12.3 ｜ Early Weather Ready Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@400;500;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
@@ -25,13 +25,13 @@
         <h1 class="brand-title">
           <span class="material-symbols-outlined fill">travel_explore</span>
           東京旅行行程計劃
-          <span class="version-pill">V12.2 Offline</span>
+          <span class="version-pill">V12.3 Weather</span>
         </h1>
         <p class="subtitle">
           <span>2026年6月27日 – 7月12日</span>
           <span>16日15夜</span>
           <span>同行：2成人</span>
-          <span>Offline Ready 旅行安全版</span>
+          <span>Early Weather Ready 旅行安全版</span>
         </p>
       </div>
       <div class="principles" aria-label="行程原則">
@@ -65,7 +65,7 @@
           <li>7月1日加入東京迪士尼海洋全日行程</li>
           <li>合羽橋/蔵前/清澄白河移至日本橋住宿段</li>
           <li>春日部回程串聯晴空塔 Solamachi</li>
-          <li>加入 Offline Pack、酒店地址、回程資料與離線路線圖</li>
+          <li>加入 Day 1-7 Early Weather Check 與 Weather Lock badges</li>
         </ul>
       </div>
     </aside>
@@ -100,6 +100,7 @@
               <div class="today-fact"><span>Base</span><strong id="today-base">--</strong></div>
             </div>
             <div class="today-note-box" id="today-focus">今日重點會按旅行日期自動顯示，也可以手動選 Day。</div>
+            <div class="today-weather-card" id="today-weather-advice" aria-live="polite"></div>
             <div class="today-action-grid" aria-label="今日主要操作">
               <a class="today-action primary" id="today-route-link" href="#" target="_blank" rel="noopener"><span class="material-symbols-outlined">directions</span> Start Navigation</a>
               <a class="today-action" id="today-place-link" href="#" target="_blank" rel="noopener"><span class="material-symbols-outlined">pin_drop</span> Open Map</a>
@@ -703,6 +704,24 @@
             </div>
           </div>
           <div class="card-pad">
+            <section class="early-weather-panel" aria-label="Early trip weather check">
+              <div class="weather-lab-head">
+                <div>
+                  <h3><span class="material-symbols-outlined">water_drop</span> Early Trip Weather Check｜Day 1-7</h3>
+                  <p>第一週已有多個雨點，策略不是大搬日程，而是每天加入「室內先行 / 雨弱後戶外 / 固定日帶雨具」的操作模式。</p>
+                </div>
+                <div class="weather-source-row" aria-label="早段天氣查詢快捷">
+                  <a class="weather-source-link" href="https://www.japan.travel/en/weather/kanto/tokyo/" target="_blank" rel="noopener"><span class="material-symbols-outlined">open_in_new</span> JNTO Tokyo</a>
+                  <a class="weather-source-link" href="https://www.data.jma.go.jp/multi/yoho/yoho_detail.html?code=130010&lang=en" target="_blank" rel="noopener"><span class="material-symbols-outlined">cloud</span> JMA Tokyo</a>
+                </div>
+              </div>
+              <div class="early-weather-grid" id="early-weather-grid"></div>
+              <div class="weather-rule-grid" aria-label="天氣規則">
+                <article><strong>Fixed</strong><span>航班、轉酒店、DisneySea、硬預約不因小雨亂換。</span></article>
+                <article><strong>Weather-sensitive</strong><span>富士山、鎌倉、Shibuya Sky、東京鐵塔與長戶外步行先看能見度/風雨。</span></article>
+                <article><strong>Rain-safe</strong><span>銀座、有樂町、東京站、新宿百貨、Solamachi、Sunshine City、teamLab 可作雨天主力。</span></article>
+              </div>
+            </section>
             <div class="weather-buttons">
               <button class="weather-btn active" type="button" data-plan="A">Plan A<span>預設好天氣</span></button>
               <button class="weather-btn" type="button" data-plan="B">Plan B<span>7/7 富士山大雨</span></button>

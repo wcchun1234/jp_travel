@@ -2,9 +2,9 @@
       { day: 1, date: "6月27日 Sat", plan: "香港 → 成田機場 → Skyliner → 秋葉原酒店 Check-in", base: "秋葉原", strategy: "到埗日休息。", row: "" },
       { day: 2, date: "6月28日 Sun", plan: "秋葉原電器街 ＋ 上野 ＋ 阿美橫町購物街 ＋ 御徒町", base: "秋葉原", strategy: "原區輕鬆熟習，大雨可退守室內商場。", row: "" },
       { day: 3, date: "6月29日 Mon", plan: "Chiikawa Park ＋ 池袋 Sunshine City ＋ 澀谷 ＋ Shibuya Sky", base: "秋葉原", strategy: "平日避人潮。Shibuya Sky 必須提早搶黃昏票。", row: "row-indigo" },
-      { day: 4, date: "6月30日 Tue", plan: "築地市場海鮮早宴 ＋ 增上寺 ＋ 芝公園東京鐵塔", base: "秋葉原", strategy: "平日大啖築地美食，避開週末市場人潮。", row: "" },
-      { day: 5, date: "7月1日 Wed", plan: "東京迪士尼海洋 (Tokyo DisneySea) 全日爆玩", base: "秋葉原", strategy: "人潮最少黃金平日。必須提前官網買票，早到搶 App 服務。", row: "row-disney" },
-      { day: 6, date: "7月2日 Thu", plan: "春日部蠟筆小新動漫朝聖 → 傍晚直達晴空塔 Solamachi 購物晚餐", base: "秋葉原", strategy: "春日部回程東武線直達押上站，動線比原版更順。", row: "row-amber" },
+      { day: 4, date: "6月30日 Tue", plan: "雨早上先銀座/東京站室內 → 築地 ＋ 東京鐵塔下午散策", base: "秋葉原", strategy: "早上有雨先退守室內；雨弱後再做築地、增上寺、芝公園東京鐵塔。", row: "" },
+      { day: 5, date: "7月1日 Wed", plan: "東京迪士尼海洋 (Tokyo DisneySea) 全日爆玩", base: "秋葉原", strategy: "固定門票日。帶雨具，室內表演/餐廳與 App/DPA 作雨天防線。", row: "row-disney" },
+      { day: 6, date: "7月2日 Thu", plan: "春日部小新 → 晴空塔 Solamachi 雨天避難購物晚餐", base: "秋葉原", strategy: "春日部輕量化；若驟雨變強，提早轉 Solamachi 室內商場。", row: "row-amber" },
       { day: 7, date: "7月3日 Fri", plan: "銀座精品百貨 ＋ 有樂町 ＋ 東京車站一番街拉麵街", base: "秋葉原", strategy: "強雨天無敵日。全日連通地下街與大型室內。", row: "" },
       { day: 8, date: "7月4日 Sat", plan: "明治神宮 ＋ 原宿竹下通 ＋ 表參道 ＋ 新宿夜購", base: "秋葉原", strategy: "週末先走大空間神宮/表參道，傍晚轉新宿百貨與夜景。", row: "" },
       { day: 9, date: "7月5日 Sun", plan: "轉酒店（的士大移防）＋ 日本橋/東京站輕鬆熟習", base: "日本橋", strategy: "轉酒店不排預約景點，先安頓行李與新住宿基地。", row: "row-indigo" },
@@ -62,9 +62,9 @@
         pace: "中等",
         image: "https://images.unsplash.com/photo-1513407030348-c983a97b98d8?auto=format&fit=crop&w=300&q=70",
         open: false,
-        focus: "平日早上吃築地，避開週末人潮；下午轉到增上寺與東京鐵塔一帶，行程有戶外也有咖啡店可避雨。",
+        focus: "早上若下雨，不硬衝築地與東京鐵塔戶外位；先用銀座/東京站地下街、百貨或咖啡店做室內開局，雨弱後再轉築地、增上寺、芝公園東京鐵塔。",
         transport: "秋葉原/仲御徒町上日比谷線到築地；築地到大門/芝公園可用日比谷線轉都營線，或短程的士節省體力。",
-        timeline: ["09:30 築地場外市場早午餐", "12:30 移動至增上寺", "14:00 芝公園與東京鐵塔拍照", "16:00 找咖啡店休息或回酒店", "晚上秋葉原/上野簡單晚餐"]
+        timeline: ["09:30 雨天先銀座/東京站室內咖啡或百貨", "11:30 雨弱後移動至築地場外市場早午餐", "13:30 增上寺 / 芝公園", "15:00 東京鐵塔外拍或室內觀景候補", "晚上秋葉原/上野簡單晚餐"]
       },
       {
         day: 5,
@@ -74,7 +74,7 @@
         pace: "高",
         image: "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=300&q=70",
         open: true,
-        focus: "V12.1 最大新增日。官方 2026/7/1 開放 9:00-21:00，成人 1-Day Passport 7,900円；此日固定性高，不建議隨便對調。",
+        focus: "V12.1 最大新增日。官方 2026/7/1 開放 9:00-21:00，成人 1-Day Passport 7,900円；此日固定性高，不建議隨便對調。若有微雨，改用雨衣、防水袋、室內表演/餐廳與 App/DPA 控節奏。",
         transport: "早到首選鐵路：酒店 → 仲御徒町/秋葉原 → 日比谷線八丁堀 → JR 京葉/武藏野線舞濱 → Disney Resort Line 到 Tokyo DisneySea Station。巴士可作少轉乘方案，但官方秋葉原巴士約50-60分鐘，班次要另查。",
         timeline: ["06:25-06:40 酒店出發", "07:45 目標抵達入園排隊", "入園即開 App 購買 DPA / 查 Priority Pass", "上午優先 Fantasy Springs 熱門項目", "20:45-21:30 視體力看 Believe! Sea of Dreams 或提早離園"]
       },
@@ -86,9 +86,9 @@
         pace: "中等",
         image: "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=300&q=70",
         open: false,
-        focus: "春日部移動日改良：回程不回秋葉原，直接沿東武線到押上/晴空塔晚餐，動線比原版更順。",
+        focus: "春日部移動日改良：回程不回秋葉原，直接沿東武線到押上/晴空塔晚餐。若 Day 6 有驟雨，春日部只做核心點，提早用 Solamachi 作室內避雨與晚餐基地。",
         transport: "仲御徒町/秋葉原 → 北千住 → 東武晴空塔線至春日部。回程由春日部乘東武晴空塔線直達押上，逛 Solamachi 後再回秋葉原。",
-        timeline: ["09:30 出發往春日部", "11:00 春日部站 / LaLa Garden 小新", "14:30 春日部街區慢行", "17:00 東武線到押上", "晚上 Solamachi 購物晚餐後回秋葉原"]
+        timeline: ["09:30 出發往春日部", "11:00 春日部站 / LaLa Garden 小新核心點", "14:00 若天氣穩定才加春日部街區慢行", "16:00-17:00 視雨勢提早東武線到押上", "晚上 Solamachi 室內購物晚餐後回秋葉原"]
       },
       {
         day: 7,
@@ -233,9 +233,9 @@
       },
       4: {
         budget: { total: "約 ¥5,000-10,000 / 人", lines: ["地鐵/JR 約 ¥500-900；短程的士備用約 ¥1,500-2,500 / 車。", "築地早午餐約 ¥2,500-5,000；咖啡/甜品約 ¥800-1,500。", "東京鐵塔若入場需另計門票，純外拍免費。"] },
-        transportSteps: ["仲御徒町/秋葉原 → 築地：日比谷線最順。", "築地 → 增上寺/芝公園：地鐵轉都營線或短程的士。", "雨天把戶外拍照縮短，改咖啡店/商場。"],
-        food: ["築地場外市場是海鮮與傳統食材集中地，適合早午餐。", "推薦方向：壽司、海鮮丼、玉子燒、烤海鮮。", "下午芝公園附近找咖啡店休腳。"],
-        ready: ["築地熱門店早去，不要排一間排太久。", "帶現金，小店未必完全支援卡。", "雨傘/防曬，東京鐵塔拍照看天氣。"]
+        transportSteps: ["早上雨勢明顯時，先秋葉原 → 銀座/東京站地下街，用百貨、咖啡店或東京站一番街開局。", "雨弱後再去築地；築地 → 增上寺/芝公園可地鐵轉都營線或短程的士。", "東京鐵塔戶外拍照不硬排，能見度差就改室內觀景/咖啡。"],
+        food: ["築地場外市場是海鮮與傳統食材集中地，雨弱後再去會舒服一點。", "若早上雨大，先在銀座/東京站吃咖啡、甜品或商場餐廳。", "下午芝公園附近找咖啡店休腳。"],
+        ready: ["早上先看雨量雷達，決定銀座/東京站先行或直接築地。", "帶現金，小店未必完全支援卡。", "雨傘/防水鞋，東京鐵塔拍照看能見度。"]
       },
       5: {
         budget: { total: "約 ¥18,000-35,000 / 人", lines: ["1-Day Passport 成人官方顯示由 ¥7,900 起，日期變動價。", "市區往返 + Resort Line 約 ¥1,200-2,000。", "DPA / 餐飲 / 週邊可快速增加，建議先定上限。"] },
@@ -245,9 +245,9 @@
       },
       6: {
         budget: { total: "約 ¥5,000-11,000 / 人 + 購物", lines: ["東武/JR/地鐵交通約 ¥1,200-2,000。", "春日部小新周邊與 Solamachi 購物另計。", "晚餐晴空塔商場約 ¥1,500-3,500 / 人。"] },
-        transportSteps: ["秋葉原/仲御徒町 → 北千住 → 東武線至春日部。", "回程春日部 → 押上，直接接晴空塔 Solamachi。", "晚上押上/淺草線或 JR 組合回秋葉原。"],
-        food: ["春日部午餐：車站附近簡單定食/拉麵。", "Solamachi 晚餐：商場餐廳選擇多，雨天穩。", "想甜品可留在 Solamachi 吃。"],
-        ready: ["小新目標點先存 Google Maps。", "不要買太重，晚上還要轉車。", "查東武線回押上班次。"]
+        transportSteps: ["秋葉原/仲御徒町 → 北千住 → 東武線至春日部。", "若春日部遇驟雨，刪減戶外慢行，提早由春日部 → 押上，直接進 Solamachi。", "晚上押上/淺草線或 JR 組合回秋葉原。"],
+        food: ["春日部午餐：車站附近簡單定食/拉麵，不為一間店排太久。", "Solamachi 晚餐：商場餐廳選擇多，是 Day 6 雨天主防線。", "想甜品可留在 Solamachi 吃。"],
+        ready: ["小新目標點先存 Google Maps。", "Solamachi 作雨天避難點，不要把春日部戶外走滿。", "查東武線回押上班次。"]
       },
       7: {
         budget: { total: "約 ¥6,000-15,000 / 人 + 精品購物", lines: ["市區交通約 ¥400-900。", "午晚餐約 ¥3,000-7,000；百貨甜品另計。", "東京站角色街/手信購物另計。"] },
@@ -351,9 +351,9 @@
       1: { leave: "14:45 到埗後", target: "18:00 Check-in", statuses: ["Need check", "Arrival"], checks: ["護照與入境 QR", "eSIM / Suica 可用", "Skyliner / 交通付款準備好", "酒店地址已截圖"] },
       2: { leave: "10:00", target: "上野午餐", statuses: ["Flexible", "Rain OK"], checks: ["帶購物袋", "酒店附近車站先收藏", "退稅護照帶身上", "雨具按天氣決定"] },
       3: { leave: "10:00", target: "18:15 Shibuya Sky", statuses: ["Booked?", "High priority"], checks: ["Chiikawa / 候補方案確認", "Shibuya Sky 票券", "手機電量足夠", "晚霞時段天氣再確認"] },
-      4: { leave: "09:15", target: "築地早午餐", statuses: ["Food", "Flexible"], checks: ["早上先查築地店舖營業", "雨具", "東京鐵塔路線收藏", "晚餐保留彈性"] },
-      5: { leave: "06:25-06:40", target: "07:45 DisneySea", statuses: ["Fixed", "Booked", "High priority"], checks: ["DisneySea ticket in App", "Credit card linked", "Power bank", "eSIM working"] },
-      6: { leave: "09:30", target: "17:00 Solamachi", statuses: ["Anime", "Route day"], checks: ["春日部/押上路線收藏", "小新景點營業確認", "回程直達晴空塔", "買重物後早回酒店"] },
+      4: { leave: "09:45", target: "室內開局", statuses: ["Rain aware", "Flexible"], checks: ["早上先看雨量雷達", "銀座/東京站室內候補已收藏", "雨弱後再去築地/東京鐵塔", "雨傘/防水鞋"] },
+      5: { leave: "06:25-06:40", target: "07:45 DisneySea", statuses: ["Fixed", "Booked", "Rain gear"], checks: ["DisneySea ticket in App", "Credit card linked", "雨衣/防水袋/替換襪", "Power bank + eSIM working"] },
+      6: { leave: "09:30", target: "17:00 Solamachi", statuses: ["Anime", "Rain shelter"], checks: ["春日部/押上路線收藏", "小新核心點優先", "驟雨即提早轉 Solamachi", "買重物後早回酒店"] },
       7: { leave: "10:30", target: "東京站晚餐", statuses: ["Rain OK", "Shopping"], checks: ["退稅護照", "購物清單", "東京站一番街收藏", "行李空間確認"] },
       8: { leave: "09:30", target: "17:30 新宿", statuses: ["Weekend", "Shopping"], checks: ["好走鞋", "明治神宮先去", "新宿百貨收藏", "轉酒店前整理行李"] },
       9: { leave: "10:00", target: "17:00 Check-in", statuses: ["Hotel move", "Low stress"], checks: ["舊酒店退房", "的士/行李路線", "新酒店地址截圖", "不要排預約景點"] },
@@ -364,6 +364,77 @@
       14: { leave: "10:30", target: "新宿購物", statuses: ["Buffer", "Rain OK"], checks: ["購物清單", "退稅護照", "天氣模擬是否要補行程", "買重物先回酒店"] },
       15: { leave: "10:30", target: "15:30 整理行李", statuses: ["Packing", "Low risk"], checks: ["手信清單", "行李重量", "退稅收據", "回程路線截圖"] },
       16: { leave: "12:15-12:30", target: "13:45 成田T2", statuses: ["Return", "Fixed"], checks: ["護照機票", "Access 特急方向", "退稅品", "17:05 UO871"] }
+    };
+
+    const earlyWeatherPlan = {
+      1: {
+        date: "2026-06-27",
+        risk: "Afternoon shower risk",
+        headline: "到埗日保持極輕量",
+        advice: "機場 → 秋葉原酒店 → 附近晚餐即可。不要加戶外景點；如果落雨，先完成 eSIM / Suica / Skyliner / check-in。",
+        action: "只開 Google Maps 回酒店與附近餐廳，不追景點。"
+      },
+      2: {
+        date: "2026-06-28",
+        risk: "Morning shower",
+        headline: "早上先室內，雨弱再上野/阿美橫町",
+        advice: "秋葉原、上野、御徒町仍然成立，但早段優先 Yodobashi、atre、商場、咖啡店；雨弱後才做阿美橫町街區。",
+        action: "帶傘和購物袋，買重物先回酒店放低。"
+      },
+      3: {
+        date: "2026-06-29",
+        risk: "Cloudy, lower rain risk",
+        headline: "池袋 + 澀谷可保留",
+        advice: "這天相對適合池袋、澀谷與 Shibuya Sky；但展望台要看即日能見度與官方營運，差天氣就把重點放回 PARCO / Sunshine City。",
+        action: "黃昏前查能見度與風；Shibuya Sky 不硬上。"
+      },
+      4: {
+        date: "2026-06-30",
+        risk: "Morning rain",
+        headline: "早上室內，築地/東京鐵塔順延",
+        advice: "早上有雨時先去銀座/東京站室內、地下街或咖啡；雨弱後再去築地、增上寺、芝公園東京鐵塔。",
+        action: "東京鐵塔是戶外/能見度項，下午再判斷。"
+      },
+      5: {
+        date: "2026-07-01",
+        risk: "Cloudy / light rain risk",
+        headline: "DisneySea 固定，但用雨具運營",
+        advice: "這是門票型固定日，不因小雨對調。準備雨衣、防水袋、替換襪；用 App / DPA / Mobile Order 減少濕身排隊。",
+        action: "遇雨優先室內表演、餐廳、商店與短排項目。"
+      },
+      6: {
+        date: "2026-07-02",
+        risk: "Showers",
+        headline: "春日部輕量化，Solamachi 做雨 shelter",
+        advice: "春日部只保留小新核心點。若驟雨變強，提早坐東武線到押上，把晴空塔 Solamachi 作室內購物與晚餐基地。",
+        action: "不要把春日部戶外步行排滿。"
+      },
+      7: {
+        date: "2026-07-03",
+        risk: "Periods of rain",
+        headline: "銀座 / 有樂町 / 東京站是正確雨天日",
+        advice: "這天原本就是最強雨天購物線：百貨、地下街、東京站一番街、拉麵街連接度高，保持原案。",
+        action: "雨大時全天用地下街和百貨連接。"
+      }
+    };
+
+    const dayWeatherTags = {
+      1: ["Arrival", "Rain Safe"],
+      2: ["Rain Safe", "Indoor First"],
+      3: ["Visibility Needed", "Evening View"],
+      4: ["Rain Aware", "Outdoor Later"],
+      5: ["Fixed", "Rain Gear Needed"],
+      6: ["Rain Shelter", "Outdoor Light"],
+      7: ["Rain Safe", "Indoor Shopping"],
+      8: ["Outdoor", "Shopping"],
+      9: ["Fixed", "Hotel Transfer"],
+      10: ["Fixed", "Indoor"],
+      11: ["Visibility Needed", "Swap Candidate"],
+      12: ["Rain Safe", "Swap Candidate"],
+      13: ["Outdoor", "Wind Sensitive"],
+      14: ["Rain Safe", "Buffer"],
+      15: ["Rain Safe", "Packing"],
+      16: ["Fixed", "Return"]
     };
 
     const plans = {
@@ -588,7 +659,7 @@
       }
     };
 
-    const OFFLINE_PACK_CACHE = "tokyo-trip-manual-offline-pack-v12-2";
+    const OFFLINE_PACK_CACHE = "tokyo-trip-manual-offline-pack-v12-3-weather";
     const OFFLINE_PACK = [
       "./",
       "./index.html",
@@ -623,12 +694,27 @@
       return '<span style="color:#94a3b8">—</span>';
     }
 
+    function weatherTagClass(label) {
+      return label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+    }
+
+    function renderWeatherBadges(day) {
+      return (dayWeatherTags[day] || []).map(label => `
+        <span class="weather-badge ${weatherTagClass(label)}">${label}</span>
+      `).join("");
+    }
+
+    function formatPlanCell(item, plan = item.plan) {
+      const disneyBadge = item.day === 5 ? '<span class="badge badge-coral" style="margin-right:8px">DisneySea</span>' : "";
+      return `${disneyBadge}${plan}<div class="weather-tag-row table-weather-tags">${renderWeatherBadges(item.day)}</div>`;
+    }
+
     function renderTable(data = itinerary) {
       const body = document.getElementById("master-table-body");
       body.innerHTML = data.map(item => `
         <tr class="${item.row || ""}" data-day="${item.day}" tabindex="0" role="button" aria-label="打開 Day ${item.day} 詳細行程">
           <td class="day-cell" data-label="日期 / Day">${item.date}<span>Day ${item.day}</span><em class="table-jump"><span class="material-symbols-outlined" style="font-size:14px">touch_app</span> 點擊看詳情</em></td>
-          <td class="plan-cell" data-label="主行程">${item.day === 5 ? '<span class="badge badge-coral" style="margin-right:8px">DisneySea</span>' : ""}${item.plan}</td>
+          <td class="plan-cell" data-label="主行程">${formatPlanCell(item)}</td>
           <td data-label="住宿基地">${basePill(item.base)}</td>
           <td class="strategy-cell" data-label="天氣 / 人潮策略">${item.strategy}</td>
         </tr>
@@ -661,6 +747,51 @@
       return "status-flex";
     }
 
+    function getTodayWeatherAdvice(day) {
+      if (earlyWeatherPlan[day]) return earlyWeatherPlan[day];
+      if (day === 11) {
+        return {
+          risk: "Visibility check",
+          headline: "富士山只看好天與能見度",
+          advice: "出發前 24-48 小時看雲量、雨量與能見度。若雲厚或雨大，直接啟動 Day 11-14 天氣對調。",
+          action: "到 Weather tab 跑 Smart Weather 模擬。"
+        };
+      }
+      if (day === 13) {
+        return {
+          risk: "Wind / coast check",
+          headline: "鎌倉江之島怕強風雨",
+          advice: "沿海強風、暴雨或江之電受影響時，不硬去海邊，與 Day 14 新宿購物互換。",
+          action: "出發前查風雨與江之電狀態。"
+        };
+      }
+      return {
+        risk: "Daily check",
+        headline: "按即日天氣微調節奏",
+        advice: "固定日不輕易換；戶外與展望台看雨量、風和能見度；室內購物日可作臨時緩衝。",
+        action: "雨大時優先酒店附近、地下街、百貨和咖啡店。"
+      };
+    }
+
+    function renderTodayWeatherAdvice(day) {
+      const card = document.getElementById("today-weather-advice");
+      if (!card) return;
+      const advice = getTodayWeatherAdvice(day);
+      card.innerHTML = `
+        <div class="today-weather-head">
+          <span class="material-symbols-outlined">rainy</span>
+          <div>
+            <strong>Weather Advice Today</strong>
+            <span>${advice.risk}</span>
+          </div>
+        </div>
+        <h3>${advice.headline}</h3>
+        <p>${advice.advice}</p>
+        <div class="weather-action-note">${advice.action}</div>
+        <div class="weather-tag-row">${renderWeatherBadges(day)}</div>
+      `;
+    }
+
     function renderTodayDayGrid(activeDay) {
       const grid = document.getElementById("today-day-grid");
       if (!grid) return;
@@ -686,6 +817,7 @@
       document.getElementById("today-target-time").textContent = meta.target || shortcut.destination;
       document.getElementById("today-base").textContent = itineraryItem?.base || "--";
       document.getElementById("today-focus").textContent = detail.focus;
+      renderTodayWeatherAdvice(activeDay);
       document.getElementById("today-status-row").innerHTML = (meta.statuses || [detail.type, detail.pace]).map(label => `
         <span class="status-label ${statusClass(label)}">${label}</span>
       `).join("");
@@ -743,6 +875,7 @@
                 <span class="day-meta">
                   <span class="meta-pill mood-${item.mood || "city"}">${item.type || "行程"}</span>
                   <span class="meta-pill mood-buffer">${item.pace || "彈性"}</span>
+                  ${renderWeatherBadges(item.day)}
                 </span>
               </span>
             </div>
@@ -1091,7 +1224,8 @@
       rows.forEach(row => {
         const day = Number(row.dataset.day);
         if (!updates[day]) return;
-        row.querySelector(".plan-cell").textContent = updates[day][0];
+        const item = itinerary.find(entry => entry.day === day) || { day };
+        row.querySelector(".plan-cell").innerHTML = formatPlanCell(item, updates[day][0]);
         row.querySelector(".strategy-cell").textContent = updates[day][1];
       });
     }
@@ -1157,6 +1291,23 @@
           ${warnings.map(item => `<li>${item}</li>`).join("")}
         </ul>
       `;
+    }
+
+    function renderEarlyWeatherGrid() {
+      const grid = document.getElementById("early-weather-grid");
+      if (!grid) return;
+      grid.innerHTML = Object.entries(earlyWeatherPlan).map(([day, item]) => `
+        <article class="early-weather-card">
+          <div class="early-weather-top">
+            <span class="day-badge">Day ${day}</span>
+            <strong>${item.risk}</strong>
+          </div>
+          <h4>${item.headline}</h4>
+          <p>${item.advice}</p>
+          <div class="weather-action-note">${item.action}</div>
+          <div class="weather-tag-row">${renderWeatherBadges(Number(day))}</div>
+        </article>
+      `).join("");
     }
 
     function applySmartWeatherPlan() {
@@ -1332,6 +1483,7 @@
     renderHotelPanel();
     hydrateSavedChecks();
     renderMapRoutes();
+    renderEarlyWeatherGrid();
     simulateWeather("A");
     bindCopyButtons();
     bindOfflinePreload();

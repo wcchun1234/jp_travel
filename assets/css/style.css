@@ -696,6 +696,133 @@
       line-height: 1.6;
       font-weight: 750;
     }
+    .today-weather-card {
+      display: grid;
+      gap: 10px;
+      padding: 13px;
+      border: 1px solid #fde68a;
+      border-radius: 14px;
+      background: #fffbeb;
+      color: #92400e;
+    }
+    .today-weather-head {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+    .today-weather-head > .material-symbols-outlined {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      color: #fff;
+      background: var(--amber);
+    }
+    .today-weather-head strong,
+    .today-weather-head span {
+      display: block;
+    }
+    .today-weather-head strong {
+      color: var(--slate-900);
+      font-size: 13px;
+      line-height: 1.35;
+      font-weight: 900;
+    }
+    .today-weather-head span {
+      margin-top: 2px;
+      color: #92400e;
+      font-size: 11px;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+    .today-weather-card h3 {
+      margin: 0;
+      color: var(--slate-900);
+      font-size: 15px;
+      line-height: 1.35;
+      font-weight: 900;
+    }
+    .today-weather-card p {
+      margin: 0;
+      color: #5d4300;
+      font-size: 12px;
+      line-height: 1.6;
+      font-weight: 750;
+    }
+    .weather-action-note {
+      padding: 9px 10px;
+      border: 1px solid rgba(146, 64, 14, .16);
+      border-radius: 10px;
+      background: rgba(255,255,255,.76);
+      color: #92400e;
+      font-size: 11px;
+      line-height: 1.45;
+      font-weight: 850;
+    }
+    .weather-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .weather-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 22px;
+      padding: 4px 7px;
+      border-radius: 999px;
+      border: 1px solid var(--slate-200);
+      background: #fff;
+      color: var(--slate-600);
+      font-size: 10px;
+      line-height: 1;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .weather-badge.fixed,
+    .weather-badge.return,
+    .weather-badge.hotel-transfer {
+      border-color: #fecdd3;
+      background: var(--joy-coral-soft);
+      color: #be123c;
+    }
+    .weather-badge.rain-safe,
+    .weather-badge.indoor,
+    .weather-badge.indoor-first,
+    .weather-badge.indoor-shopping,
+    .weather-badge.rain-shelter,
+    .weather-badge.packing,
+    .weather-badge.buffer {
+      border-color: #bbf7d0;
+      background: var(--joy-mint-soft);
+      color: #047857;
+    }
+    .weather-badge.visibility-needed,
+    .weather-badge.evening-view,
+    .weather-badge.wind-sensitive,
+    .weather-badge.outdoor,
+    .weather-badge.outdoor-later,
+    .weather-badge.outdoor-light {
+      border-color: #bfdbfe;
+      background: var(--joy-sky-soft);
+      color: #1d4ed8;
+    }
+    .weather-badge.swap-candidate,
+    .weather-badge.rain-aware,
+    .weather-badge.rain-gear-needed {
+      border-color: #fde68a;
+      background: var(--joy-sun-soft);
+      color: #92400e;
+    }
+    .weather-badge.arrival,
+    .weather-badge.shopping {
+      border-color: #c4b5fd;
+      background: var(--primary-soft);
+      color: var(--primary);
+    }
+    .table-weather-tags {
+      margin-top: 8px;
+    }
     .today-side {
       display: grid;
       gap: 14px;
@@ -2319,6 +2446,16 @@
       background: linear-gradient(135deg, #eff6ff, #ffffff);
       box-shadow: var(--shadow-card);
     }
+    .early-weather-panel {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 18px;
+      padding: 16px;
+      border: 1px solid #fde68a;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #fffbeb, #ffffff);
+      box-shadow: var(--shadow-card);
+    }
     .weather-lab-head {
       display: flex;
       align-items: flex-start;
@@ -2364,6 +2501,74 @@
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 10px;
+    }
+    .early-weather-grid {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(160px, 1fr));
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 2px;
+    }
+    .early-weather-card {
+      min-width: 160px;
+      display: grid;
+      gap: 8px;
+      padding: 12px;
+      border: 1px solid var(--slate-200);
+      border-radius: 12px;
+      background: rgba(255,255,255,.94);
+    }
+    .early-weather-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .early-weather-top strong {
+      color: #92400e;
+      font-size: 10px;
+      line-height: 1.25;
+      font-weight: 900;
+      text-align: right;
+    }
+    .early-weather-card h4 {
+      margin: 0;
+      color: var(--slate-900);
+      font-size: 13px;
+      line-height: 1.35;
+      font-weight: 900;
+    }
+    .early-weather-card p {
+      margin: 0;
+      color: var(--slate-600);
+      font-size: 11px;
+      line-height: 1.55;
+      font-weight: 700;
+    }
+    .weather-rule-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .weather-rule-grid article {
+      display: grid;
+      gap: 5px;
+      padding: 12px;
+      border: 1px solid var(--slate-200);
+      border-radius: 12px;
+      background: #fff;
+    }
+    .weather-rule-grid strong {
+      color: var(--slate-900);
+      font-size: 12px;
+      line-height: 1.35;
+      font-weight: 900;
+    }
+    .weather-rule-grid span {
+      color: var(--slate-600);
+      font-size: 11px;
+      line-height: 1.5;
+      font-weight: 700;
     }
     .weather-input-card {
       display: grid;
@@ -2698,6 +2903,18 @@
       .weather-buttons { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .weather-lab-head {
         flex-direction: column;
+      }
+      .weather-rule-grid {
+        grid-template-columns: 1fr;
+      }
+      .early-weather-grid {
+        grid-template-columns: repeat(7, minmax(220px, 1fr));
+        margin-right: -18px;
+        padding-right: 18px;
+        scroll-snap-type: x proximity;
+      }
+      .early-weather-card {
+        scroll-snap-align: start;
       }
       .weather-input-grid {
         grid-template-columns: 1fr;
