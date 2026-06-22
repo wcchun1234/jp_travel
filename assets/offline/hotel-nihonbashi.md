@@ -1,21 +1,21 @@
-# Hotel Horidome Villa
+# 堀留 Villa 酒店
 
-Stay period: 2026-07-05 to 2026-07-12.
+住宿日期：2026-07-05 至 2026-07-12。
 
-Japanese address:
+日文地址：
 〒103-0012 東京都中央区日本橋堀留町1-10-10
 
-English address:
+英文地址：
 1-10-10 Nihonbashi Horidome-cho, Chuo-ku, Tokyo 103-0012
 
-Telephone:
+電話：
 +81-3-3664-0840
 
-Nearest station note:
-Kodenmacho Station / Ningyocho Station area is about 3-5 minutes on foot.
+最近車站：
+小傳馬町站 / 人形町站一帶，步行約3-5分鐘。
 
-Taxi text:
+的士日文：
 ホテル堀留ヴィラ（東京都中央区日本橋堀留町1-10-10）までお願いします。
 
-Offline return:
-If Google Maps cannot load, aim for Ningyocho, Kodemmacho, or Bakuro-yokoyama. Show this address to station staff, then take a short taxi if carrying luggage.
+離線回程：
+如果 Google 地圖載入不到，先以人形町、小傳馬町或馬喰橫山一帶為目標。向站員出示地址；如帶大行李，可改坐短程的士。

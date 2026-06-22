@@ -1,50 +1,50 @@
     const itinerary = [
-      { day: 1, date: "6月27日 Sat", plan: "香港 → 成田機場 → Skyliner → 秋葉原酒店 Check-in", base: "秋葉原", strategy: "到埗日休息。", row: "" },
-      { day: 2, date: "6月28日 Sun", plan: "秋葉原電器街 ＋ 上野 ＋ 阿美橫町購物街 ＋ 御徒町", base: "秋葉原", strategy: "原區輕鬆熟習，大雨可退守室內商場。", row: "" },
-      { day: 3, date: "6月29日 Mon", plan: "Chiikawa Park ＋ 池袋 Sunshine City ＋ 澀谷 ＋ Shibuya Sky", base: "秋葉原", strategy: "平日避人潮。Shibuya Sky 必須提早搶黃昏票。", row: "row-indigo" },
-      { day: 4, date: "6月30日 Tue", plan: "雨早上先銀座/東京站室內 → 築地 ＋ 東京鐵塔下午散策", base: "秋葉原", strategy: "早上有雨先退守室內；雨弱後再做築地、增上寺、芝公園東京鐵塔。", row: "" },
-      { day: 5, date: "7月1日 Wed", plan: "東京迪士尼海洋 (Tokyo DisneySea) 全日爆玩", base: "秋葉原", strategy: "固定門票日。帶雨具，室內表演/餐廳與 App/DPA 作雨天防線。", row: "row-disney" },
-      { day: 6, date: "7月2日 Thu", plan: "春日部小新 → 晴空塔 Solamachi 雨天避難購物晚餐", base: "秋葉原", strategy: "春日部輕量化；若驟雨變強，提早轉 Solamachi 室內商場。", row: "row-amber" },
-      { day: 7, date: "7月3日 Fri", plan: "銀座精品百貨 ＋ 有樂町 ＋ 東京車站一番街拉麵街", base: "秋葉原", strategy: "強雨天無敵日。全日連通地下街與大型室內。", row: "" },
-      { day: 8, date: "7月4日 Sat", plan: "明治神宮 ＋ 原宿竹下通 ＋ 表參道 ＋ 新宿夜購", base: "秋葉原", strategy: "週末先走大空間神宮/表參道，傍晚轉新宿百貨與夜景。", row: "" },
-      { day: 9, date: "7月5日 Sun", plan: "轉酒店（的士大移防）＋ 日本橋/東京站輕鬆熟習", base: "日本橋", strategy: "轉酒店不排預約景點，先安頓行李與新住宿基地。", row: "row-indigo" },
-      { day: 10, date: "7月6日 Mon", plan: "teamLab Borderless 早場 ＋ 麻布台 Hills 沉浸式約會日", base: "日本橋", strategy: "早上入場，接近預留一整日慢慢看展與拍照。晚上早回酒店為富士山蓄力。", row: "row-indigo" },
-      { day: 11, date: "7月7日 Tue", plan: "富士山 / 河口湖絕景全景一日遊", base: "日本橋", strategy: "最高天氣優先日。視能見度隨時與 Day 12 / 14 互換。", row: "row-rose dynamic-day", dynamic: true },
-      { day: 12, date: "7月8日 Wed", plan: "合羽橋道具街 ＋ 蔵前 ＋ 清澄白河咖啡區散步", base: "日本橋", strategy: "富士山後體力休整日。由日本橋出發去這三區極快。", row: "dynamic-day", dynamic: true },
-      { day: 13, date: "7月9日 Thu", plan: "鎌倉古都 / 江之島一日遊（大佛、江之電、湘南海岸）", base: "日本橋", strategy: "次要好天優先日。沿海暴雨強風時隨時與 Day 14 互換。", row: "row-amber dynamic-day", dynamic: true },
-      { day: 14, date: "7月10日 Fri", plan: "新宿大型百貨主力購物 / 台場候補 ＋ 天氣備用終極緩衝日", base: "日本橋", strategy: "新宿作為主力購物日；若天氣好想看海景可改台場，亦可用作補富士山/鎌倉。", row: "row-emerald dynamic-day", dynamic: true },
-      { day: 15, date: "7月11日 Sat", plan: "東京站/日本橋伴手禮最後大追加 ＋ 回酒店執行李", base: "日本橋", strategy: "專注百貨公司打包手信，為回程做準備。", row: "" },
-      { day: 16, date: "7月12日 Sun", plan: "日本橋酒店 Check-out ｜ 都營淺草線直達成田機場T2 ｜ 回港", base: "—", strategy: "人形町站 Access 特急直達機場。", row: "" }
+      { day: 1, date: "6月27日 週六", plan: "香港 → 成田機場 → Skyliner → 秋葉原酒店辦理入住", base: "秋葉原", strategy: "到埗日休息。", row: "" },
+      { day: 2, date: "6月28日 週日", plan: "秋葉原電器街 ＋ 上野 ＋ 阿美橫町購物街 ＋ 御徒町", base: "秋葉原", strategy: "原區輕鬆熟習，大雨可退守室內商場。", row: "" },
+      { day: 3, date: "6月29日 週一", plan: "Chiikawa Park ＋ 池袋 Sunshine City ＋ 澀谷 ＋ Shibuya Sky", base: "秋葉原", strategy: "平日避人潮。Shibuya Sky 必須提早搶黃昏票。", row: "row-indigo" },
+      { day: 4, date: "6月30日 週二", plan: "雨早上先銀座/東京站室內 → 築地 ＋ 東京鐵塔下午散策", base: "秋葉原", strategy: "早上有雨先退守室內；雨弱後再做築地、增上寺、芝公園東京鐵塔。", row: "" },
+      { day: 5, date: "7月1日 週三", plan: "東京迪士尼海洋全日爆玩", base: "秋葉原", strategy: "固定門票日。帶雨具，室內表演/餐廳與官方應用程式/DPA 作雨天防線。", row: "row-disney" },
+      { day: 6, date: "7月2日 週四", plan: "春日部小新 → 晴空塔 Solamachi 雨天避難購物晚餐", base: "秋葉原", strategy: "春日部輕量化；若驟雨變強，提早轉 Solamachi 室內商場。", row: "row-amber" },
+      { day: 7, date: "7月3日 週五", plan: "銀座精品百貨 ＋ 有樂町 ＋ 東京車站一番街拉麵街", base: "秋葉原", strategy: "強雨天無敵日。全日連通地下街與大型室內。", row: "" },
+      { day: 8, date: "7月4日 週六", plan: "明治神宮 ＋ 原宿竹下通 ＋ 表參道 ＋ 新宿夜購", base: "秋葉原", strategy: "週末先走大空間神宮/表參道，傍晚轉新宿百貨與夜景。", row: "" },
+      { day: 9, date: "7月5日 週日", plan: "轉酒店（的士大移防）＋ 日本橋/東京站輕鬆熟習", base: "日本橋", strategy: "轉酒店不排預約景點，先安頓行李與新住宿基地。", row: "row-indigo" },
+      { day: 10, date: "7月6日 週一", plan: "teamLab Borderless 早場 ＋ 麻布台 Hills 沉浸式約會日", base: "日本橋", strategy: "早上入場，接近預留一整日慢慢看展與拍照。晚上早回酒店為富士山蓄力。", row: "row-indigo" },
+      { day: 11, date: "7月7日 週二", plan: "富士山 / 河口湖絕景全景一日遊", base: "日本橋", strategy: "最高天氣優先日。視能見度隨時與第12 / 14日互換。", row: "row-rose dynamic-day", dynamic: true },
+      { day: 12, date: "7月8日 週三", plan: "合羽橋道具街 ＋ 蔵前 ＋ 清澄白河咖啡區散步", base: "日本橋", strategy: "富士山後體力休整日。由日本橋出發去這三區極快。", row: "dynamic-day", dynamic: true },
+      { day: 13, date: "7月9日 週四", plan: "鎌倉古都 / 江之島一日遊（大佛、江之電、湘南海岸）", base: "日本橋", strategy: "次要好天優先日。沿海暴雨強風時隨時與第14日互換。", row: "row-amber dynamic-day", dynamic: true },
+      { day: 14, date: "7月10日 週五", plan: "新宿大型百貨主力購物 / 台場候補 ＋ 天氣備用終極緩衝日", base: "日本橋", strategy: "新宿作為主力購物日；若天氣好想看海景可改台場，亦可用作補富士山/鎌倉。", row: "row-emerald dynamic-day", dynamic: true },
+      { day: 15, date: "7月11日 週六", plan: "東京站/日本橋伴手禮最後大追加 ＋ 回酒店執行李", base: "日本橋", strategy: "專注百貨公司打包手信，為回程做準備。", row: "" },
+      { day: 16, date: "7月12日 週日", plan: "日本橋酒店退房｜都營淺草線直達成田機場T2｜回港", base: "—", strategy: "人形町站 Access 特急直達機場。", row: "" }
     ];
 
     const details = [
       {
         day: 1,
-        title: "6月27日 (Sat) ｜ 香港 → 成田 → 秋葉原酒店",
+        title: "6月27日（週六）｜香港 → 成田 → 秋葉原酒店",
         mood: "city",
         type: "抵達日",
         pace: "輕量",
         image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=300&q=70",
         open: true,
-        focus: "到埗日只處理入境、交通卡/eSIM、Skyliner 與酒店 check-in，不排景點，讓身體先適應東京節奏。",
-        transport: "成田T2 → 京成 Skyliner 至京成上野 → 行李多建議短程的士到 Hotel Livemax Akihabara Kita；想省錢可轉日比谷線至仲御徒町/秋葉原。",
-        timeline: ["06:15 抵香港機場 T2 Aisle U", "09:15 UO848 起飛", "14:45 抵成田T2", "16:15-17:45 Skyliner 入市區", "18:00 前後酒店 check-in，晚上秋葉原簡單晚餐"]
+        focus: "到埗日只處理入境、交通卡/eSIM、Skyliner 與酒店入住，不排景點，讓身體先適應東京節奏。",
+        transport: "成田T2 → 京成 Skyliner 至京成上野 → 行李多建議短程的士到秋葉原北 Livemax 酒店；想省錢可轉日比谷線至仲御徒町/秋葉原。",
+        timeline: ["06:15 抵香港機場 T2 U 區", "09:15 UO848 起飛", "14:45 抵成田T2", "16:15-17:45 Skyliner 入市區", "18:00 前後酒店辦理入住，晚上秋葉原簡單晚餐"]
       },
       {
         day: 2,
-        title: "6月28日 (Sun) ｜ 秋葉原 ＋ 上野 ＋ 阿美橫町",
+        title: "6月28日（週日）｜秋葉原 ＋ 上野 ＋ 阿美橫町",
         mood: "city",
         type: "原區熟習",
         pace: "輕鬆購物",
         image: "https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=300&q=70",
         open: false,
         focus: "第一個完整日留在酒店附近與上野線上活動，熟悉車站、便利店、藥妝與退稅流程；下雨也容易退守室內。",
-        transport: "Hotel Livemax Akihabara Kita 可步行到秋葉原電器街；秋葉原/御徒町/上野之間用 JR 山手線或直接步行串起，減少轉車壓力。",
+        transport: "秋葉原北 Livemax 酒店可步行到秋葉原電器街；秋葉原/御徒町/上野之間用 JR 山手線或直接步行串起，減少轉車壓力。",
         timeline: ["10:00 秋葉原電器街慢逛", "12:30 上野午餐", "14:00 阿美橫町與御徒町購物", "17:30 回秋葉原放低戰利品", "晚上視體力補逛 Yodobashi / Animate"]
       },
       {
         day: 3,
-        title: "6月29日 (Mon) ｜ Chiikawa Park ＋ 池袋 ＋ 澀谷 ＋ Shibuya Sky",
+        title: "6月29日（週一）｜Chiikawa Park ＋ 池袋 ＋ 澀谷 ＋ Shibuya Sky",
         mood: "fun",
         type: "預約重點",
         pace: "中高",
@@ -56,7 +56,7 @@
       },
       {
         day: 4,
-        title: "6月30日 (Tue) ｜ 築地市場 ＋ 增上寺 ＋ 芝公園東京鐵塔",
+        title: "6月30日（週二）｜築地市場 ＋ 增上寺 ＋ 芝公園東京鐵塔",
         mood: "food",
         type: "美食散策",
         pace: "中等",
@@ -68,31 +68,31 @@
       },
       {
         day: 5,
-        title: "7月1日 (Wed) ｜ 東京迪士尼海洋全日",
+        title: "7月1日（週三）｜東京迪士尼海洋全日",
         mood: "fun",
         type: "重點樂園",
         pace: "高",
         image: "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=300&q=70",
         open: true,
-        focus: "V12.1 最大新增日。官方 2026/7/1 開放 9:00-21:00，成人 1-Day Passport 7,900円；此日固定性高，不建議隨便對調。若有微雨，改用雨衣、防水袋、室內表演/餐廳與 App/DPA 控節奏。",
-        transport: "早到首選鐵路：酒店 → 仲御徒町/秋葉原 → 日比谷線八丁堀 → JR 京葉/武藏野線舞濱 → Disney Resort Line 到 Tokyo DisneySea Station。巴士可作少轉乘方案，但官方秋葉原巴士約50-60分鐘，班次要另查。",
-        timeline: ["06:25-06:40 酒店出發", "07:45 目標抵達入園排隊", "入園即開 App 購買 DPA / 查 Priority Pass", "上午優先 Fantasy Springs 熱門項目", "20:45-21:30 視體力看 Believe! Sea of Dreams 或提早離園"]
+        focus: "V12.1 最大新增日。官方 2026/7/1 開放 9:00-21:00，成人一日護照門票 7,900円；此日固定性高，不建議隨便對調。若有微雨，改用雨衣、防水袋、室內表演/餐廳與官方應用程式/DPA 控節奏。",
+        transport: "早到首選鐵路：酒店 → 仲御徒町/秋葉原 → 日比谷線八丁堀 → JR 京葉/武藏野線舞濱 → 迪士尼度假區線到東京迪士尼海洋站。巴士可作少轉乘方案，但官方秋葉原巴士約50-60分鐘，班次要另查。",
+        timeline: ["06:25-06:40 酒店出發", "07:45 目標抵達入園排隊", "入園即開官方應用程式購買 DPA / 查優先通行服務", "上午優先 Fantasy Springs 熱門項目", "20:45-21:30 視體力看 Believe! Sea of Dreams 或提早離園"]
       },
       {
         day: 6,
-        title: "7月2日 (Thu) ｜ 春日部小新 → 晴空塔 Solamachi",
+        title: "7月2日（週四）｜春日部小新 → 晴空塔 Solamachi",
         mood: "fun",
         type: "動漫朝聖",
         pace: "中等",
         image: "https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=300&q=70",
         open: false,
-        focus: "春日部移動日改良：回程不回秋葉原，直接沿東武線到押上/晴空塔晚餐。若 Day 6 有驟雨，春日部只做核心點，提早用 Solamachi 作室內避雨與晚餐基地。",
+        focus: "春日部移動日改良：回程不回秋葉原，直接沿東武線到押上/晴空塔晚餐。若第6日有驟雨，春日部只做核心點，提早用 Solamachi 作室內避雨與晚餐基地。",
         transport: "仲御徒町/秋葉原 → 北千住 → 東武晴空塔線至春日部。回程由春日部乘東武晴空塔線直達押上，逛 Solamachi 後再回秋葉原。",
         timeline: ["09:30 出發往春日部", "11:00 春日部站 / LaLa Garden 小新核心點", "14:00 若天氣穩定才加春日部街區慢行", "16:00-17:00 視雨勢提早東武線到押上", "晚上 Solamachi 室內購物晚餐後回秋葉原"]
       },
       {
         day: 7,
-        title: "7月3日 (Fri) ｜ 銀座 ＋ 有樂町 ＋ 東京車站一番街",
+        title: "7月3日（週五）｜銀座 ＋ 有樂町 ＋ 東京車站一番街",
         mood: "food",
         type: "雨天強項",
         pace: "中等",
@@ -104,7 +104,7 @@
       },
       {
         day: 8,
-        title: "7月4日 (Sat) ｜ 明治神宮 ＋ 原宿 ＋ 表參道 ＋ 新宿夜購",
+        title: "7月4日（週六）｜明治神宮 ＋ 原宿 ＋ 表參道 ＋ 新宿夜購",
         mood: "nature",
         type: "週末散步",
         pace: "中等",
@@ -112,47 +112,47 @@
         open: false,
         focus: "週末避開狹窄室內長排隊，早上先到明治神宮遮蔭散步，下午原宿/表參道，傍晚轉新宿 Isetan / Lumine / NEWoMan 做第一輪百貨購物。",
         transport: "秋葉原 JR 山手線到原宿；原宿、明治神宮前、表參道可步行串連。表參道到新宿可用 JR 山手線或副都心線轉乘；晚上由新宿 JR 直回秋葉原。",
-        timeline: ["09:30 明治神宮與代代木公園外圍", "12:00 原宿午餐", "13:30 竹下通 / Cat Street 快速掃街", "15:30 表參道咖啡與選物店", "17:30 新宿 Isetan / Lumine / NEWoMan 夜購", "晚上回秋葉原收拾轉酒店前行李"]
+        timeline: ["09:30 明治神宮與代代木公園外圍", "12:00 原宿午餐", "13:30 竹下通 / 貓街快速掃街", "15:30 表參道咖啡與選物店", "17:30 新宿伊勢丹 / Lumine / NEWoMan 夜購", "晚上回秋葉原收拾轉酒店前行李"]
       },
       {
         day: 9,
-        title: "7月5日 (Sun) ｜ 轉酒店 ＋ 日本橋/東京站輕鬆熟習",
+        title: "7月5日（週日）｜轉酒店 ＋ 日本橋/東京站輕鬆熟習",
         mood: "fun",
         type: "換基地",
         pace: "低壓",
         image: "https://images.unsplash.com/photo-1542931287-023b922fa89b?auto=format&fit=crop&w=300&q=70",
         open: false,
         focus: "轉酒店日不再安排 teamLab 或其他重預約景點。今日重點是順利搬行李、熟習日本橋/人形町生活圈、補午餐與輕鬆購物。",
-        transport: "Hotel Livemax Akihabara Kita → 的士至 Hotel Horidome Villa 寄存行李。之後以日本橋、東京站、人形町步行圈為主；買重物可先回酒店放低。",
-        timeline: ["10:00 舊酒店退房", "10:15-10:45 的士轉移行李並寄存", "12:00 日本橋/人形町午餐", "14:00 東京站一番街或日本橋百貨輕鬆逛", "17:00 後回 Hotel Horidome Villa check-in"]
+        transport: "秋葉原北 Livemax 酒店 → 的士至堀留 Villa 酒店寄存行李。之後以日本橋、東京站、人形町步行圈為主；買重物可先回酒店放低。",
+        timeline: ["10:00 舊酒店退房", "10:15-10:45 的士轉移行李並寄存", "12:00 日本橋/人形町午餐", "14:00 東京站一番街或日本橋百貨輕鬆逛", "17:00 後回堀留 Villa 酒店辦理入住"]
       },
       {
         day: 10,
-        title: "7月6日 (Mon) ｜ teamLab Borderless 早場 ＋ 麻布台 Hills",
+        title: "7月6日（週一）｜teamLab Borderless 早場 ＋ 麻布台 Hills",
         mood: "fun",
         type: "沉浸約會",
         pace: "接近全日",
         image: "https://images.unsplash.com/photo-1542931287-023b922fa89b?auto=format&fit=crop&w=300&q=70",
         open: false,
         focus: "teamLab Borderless 不應塞在轉酒店日。今日改為早上入場，預留接近一整日慢慢看展、拍照、休息與麻布台 Hills 約會散策。",
-        transport: "Hotel Horidome Villa → 人形町/小傳馬町一帶 → 日比谷線到神谷町，步行接麻布台 Hills / teamLab Borderless。回程同線回日本橋，晚上不要排太夜，為翌日富士山保留體力。",
-        timeline: ["09:00-09:30 日本橋出發往神谷町", "10:00 teamLab Borderless 早場入場", "12:30-13:30 麻布台 Hills 午餐休息", "14:00-16:30 回展區或慢逛麻布台/六本木周邊", "18:00 前後回日本橋，早休息準備 Day 11 富士山"]
+        transport: "堀留 Villa 酒店 → 人形町/小傳馬町一帶 → 日比谷線到神谷町，步行接麻布台 Hills / teamLab Borderless。回程同線回日本橋，晚上不要排太夜，為翌日富士山保留體力。",
+        timeline: ["09:00-09:30 日本橋出發往神谷町", "10:00 teamLab Borderless 早場入場", "12:30-13:30 麻布台 Hills 午餐休息", "14:00-16:30 回展區或慢逛麻布台/六本木周邊", "18:00 前後回日本橋，早休息準備第11日富士山"]
       },
       {
         day: 11,
-        title: "7月7日 (Tue) ｜ 富士山 / 河口湖",
+        title: "7月7日（週二）｜富士山 / 河口湖",
         mood: "nature",
         type: "好天優先",
         pace: "高",
         image: "https://images.unsplash.com/photo-1578469645742-46cae010e5d4?auto=format&fit=crop&w=300&q=70",
         open: false,
-        focus: "最高天氣優先日。若雲層厚、能見度低，直接與 Day 12 或 Day 14 對調，不要硬上看不到山的一日遊。",
+        focus: "最高天氣優先日。若雲層厚、能見度低，直接與第12日或第14日對調，不要硬上看不到山的一日遊。",
         transport: "若巴士團新宿集合：由馬喰橫山搭都營新宿線至新宿，另預留20分鐘找西口集合點。若集合地改為東京站，則由日本橋步行/的士更簡單。",
         timeline: ["06:15-06:25 酒店出門", "07:15-07:30 新宿或東京站集合", "新倉山、忍野八海、大石公園視所選團而定", "18:30-20:00 回到市區", "晚上直接回日本橋休息"]
       },
       {
         day: 12,
-        title: "7月8日 (Wed) ｜ 合羽橋 ＋ 蔵前 ＋ 清澄白河",
+        title: "7月8日（週三）｜合羽橋 ＋ 蔵前 ＋ 清澄白河",
         mood: "food",
         type: "文青休整",
         pace: "輕中",
@@ -164,19 +164,19 @@
       },
       {
         day: 13,
-        title: "7月9日 (Thu) ｜ 鎌倉 / 江之島",
+        title: "7月9日（週四）｜鎌倉 / 江之島",
         mood: "nature",
         type: "沿海一日遊",
         pace: "高",
         image: "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&w=300&q=70",
         open: false,
-        focus: "次要好天優先日。海邊強風雨時與 Day 14 購物緩衝互換；若天氣好，早出發會舒服很多。",
+        focus: "次要好天優先日。海邊強風雨時與第14日購物緩衝互換；若天氣好，早出發會舒服很多。",
         transport: "自助最順：步行至新日本橋站，乘 JR 總武快速 / 橫須賀線直達鎌倉。再接江之電到長谷、鎌倉高校前、江之島。",
         timeline: ["08:30-09:00 日本橋出發", "10:00 鎌倉站 / 小町通", "11:30 鶴岡八幡宮", "13:30 長谷大佛與江之電沿海段", "16:30 江之島或湘南海岸視天氣決定"]
       },
       {
         day: 14,
-        title: "7月10日 (Fri) ｜ 新宿大型百貨主力購物 / 台場候補",
+        title: "7月10日（週五）｜新宿大型百貨主力購物 / 台場候補",
         mood: "buffer",
         type: "終極緩衝",
         pace: "彈性",
@@ -188,39 +188,39 @@
       },
       {
         day: 15,
-        title: "7月11日 (Sat) ｜ 東京站/日本橋手信 ＋ 執行李",
+        title: "7月11日（週六）｜東京站/日本橋手信 ＋ 執行李",
         mood: "city",
         type: "收尾整理",
         pace: "輕鬆",
         image: "https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=300&q=70",
         open: false,
         focus: "最後完整日專注百貨、手信、退稅與行李重量控制，不再跨區奔走，為翌日回程降低風險。",
-        transport: "Hotel Horidome Villa 可步行/短程車到人形町、日本橋、東京站。買重物後先回酒店放低，再決定是否補最後一輪。",
+        transport: "堀留 Villa 酒店可步行/短程車到人形町、日本橋、東京站。買重物後先回酒店放低，再決定是否補最後一輪。",
         timeline: ["10:30 日本橋百貨/藥妝", "12:30 東京站午餐與伴手禮", "15:30 回酒店整理行李", "17:30 最後補買缺口", "晚上早回酒店完成打包"]
       },
       {
         day: 16,
-        title: "7月12日 (Sun) ｜ 日本橋 → 成田T2 → 回港",
+        title: "7月12日（週日）｜日本橋 → 成田T2 → 回港",
         mood: "buffer",
         type: "回程日",
         pace: "穩陣",
         image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=300&q=70",
         open: true,
         focus: "回程日不排景點。保留退稅、行李、安檢及機場購物時間，避免最後一日交通壓力。",
-        transport: "Hotel Horidome Villa → 人形町站 → 都營淺草線直通京成 Narita Sky Access / Access 特急到成田機場T2。注意 Skyliner 不經人形町。",
+        transport: "堀留 Villa 酒店 → 人形町站 → 都營淺草線直通京成 Narita Sky Access / Access 特急到成田機場T2。注意 Skyliner 不經人形町。",
         timeline: ["10:30 最後檢查行李與護照", "12:15-12:30 市區出發", "13:45-14:00 抵成田T2", "17:05 UO871 起飛", "21:00 抵香港T1"]
       }
     ];
 
     const dayGuides = {
       1: {
-        budget: { total: "約 ¥4,500-7,500 / 人 + 晚餐", lines: ["Skyliner + JR/地鐵約 ¥2,600-2,700；短程的士到酒店約 ¥1,500-2,500 / 車。", "晚餐建議 ¥1,200-2,500 / 人；便利店補水/早餐約 ¥800-1,500。", "費用以 2026 出發前官方/Google Maps 顯示為準。"] },
-        transportSteps: ["成田T2 入境後先處理 eSIM / Suica / Skyliner。", "Skyliner 到京成上野或日暮里，再用 JR/的士到秋葉原北。", "行李多直接的士到 Hotel Livemax Akihabara Kita，今天不省這段體力。"],
+        budget: { total: "約 ¥4,500-7,500 / 人 + 晚餐", lines: ["Skyliner + JR/地鐵約 ¥2,600-2,700；短程的士到酒店約 ¥1,500-2,500 / 車。", "晚餐建議 ¥1,200-2,500 / 人；便利店補水/早餐約 ¥800-1,500。", "費用以 2026 出發前官方與 Google 地圖顯示為準。"] },
+        transportSteps: ["成田T2 入境後先處理 eSIM / Suica / Skyliner。", "Skyliner 到京成上野或日暮里，再用 JR/的士到秋葉原北。", "行李多直接的士到秋葉原北 Livemax 酒店，今天不省這段體力。"],
         food: ["秋葉原：拉麵、牛丼、壽司郎/迴轉壽司，選不用排隊的。", "便利店買水、早餐、濕紙巾；回酒店前先補齊。", "如果太累，直接附近商場或車站便當。"],
-        ready: ["護照、入境 QR、酒店地址截圖。", "Skyliner / IC 卡付款方式。", "Google Maps 先收藏酒店與京成上野。"]
+        ready: ["護照、入境 QR、酒店地址截圖。", "Skyliner / IC 卡付款方式。", "Google 地圖先收藏酒店與京成上野。"]
       },
       2: {
-        budget: { total: "約 ¥3,500-8,000 / 人 + 購物", lines: ["市區交通約 ¥300-700；步行可壓低成本。", "午晚餐約 ¥2,500-5,000；藥妝/電器另計。", "若一天搭多次 Metro/Toei，可比較 24h 地鐵券 ¥1,000。"] },
+        budget: { total: "約 ¥3,500-8,000 / 人 + 購物", lines: ["市區交通約 ¥300-700；步行可壓低成本。", "午晚餐約 ¥2,500-5,000；藥妝/電器另計。", "若一天搭多次東京 Metro / 都營地鐵，可比較 24小時地鐵券 ¥1,000。"] },
         transportSteps: ["秋葉原、御徒町、上野可 JR 一兩站或直接步行串起。", "買重物先回酒店放低，再出第二輪。", "雨大時優先 Yodobashi、atre、上野商場與地下通道。"],
         food: ["阿美橫町：海鮮丼、串燒、街頭小食。", "上野：洋食、拉麵、甜品咖啡都多。", "秋葉原晚餐：拉麵、燒肉、牛丼，選離酒店近的。"],
         ready: ["列好藥妝/電器清單和退稅護照。", "確認酒店附近超市/便利店。", "第一天不要買太多大件。"]
@@ -238,16 +238,16 @@
         ready: ["早上先看雨量雷達，決定銀座/東京站先行或直接築地。", "帶現金，小店未必完全支援卡。", "雨傘/防水鞋，東京鐵塔拍照看能見度。"]
       },
       5: {
-        budget: { total: "約 ¥18,000-35,000 / 人", lines: ["1-Day Passport 成人官方顯示由 ¥7,900 起，日期變動價。", "市區往返 + Resort Line 約 ¥1,200-2,000。", "DPA / 餐飲 / 週邊可快速增加，建議先定上限。"] },
-        transportSteps: ["早到首選：日比谷線八丁堀 → JR 京葉線舞濱 → Resort Line。", "06:25-06:40 出門，目標 07:45 到閘口。", "回程看體力，閉園人潮大時不要急衝。"],
-        food: ["早餐：酒店附近便利店飯糰/咖啡，入園前先吃。", "午晚餐：用官方 App 看 Mobile Order / 餐廳等候。", "下午補水和小食，比硬排餐廳更重要。"],
-        ready: ["官方 App 登入、門票加入 App、信用卡綁定。", "DPA / Priority Pass 目標排序。", "雨衣、行動電源、輕便鞋。"]
+        budget: { total: "約 ¥18,000-35,000 / 人", lines: ["成人一日護照門票官方顯示由 ¥7,900 起，日期變動價。", "市區往返 + 迪士尼度假區線約 ¥1,200-2,000。", "DPA / 餐飲 / 週邊可快速增加，建議先定上限。"] },
+        transportSteps: ["早到首選：日比谷線八丁堀 → JR 京葉線舞濱 → 迪士尼度假區線。", "06:25-06:40 出門，目標 07:45 到閘口。", "回程看體力，閉園人潮大時不要急衝。"],
+        food: ["早餐：酒店附近便利店飯糰/咖啡，入園前先吃。", "午晚餐：用官方應用程式看手機點餐 / 餐廳等候。", "下午補水和小食，比硬排餐廳更重要。"],
+        ready: ["官方應用程式登入、門票加入應用程式、信用卡綁定。", "DPA / 優先通行服務目標排序。", "雨衣、行動電源、輕便鞋。"]
       },
       6: {
         budget: { total: "約 ¥5,000-11,000 / 人 + 購物", lines: ["東武/JR/地鐵交通約 ¥1,200-2,000。", "春日部小新周邊與 Solamachi 購物另計。", "晚餐晴空塔商場約 ¥1,500-3,500 / 人。"] },
         transportSteps: ["秋葉原/仲御徒町 → 北千住 → 東武線至春日部。", "若春日部遇驟雨，刪減戶外慢行，提早由春日部 → 押上，直接進 Solamachi。", "晚上押上/淺草線或 JR 組合回秋葉原。"],
-        food: ["春日部午餐：車站附近簡單定食/拉麵，不為一間店排太久。", "Solamachi 晚餐：商場餐廳選擇多，是 Day 6 雨天主防線。", "想甜品可留在 Solamachi 吃。"],
-        ready: ["小新目標點先存 Google Maps。", "Solamachi 作雨天避難點，不要把春日部戶外走滿。", "查東武線回押上班次。"]
+        food: ["春日部午餐：車站附近簡單定食/拉麵，不為一間店排太久。", "Solamachi 晚餐：商場餐廳選擇多，是第6日雨天主防線。", "想甜品可留在 Solamachi 吃。"],
+        ready: ["小新目標點先存 Google 地圖。", "Solamachi 作雨天避難點，不要把春日部戶外走滿。", "查東武線回押上班次。"]
       },
       7: {
         budget: { total: "約 ¥6,000-15,000 / 人 + 精品購物", lines: ["市區交通約 ¥400-900。", "午晚餐約 ¥3,000-7,000；百貨甜品另計。", "東京站角色街/手信購物另計。"] },
@@ -274,7 +274,7 @@
         ready: ["teamLab QR、入場時間、充電。", "穿淺色/好拍但好走的鞋。", "相機/手機容量清空。"]
       },
       11: {
-        budget: { total: "約 ¥12,000-25,000 / 人", lines: ["Local tour / 巴士團價格依平台與路線而定；集合交通另計。", "早餐/午餐/晚餐約 ¥3,000-6,000。", "天氣差時不要硬去，改 Day 12/14 可保護體驗。"] },
+        budget: { total: "約 ¥12,000-25,000 / 人", lines: ["一日遊 / 巴士團價格依平台與路線而定；集合交通另計。", "早餐/午餐/晚餐約 ¥3,000-6,000。", "天氣差時不要硬去，改第12/14日可保護體驗。"] },
         transportSteps: ["若新宿集合：都營新宿線到新宿，預留找集合點時間。", "若東京站集合：日本橋基地更方便，的士/步行可控。", "回程晚，直接回酒店，不再加購物。"],
         food: ["早餐便利店先買好，在集合前吃。", "午餐多數看團安排/河口湖周邊。", "回市區後簡單定食/便利店，重點是休息。"],
         ready: ["前一晚看能見度/雲量/雨量。", "集合點截圖、導遊聯絡、退款改期政策。", "薄外套、暈車藥、行動電源。"]
@@ -287,7 +287,7 @@
       },
       13: {
         budget: { total: "約 ¥7,000-15,000 / 人", lines: ["JR 往返鎌倉 + 江之電約 ¥2,000-3,500。", "寺院/大佛等小額門票另計。", "午晚餐約 ¥3,500-7,000，沿海咖啡另計。"] },
-        transportSteps: ["新日本橋 → JR 總武快速/橫須賀線直達鎌倉最順。", "鎌倉站 → 長谷大佛 → 江之電沿海段 → 江之島視天氣。", "強風雨時直接與 Day 14 互換。"],
+        transportSteps: ["新日本橋 → JR 總武快速/橫須賀線直達鎌倉最順。", "鎌倉站 → 長谷大佛 → 江之電沿海段 → 江之島視天氣。", "強風雨時直接與第14日互換。"],
         food: ["小町通：小食、甜品、抹茶。", "長谷/江之島：海鮮、咖啡、海景餐廳。", "回東京後若累，東京站買便當。"],
         ready: ["查沿海風雨與江之電狀態。", "穿防滑好走鞋。", "海邊防曬/帽/小毛巾。"]
       },
@@ -305,7 +305,7 @@
       },
       16: {
         budget: { total: "約 ¥3,500-7,000 / 人 + 機場購物", lines: ["人形町至成田T2 Access 特急/都營淺草線直通約 ¥1,500-2,000 量級，實際以當日 IC 顯示為準。", "機場餐飲/手信約 ¥2,000-5,000。", "預留交通備用金，不要最後花光現金。"] },
-        transportSteps: ["Hotel Horidome Villa → 人形町站，搭都營淺草線直通京成方向。", "確認列車是往成田機場方向，不要上錯羽田方向。", "13:45-14:00 抵成田T2，留足退稅/安檢/購物。"],
+        transportSteps: ["堀留 Villa 酒店 → 人形町站，搭都營淺草線直通京成方向。", "確認列車是往成田機場方向，不要上錯羽田方向。", "13:45-14:00 抵成田T2，留足退稅/安檢/購物。"],
         food: ["酒店附近簡單早餐或便利店。", "成田T2：過安檢前後都有餐飲，時間比市區更重要。", "上機前買水與小食。"],
         ready: ["護照、機票、行李、退稅品。", "Access 特急路線截圖。", "UO871 17:05 起飛，至少提前 3 小時到機場。"]
       }
@@ -316,7 +316,7 @@
       2: { origin: "Hotel Livemax Akihabara Kita", destination: "Ameyoko Shopping District Ueno", transportLabel: "酒店 → 上野/阿美橫町", foodQuery: "restaurants Ameyoko Ueno Tokyo", foodLabel: "阿美橫町美食" },
       3: { origin: "Hotel Livemax Akihabara Kita", destination: "Shibuya Sky Tokyo", waypoints: ["Sunshine City Ikebukuro Tokyo"], transportLabel: "秋葉原 → 池袋 → Shibuya Sky", foodQuery: "restaurants near Shibuya PARCO Tokyo", foodLabel: "澀谷晚餐" },
       4: { origin: "Hotel Livemax Akihabara Kita", destination: "Tokyo Tower", waypoints: ["Tsukiji Outer Market"], transportLabel: "秋葉原 → 築地 → 東京鐵塔", foodQuery: "restaurants Tsukiji Outer Market Tokyo", foodLabel: "築地早午餐" },
-      5: { origin: "Hotel Livemax Akihabara Kita", destination: "Tokyo DisneySea", transportLabel: "酒店 → Tokyo DisneySea", foodQuery: "restaurants Tokyo DisneySea", foodLabel: "DisneySea 餐廳" },
+      5: { origin: "Hotel Livemax Akihabara Kita", destination: "Tokyo DisneySea", transportLabel: "酒店 → 東京迪士尼海洋", foodQuery: "restaurants Tokyo DisneySea", foodLabel: "迪士尼海洋餐廳" },
       6: { origin: "Hotel Livemax Akihabara Kita", destination: "Tokyo Skytree Town Solamachi", waypoints: ["Kasukabe Station"], transportLabel: "秋葉原 → 春日部 → 晴空塔", foodQuery: "restaurants Tokyo Solamachi Skytree", foodLabel: "Solamachi 晚餐" },
       7: { origin: "Hotel Livemax Akihabara Kita", destination: "Tokyo Character Street", waypoints: ["GINZA SIX Tokyo"], transportLabel: "秋葉原 → 銀座 → 東京站", foodQuery: "restaurants Tokyo Ramen Street Tokyo Station", foodLabel: "東京站晚餐" },
       8: { origin: "Hotel Livemax Akihabara Kita", destination: "Isetan Shinjuku Tokyo", waypoints: ["Meiji Jingu Tokyo", "Omotesando Hills"], transportLabel: "秋葉原 → 原宿表參道 → 新宿", foodQuery: "restaurants Shinjuku Isetan Lumine Tokyo", foodLabel: "新宿晚餐" },
@@ -332,14 +332,14 @@
 
     const hotelStays = {
       akiba: {
-        name: "Hotel Livemax Akihabara Kita",
+        name: "秋葉原北 Livemax 酒店",
         base: "秋葉原",
         period: "6月27日 - 7月5日",
         query: "Hotel Livemax Akihabara Kita",
         routeLabel: "由目前位置回秋葉原酒店"
       },
       nihonbashi: {
-        name: "Hotel Horidome Villa",
+        name: "堀留 Villa 酒店",
         base: "日本橋",
         period: "7月5日 - 7月12日",
         query: "Hotel Horidome Villa Tokyo",
@@ -348,70 +348,70 @@
     };
 
     const todayModeMeta = {
-      1: { leave: "14:45 到埗後", target: "18:00 Check-in", statuses: ["Need check", "Arrival"], checks: ["護照與入境 QR", "eSIM / Suica 可用", "Skyliner / 交通付款準備好", "酒店地址已截圖"] },
-      2: { leave: "10:00", target: "上野午餐", statuses: ["Flexible", "Rain OK"], checks: ["帶購物袋", "酒店附近車站先收藏", "退稅護照帶身上", "雨具按天氣決定"] },
-      3: { leave: "10:00", target: "18:15 Shibuya Sky", statuses: ["Booked?", "High priority"], checks: ["Chiikawa / 候補方案確認", "Shibuya Sky 票券", "手機電量足夠", "晚霞時段天氣再確認"] },
-      4: { leave: "09:45", target: "室內開局", statuses: ["Rain aware", "Flexible"], checks: ["早上先看雨量雷達", "銀座/東京站室內候補已收藏", "雨弱後再去築地/東京鐵塔", "雨傘/防水鞋"] },
-      5: { leave: "06:25-06:40", target: "07:45 DisneySea", statuses: ["Fixed", "Booked", "Rain gear"], checks: ["DisneySea ticket in App", "Credit card linked", "雨衣/防水袋/替換襪", "Power bank + eSIM working"] },
-      6: { leave: "09:30", target: "17:00 Solamachi", statuses: ["Anime", "Rain shelter"], checks: ["春日部/押上路線收藏", "小新核心點優先", "驟雨即提早轉 Solamachi", "買重物後早回酒店"] },
-      7: { leave: "10:30", target: "東京站晚餐", statuses: ["Rain OK", "Shopping"], checks: ["退稅護照", "購物清單", "東京站一番街收藏", "行李空間確認"] },
-      8: { leave: "09:30", target: "17:30 新宿", statuses: ["Weekend", "Shopping"], checks: ["好走鞋", "明治神宮先去", "新宿百貨收藏", "轉酒店前整理行李"] },
-      9: { leave: "10:00", target: "17:00 Check-in", statuses: ["Hotel move", "Low stress"], checks: ["舊酒店退房", "的士/行李路線", "新酒店地址截圖", "不要排預約景點"] },
-      10: { leave: "09:00-09:30", target: "10:00 teamLab", statuses: ["Booked", "Photo day"], checks: ["teamLab QR", "相機/手機容量", "好走鞋", "晚上早回酒店"] },
-      11: { leave: "06:15-06:25", target: "07:15 集合", statuses: ["Weather flexible", "Nature"], checks: ["前一晚查能見度", "集合點截圖", "暈車藥/外套", "雨天啟動天氣模擬"] },
-      12: { leave: "10:30", target: "咖啡休整", statuses: ["Flexible", "Rain OK"], checks: ["咖啡店收藏", "合羽橋購物空間", "保持低強度", "可與富士山互換"] },
-      13: { leave: "08:30-09:00", target: "鎌倉午前到", statuses: ["Weather flexible", "Coast"], checks: ["查沿海風雨", "江之電狀態", "防滑鞋", "強風改 Day 14"] },
-      14: { leave: "10:30", target: "新宿購物", statuses: ["Buffer", "Rain OK"], checks: ["購物清單", "退稅護照", "天氣模擬是否要補行程", "買重物先回酒店"] },
-      15: { leave: "10:30", target: "15:30 整理行李", statuses: ["Packing", "Low risk"], checks: ["手信清單", "行李重量", "退稅收據", "回程路線截圖"] },
-      16: { leave: "12:15-12:30", target: "13:45 成田T2", statuses: ["Return", "Fixed"], checks: ["護照機票", "Access 特急方向", "退稅品", "17:05 UO871"] }
+      1: { leave: "14:45 到埗後", target: "18:00 辦理入住", statuses: ["需檢查", "抵達"], checks: ["護照與入境 QR", "eSIM / Suica 可用", "Skyliner / 交通付款準備好", "酒店地址已截圖"] },
+      2: { leave: "10:00", target: "上野午餐", statuses: ["彈性", "雨天可行"], checks: ["帶購物袋", "酒店附近車站先收藏", "退稅護照帶身上", "雨具按天氣決定"] },
+      3: { leave: "10:00", target: "18:15 Shibuya Sky", statuses: ["需預約", "高優先"], checks: ["Chiikawa / 候補方案確認", "Shibuya Sky 票券", "手機電量足夠", "晚霞時段天氣再確認"] },
+      4: { leave: "09:45", target: "室內開局", statuses: ["留意天氣", "彈性"], checks: ["早上先看雨量雷達", "銀座/東京站室內候補已收藏", "雨弱後再去築地/東京鐵塔", "雨傘/防水鞋"] },
+      5: { leave: "06:25-06:40", target: "07:45 迪士尼海洋", statuses: ["固定", "已預約", "帶雨具"], checks: ["東京迪士尼海洋門票已加入官方應用程式", "信用卡已綁定", "雨衣/防水袋/替換襪", "行動電源 + eSIM 可用"] },
+      6: { leave: "09:30", target: "17:00 Solamachi", statuses: ["動漫", "避雨基地"], checks: ["春日部/押上路線收藏", "小新核心點優先", "驟雨即提早轉 Solamachi", "買重物後早回酒店"] },
+      7: { leave: "10:30", target: "東京站晚餐", statuses: ["雨天可行", "購物"], checks: ["退稅護照", "購物清單", "東京站一番街收藏", "行李空間確認"] },
+      8: { leave: "09:30", target: "17:30 新宿", statuses: ["週末", "購物"], checks: ["好走鞋", "明治神宮先去", "新宿百貨收藏", "轉酒店前整理行李"] },
+      9: { leave: "10:00", target: "17:00 辦理入住", statuses: ["轉酒店", "低壓"], checks: ["舊酒店退房", "的士/行李路線", "新酒店地址截圖", "不要排預約景點"] },
+      10: { leave: "09:00-09:30", target: "10:00 teamLab", statuses: ["已預約", "拍照日"], checks: ["teamLab QR", "相機/手機容量", "好走鞋", "晚上早回酒店"] },
+      11: { leave: "06:15-06:25", target: "07:15 集合", statuses: ["看天氣", "自然景"], checks: ["前一晚查能見度", "集合點截圖", "暈車藥/外套", "雨天啟動天氣模擬"] },
+      12: { leave: "10:30", target: "咖啡休整", statuses: ["彈性", "雨天可行"], checks: ["咖啡店收藏", "合羽橋購物空間", "保持低強度", "可與富士山互換"] },
+      13: { leave: "08:30-09:00", target: "鎌倉午前到", statuses: ["看天氣", "海邊"], checks: ["查沿海風雨", "江之電狀態", "防滑鞋", "強風改第14日"] },
+      14: { leave: "10:30", target: "新宿購物", statuses: ["緩衝", "雨天可行"], checks: ["購物清單", "退稅護照", "天氣模擬是否要補行程", "買重物先回酒店"] },
+      15: { leave: "10:30", target: "15:30 整理行李", statuses: ["執行李", "低風險"], checks: ["手信清單", "行李重量", "退稅收據", "回程路線截圖"] },
+      16: { leave: "12:15-12:30", target: "13:45 成田T2", statuses: ["回程", "固定"], checks: ["護照機票", "Access 特急方向", "退稅品", "17:05 UO871"] }
     };
 
     const earlyWeatherPlan = {
       1: {
         date: "2026-06-27",
-        risk: "Afternoon shower risk",
+        risk: "下午驟雨風險",
         headline: "到埗日保持極輕量",
-        advice: "機場 → 秋葉原酒店 → 附近晚餐即可。不要加戶外景點；如果落雨，先完成 eSIM / Suica / Skyliner / check-in。",
-        action: "只開 Google Maps 回酒店與附近餐廳，不追景點。"
+        advice: "機場 → 秋葉原酒店 → 附近晚餐即可。不要加戶外景點；如果落雨，先完成 eSIM / Suica / Skyliner / 酒店入住。",
+        action: "只開 Google 地圖回酒店與附近餐廳，不追景點。"
       },
       2: {
         date: "2026-06-28",
-        risk: "Morning shower",
+        risk: "早上驟雨",
         headline: "早上先室內，雨弱再上野/阿美橫町",
         advice: "秋葉原、上野、御徒町仍然成立，但早段優先 Yodobashi、atre、商場、咖啡店；雨弱後才做阿美橫町街區。",
         action: "帶傘和購物袋，買重物先回酒店放低。"
       },
       3: {
         date: "2026-06-29",
-        risk: "Cloudy, lower rain risk",
+        risk: "多雲，雨勢較低",
         headline: "池袋 + 澀谷可保留",
         advice: "這天相對適合池袋、澀谷與 Shibuya Sky；但展望台要看即日能見度與官方營運，差天氣就把重點放回 PARCO / Sunshine City。",
         action: "黃昏前查能見度與風；Shibuya Sky 不硬上。"
       },
       4: {
         date: "2026-06-30",
-        risk: "Morning rain",
+        risk: "早上有雨",
         headline: "早上室內，築地/東京鐵塔順延",
         advice: "早上有雨時先去銀座/東京站室內、地下街或咖啡；雨弱後再去築地、增上寺、芝公園東京鐵塔。",
         action: "東京鐵塔是戶外/能見度項，下午再判斷。"
       },
       5: {
         date: "2026-07-01",
-        risk: "Cloudy / light rain risk",
-        headline: "DisneySea 固定，但用雨具運營",
-        advice: "這是門票型固定日，不因小雨對調。準備雨衣、防水袋、替換襪；用 App / DPA / Mobile Order 減少濕身排隊。",
+        risk: "多雲 / 微雨風險",
+        headline: "迪士尼海洋固定，但用雨具運營",
+        advice: "這是門票型固定日，不因小雨對調。準備雨衣、防水袋、替換襪；用官方應用程式 / DPA / 手機點餐減少濕身排隊。",
         action: "遇雨優先室內表演、餐廳、商店與短排項目。"
       },
       6: {
         date: "2026-07-02",
-        risk: "Showers",
-        headline: "春日部輕量化，Solamachi 做雨 shelter",
+        risk: "驟雨風險",
+        headline: "春日部輕量化，Solamachi 做避雨基地",
         advice: "春日部只保留小新核心點。若驟雨變強，提早坐東武線到押上，把晴空塔 Solamachi 作室內購物與晚餐基地。",
         action: "不要把春日部戶外步行排滿。"
       },
       7: {
         date: "2026-07-03",
-        risk: "Periods of rain",
+        risk: "間歇有雨",
         headline: "銀座 / 有樂町 / 東京站是正確雨天日",
         advice: "這天原本就是最強雨天購物線：百貨、地下街、東京站一番街、拉麵街連接度高，保持原案。",
         action: "雨大時全天用地下街和百貨連接。"
@@ -419,47 +419,47 @@
     };
 
     const dayWeatherTags = {
-      1: ["Arrival", "Rain Safe"],
-      2: ["Rain Safe", "Indoor First"],
-      3: ["Visibility Needed", "Evening View"],
-      4: ["Rain Aware", "Outdoor Later"],
-      5: ["Fixed", "Rain Gear Needed"],
-      6: ["Rain Shelter", "Outdoor Light"],
-      7: ["Rain Safe", "Indoor Shopping"],
-      8: ["Outdoor", "Shopping"],
-      9: ["Fixed", "Hotel Transfer"],
-      10: ["Fixed", "Indoor"],
-      11: ["Visibility Needed", "Swap Candidate"],
-      12: ["Rain Safe", "Swap Candidate"],
-      13: ["Outdoor", "Wind Sensitive"],
-      14: ["Rain Safe", "Buffer"],
-      15: ["Rain Safe", "Packing"],
-      16: ["Fixed", "Return"]
+      1: ["抵達", "雨天安全"],
+      2: ["雨天安全", "室內先行"],
+      3: ["需看能見度", "黃昏展望"],
+      4: ["留意天氣", "戶外順延"],
+      5: ["固定", "需備雨具"],
+      6: ["避雨基地", "輕量戶外"],
+      7: ["雨天安全", "雨天購物"],
+      8: ["戶外", "購物"],
+      9: ["固定", "轉酒店"],
+      10: ["固定", "室內"],
+      11: ["需看能見度", "可對調"],
+      12: ["雨天安全", "可對調"],
+      13: ["戶外", "沿海風險"],
+      14: ["雨天安全", "緩衝"],
+      15: ["雨天安全", "執行李"],
+      16: ["固定", "回程"]
     };
 
     const plans = {
       A: {
-        title: "Plan A ｜ 預設好天氣行程",
+        title: "方案 A｜預設好天氣行程",
         items: [
-          "7月7日 Day 11：富士山 / 河口湖一日遊。",
-          "7月8日 Day 12：合羽橋 + 蔵前 + 清澄白河低強度休整。",
-          "7月9日 Day 13：鎌倉 / 江之島一日遊。",
-          "7月10日 Day 14：新宿大型百貨主力購物 / 台場候補與緩衝。"
+          "7月7日第11日：富士山 / 河口湖一日遊。",
+          "7月8日第12日：合羽橋 + 蔵前 + 清澄白河低強度休整。",
+          "7月9日第13日：鎌倉 / 江之島一日遊。",
+          "7月10日第14日：新宿大型百貨主力購物 / 台場候補與緩衝。"
         ],
         updates: {
-          11: ["富士山 / 河口湖絕景全景一日遊", "最高天氣優先日。視能見度隨時與 Day 12 / 14 互換。"],
+          11: ["富士山 / 河口湖絕景全景一日遊", "最高天氣優先日。視能見度隨時與第12 / 14日互換。"],
           12: ["合羽橋道具街 ＋ 蔵前 ＋ 清澄白河咖啡區散步", "富士山後體力休整日。由日本橋出發去這三區極快。"],
-          13: ["鎌倉古都 / 江之島一日遊（大佛、江之電、湘南海岸）", "次要好天優先日。沿海暴雨強風時隨時與 Day 14 互換。"],
+          13: ["鎌倉古都 / 江之島一日遊（大佛、江之電、湘南海岸）", "次要好天優先日。沿海暴雨強風時隨時與第14日互換。"],
           14: ["新宿大型百貨主力購物 / 台場候補 ＋ 天氣備用終極緩衝日", "新宿作為主力購物日；若好天想看海景可改台場，亦可補富士山/鎌倉。"]
         }
       },
       B: {
-        title: "Plan B ｜ 7月7日富士山大雨，與 Day 12 對調",
+        title: "方案 B｜7月7日富士山大雨，與第12日對調",
         items: [
-          "7月7日 Day 11：改做合羽橋 + 蔵前 + 清澄白河。",
-          "7月8日 Day 12：若轉晴，補做富士山 / 河口湖。",
-          "7月9日 Day 13：鎌倉維持。",
-          "7月10日 Day 14：保留最大緩衝。"
+          "7月7日第11日：改做合羽橋 + 蔵前 + 清澄白河。",
+          "7月8日第12日：若轉晴，補做富士山 / 河口湖。",
+          "7月9日第13日：鎌倉維持。",
+          "7月10日第14日：保留最大緩衝。"
         ],
         updates: {
           11: ["合羽橋道具街 ＋ 蔵前 ＋ 清澄白河咖啡區散步", "因富士山天雨，今日改為市區文青低強度日。"],
@@ -469,27 +469,27 @@
         }
       },
       C: {
-        title: "Plan C ｜ 7月9日鎌倉強風雨，與 Day 14 互換",
+        title: "方案 C｜7月9日鎌倉強風雨，與第14日互換",
         items: [
-          "7月7日 Day 11：富士山照原定完成。",
-          "7月8日 Day 12：合羽橋 + 蔵前 + 清澄白河。",
-          "7月9日 Day 13：改為大型購物補遺。",
-          "7月10日 Day 14：天氣回穩後補鎌倉/江之島。"
+          "7月7日第11日：富士山照原定完成。",
+          "7月8日第12日：合羽橋 + 蔵前 + 清澄白河。",
+          "7月9日第13日：改為大型購物補遺。",
+          "7月10日第14日：天氣回穩後補鎌倉/江之島。"
         ],
         updates: {
           11: ["富士山 / 河口湖絕景全景一日遊", "已順利完成。"],
           12: ["合羽橋道具街 ＋ 蔵前 ＋ 清澄白河咖啡區散步", "正常休整。"],
-          13: ["全東京最大購物補遺（新宿/澀谷/東京站）", "因沿海強風雨，今日與 Day 14 互換，先做室內購物。"],
+          13: ["全東京最大購物補遺（新宿/澀谷/東京站）", "因沿海強風雨，今日與第14日互換，先做室內購物。"],
           14: ["鎌倉古都 / 江之島一日遊（大佛、江之電、湘南海岸）", "利用緩衝日補上鎌倉。"]
         }
       },
       D: {
-        title: "Plan D ｜ 富士山與鎌倉兩日皆遇雨",
+        title: "方案 D｜富士山與鎌倉兩日皆遇雨",
         items: [
-          "7月7日 Day 11：合羽橋 + 蔵前 + 清澄白河。",
-          "7月8日 Day 12：搶好天補富士山。",
-          "7月9日 Day 13：室內購物補遺，台場先不硬排。",
-          "7月10日 Day 14：補鎌倉/江之島。"
+          "7月7日第11日：合羽橋 + 蔵前 + 清澄白河。",
+          "7月8日第12日：搶好天補富士山。",
+          "7月9日第13日：室內購物補遺，台場先不硬排。",
+          "7月10日第14日：補鎌倉/江之島。"
         ],
         updates: {
           11: ["合羽橋道具街 ＋ 蔵前 ＋ 清澄白河咖啡區散步", "全面退守市區低風險行程。"],
@@ -546,12 +546,50 @@
 
     let latestSmartWeatherPlan = null;
 
+    const placeLabelMap = {
+      "Hotel Livemax Akihabara Kita": "秋葉原北 Livemax 酒店",
+      "Tokyo DisneySea": "東京迪士尼海洋",
+      "Shibuya Sky Tokyo": "Shibuya Sky 澀谷展望台",
+      "Isetan Shinjuku Tokyo": "新宿伊勢丹",
+      "teamLab Borderless Azabudai Hills": "teamLab Borderless 麻布台 Hills",
+      "Hotel Horidome Villa Tokyo": "堀留 Villa 酒店",
+      "Tokyo Character Street": "東京站一番街角色街",
+      "Narita Airport Terminal 2": "成田機場第2客運大樓",
+      "Keisei Ueno Station": "京成上野站",
+      "Akihabara Station Tokyo": "秋葉原站",
+      "Naka-Okachimachi Station Tokyo": "仲御徒町站",
+      "Ningyocho Station Tokyo": "人形町站",
+      "Kodemmacho Station Tokyo": "小傳馬町站",
+      "Tokyo Station": "東京站",
+      "Lumine Shinjuku Tokyo": "新宿 Lumine",
+      "NEWoMan Shinjuku Tokyo": "新宿 NEWoMan",
+      "Shinjuku Takashimaya Tokyo": "新宿高島屋",
+      "Sunshine City Ikebukuro Tokyo": "池袋 Sunshine City",
+      "Shibuya PARCO Tokyo": "澀谷 PARCO",
+      "Miyashita Park Shibuya": "澀谷 Miyashita Park",
+      "Meiji Jingu Tokyo": "明治神宮",
+      "Takeshita Street Harajuku": "原宿竹下通",
+      "Cat Street Harajuku": "原宿貓街",
+      "Omotesando Hills": "表參道 Hills",
+      "GINZA SIX Tokyo": "GINZA SIX 銀座",
+      "Ginza Mitsukoshi": "銀座三越",
+      "MUJI Ginza": "無印良品銀座",
+      "Yurakucho Station Tokyo": "有樂町站",
+      "Coredo Muromachi Tokyo": "Coredo 室町",
+      "Nihombashi Mitsukoshi Main Store": "日本橋三越本店",
+      "Daimaru Tokyo": "大丸東京",
+      "Odaiba Marine Park Tokyo": "台場海濱公園",
+      "DiverCity Tokyo Plaza": "台場 DiverCity",
+      "Unicorn Gundam Statue Odaiba": "台場獨角獸高達",
+      "Rainbow Bridge Tokyo": "彩虹大橋"
+    };
+
     const mapRoutes = {
       "all-tokyo": {
         label: "全部重點",
-        day: "Trip",
+        day: "全旅程",
         icon: "travel_explore",
-        title: "Trip Map｜酒店、景點、購物、回程重點",
+        title: "旅程地圖｜酒店、景點、購物、回程重點",
         desc: "把整趟最常用點位集中在一張地圖：兩間酒店、主要購物區、重點景點與成田回程。",
         origin: "Hotel Livemax Akihabara Kita",
         destination: "Narita Airport Terminal 2",
@@ -563,10 +601,10 @@
       },
       "akiba-hotel": {
         label: "秋葉原酒店",
-        day: "Day 1-8",
+        day: "第1-8日",
         icon: "hotel",
-        title: "Hotel｜Hotel Livemax Akihabara Kita",
-        desc: "前半段基地。秋葉原、上野、池袋澀谷、DisneySea、春日部晴空塔都由這裡出發。",
+        title: "酒店｜秋葉原北 Livemax",
+        desc: "前半段基地。秋葉原、上野、池袋澀谷、迪士尼海洋、春日部晴空塔都由這裡出發。",
         origin: "Narita Airport Terminal 2",
         destination: "Hotel Livemax Akihabara Kita",
         stops: ["Narita Airport Terminal 2", "Keisei Ueno Station", "Hotel Livemax Akihabara Kita", "Akihabara Station Tokyo", "Naka-Okachimachi Station Tokyo"],
@@ -575,9 +613,9 @@
       },
       "nihonbashi-hotel": {
         label: "日本橋酒店",
-        day: "Day 9-16",
+        day: "第9-16日",
         icon: "apartment",
-        title: "Hotel｜Hotel Horidome Villa",
+        title: "酒店｜堀留 Villa",
         desc: "後半段基地。teamLab、富士山/鎌倉集合、東京站手信與成田回程都靠這裡控風險。",
         origin: "Hotel Livemax Akihabara Kita",
         destination: "Hotel Horidome Villa Tokyo",
@@ -587,21 +625,21 @@
       },
       shinjuku: {
         label: "新宿",
-        day: "Day 14",
+        day: "第14日",
         icon: "shopping_bag",
-        title: "Day 14｜新宿主力購物",
+        title: "第14日｜新宿主力購物",
         desc: "百貨、藥妝、服飾與伴手禮集中處理。雨天最穩，買重物後可直接回日本橋酒店。",
         origin: "Hotel Horidome Villa Tokyo",
         destination: "Isetan Shinjuku Tokyo",
         stops: ["Isetan Shinjuku Tokyo", "Lumine Shinjuku Tokyo", "NEWoMan Shinjuku Tokyo", "Shinjuku Takashimaya Tokyo"],
         query: "Isetan Shinjuku Tokyo Lumine Shinjuku NEWoMan Shinjuku",
-        note: "建議把 Isetan、Lumine、NEWoMan 先存到 Google Maps 清單，到現場按營業時間和退稅排隊狀況微調。"
+        note: "建議把 Isetan、Lumine、NEWoMan 先存到 Google 地圖清單，到現場按營業時間和退稅排隊狀況微調。"
       },
       shibuya: {
         label: "澀谷",
-        day: "Day 3",
+        day: "第3日",
         icon: "favorite",
-        title: "Day 3｜池袋 → 澀谷 → Shibuya Sky",
+        title: "第3日｜池袋 → 澀谷 → Shibuya Sky",
         desc: "角色店、潮流購物、晚霞展望台串成一條約會線，黃昏時段最漂亮。",
         origin: "Sunshine City Ikebukuro Tokyo",
         destination: "Shibuya Sky Tokyo",
@@ -611,21 +649,21 @@
       },
       harajuku: {
         label: "原宿表參道",
-        day: "Day 8",
+        day: "第8日",
         icon: "styler",
-        title: "Day 8｜明治神宮 → 原宿 → 表參道 → 新宿",
+        title: "第8日｜明治神宮 → 原宿 → 表參道 → 新宿",
         desc: "早上走神宮大空間，下午潮流街區，傍晚接新宿夜購，適合拍照和散步。",
         origin: "Meiji Jingu Tokyo",
         destination: "Isetan Shinjuku Tokyo",
         stops: ["Meiji Jingu Tokyo", "Takeshita Street Harajuku", "Cat Street Harajuku", "Omotesando Hills", "Isetan Shinjuku Tokyo"],
         query: "Meiji Jingu Takeshita Street Cat Street Omotesando Hills Isetan Shinjuku",
-        note: "週末原宿人多，先去明治神宮，再視體力決定 Cat Street 或直接表參道咖啡。"
+        note: "週末原宿人多，先去明治神宮，再視體力決定貓街或直接表參道咖啡。"
       },
       ginza: {
         label: "銀座東京站",
-        day: "Day 7",
+        day: "第7日",
         icon: "diamond",
-        title: "Day 7｜銀座 → 有樂町 → 東京站一番街",
+        title: "第7日｜銀座 → 有樂町 → 東京站一番街",
         desc: "雨天購物強線。百貨、地下街、角色街和拉麵街容易連接，不怕天氣差。",
         origin: "Ginza Six Tokyo",
         destination: "Tokyo Character Street",
@@ -635,9 +673,9 @@
       },
       nihonbashi: {
         label: "日本橋手信",
-        day: "Day 15",
+        day: "第15日",
         icon: "redeem",
-        title: "Day 15｜日本橋 → 東京站手信收尾",
+        title: "第15日｜日本橋 → 東京站手信收尾",
         desc: "最後一天低風險收尾：買手信、退稅、回酒店執行李，不再跨太遠。",
         origin: "Hotel Horidome Villa Tokyo",
         destination: "Daimaru Tokyo",
@@ -647,10 +685,10 @@
       },
       odaiba: {
         label: "台場候補",
-        day: "Day 14",
+        day: "第14日",
         icon: "water",
         title: "好天候補｜台場海景與 DiverCity",
-        desc: "如果 Day 14 天氣很好、購物已完成，可以改成海濱散步、高達與彩虹大橋夜景。",
+        desc: "如果第14日天氣很好、購物已完成，可以改成海濱散步、高達與彩虹大橋夜景。",
         origin: "Hotel Horidome Villa Tokyo",
         destination: "DiverCity Tokyo Plaza",
         stops: ["Odaiba Marine Park Tokyo", "DiverCity Tokyo Plaza", "Unicorn Gundam Statue Odaiba", "Rainbow Bridge Tokyo"],
@@ -659,7 +697,9 @@
       }
     };
 
-    const OFFLINE_PACK_CACHE = "tokyo-trip-manual-offline-pack-v12-3-weather";
+    const WEATHER_PLAN_VERSION = "天氣建議根據 2026年6月22日已查預報整理；戶外日請在出發前 24-48 小時重查。";
+
+    const OFFLINE_PACK_CACHE = "tokyo-trip-manual-offline-pack-v12-4-zh-hant";
     const OFFLINE_PACK = [
       "./",
       "./index.html",
@@ -694,8 +734,32 @@
       return '<span style="color:#94a3b8">—</span>';
     }
 
+    const weatherTagClassMap = {
+      "抵達": "arrival",
+      "雨天安全": "rain-safe",
+      "室內先行": "indoor-first",
+      "需看能見度": "visibility-needed",
+      "黃昏展望": "evening-view",
+      "留意天氣": "rain-aware",
+      "戶外順延": "outdoor-later",
+      "固定": "fixed",
+      "需備雨具": "rain-gear-needed",
+      "避雨基地": "rain-shelter",
+      "輕量戶外": "outdoor-light",
+      "雨天購物": "indoor-shopping",
+      "戶外": "outdoor",
+      "購物": "shopping",
+      "轉酒店": "hotel-transfer",
+      "室內": "indoor",
+      "可對調": "swap-candidate",
+      "沿海風險": "wind-sensitive",
+      "緩衝": "buffer",
+      "執行李": "packing",
+      "回程": "return"
+    };
+
     function weatherTagClass(label) {
-      return label.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+      return weatherTagClassMap[label] || "";
     }
 
     function renderWeatherBadges(day) {
@@ -705,15 +769,15 @@
     }
 
     function formatPlanCell(item, plan = item.plan) {
-      const disneyBadge = item.day === 5 ? '<span class="badge badge-coral" style="margin-right:8px">DisneySea</span>' : "";
+      const disneyBadge = item.day === 5 ? '<span class="badge badge-coral" style="margin-right:8px">迪士尼海洋</span>' : "";
       return `${disneyBadge}${plan}<div class="weather-tag-row table-weather-tags">${renderWeatherBadges(item.day)}</div>`;
     }
 
     function renderTable(data = itinerary) {
       const body = document.getElementById("master-table-body");
       body.innerHTML = data.map(item => `
-        <tr class="${item.row || ""}" data-day="${item.day}" tabindex="0" role="button" aria-label="打開 Day ${item.day} 詳細行程">
-          <td class="day-cell" data-label="日期 / Day">${item.date}<span>Day ${item.day}</span><em class="table-jump"><span class="material-symbols-outlined" style="font-size:14px">touch_app</span> 點擊看詳情</em></td>
+        <tr class="${item.row || ""}" data-day="${item.day}" tabindex="0" role="button" aria-label="打開第${item.day}日詳細行程">
+          <td class="day-cell" data-label="日期 / 日數">${item.date}<span>第 ${item.day} 日</span><em class="table-jump"><span class="material-symbols-outlined" style="font-size:14px">touch_app</span> 點擊看詳情</em></td>
           <td class="plan-cell" data-label="主行程">${formatPlanCell(item)}</td>
           <td data-label="住宿基地">${basePill(item.base)}</td>
           <td class="strategy-cell" data-label="天氣 / 人潮策略">${item.strategy}</td>
@@ -741,9 +805,9 @@
     }
 
     function statusClass(label) {
-      if (/Fixed|Return|High/.test(label)) return "status-fixed";
-      if (/Booked|Arrival/.test(label)) return "status-booked";
-      if (/Need|Weather|Buffer|Rain/.test(label)) return "status-check";
+      if (/固定|回程|高優先/.test(label)) return "status-fixed";
+      if (/已預約|抵達|需預約/.test(label)) return "status-booked";
+      if (/需檢查|看天氣|緩衝|雨天|留意/.test(label)) return "status-check";
       return "status-flex";
     }
 
@@ -751,22 +815,22 @@
       if (earlyWeatherPlan[day]) return earlyWeatherPlan[day];
       if (day === 11) {
         return {
-          risk: "Visibility check",
+          risk: "能見度檢查",
           headline: "富士山只看好天與能見度",
-          advice: "出發前 24-48 小時看雲量、雨量與能見度。若雲厚或雨大，直接啟動 Day 11-14 天氣對調。",
-          action: "到 Weather tab 跑 Smart Weather 模擬。"
+          advice: "出發前 24-48 小時看雲量、雨量與能見度。若雲厚或雨大，直接啟動第11-14日天氣對調。",
+          action: "到天氣分頁跑智能天氣模擬。"
         };
       }
       if (day === 13) {
         return {
-          risk: "Wind / coast check",
+          risk: "強風 / 沿海檢查",
           headline: "鎌倉江之島怕強風雨",
-          advice: "沿海強風、暴雨或江之電受影響時，不硬去海邊，與 Day 14 新宿購物互換。",
+          advice: "沿海強風、暴雨或江之電受影響時，不硬去海邊，與第14日新宿購物互換。",
           action: "出發前查風雨與江之電狀態。"
         };
       }
       return {
-        risk: "Daily check",
+        risk: "每日檢查",
         headline: "按即日天氣微調節奏",
         advice: "固定日不輕易換；戶外與展望台看雨量、風和能見度；室內購物日可作臨時緩衝。",
         action: "雨大時優先酒店附近、地下街、百貨和咖啡店。"
@@ -781,12 +845,13 @@
         <div class="today-weather-head">
           <span class="material-symbols-outlined">rainy</span>
           <div>
-            <strong>Weather Advice Today</strong>
+            <strong>今日天氣建議</strong>
             <span>${advice.risk}</span>
           </div>
         </div>
         <h3>${advice.headline}</h3>
         <p>${advice.advice}</p>
+        <p class="weather-version-note">${WEATHER_PLAN_VERSION}</p>
         <div class="weather-action-note">${advice.action}</div>
         <div class="weather-tag-row">${renderWeatherBadges(day)}</div>
       `;
@@ -796,7 +861,7 @@
       const grid = document.getElementById("today-day-grid");
       if (!grid) return;
       grid.innerHTML = details.map(item => `
-        <button class="today-day-btn ${item.day === activeDay ? "active" : ""}" type="button" data-today-day="${item.day}">Day ${item.day}</button>
+        <button class="today-day-btn ${item.day === activeDay ? "active" : ""}" type="button" data-today-day="${item.day}">第${item.day}日</button>
       `).join("");
       grid.querySelectorAll("[data-today-day]").forEach(button => {
         button.addEventListener("click", () => renderTodayMode(Number(button.dataset.todayDay)));
@@ -811,7 +876,7 @@
       const meta = todayModeMeta[activeDay] || {};
       if (!detail || !shortcut) return;
 
-      document.getElementById("today-mode-title").textContent = `Today：Day ${activeDay} — ${detail.title.replace(/^.*?｜\s*/, "")}`;
+      document.getElementById("today-mode-title").textContent = `今日：第${activeDay}日 - ${detail.title.replace(/^.*?｜\s*/, "")}`;
       document.getElementById("today-mode-subtitle").textContent = `${itineraryItem?.date || ""} ｜ ${detail.type} ｜ ${detail.pace}`;
       document.getElementById("today-leave-time").textContent = meta.leave || detail.timeline?.[0] || "--";
       document.getElementById("today-target-time").textContent = meta.target || shortcut.destination;
@@ -868,7 +933,7 @@
         <details class="day-card" id="day-${item.day}" ${item.open ? "open" : ""}>
           <summary>
             <div class="summary-left">
-              <span class="day-badge">Day ${item.day}</span>
+              <span class="day-badge">第${item.day}日</span>
               <span class="day-visual" style="--image:url('${item.image || ""}')"></span>
               <span class="summary-copy">
                 <span class="summary-title">${item.title}</span>
@@ -901,8 +966,8 @@
       const badge = document.getElementById("day-count-badge");
       const days = details.map(item => item.day);
       const missing = Array.from({ length: 16 }, (_, index) => index + 1).filter(day => !days.includes(day));
-      badge.textContent = missing.length ? `欠 Day ${missing.join(", ")}` : "Day 1-16 全齊";
-      grid.innerHTML = details.map(item => `<button class="day-index-btn" type="button" data-jump-day="${item.day}">Day ${item.day}</button>`).join("");
+      badge.textContent = missing.length ? `欠第 ${missing.join(", ")} 日` : "第1-16日全齊";
+      grid.innerHTML = details.map(item => `<button class="day-index-btn" type="button" data-jump-day="${item.day}">第${item.day}日</button>`).join("");
       grid.querySelectorAll("[data-jump-day]").forEach(button => {
         button.addEventListener("click", () => openDayDetail(Number(button.dataset.jumpDay), { compact: true }));
       });
@@ -922,7 +987,7 @@
       const guide = dayGuides[item.day];
       if (!guide) return "";
       return `
-        <div class="day-section-tabs" aria-label="Day ${item.day} 詳情分頁">
+        <div class="day-section-tabs" aria-label="第${item.day}日詳情分頁">
           <button class="day-section-tab active" type="button" data-day-section="focus"><span class="material-symbols-outlined">flag</span> 重點</button>
           <button class="day-section-tab" type="button" data-day-section="transport"><span class="material-symbols-outlined">train</span> 交通</button>
           <button class="day-section-tab" type="button" data-day-section="timeline"><span class="material-symbols-outlined">timeline</span> 時間</button>
@@ -957,7 +1022,7 @@
             <div class="budget-line">
               <span class="budget-total">${guide.budget.total}</span>
               ${renderList(guide.budget.lines)}
-              <span class="daily-note">價格會因日期、匯率、排隊/購物選擇改變；出發前以官方與 Google Maps 當日顯示為準。</span>
+              <span class="daily-note">價格會因日期、匯率、排隊/購物選擇改變；出發前以官方與 Google 地圖當日顯示為準。</span>
             </div>
             </div>
           </div>
@@ -1030,7 +1095,7 @@
             <strong>${item.title}</strong>
             <span>${item.type} ｜ ${item.pace} ｜ ${item.focus}</span>
           </div>
-          <span class="day-command-badge">目前選擇 Day ${item.day}</span>
+              <span class="day-command-badge">目前選擇第${item.day}日</span>
         </div>
         <div class="day-command-actions">
           <a class="day-command-link primary" href="${buildDayDirectionsUrl(shortcut)}" target="_blank" rel="noopener"><span class="material-symbols-outlined">directions</span> 最快交通</a>
@@ -1038,7 +1103,7 @@
           <a class="day-command-link" href="${buildDayFoodUrl(shortcut)}" target="_blank" rel="noopener"><span class="material-symbols-outlined">restaurant</span> 食物</a>
           <button class="day-command-action" type="button" data-command-day="${item.day}" data-command-section="budget"><span class="material-symbols-outlined">payments</span> 預算</button>
         </div>
-        <div class="day-command-sections" aria-label="Day ${item.day} 內容快速跳轉">
+        <div class="day-command-sections" aria-label="第${item.day}日內容快速跳轉">
           <button class="day-command-action primary" type="button" data-command-day="${item.day}" data-command-section="transport"><span class="material-symbols-outlined">train</span> 交通</button>
           <button class="day-command-action" type="button" data-command-day="${item.day}" data-command-section="timeline"><span class="material-symbols-outlined">timeline</span> 時間</button>
           <button class="day-command-action" type="button" data-command-day="${item.day}" data-command-section="food"><span class="material-symbols-outlined">restaurant</span> 食物頁</button>
@@ -1154,7 +1219,7 @@
       if (directionsLink) directionsLink.href = buildMapsDirectionsUrl(route);
       if (stops) {
         stops.innerHTML = route.stops.map((stop, index) => `
-          <div class="map-stop"><b>${index + 1}</b><span>${stop}</span></div>
+          <div class="map-stop"><b>${index + 1}</b><span>${placeLabelMap[stop] || stop}</span></div>
         `).join("");
       }
       document.querySelectorAll(".map-route-btn[data-map-route]").forEach(button => {
@@ -1268,7 +1333,7 @@
           score += activity.score[state] || 0;
           if (defaultWeatherActivityByDay[day] === activityKey) score += 0.4;
           updates[day] = [activity.name, `${weatherStateLabels[state]}：${activity.strategy}`];
-          items.push(`Day ${day}：${activity.short} ｜ ${weatherStateLabels[state]}`);
+          items.push(`第${day}日：${activity.short}｜${weatherStateLabels[state]}`);
         });
         if (!best || score > best.score) best = { score, updates, items, states, order };
       });
@@ -1281,11 +1346,11 @@
       if (!result || !latestSmartWeatherPlan) return;
       const warnings = [];
       Object.entries(latestSmartWeatherPlan.states).forEach(([day, state]) => {
-        if (state === "heavy") warnings.push(`Day ${day} 大雨/雷雨：優先留在室內或縮短跨區移動。`);
-        if (state === "wind") warnings.push(`Day ${day} 強風：鎌倉、台場、展望台類活動要保守處理。`);
+        if (state === "heavy") warnings.push(`第${day}日大雨/雷雨：優先留在室內或縮短跨區移動。`);
+        if (state === "wind") warnings.push(`第${day}日強風：鎌倉、台場、展望台類活動要保守處理。`);
       });
       result.innerHTML = `
-        <strong>智能建議：按目前輸入天氣重排 Day 11-14</strong>
+        <strong>智能建議：按目前輸入天氣重排第11-14日</strong>
         <ul>
           ${latestSmartWeatherPlan.items.map(item => `<li>${item}</li>`).join("")}
           ${warnings.map(item => `<li>${item}</li>`).join("")}
@@ -1299,7 +1364,7 @@
       grid.innerHTML = Object.entries(earlyWeatherPlan).map(([day, item]) => `
         <article class="early-weather-card">
           <div class="early-weather-top">
-            <span class="day-badge">Day ${day}</span>
+            <span class="day-badge">第${day}日</span>
             <strong>${item.risk}</strong>
           </div>
           <h4>${item.headline}</h4>
@@ -1315,7 +1380,7 @@
       if (!latestSmartWeatherPlan) return;
       applyPlanUpdates(latestSmartWeatherPlan.updates);
       document.querySelectorAll(".weather-btn").forEach(btn => btn.classList.remove("active"));
-      document.getElementById("current-plan-title").textContent = "Smart Weather ｜ 已按即時天氣套用到總表預覽";
+      document.getElementById("current-plan-title").textContent = "智能天氣｜已按即時天氣套用到總表預覽";
       document.getElementById("current-plan-desc").innerHTML = latestSmartWeatherPlan.items.map(item => `<li>${item}</li>`).join("");
       switchTab("master-table");
       requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: "smooth" }));
@@ -1331,6 +1396,17 @@
           localStorage.setItem(key, String(box.checked));
         });
       });
+    }
+
+    function validateTripData() {
+      const errors = [];
+      for (let day = 1; day <= 16; day += 1) {
+        if (!itinerary.some(item => item.day === day)) errors.push(`缺少總表第${day}日`);
+        if (!details.some(item => item.day === day)) errors.push(`缺少詳情第${day}日`);
+        if (!dayShortcuts[day]) errors.push(`缺少快捷路線第${day}日`);
+      }
+      if (errors.length) console.warn("行程資料檢查失敗：", errors);
+      return errors;
     }
 
     function registerServiceWorker() {
@@ -1392,13 +1468,13 @@
           try {
             await copyText(target.textContent.trim());
             button.classList.add("is-copied");
-            button.textContent = "Copied";
+            button.textContent = "已複製";
             setTimeout(() => {
               button.classList.remove("is-copied");
               button.textContent = originalLabel;
             }, 1600);
           } catch (error) {
-            button.textContent = "Copy failed";
+            button.textContent = "複製失敗";
             setTimeout(() => {
               button.textContent = originalLabel;
             }, 1800);
@@ -1414,23 +1490,57 @@
       button.dataset.offlineBound = "true";
       button.addEventListener("click", async () => {
         if (!("caches" in window)) {
-          if (status) status.textContent = "This browser cannot manually cache the offline pack.";
+          if (status) status.textContent = "此瀏覽器不支援手動儲存離線包。";
           button.classList.add("is-error");
           return;
         }
         button.classList.remove("is-ready", "is-error");
         button.disabled = true;
-        if (status) status.textContent = "Downloading offline pack...";
+        if (status) status.textContent = "正在下載離線包…";
         try {
           const cache = await caches.open(OFFLINE_PACK_CACHE);
-          await cache.addAll(OFFLINE_PACK);
+          for (const asset of OFFLINE_PACK) {
+            try {
+              await cache.add(asset);
+            } catch (error) {
+              console.warn("離線包快取失敗：", asset, error);
+            }
+          }
           button.classList.add("is-ready");
-          if (status) status.textContent = "Offline Pack ready. Test once with Airplane Mode before departure.";
+          if (status) status.textContent = "離線包已準備好。出發前請用飛行模式測試一次。";
         } catch (error) {
           button.classList.add("is-error");
-          if (status) status.textContent = "Offline Pack failed. Open with stable Wi-Fi and try again.";
+          if (status) status.textContent = "離線包下載失敗。請用穩定 Wi-Fi 打開後再試。";
         } finally {
           button.disabled = false;
+        }
+      });
+    }
+
+    function bindCacheReset() {
+      const button = document.getElementById("reset-cache-btn");
+      const status = document.getElementById("offline-pack-status");
+      if (!button || button.dataset.resetBound === "true") return;
+      button.dataset.resetBound = "true";
+      button.addEventListener("click", async () => {
+        if (!("caches" in window)) {
+          if (status) status.textContent = "此瀏覽器沒有可重置的離線快取。";
+          return;
+        }
+        button.disabled = true;
+        if (status) status.textContent = "正在重置離線快取…";
+        try {
+          const keys = await caches.keys();
+          await Promise.all(keys.map(key => caches.delete(key)));
+          if (navigator.serviceWorker?.getRegistrations) {
+            const registrations = await navigator.serviceWorker.getRegistrations();
+            await Promise.all(registrations.map(registration => registration.update()));
+          }
+          if (status) status.textContent = "離線快取已重置，正在重新載入最新版…";
+          location.reload();
+        } catch (error) {
+          button.disabled = false;
+          if (status) status.textContent = "重置失敗，請重新整理後再試。";
         }
       });
     }
@@ -1475,6 +1585,7 @@
       });
     });
 
+    validateTripData();
     renderTable();
     renderDetails();
     renderDayIndex();
@@ -1487,6 +1598,7 @@
     simulateWeather("A");
     bindCopyButtons();
     bindOfflinePreload();
+    bindCacheReset();
     registerServiceWorker();
     switchTab(location.hash.replace("#", "") || "today-mode", false);
     if (location.hash) {

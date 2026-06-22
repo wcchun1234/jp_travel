@@ -1,19 +1,19 @@
-# Tokyo DisneySea Offline Prep
+# 東京迪士尼海洋離線準備
 
-Date:
-2026-07-01 Wed, Day 5.
+日期：
+2026-07-01 週三，第5日。
 
-Plan:
-Leave Hotel Livemax Akihabara Kita around 06:25-06:40. Target arrival at Tokyo DisneySea around 07:45.
+計劃：
+06:25-06:40 左右離開秋葉原北 Livemax 酒店。目標約 07:45 抵達東京迪士尼海洋。
 
-Main rail route:
-Akihabara / Naka-Okachimachi area -> Hibiya Line to Hatchobori -> JR Keiyo or Musashino Line to Maihama -> Disney Resort Line to Tokyo DisneySea Station.
+主要鐵路路線：
+秋葉原 / 仲御徒町一帶 → 日比谷線到八丁堀 → JR 京葉線或武藏野線到舞濱 → 迪士尼度假區線到東京迪士尼海洋站。
 
-Before entering:
-Open Tokyo Disney Resort App, confirm ticket, payment card, and group setup.
+入園前：
+打開東京迪士尼度假區官方應用程式，確認門票、付款卡和同行群組設定。
 
-After gate:
-Check Disney Premier Access, Priority Pass, Entry Request, Mobile Order, and attraction status in the official app.
+入園後：
+在官方應用程式檢查 Disney Premier Access、優先通行服務、抽選、手機點餐和設施營運狀態。
 
-Offline reminder:
-The app and DPA need internet. If the signal is weak, move away from dense queues and retry. Keep ticket screenshots, but final app functions still require official app access.
+離線提醒：
+官方應用程式和 DPA 需要網絡。若訊號弱，離開密集排隊區再重試。門票截圖要保留，但最終入園與應用程式功能仍以官方資訊為準。

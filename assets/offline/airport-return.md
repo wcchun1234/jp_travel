@@ -1,16 +1,16 @@
-# Airport Return
+# 機場回程
 
-Flight:
-UO871, 2026-07-12 Sun, Narita Terminal 2 17:05 to Hong Kong Terminal 1 21:00.
+航班：
+UO871，2026-07-12 週日，成田第2客運大樓 17:05 → 香港第1客運大樓 21:00。
 
-Target airport arrival:
-13:45-14:00 at Narita Terminal 2.
+目標抵達機場時間：
+13:45-14:00 抵達成田第2客運大樓。
 
-Offline route:
-Hotel Horidome Villa -> Ningyocho Station -> Toei Asakusa Line through service / Keisei Narita Sky Access direction -> Narita Airport Terminal 2.
+離線路線：
+堀留 Villa 酒店 → 人形町站 → 都營淺草線直通 / 京成 Narita Sky Access 成田方向 → 成田機場第2客運大樓。
 
-Critical warning:
-Confirm the train direction is Narita Airport. Do not board a Haneda Airport-bound train.
+重要提醒：
+確認列車方向是成田機場。不要坐上往羽田機場方向的列車。
 
-Fallback:
-If train search fails, show "成田空港第2ターミナルまで行きたいです" to station staff at Ningyocho.
+後備方法：
+如果查不到列車，在人形町站向站員出示「成田空港第2ターミナルまで行きたいです」。

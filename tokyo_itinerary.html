@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#171343">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="Tokyo Trip">
+  <meta name="apple-mobile-web-app-title" content="東京旅行">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="apple-touch-icon" href="./assets/icons/icon-180.png">
-  <title>東京旅行行程計劃 Version 12.3 ｜ Early Weather Ready Dashboard</title>
+  <title>東京旅行行程計劃 V12.4｜全中文天氣版</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@400;500;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
@@ -17,7 +17,7 @@
 </head>
 <body>
   <div id="connection-status" class="connection-status" hidden>
-    Offline Mode｜已離線：只顯示已儲存資料，Google Maps / 天氣 / 即時班次可能不能更新
+    離線模式｜已離線：只顯示已儲存資料，Google 地圖 / 天氣 / 即時班次可能不能更新
   </div>
   <header class="topbar">
     <div class="topbar-inner">
@@ -25,13 +25,13 @@
         <h1 class="brand-title">
           <span class="material-symbols-outlined fill">travel_explore</span>
           東京旅行行程計劃
-          <span class="version-pill">V12.3 Weather</span>
+          <span class="version-pill">V12.4 全中文</span>
         </h1>
         <p class="subtitle">
           <span>2026年6月27日 – 7月12日</span>
           <span>16日15夜</span>
           <span>同行：2成人</span>
-          <span>Early Weather Ready 旅行安全版</span>
+          <span>早段天氣就緒旅行安全版</span>
         </p>
       </div>
       <div class="principles" aria-label="行程原則">
@@ -52,20 +52,20 @@
         <button class="nav-btn" type="button" data-tab="overview"><span class="nav-label"><span class="material-symbols-outlined fill">dashboard</span> 總覽與航班酒店</span></button>
         <button class="nav-btn" type="button" data-tab="master-table"><span class="nav-label"><span class="material-symbols-outlined">calendar_view_week</span> 16日總行程表</span></button>
         <button class="nav-btn" type="button" data-tab="daily-detail"><span class="nav-label"><span class="material-symbols-outlined">directions_walk</span> 每日詳細行程 & 交通</span></button>
-        <button class="nav-btn" type="button" data-tab="disney-strategy"><span class="nav-label"><span class="material-symbols-outlined">castle</span> DisneySea 攻略</span><span class="mini-dot"></span></button>
+        <button class="nav-btn" type="button" data-tab="disney-strategy"><span class="nav-label"><span class="material-symbols-outlined">castle</span> 迪士尼海洋攻略</span><span class="mini-dot"></span></button>
         <button class="nav-btn" type="button" data-tab="shopping-map"><span class="nav-label"><span class="material-symbols-outlined">map</span> 地圖與購物名所</span><span class="mini-dot"></span></button>
         <button class="nav-btn" type="button" data-tab="hotel-panel"><span class="nav-label"><span class="material-symbols-outlined">hotel</span> 酒店快速卡</span><span class="mini-dot"></span></button>
         <button class="nav-btn" type="button" data-tab="weather-strategy"><span class="nav-label"><span class="material-symbols-outlined">routine</span> 天氣策略模擬器</span><span class="mini-dot"></span></button>
-        <button class="nav-btn" type="button" data-tab="return-help"><span class="nav-label"><span class="material-symbols-outlined">emergency_home</span> Return / Help</span><span class="mini-dot"></span></button>
+        <button class="nav-btn" type="button" data-tab="return-help"><span class="nav-label"><span class="material-symbols-outlined">emergency_home</span> 回程/求助</span><span class="mini-dot"></span></button>
         <button class="nav-btn" type="button" data-tab="checklist"><span class="nav-label"><span class="material-symbols-outlined">checklist</span> 預約及確認清單</span></button>
       </nav>
       <div class="update-box">
-        <p><span class="material-symbols-outlined">update</span> Version 12.1 更新</p>
+        <p><span class="material-symbols-outlined">update</span> 版本 12.4 更新</p>
         <ul>
           <li>7月1日加入東京迪士尼海洋全日行程</li>
           <li>合羽橋/蔵前/清澄白河移至日本橋住宿段</li>
           <li>春日部回程串聯晴空塔 Solamachi</li>
-          <li>加入 Day 1-7 Early Weather Check 與 Weather Lock badges</li>
+          <li>加入第1-7日早段天氣檢查與天氣鎖定標籤</li>
         </ul>
       </div>
     </aside>
@@ -76,11 +76,11 @@
         <button class="mobile-tab" type="button" data-tab="overview">總覽</button>
         <button class="mobile-tab" type="button" data-tab="master-table">總表</button>
         <button class="mobile-tab" type="button" data-tab="daily-detail">每日</button>
-        <button class="mobile-tab" type="button" data-tab="disney-strategy">DisneySea</button>
+        <button class="mobile-tab" type="button" data-tab="disney-strategy">迪士尼</button>
         <button class="mobile-tab" type="button" data-tab="shopping-map">地圖</button>
         <button class="mobile-tab" type="button" data-tab="hotel-panel">酒店</button>
         <button class="mobile-tab" type="button" data-tab="weather-strategy">天氣</button>
-        <button class="mobile-tab" type="button" data-tab="return-help">Return</button>
+        <button class="mobile-tab" type="button" data-tab="return-help">回程</button>
         <button class="mobile-tab" type="button" data-tab="checklist">清單</button>
       </div>
 
@@ -89,32 +89,32 @@
           <section class="today-card today-hero-card" aria-label="今日旅行模式">
             <div class="today-topline">
               <div>
-                <h2 class="today-title" id="today-mode-title">Today Mode</h2>
-                <p class="today-subtitle" id="today-mode-subtitle">正在載入今日行程...</p>
+                <h2 class="today-title" id="today-mode-title">今日模式</h2>
+                <p class="today-subtitle" id="today-mode-subtitle">正在載入今日行程…</p>
               </div>
               <div class="today-status-row" id="today-status-row"></div>
             </div>
             <div class="today-fact-grid">
-              <div class="today-fact"><span>Leave</span><strong id="today-leave-time">--</strong></div>
-              <div class="today-fact"><span>Target</span><strong id="today-target-time">--</strong></div>
-              <div class="today-fact"><span>Base</span><strong id="today-base">--</strong></div>
+              <div class="today-fact"><span>出發</span><strong id="today-leave-time">--</strong></div>
+              <div class="today-fact"><span>目標</span><strong id="today-target-time">--</strong></div>
+              <div class="today-fact"><span>基地</span><strong id="today-base">--</strong></div>
             </div>
-            <div class="today-note-box" id="today-focus">今日重點會按旅行日期自動顯示，也可以手動選 Day。</div>
+            <div class="today-note-box" id="today-focus">今日重點會按旅行日期自動顯示，也可以手動選日數。</div>
             <div class="today-weather-card" id="today-weather-advice" aria-live="polite"></div>
             <div class="today-action-grid" aria-label="今日主要操作">
-              <a class="today-action primary" id="today-route-link" href="#" target="_blank" rel="noopener"><span class="material-symbols-outlined">directions</span> Start Navigation</a>
-              <a class="today-action" id="today-place-link" href="#" target="_blank" rel="noopener"><span class="material-symbols-outlined">pin_drop</span> Open Map</a>
-              <a class="today-action" id="today-food-link" href="#" target="_blank" rel="noopener"><span class="material-symbols-outlined">restaurant</span> Nearby Food</a>
-              <button class="today-action alert" type="button" data-jump-tab="return-help"><span class="material-symbols-outlined">emergency_home</span> Return / Help</button>
-              <button class="today-action" type="button" id="today-detail-btn"><span class="material-symbols-outlined">article</span> Day Detail</button>
-              <button class="today-action" type="button" data-jump-tab="weather-strategy"><span class="material-symbols-outlined">rainy</span> Weather Plan</button>
-              <button class="today-action" type="button" data-jump-tab="checklist"><span class="material-symbols-outlined">checklist</span> Full Checklist</button>
-              <button class="today-action" type="button" data-jump-tab="shopping-map" data-map-route="all-tokyo"><span class="material-symbols-outlined">map</span> Trip Map</button>
+              <a class="today-action primary" id="today-route-link" href="#" target="_blank" rel="noopener"><span class="material-symbols-outlined">directions</span> 開始導航</a>
+              <a class="today-action" id="today-place-link" href="#" target="_blank" rel="noopener"><span class="material-symbols-outlined">pin_drop</span> 打開地圖</a>
+              <a class="today-action" id="today-food-link" href="#" target="_blank" rel="noopener"><span class="material-symbols-outlined">restaurant</span> 附近美食</a>
+              <button class="today-action alert" type="button" data-jump-tab="return-help"><span class="material-symbols-outlined">emergency_home</span> 回程/求助</button>
+              <button class="today-action" type="button" id="today-detail-btn"><span class="material-symbols-outlined">article</span> 每日詳情</button>
+              <button class="today-action" type="button" data-jump-tab="weather-strategy"><span class="material-symbols-outlined">rainy</span> 天氣方案</button>
+              <button class="today-action" type="button" data-jump-tab="checklist"><span class="material-symbols-outlined">checklist</span> 完整清單</button>
+              <button class="today-action" type="button" data-jump-tab="shopping-map" data-map-route="all-tokyo"><span class="material-symbols-outlined">map</span> 旅程地圖</button>
             </div>
           </section>
           <aside class="today-side">
             <section class="today-card today-picker-card">
-              <h3><span class="material-symbols-outlined">touch_app</span> 選擇今日 Day</h3>
+              <h3><span class="material-symbols-outlined">touch_app</span> 選擇今日</h3>
               <p>系統會按 2026年6月27日自動計算；出發前或補行程時可手動切換。</p>
               <div class="today-day-grid" id="today-day-grid"></div>
             </section>
@@ -129,11 +129,11 @@
       <section id="overview" class="tab-content">
         <section class="travel-hero" tabindex="0" role="button" data-jump-tab="shopping-map" data-map-route="all-tokyo" aria-label="東京旅行視覺主頁，點擊打開全旅程地圖">
           <div class="travel-hero-content">
-            <span class="hero-kicker"><span class="material-symbols-outlined">favorite</span> Couple Tokyo Adventure</span>
-            <h2>16日東京約會旅行，從秋葉原玩到 DisneySea、富士山與鎌倉海邊。</h2>
+            <span class="hero-kicker"><span class="material-symbols-outlined">favorite</span> 東京約會旅行</span>
+            <h2>16日東京約會旅行，從秋葉原玩到迪士尼海洋、富士山與鎌倉海邊。</h2>
             <p>這版不只是行程表，而是旅行作戰地圖：每天有節奏、有備案、有期待位，方便你們邊玩邊決定下一站。</p>
             <div class="hero-actions">
-              <button class="hero-chip" type="button" data-jump-tab="daily-detail" data-jump-day="5"><span class="material-symbols-outlined">castle</span> DisneySea 全日</button>
+              <button class="hero-chip" type="button" data-jump-tab="daily-detail" data-jump-day="5"><span class="material-symbols-outlined">castle</span> 迪士尼海洋全日</button>
               <button class="hero-chip" type="button" data-jump-tab="daily-detail" data-jump-day="11"><span class="material-symbols-outlined">landscape</span> 富士山窗口</button>
               <button class="hero-chip" type="button" data-jump-tab="daily-detail" data-jump-day="13"><span class="material-symbols-outlined">beach_access</span> 鎌倉海邊</button>
               <button class="hero-chip" type="button" data-jump-tab="daily-detail" data-jump-day="12"><span class="material-symbols-outlined">local_cafe</span> 咖啡散策</button>
@@ -148,7 +148,7 @@
           </button>
           <button class="trip-tile tile-coral" type="button" data-jump-tab="daily-detail" data-jump-day="5">
             <span class="material-symbols-outlined">castle</span>
-            <div><strong>DisneySea Day 5</strong><span>7月1日週三，黃金平日入園</span></div>
+            <div><strong>第5日迪士尼海洋</strong><span>7月1日週三，黃金平日入園</span></div>
           </button>
           <button class="trip-tile tile-sky" type="button" data-jump-tab="shopping-map" data-map-route="all-tokyo">
             <span class="material-symbols-outlined">hotel</span>
@@ -156,14 +156,14 @@
           </button>
           <button class="trip-tile tile-mint" type="button" data-jump-tab="weather-strategy">
             <span class="material-symbols-outlined">rainy</span>
-            <div><strong>梅雨防線</strong><span>Day 11-14 可按天氣對調</span></div>
+            <div><strong>梅雨防線</strong><span>第11-14日可按天氣對調</span></div>
           </button>
         </div>
 
         <section class="today-ops" aria-label="旅行快速操作">
           <div>
             <h3>到東京後優先用這 4 個入口</h3>
-            <p>每日只看一日、交通開 Google Maps、天氣可即時改排、清單確認票券與回程。</p>
+            <p>每日只看一日、交通開 Google 地圖、天氣可即時改排、清單確認票券與回程。</p>
           </div>
           <div class="today-ops-actions">
             <button class="ops-btn" type="button" data-jump-tab="daily-detail" data-jump-day="1"><span class="material-symbols-outlined">today</span> 今日行程</button>
@@ -179,24 +179,24 @@
               <h2 class="section-title"><span class="material-symbols-outlined">near_me</span> 旅行口袋工具</h2>
               <p class="muted" style="margin:6px 0 0">旅途中常用入口集中在這裡：地圖、今日詳情、酒店、預約、天氣備案與回程交通。</p>
             </div>
-            <span class="badge badge-emerald">Trip mode</span>
+            <span class="badge badge-emerald">旅程模式</span>
           </div>
           <div class="card-pad">
             <div class="pocket-grid">
               <button class="pocket-tool" type="button" data-jump-tab="shopping-map" data-map-route="akiba-hotel">
                 <span class="material-symbols-outlined">hotel</span>
                 <strong>秋葉原酒店地圖</strong>
-                <span>Day 1-8 基地、放低戰利品、夜晚回程。</span>
+                <span>第1-8日基地、放低戰利品、夜晚回程。</span>
               </button>
               <button class="pocket-tool" type="button" data-jump-tab="shopping-map" data-map-route="nihonbashi-hotel">
                 <span class="material-symbols-outlined">apartment</span>
                 <strong>日本橋酒店地圖</strong>
-                <span>Day 9-16 基地、人形町回機場最重要。</span>
+                <span>第9-16日基地、人形町回機場最重要。</span>
               </button>
               <button class="pocket-tool" type="button" data-jump-tab="daily-detail" data-jump-day="5">
                 <span class="material-symbols-outlined">castle</span>
-                <strong>DisneySea 當日</strong>
-                <span>交通、入園、App、DPA 節奏一鍵打開。</span>
+                <strong>迪士尼海洋當日</strong>
+                <span>交通、入園、官方應用程式、DPA 節奏一鍵打開。</span>
               </button>
               <button class="pocket-tool" type="button" data-jump-tab="weather-strategy">
                 <span class="material-symbols-outlined">rainy</span>
@@ -221,7 +221,7 @@
               <button class="pocket-tool" type="button" data-jump-tab="checklist">
                 <span class="material-symbols-outlined">checklist</span>
                 <strong>預約確認清單</strong>
-                <span>門票、App、Google Maps 收藏、eSIM。</span>
+                <span>門票、官方應用程式、Google 地圖收藏、eSIM。</span>
               </button>
             </div>
           </div>
@@ -232,16 +232,16 @@
             <div class="visual-caption"><strong>東京夜色與購物街</strong><span>秋葉原、澀谷、新宿、銀座、東京站，一路買一路吃。</span><em class="tap-cue"><span class="material-symbols-outlined">touch_app</span> 打開購物地圖</em></div>
           </article>
           <article class="visual-card" tabindex="0" role="button" data-jump-tab="daily-detail" data-jump-day="4" style="--image:url('https://images.unsplash.com/photo-1513407030348-c983a97b98d8?auto=format&fit=crop&w=900&q=80')">
-            <div class="visual-caption"><strong>東京鐵塔散策</strong><span>築地海鮮早宴後，芝公園拍照最舒服。</span><em class="tap-cue"><span class="material-symbols-outlined">touch_app</span> 查看 Day 4</em></div>
+            <div class="visual-caption"><strong>東京鐵塔散策</strong><span>築地海鮮早宴後，芝公園拍照最舒服。</span><em class="tap-cue"><span class="material-symbols-outlined">touch_app</span> 查看第4日</em></div>
           </article>
           <article class="visual-card" tabindex="0" role="button" data-jump-tab="daily-detail" data-jump-day="11" style="--image:url('https://images.unsplash.com/photo-1578469645742-46cae010e5d4?auto=format&fit=crop&w=900&q=80')">
-            <div class="visual-caption"><strong>富士山好天窗口</strong><span>Day 11-14 保留天氣對調，等一個清晰山景。</span><em class="tap-cue"><span class="material-symbols-outlined">touch_app</span> 查看 Day 11</em></div>
+            <div class="visual-caption"><strong>富士山好天窗口</strong><span>第11-14日保留天氣對調，等一個清晰山景。</span><em class="tap-cue"><span class="material-symbols-outlined">touch_app</span> 查看第11日</em></div>
           </article>
           <article class="visual-card" tabindex="0" role="button" data-jump-tab="daily-detail" data-jump-day="13" style="--image:url('https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&w=900&q=80')">
-            <div class="visual-caption"><strong>鎌倉海邊一日</strong><span>江之電、湘南海岸、夕方散步，放慢節奏。</span><em class="tap-cue"><span class="material-symbols-outlined">touch_app</span> 查看 Day 13</em></div>
+            <div class="visual-caption"><strong>鎌倉海邊一日</strong><span>江之電、湘南海岸、夕方散步，放慢節奏。</span><em class="tap-cue"><span class="material-symbols-outlined">touch_app</span> 查看第13日</em></div>
           </article>
           <article class="visual-card" tabindex="0" role="button" data-jump-tab="daily-detail" data-jump-day="12" style="--image:url('https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=900&q=80')">
-            <div class="visual-caption"><strong>清澄白河咖啡日</strong><span>合羽橋、蔵前、清澄白河，富士山後休整剛好。</span><em class="tap-cue"><span class="material-symbols-outlined">touch_app</span> 查看 Day 12</em></div>
+            <div class="visual-caption"><strong>清澄白河咖啡日</strong><span>合羽橋、蔵前、清澄白河，富士山後休整剛好。</span><em class="tap-cue"><span class="material-symbols-outlined">touch_app</span> 查看第12日</em></div>
           </article>
         </section>
 
@@ -254,7 +254,7 @@
             </button>
             <button class="map-pin" type="button" data-jump-tab="daily-detail" data-jump-day="5" style="left:62%; top:30%; --pin:#fb7185">
               <span class="pin-dot"><span class="material-symbols-outlined">castle</span></span>
-              <span class="pin-label">DisneySea</span>
+              <span class="pin-label">迪士尼海洋</span>
             </button>
             <button class="map-pin" type="button" data-jump-tab="shopping-map" data-map-route="nihonbashi-hotel" style="left:43%; top:52%; --pin:#4f46e5">
               <span class="pin-dot"><span class="material-symbols-outlined">apartment</span></span>
@@ -272,23 +272,23 @@
           <div class="map-list">
             <div>
               <h3>旅行路線地圖</h3>
-              <p>用兩個住宿基地控制移動成本：前半段秋葉原玩市區、池袋澀谷、新宿與 DisneySea；後半段日本橋接 teamLab、富士山、鎌倉與回程。</p>
+              <p>用兩個住宿基地控制移動成本：前半段秋葉原玩市區、池袋澀谷、新宿與迪士尼海洋；後半段日本橋接 teamLab、富士山、鎌倉與回程。</p>
             </div>
             <div class="route-step">
               <span class="material-symbols-outlined">looks_one</span>
-              <div><strong>Day 1-8｜秋葉原基地</strong><small>原區熟習、池袋澀谷、築地東京鐵塔、DisneySea、春日部晴空塔、原宿表參道與新宿夜購。</small></div>
+              <div><strong>第1-8日｜秋葉原基地</strong><small>原區熟習、池袋澀谷、築地東京鐵塔、迪士尼海洋、春日部晴空塔、原宿表參道與新宿夜購。</small></div>
             </div>
             <div class="route-step">
               <span class="material-symbols-outlined">looks_two</span>
-              <div><strong>Day 9｜的士轉酒店</strong><small>轉到日本橋後只安排附近熟習、午餐與輕購物，不塞預約景點。</small></div>
+              <div><strong>第9日｜的士轉酒店</strong><small>轉到日本橋後只安排附近熟習、午餐與輕購物，不塞預約景點。</small></div>
             </div>
             <div class="route-step">
               <span class="material-symbols-outlined">looks_3</span>
-              <div><strong>Day 10-14｜沉浸展覽與天氣防線</strong><small>teamLab 早場、富士山、合羽橋咖啡、鎌倉、最大購物/台場緩衝互相支援。</small></div>
+              <div><strong>第10-14日｜沉浸展覽與天氣防線</strong><small>teamLab 早場、富士山、合羽橋咖啡、鎌倉、最大購物/台場緩衝互相支援。</small></div>
             </div>
             <div class="route-step">
               <span class="material-symbols-outlined">flight_takeoff</span>
-              <div><strong>Day 15-16｜手信與回港</strong><small>日本橋/東京站最後補貨，人形町 Access 特急直達成田T2。</small></div>
+              <div><strong>第15-16日｜手信與回港</strong><small>日本橋/東京站最後補貨，人形町 Access 特急直達成田T2。</small></div>
             </div>
           </div>
         </section>
@@ -303,7 +303,7 @@
               <article class="flight-card">
                 <div class="flight-top">
                   <div>
-                    <span class="badge badge-indigo">去程 Outbound</span>
+                    <span class="badge badge-indigo">去程</span>
                     <p class="flight-number">HK Express UO848</p>
                   </div>
                   <span class="material-symbols-outlined">flight_takeoff</span>
@@ -312,7 +312,7 @@
                   <div>
                     <div class="time">09:15</div>
                     <div class="airport">HKG 香港國際機場</div>
-                    <div class="terminal">6月27日 Sat ｜ Terminal 2 / Aisle U</div>
+                    <div class="terminal">6月27日 週六｜第2客運大樓 / U 區</div>
                   </div>
                   <div class="route-line">
                     <span>4小時30分鐘</span>
@@ -322,14 +322,14 @@
                   <div style="text-align:right">
                     <div class="time">14:45</div>
                     <div class="airport">NRT 成田國際機場</div>
-                    <div class="terminal">Terminal 2</div>
+                    <div class="terminal">第2客運大樓</div>
                   </div>
                 </div>
               </article>
               <article class="flight-card">
                 <div class="flight-top">
                   <div>
-                    <span class="badge badge-blue">回程 Inbound</span>
+                    <span class="badge badge-blue">回程</span>
                     <p class="flight-number">HK Express UO871</p>
                   </div>
                   <span class="material-symbols-outlined">flight_land</span>
@@ -338,7 +338,7 @@
                   <div>
                     <div class="time">17:05</div>
                     <div class="airport">NRT 成田國際機場</div>
-                    <div class="terminal">7月12日 Sun ｜ Terminal 2</div>
+                    <div class="terminal">7月12日 週日｜第2客運大樓</div>
                   </div>
                   <div class="route-line">
                     <span>4小時55分鐘</span>
@@ -348,13 +348,13 @@
                   <div style="text-align:right">
                     <div class="time">21:00</div>
                     <div class="airport">HKG 香港國際機場</div>
-                    <div class="terminal">Terminal 1 arrivals</div>
+                    <div class="terminal">第1客運大樓抵港</div>
                   </div>
                 </div>
               </article>
             </div>
             <div class="info-box" style="margin-top:18px">
-              <strong>2026年6月20日已核對：</strong>HK Express 香港出發使用香港機場 Terminal 2 Aisle U 辦理 check-in / bag drop；成田使用 Terminal 2 / 3F。航班時間、閘口與櫃位仍以航空公司及機場即日公告為準。
+              <strong>2026年6月20日已核對：</strong>HK Express 香港出發使用香港機場第2客運大樓 U 區辦理登機手續 / 行李托運；成田使用第2客運大樓 / 3樓。航班時間、閘口與櫃位仍以航空公司及機場即日公告為準。
             </div>
           </div>
         </div>
@@ -369,16 +369,16 @@
               <div class="hotel-body">
                 <div class="hotel-title-row">
                   <div>
-                    <span class="badge badge-emerald">Stay 1 ｜ 6月27日 – 7月5日 (8夜)</span>
-                    <h3 class="hotel-title">Hotel Livemax Akihabara Kita</h3>
-                    <p class="hotel-meta">2-5-2 Taito, 秋葉原 / 台東區 ｜ Semi Double Room - Non-Smoking</p>
+                    <span class="badge badge-emerald">第1段住宿｜6月27日 – 7月5日（8夜）</span>
+                    <h3 class="hotel-title">秋葉原北 Livemax 酒店</h3>
+                    <p class="hotel-meta">2-5-2 Taito, 秋葉原 / 台東區｜小型雙人床禁煙房</p>
                   </div>
                   <span class="material-symbols-outlined" style="color:var(--emerald)">task_alt</span>
                 </div>
-                <div class="hotel-note"><strong>適合安排：</strong>秋葉原、上野、池袋/澀谷、築地、春日部、晴空塔、DisneySea 出發。</div>
+                <div class="hotel-note"><strong>適合安排：</strong>秋葉原、上野、池袋/澀谷、築地、春日部、晴空塔、迪士尼海洋出發。</div>
                 <div class="hotel-actions">
                   <button class="hotel-map-btn" type="button" data-jump-tab="shopping-map" data-map-route="akiba-hotel"><span class="material-symbols-outlined">map</span> 在互動地圖標示</button>
-                  <a class="hotel-map-btn secondary" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Livemax%20Akihabara%20Kita" target="_blank" rel="noopener"><span class="material-symbols-outlined">open_in_new</span> Google Maps</a>
+                  <a class="hotel-map-btn secondary" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Livemax%20Akihabara%20Kita" target="_blank" rel="noopener"><span class="material-symbols-outlined">open_in_new</span> Google 地圖</a>
                   <a class="hotel-map-btn secondary" href="https://www.google.com/maps/dir/?api=1&origin=Narita%20Airport%20Terminal%202&destination=Hotel%20Livemax%20Akihabara%20Kita&travelmode=transit" target="_blank" rel="noopener"><span class="material-symbols-outlined">directions_railway</span> 成田到酒店</a>
                 </div>
               </div>
@@ -388,8 +388,8 @@
               <div class="hotel-body">
                 <div class="hotel-title-row">
                   <div>
-                    <span class="badge badge-indigo">Stay 2 ｜ 7月5日 – 7月12日 (7夜)</span>
-                    <h3 class="hotel-title">Hotel Horidome Villa</h3>
+                    <span class="badge badge-indigo">第2段住宿｜7月5日 – 7月12日（7夜）</span>
+                    <h3 class="hotel-title">堀留 Villa 酒店</h3>
                     <p class="hotel-meta">1-10-10 Horidome-Cho, Nihonbashi ｜ 小型雙人床禁煙房</p>
                   </div>
                   <span class="material-symbols-outlined" style="color:var(--primary)">task_alt</span>
@@ -397,7 +397,7 @@
                 <div class="hotel-note"><strong>適合安排：</strong>麻布台、台場、富士山/鎌倉集合、日本橋/東京站、合羽橋/蔵前/清澄白河、成田回程。</div>
                 <div class="hotel-actions">
                   <button class="hotel-map-btn" type="button" data-jump-tab="shopping-map" data-map-route="nihonbashi-hotel"><span class="material-symbols-outlined">map</span> 在互動地圖標示</button>
-                  <a class="hotel-map-btn secondary" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Horidome%20Villa%20Tokyo" target="_blank" rel="noopener"><span class="material-symbols-outlined">open_in_new</span> Google Maps</a>
+                  <a class="hotel-map-btn secondary" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Horidome%20Villa%20Tokyo" target="_blank" rel="noopener"><span class="material-symbols-outlined">open_in_new</span> Google 地圖</a>
                   <a class="hotel-map-btn secondary" href="https://www.google.com/maps/dir/?api=1&origin=Hotel%20Horidome%20Villa%20Tokyo&destination=Narita%20Airport%20Terminal%202&travelmode=transit" target="_blank" rel="noopener"><span class="material-symbols-outlined">flight_takeoff</span> 回程成田</a>
                 </div>
               </div>
@@ -411,20 +411,20 @@
           </div>
           <div class="card-pad grid-4">
             <article class="fact-card disney-card">
-              <h3><span class="material-symbols-outlined" style="color:var(--primary)">castle</span> DisneySea 7/1</h3>
-              <p>官方月曆顯示 2026年7月1日 (Wed) 東京迪士尼海洋開放 9:00-21:00，成人 1-Day Passport 為 7,900円。此日為週三，符合「平日避人潮」策略。</p>
+              <h3><span class="material-symbols-outlined" style="color:var(--primary)">castle</span> 迪士尼海洋 7/1</h3>
+              <p>官方月曆顯示 2026年7月1日（週三）東京迪士尼海洋開放 9:00-21:00，成人一日護照門票為 7,900円。此日為週三，符合「平日避人潮」策略。</p>
             </article>
             <article class="fact-card">
               <h3><span class="material-symbols-outlined" style="color:var(--blue)">confirmation_number</span> 迪士尼門票</h3>
               <p>官方門票每日日本時間 14:00 開售「兩個月後同日」入園票。7月1日門票理論上 5月1日 14:00 起可買，售罄亦可能再釋出。</p>
             </article>
             <article class="fact-card strategy-card">
-              <h3><span class="material-symbols-outlined" style="color:var(--amber)">smartphone</span> App / DPA</h3>
-              <p>Disney Premier Access 需在官方 App 購買，Fantasy Springs 熱門項目如 Frozen、Rapunzel、Peter Pan 為 2,000円級別，數量有限。</p>
+              <h3><span class="material-symbols-outlined" style="color:var(--amber)">smartphone</span> 官方應用程式 / DPA</h3>
+              <p>Disney Premier Access 需在官方應用程式購買，Fantasy Springs（魔幻泉鄉）熱門項目如 Frozen、Rapunzel、Peter Pan 為 2,000円級別，數量有限。</p>
             </article>
             <article class="fact-card">
               <h3><span class="material-symbols-outlined" style="color:var(--emerald)">train</span> 交通策略</h3>
-              <p>早到優先用 JR：日比谷線接八丁堀，轉 JR 京葉/武藏野線到舞濱，再乘 Disney Resort Line 到 Tokyo DisneySea Station。</p>
+              <p>早到優先用 JR：日比谷線接八丁堀，轉 JR 京葉/武藏野線到舞濱，再乘迪士尼度假區線到東京迪士尼海洋站。</p>
             </article>
           </div>
         </div>
@@ -434,16 +434,16 @@
         <div class="card">
           <div class="card-head">
             <div>
-              <h2 class="section-title"><span class="material-symbols-outlined">table</span> Version 12.1｜迪士尼海洋強勢進駐總表</h2>
-              <p class="muted" style="margin:6px 0 0">以人潮、天氣與酒店基地重新排序：DisneySea 放在 7月1日黃金平日，合羽橋文青線移至日本橋住宿段。</p>
+              <h2 class="section-title"><span class="material-symbols-outlined">table</span> 版本 12.4｜迪士尼海洋強勢進駐總表</h2>
+              <p class="muted" style="margin:6px 0 0">以人潮、天氣與酒店基地重新排序：迪士尼海洋放在 7月1日黃金平日，合羽橋文青線移至日本橋住宿段。</p>
             </div>
-            <span class="badge badge-indigo">16 days locked</span>
+            <span class="badge badge-indigo">16日全齊</span>
           </div>
           <div class="table-wrap">
             <table>
               <thead>
                 <tr>
-                  <th>日期 / Day</th>
+                  <th>日期 / 日數</th>
                   <th>修改後的主行程規劃</th>
                   <th>住宿基地</th>
                   <th>天氣 / 人潮防線策略</th>
@@ -457,19 +457,19 @@
 
       <section id="daily-detail" class="tab-content">
         <div class="info-box">
-          <strong>每日詳細行程：</strong>Day 1-16 已全部補齊。每張卡改為分頁式：重點、交通、時間、預算、食物、確認。交通與食物分頁已加入 Google Maps 快捷鍵，可直接開 App 查最快路線、附近餐廳與即時班次。
+          <strong>每日詳細行程：</strong>第1-16日已全部補齊。每張卡改為分頁式：重點、交通、時間、預算、食物、確認。交通與食物分頁已加入 Google 地圖快捷鍵，可直接開 App 查最快路線、附近餐廳與即時班次。
         </div>
         <div class="day-index-card" aria-label="每日行程索引">
           <div class="day-index-head">
             <div>
               <strong>16日每日行程索引</strong>
-              <p class="daily-compact-hint">點 Day 只顯示該日詳情；進入卡內再切換重點/交通/預算/食物，避免一直向下滑。</p>
+              <p class="daily-compact-hint">點日數只顯示該日詳情；進入卡內再切換重點/交通/預算/食物，避免一直向下滑。</p>
             </div>
             <span class="day-count-badge" id="day-count-badge">檢查中</span>
           </div>
           <div class="day-index-grid" id="day-index-grid"></div>
           <div class="day-index-tools">
-            <button class="day-tool-btn primary" type="button" id="today-reset-btn"><span class="material-symbols-outlined">filter_1</span> 只看 Day 1</button>
+            <button class="day-tool-btn primary" type="button" id="today-reset-btn"><span class="material-symbols-outlined">filter_1</span> 只看第1日</button>
             <button class="day-tool-btn" type="button" id="expand-all-days"><span class="material-symbols-outlined">unfold_more</span> 展開全部</button>
             <button class="day-tool-btn" type="button" id="collapse-all-days"><span class="material-symbols-outlined">unfold_less</span> 收起全部</button>
             <button class="day-tool-btn" type="button" data-jump-tab="master-table"><span class="material-symbols-outlined">calendar_view_week</span> 返回總表</button>
@@ -482,8 +482,8 @@
       <section id="disney-strategy" class="tab-content">
         <div class="card">
           <div class="card-head">
-            <h2 class="section-title"><span class="material-symbols-outlined fill">castle</span> 7月1日 (Day 5) 東京迪士尼海洋作戰室</h2>
-            <span class="badge badge-indigo">9:00-21:00 ｜ Adult 7,900円</span>
+            <h2 class="section-title"><span class="material-symbols-outlined fill">castle</span> 7月1日（第5日）東京迪士尼海洋作戰室</h2>
+            <span class="badge badge-indigo">9:00-21:00｜成人 7,900円</span>
           </div>
           <div class="card-pad">
             <div class="grid-2">
@@ -493,30 +493,30 @@
               </article>
               <article class="guide-card">
                 <h4><span class="material-symbols-outlined">train</span> 方案 B｜JR 鐵路（早到首選）</h4>
-                <p>由酒店步行至仲御徒町/秋葉原，乘日比谷線到八丁堀，再轉 JR 京葉線或武藏野線往舞濱。抵達舞濱後左轉往 Resort Gateway Station，乘 Disney Resort Line 到 Tokyo DisneySea Station。</p>
+                <p>由酒店步行至仲御徒町/秋葉原，乘日比谷線到八丁堀，再轉 JR 京葉線或武藏野線往舞濱。抵達舞濱後左轉往度假區總站，乘迪士尼度假區線到東京迪士尼海洋站。</p>
               </article>
             </div>
             <div class="grid-3" style="margin-top:18px">
               <article class="fact-card">
                 <h3><span class="material-symbols-outlined">alarm</span> 07:45 抵達排隊</h3>
-                <p>官方開園為 09:00，但官方亦提醒部分情況可能提早開始入園。若想搶 DPA / Priority Pass，建議 06:25-06:40 由酒店出發，目標 07:45 到閘口外。</p>
+                <p>官方開園為 09:00，但官方亦提醒部分情況可能提早開始入園。若想搶 DPA / 優先通行服務，建議 06:25-06:40 由酒店出發，目標 07:45 到閘口外。</p>
               </article>
               <article class="fact-card strategy-card">
-                <h3><span class="material-symbols-outlined">bolt</span> 入園瞬間 App 流程</h3>
-                <p>過閘後立即開官方 App：先確認整團門票，購買 Disney Premier Access；再查看 40週年 Priority Pass、Entry Request、Mobile Order 與 Standby Pass 狀態。</p>
+                <h3><span class="material-symbols-outlined">bolt</span> 入園瞬間官方應用程式流程</h3>
+                <p>過閘後立即開官方應用程式：先確認整團門票，購買 Disney Premier Access；再查看 40週年優先通行服務、抽選、手機點餐與等候通行服務狀態。</p>
               </article>
               <article class="fact-card">
-                <h3><span class="material-symbols-outlined">warning</span> Fantasy Springs 修正</h3>
-                <p>Fantasy Springs 於 2024年6月開幕。2026年請以 App 顯示為準；目前官方 Standby Pass 清單主要是商店/膠囊玩具等指定場地，不應假設新園區機動遊戲仍需免費 Standby Pass。</p>
+                <h3><span class="material-symbols-outlined">warning</span> Fantasy Springs（魔幻泉鄉）修正</h3>
+                <p>Fantasy Springs 於 2024年6月開幕。2026年請以官方應用程式顯示為準；目前官方等候通行服務清單主要是商店/膠囊玩具等指定場地，不應假設新園區機動遊戲仍需免費等候通行服務。</p>
               </article>
             </div>
             <div class="guide-card" style="margin-top:18px">
               <h4><span class="material-symbols-outlined">format_list_numbered</span> 建議當日節奏</h4>
               <ol>
                 <li><strong>06:25-06:40</strong> 酒店出發，使用 JR 鐵路線做早到主方案。</li>
-                <li><strong>07:45</strong> 抵達東京迪士尼海洋入園排隊，先整理 App、信用卡與門票群組。</li>
+                <li><strong>07:45</strong> 抵達東京迪士尼海洋入園排隊，先整理官方應用程式、信用卡與門票群組。</li>
                 <li><strong>入園後 0-5 分鐘</strong> 優先搶 Fantasy Springs 熱門 DPA：Anna and Elsa's Frozen Journey、Rapunzel's Lantern Festival、Peter Pan's Never Land Adventure。</li>
-                <li><strong>中午後</strong> 用 Mobile Order / 餐廳預約減少排隊，保留體力到 Believe! Sea of Dreams 或夜間散步。</li>
+                <li><strong>中午後</strong> 用手機點餐 / 餐廳預約減少排隊，保留體力到 Believe! Sea of Dreams 或夜間散步。</li>
                 <li><strong>20:45-21:30</strong> 視體力與人潮離園，JR 舞濱回市區；若有回程巴士班次再考慮巴士。</li>
               </ol>
             </div>
@@ -530,9 +530,9 @@
             <h2 class="section-title"><span class="material-symbols-outlined">hotel</span> 酒店快速卡</h2>
             <p>旅途中最常用的酒店入口。系統會按旅程日期顯示目前基地，也可直接打開兩間酒店地圖或回程導航。</p>
             <div class="today-fact-grid">
-              <div class="today-fact"><span>Current Stay</span><strong id="hotel-panel-current">Hotel Livemax Akihabara Kita</strong></div>
-              <div class="today-fact"><span>Base</span><strong id="hotel-panel-base">秋葉原</strong></div>
-              <div class="today-fact"><span>Period</span><strong id="hotel-panel-period">6月27日 - 7月5日</strong></div>
+              <div class="today-fact"><span>目前住宿</span><strong id="hotel-panel-current">秋葉原北 Livemax 酒店</strong></div>
+              <div class="today-fact"><span>基地</span><strong id="hotel-panel-base">秋葉原</strong></div>
+              <div class="today-fact"><span>住宿日期</span><strong id="hotel-panel-period">6月27日 - 7月5日</strong></div>
             </div>
             <div class="panic-grid">
               <a class="today-action primary" id="hotel-panel-map" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Livemax%20Akihabara%20Kita" target="_blank" rel="noopener"><span class="material-symbols-outlined">pin_drop</span> 開啟目前酒店</a>
@@ -545,16 +545,16 @@
           </section>
           <aside class="today-side">
             <section class="today-card panic-card">
-              <h3><span class="material-symbols-outlined">home_pin</span> Stay 1｜秋葉原</h3>
-              <p><strong>Hotel Livemax Akihabara Kita</strong><br>2-5-2 Taito, 台東區｜6月27日 - 7月5日</p>
+              <h3><span class="material-symbols-outlined">home_pin</span> 第1段住宿｜秋葉原</h3>
+              <p><strong>秋葉原北 Livemax 酒店</strong><br>2-5-2 Taito, 台東區｜6月27日 - 7月5日</p>
               <div class="panic-grid">
                 <a class="today-action" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Livemax%20Akihabara%20Kita" target="_blank" rel="noopener">酒店地圖</a>
                 <a class="today-action" href="https://www.google.com/maps/dir/?api=1&destination=Hotel%20Livemax%20Akihabara%20Kita&travelmode=transit" target="_blank" rel="noopener">回酒店</a>
               </div>
             </section>
             <section class="today-card panic-card">
-              <h3><span class="material-symbols-outlined">apartment</span> Stay 2｜日本橋</h3>
-              <p><strong>Hotel Horidome Villa</strong><br>1-10-10 Horidome-Cho, Nihonbashi｜7月5日 - 7月12日</p>
+              <h3><span class="material-symbols-outlined">apartment</span> 第2段住宿｜日本橋</h3>
+              <p><strong>堀留 Villa 酒店</strong><br>1-10-10 Horidome-Cho, Nihonbashi｜7月5日 - 7月12日</p>
               <div class="panic-grid">
                 <a class="today-action" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Horidome%20Villa%20Tokyo" target="_blank" rel="noopener">酒店地圖</a>
                 <a class="today-action" href="https://www.google.com/maps/dir/?api=1&destination=Hotel%20Horidome%20Villa%20Tokyo&travelmode=transit" target="_blank" rel="noopener">回酒店</a>
@@ -568,17 +568,17 @@
         <div class="card">
           <div class="card-head">
             <div>
-              <h2 class="section-title"><span class="material-symbols-outlined">map</span> Google Maps Ready｜購物與約會地圖</h2>
-              <p class="muted" style="margin:6px 0 0">手機使用優先：每張卡都有 Google Maps 搜尋連結，到日本後直接開啟即可導航、收藏或查看營業時間。</p>
+              <h2 class="section-title"><span class="material-symbols-outlined">map</span> Google 地圖已準備好｜購物與約會地圖</h2>
+              <p class="muted" style="margin:6px 0 0">手機使用優先：每張卡都有 Google 地圖搜尋連結，到日本後直接開啟即可導航、收藏或查看營業時間。</p>
             </div>
-            <span class="badge badge-coral">Mobile ready</span>
+            <span class="badge badge-coral">手機就緒</span>
           </div>
           <div class="card-pad">
-            <div class="map-explorer" aria-label="互動 Google Maps 行程地圖">
+            <div class="map-explorer" aria-label="互動 Google 地圖行程地圖">
               <div class="map-stage">
                 <iframe
                   id="google-map-frame"
-                  title="Google Maps interactive itinerary preview"
+                  title="Google 地圖互動行程預覽"
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
                   src="https://maps.google.com/maps?q=Narita%20Airport%20Terminal%202&t=&z=10&ie=UTF8&iwloc=&output=embed">
@@ -586,7 +586,7 @@
               </div>
               <div class="map-control-panel">
                 <div class="map-control-head">
-                  <h3 id="map-route-title">Trip Map｜酒店、景點、購物、回程重點</h3>
+                  <h3 id="map-route-title">旅程地圖｜酒店、景點、購物、回程重點</h3>
                   <p id="map-route-desc">把整趟最常用點位集中在一張地圖：兩間酒店、主要購物區、重點景點與成田回程。</p>
                 </div>
                 <div class="map-route-buttons" id="map-route-buttons"></div>
@@ -607,10 +607,10 @@
               <article class="shopping-card">
                 <button class="shopping-image" type="button" data-jump-tab="shopping-map" data-map-route="shinjuku" style="--image:url('https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">shopping_bag</span> 必去購物｜點圖開路線</span></button>
                 <div class="shopping-body">
-                  <h3>新宿｜Isetan / Lumine / NEWoMan</h3>
-                  <p>安排在 Day 14 主力購物日。百貨、藥妝、服飾、伴手禮密度高，雨天也非常穩。</p>
+                  <h3>新宿｜伊勢丹 / Lumine / NEWoMan</h3>
+                  <p>安排在第14日主力購物日。百貨、藥妝、服飾、伴手禮密度高，雨天也非常穩。</p>
                   <div class="map-actions">
-                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Isetan%20Shinjuku%20Tokyo" target="_blank" rel="noopener"><span class="material-symbols-outlined">map</span> Isetan</a>
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Isetan%20Shinjuku%20Tokyo" target="_blank" rel="noopener"><span class="material-symbols-outlined">map</span> 伊勢丹</a>
                     <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Lumine%20Shinjuku%20Tokyo" target="_blank" rel="noopener">Lumine</a>
                     <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=NEWoMan%20Shinjuku%20Tokyo" target="_blank" rel="noopener">NEWoMan</a>
                   </div>
@@ -619,23 +619,23 @@
               <article class="shopping-card">
                 <button class="shopping-image" type="button" data-jump-tab="shopping-map" data-map-route="shibuya" style="--image:url('https://images.unsplash.com/photo-1542931287-023b922fa89b?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">favorite</span> 潮流約會｜點圖開路線</span></button>
                 <div class="shopping-body">
-                  <h3>澀谷｜PARCO / Scramble Square / Miyashita Park</h3>
-                  <p>Day 3 已排澀谷 + Shibuya Sky。角色、潮流、餐廳和夜景可以連成一條線。</p>
+                  <h3>澀谷｜PARCO / Scramble Square / 宮下公園</h3>
+                  <p>第3日已排澀谷 + Shibuya Sky。角色、潮流、餐廳和夜景可以連成一條線。</p>
                   <div class="map-actions">
                     <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Shibuya%20PARCO%20Tokyo" target="_blank" rel="noopener"><span class="material-symbols-outlined">map</span> PARCO</a>
-                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Shibuya%20Scramble%20Square%20Tokyo" target="_blank" rel="noopener">Scramble</a>
-                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Miyashita%20Park%20Shibuya" target="_blank" rel="noopener">Miyashita</a>
+                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Shibuya%20Scramble%20Square%20Tokyo" target="_blank" rel="noopener">Scramble Square</a>
+                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Miyashita%20Park%20Shibuya" target="_blank" rel="noopener">宮下公園</a>
                   </div>
                 </div>
               </article>
               <article class="shopping-card">
                 <button class="shopping-image" type="button" data-jump-tab="shopping-map" data-map-route="harajuku" style="--image:url('https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">styler</span> 街頭時尚｜點圖開路線</span></button>
                 <div class="shopping-body">
-                  <h3>原宿 / 表參道｜Takeshita / Cat Street / Omotesando</h3>
-                  <p>Day 8 明治神宮後接原宿、表參道，再可加新宿夜購。適合情侶散步和拍照。</p>
+                  <h3>原宿 / 表參道｜竹下通 / 貓街 / 表參道</h3>
+                  <p>第8日明治神宮後接原宿、表參道，再可加新宿夜購。適合情侶散步和拍照。</p>
                   <div class="map-actions">
                     <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Takeshita%20Street%20Harajuku" target="_blank" rel="noopener"><span class="material-symbols-outlined">map</span> 竹下通</a>
-                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Cat%20Street%20Harajuku" target="_blank" rel="noopener">Cat St.</a>
+                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Cat%20Street%20Harajuku" target="_blank" rel="noopener">貓街</a>
                     <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Omotesando%20Hills" target="_blank" rel="noopener">表參道</a>
                   </div>
                 </div>
@@ -643,12 +643,12 @@
               <article class="shopping-card">
                 <button class="shopping-image" type="button" data-jump-tab="shopping-map" data-map-route="ginza" style="--image:url('https://images.unsplash.com/photo-1554797589-7241bb691973?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">diamond</span> 精品百貨｜點圖開路線</span></button>
                 <div class="shopping-body">
-                  <h3>銀座 / 有樂町｜Ginza Six / Mitsukoshi / Muji</h3>
-                  <p>Day 7 雨天強項。精品、百貨、地下街與東京站一番街可以全天連接。</p>
+                  <h3>銀座 / 有樂町｜GINZA SIX / 銀座三越 / 無印良品</h3>
+                  <p>第7日雨天強項。精品、百貨、地下街與東京站一番街可以全天連接。</p>
                   <div class="map-actions">
-                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=GINZA%20SIX%20Tokyo" target="_blank" rel="noopener"><span class="material-symbols-outlined">map</span> Ginza Six</a>
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=GINZA%20SIX%20Tokyo" target="_blank" rel="noopener"><span class="material-symbols-outlined">map</span> GINZA SIX</a>
                     <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Ginza%20Mitsukoshi" target="_blank" rel="noopener">三越</a>
-                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=MUJI%20Ginza" target="_blank" rel="noopener">MUJI</a>
+                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=MUJI%20Ginza" target="_blank" rel="noopener">無印良品</a>
                   </div>
                 </div>
               </article>
@@ -656,9 +656,9 @@
                 <button class="shopping-image" type="button" data-jump-tab="shopping-map" data-map-route="shibuya" style="--image:url('https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">toys</span> 角色與動漫｜點圖開路線</span></button>
                 <div class="shopping-body">
                   <h3>池袋 / 秋葉原｜Sunshine City / Animate / Yodobashi</h3>
-                  <p>Day 2、Day 3 覆蓋角色、動漫、電器與扭蛋。買大件先回秋葉原酒店放低。</p>
+                  <p>第2、3日覆蓋角色、動漫、電器與扭蛋。買大件先回秋葉原酒店放低。</p>
                   <div class="map-actions">
-                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Sunshine%20City%20Ikebukuro" target="_blank" rel="noopener"><span class="material-symbols-outlined">map</span> Sunshine</a>
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Sunshine%20City%20Ikebukuro" target="_blank" rel="noopener"><span class="material-symbols-outlined">map</span> Sunshine City</a>
                     <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Animate%20Ikebukuro" target="_blank" rel="noopener">Animate</a>
                     <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Yodobashi%20Akiba" target="_blank" rel="noopener">Yodobashi</a>
                   </div>
@@ -667,12 +667,12 @@
               <article class="shopping-card">
                 <button class="shopping-image" type="button" data-jump-tab="shopping-map" data-map-route="nihonbashi" style="--image:url('https://images.unsplash.com/photo-1513407030348-c983a97b98d8?auto=format&fit=crop&w=900&q=80')"><span><span class="material-symbols-outlined">redeem</span> 手信收尾｜點圖開路線</span></button>
                 <div class="shopping-body">
-                  <h3>東京站 / 日本橋｜Character Street / Daimaru / Coredo</h3>
-                  <p>Day 15 收尾最好用。最後手信、便當、甜品、退稅和行李整理都集中處理。</p>
+                  <h3>東京站 / 日本橋｜東京角色街 / 大丸 / Coredo 室町</h3>
+                  <p>第15日收尾最好用。最後手信、便當、甜品、退稅和行李整理都集中處理。</p>
                   <div class="map-actions">
-                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Tokyo%20Character%20Street" target="_blank" rel="noopener"><span class="material-symbols-outlined">map</span> Character St.</a>
-                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Daimaru%20Tokyo" target="_blank" rel="noopener">Daimaru</a>
-                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Coredo%20Muromachi" target="_blank" rel="noopener">Coredo</a>
+                    <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Tokyo%20Character%20Street" target="_blank" rel="noopener"><span class="material-symbols-outlined">map</span> 角色街</a>
+                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Daimaru%20Tokyo" target="_blank" rel="noopener">大丸</a>
+                    <a class="map-link secondary" href="https://www.google.com/maps/search/?api=1&query=Coredo%20Muromachi" target="_blank" rel="noopener">Coredo 室町</a>
                   </div>
                 </div>
               </article>
@@ -683,12 +683,12 @@
                 <h2 class="section-title"><span class="material-symbols-outlined">route</span> 購物日安排</h2>
               </div>
               <div class="card-pad shopping-day-plan">
-                <div class="shopping-day-row"><strong>Day 2</strong><span>秋葉原 + 上野 + 阿美橫町：電器、藥妝、零食、動漫周邊。</span></div>
-                <div class="shopping-day-row"><strong>Day 3</strong><span>池袋 + 澀谷：Sunshine City、PARCO、Scramble Square，晚上海景換成 Shibuya Sky 夜景。</span></div>
-                <div class="shopping-day-row"><strong>Day 7</strong><span>銀座 + 有樂町 + 東京站：精品百貨、MUJI Ginza、一番街、拉麵街，雨天最強。</span></div>
-                <div class="shopping-day-row"><strong>Day 8</strong><span>原宿 + 表參道 + 新宿夜購：白天街頭潮流，傍晚可加新宿 Isetan / Lumine。</span></div>
-                <div class="shopping-day-row"><strong>Day 14</strong><span>新宿主力購物日：Isetan、Lumine、NEWoMan、藥妝；若好天想看海景則改台場。</span></div>
-                <div class="shopping-day-row"><strong>Day 15</strong><span>東京站 + 日本橋最後手信：Character Street、Daimaru、Coredo，買完即回酒店執行李。</span></div>
+                <div class="shopping-day-row"><strong>第2日</strong><span>秋葉原 + 上野 + 阿美橫町：電器、藥妝、零食、動漫周邊。</span></div>
+                <div class="shopping-day-row"><strong>第3日</strong><span>池袋 + 澀谷：Sunshine City、PARCO、Scramble Square，晚上海景換成 Shibuya Sky 夜景。</span></div>
+                <div class="shopping-day-row"><strong>第7日</strong><span>銀座 + 有樂町 + 東京站：精品百貨、MUJI Ginza、一番街、拉麵街，雨天最強。</span></div>
+                <div class="shopping-day-row"><strong>第8日</strong><span>原宿 + 表參道 + 新宿夜購：白天街頭潮流，傍晚可加新宿 Isetan / Lumine。</span></div>
+                <div class="shopping-day-row"><strong>第14日</strong><span>新宿主力購物日：Isetan、Lumine、NEWoMan、藥妝；若好天想看海景則改台場。</span></div>
+                <div class="shopping-day-row"><strong>第15日</strong><span>東京站 + 日本橋最後手信：Character Street、Daimaru、Coredo，買完即回酒店執行李。</span></div>
               </div>
             </div>
           </div>
@@ -700,43 +700,44 @@
           <div class="card-head">
             <div>
               <h2 class="section-title"><span class="material-symbols-outlined">routine</span> 梅雨季天氣智能對調方案</h2>
-              <p class="muted" style="margin:6px 0 0">Day 5 DisneySea 是門票型固定日，除非颱風級惡劣天氣或官方營運變更，不建議與其他日對調。Day 11-14 仍是富士山/鎌倉的天氣防線。</p>
+              <p class="muted" style="margin:6px 0 0">第5日迪士尼海洋是門票型固定日，除非颱風級惡劣天氣或官方營運變更，不建議與其他日對調。第11-14日仍是富士山/鎌倉的天氣防線。</p>
             </div>
           </div>
           <div class="card-pad">
-            <section class="early-weather-panel" aria-label="Early trip weather check">
+            <section class="early-weather-panel" aria-label="早段天氣檢查">
               <div class="weather-lab-head">
                 <div>
-                  <h3><span class="material-symbols-outlined">water_drop</span> Early Trip Weather Check｜Day 1-7</h3>
+                  <h3><span class="material-symbols-outlined">water_drop</span> 早段天氣檢查｜第1-7日</h3>
                   <p>第一週已有多個雨點，策略不是大搬日程，而是每天加入「室內先行 / 雨弱後戶外 / 固定日帶雨具」的操作模式。</p>
+                  <p class="weather-source-note">天氣建議根據 2026年6月22日已查預報整理；戶外與展望台行程仍要在出發前 24-48 小時重查。</p>
                 </div>
                 <div class="weather-source-row" aria-label="早段天氣查詢快捷">
-                  <a class="weather-source-link" href="https://www.japan.travel/en/weather/kanto/tokyo/" target="_blank" rel="noopener"><span class="material-symbols-outlined">open_in_new</span> JNTO Tokyo</a>
-                  <a class="weather-source-link" href="https://www.data.jma.go.jp/multi/yoho/yoho_detail.html?code=130010&lang=en" target="_blank" rel="noopener"><span class="material-symbols-outlined">cloud</span> JMA Tokyo</a>
+                  <a class="weather-source-link" href="https://www.japan.travel/en/weather/kanto/tokyo/" target="_blank" rel="noopener"><span class="material-symbols-outlined">open_in_new</span> 日本觀光局東京天氣</a>
+                  <a class="weather-source-link" href="https://www.data.jma.go.jp/multi/yoho/yoho_detail.html?code=130010&lang=en" target="_blank" rel="noopener"><span class="material-symbols-outlined">cloud</span> 日本氣象廳東京天氣</a>
                 </div>
               </div>
               <div class="early-weather-grid" id="early-weather-grid"></div>
               <div class="weather-rule-grid" aria-label="天氣規則">
-                <article><strong>Fixed</strong><span>航班、轉酒店、DisneySea、硬預約不因小雨亂換。</span></article>
-                <article><strong>Weather-sensitive</strong><span>富士山、鎌倉、Shibuya Sky、東京鐵塔與長戶外步行先看能見度/風雨。</span></article>
-                <article><strong>Rain-safe</strong><span>銀座、有樂町、東京站、新宿百貨、Solamachi、Sunshine City、teamLab 可作雨天主力。</span></article>
+                <article><strong>固定日</strong><span>航班、轉酒店、迪士尼海洋、硬預約不因小雨亂換。</span></article>
+                <article><strong>看天氣日</strong><span>富士山、鎌倉、Shibuya Sky、東京鐵塔與長戶外步行先看能見度/風雨。</span></article>
+                <article><strong>雨天安全日</strong><span>銀座、有樂町、東京站、新宿百貨、Solamachi、Sunshine City、teamLab 可作雨天主力。</span></article>
               </div>
             </section>
             <div class="weather-buttons">
-              <button class="weather-btn active" type="button" data-plan="A">Plan A<span>預設好天氣</span></button>
-              <button class="weather-btn" type="button" data-plan="B">Plan B<span>7/7 富士山大雨</span></button>
-              <button class="weather-btn" type="button" data-plan="C">Plan C<span>7/9 鎌倉強風雨</span></button>
-              <button class="weather-btn" type="button" data-plan="D">Plan D<span>雙一日遊皆遇雨</span></button>
+              <button class="weather-btn active" type="button" data-plan="A">方案 A<span>預設好天氣</span></button>
+              <button class="weather-btn" type="button" data-plan="B">方案 B<span>7/7 富士山大雨</span></button>
+              <button class="weather-btn" type="button" data-plan="C">方案 C<span>7/9 鎌倉強風雨</span></button>
+              <button class="weather-btn" type="button" data-plan="D">方案 D<span>雙一日遊皆遇雨</span></button>
             </div>
             <div class="feedback">
-              <p class="feedback-title"><span class="material-symbols-outlined" style="color:var(--emerald)">task_alt</span><span id="current-plan-title">Plan A ｜ 預設好天氣行程</span></p>
+              <p class="feedback-title"><span class="material-symbols-outlined" style="color:var(--emerald)">task_alt</span><span id="current-plan-title">方案 A｜預設好天氣行程</span></p>
               <ul class="feedback-list" id="current-plan-desc"></ul>
             </div>
             <section class="weather-lab" aria-label="即時天氣對調模擬器">
               <div class="weather-lab-head">
                 <div>
                   <h3><span class="material-symbols-outlined">emergency_home</span> 即時天氣對調模擬器</h3>
-                  <p>出發前 24-48 小時，把天氣 App 看到的 Day 11-14 狀態填入；系統會把富士山、鎌倉、市區咖啡和新宿購物重新排序。</p>
+                  <p>出發前 24-48 小時，把天氣應用程式看到的第11-14日狀態填入；系統會把富士山、鎌倉、市區咖啡和新宿購物重新排序。</p>
                 </div>
                 <div class="weather-source-row" aria-label="天氣查詢快捷">
                   <a class="weather-source-link" href="https://www.google.com/search?q=Tokyo+weather" target="_blank" rel="noopener"><span class="material-symbols-outlined">open_in_new</span> 東京</a>
@@ -746,7 +747,7 @@
               </div>
               <div class="weather-input-grid">
                 <label class="weather-input-card">
-                  <strong>Day 11｜7月7日 Tue</strong>
+                  <strong>第11日｜7月7日 週二</strong>
                   <span>原定：富士山 / 河口湖</span>
                   <select class="weather-select" data-weather-day="11">
                     <option value="clear">好天 / 能見度高</option>
@@ -757,7 +758,7 @@
                   </select>
                 </label>
                 <label class="weather-input-card">
-                  <strong>Day 12｜7月8日 Wed</strong>
+                  <strong>第12日｜7月8日 週三</strong>
                   <span>原定：合羽橋 / 蔵前 / 清澄白河</span>
                   <select class="weather-select" data-weather-day="12">
                     <option value="cloudy">多雲但少雨</option>
@@ -768,7 +769,7 @@
                   </select>
                 </label>
                 <label class="weather-input-card">
-                  <strong>Day 13｜7月9日 Thu</strong>
+                  <strong>第13日｜7月9日 週四</strong>
                   <span>原定：鎌倉 / 江之島</span>
                   <select class="weather-select" data-weather-day="13">
                     <option value="clear">好天 / 海邊舒服</option>
@@ -779,7 +780,7 @@
                   </select>
                 </label>
                 <label class="weather-input-card">
-                  <strong>Day 14｜7月10日 Fri</strong>
+                  <strong>第14日｜7月10日 週五</strong>
                   <span>原定：新宿購物 / 終極緩衝</span>
                   <select class="weather-select" data-weather-day="14">
                     <option value="rain">一般下雨</option>
@@ -800,7 +801,7 @@
                 <ul>
                   <li>富士山最重視能見度；好天優先排富士山。</li>
                   <li>鎌倉 / 江之島怕強風與暴雨；風雨大時交給新宿或市區咖啡日。</li>
-                  <li>Day 14 保持最大彈性，適合作為補富士山 / 鎌倉的保險位。</li>
+                  <li>第14日保持最大彈性，適合作為補富士山 / 鎌倉的保險位。</li>
                 </ul>
               </div>
             </section>
@@ -811,7 +812,7 @@
       <section id="return-help" class="tab-content">
         <div class="today-dashboard">
           <section class="today-card panic-card">
-            <h2 class="section-title"><span class="material-symbols-outlined">emergency_home</span> Return / Help 快速救援</h2>
+            <h2 class="section-title"><span class="material-symbols-outlined">emergency_home</span> 回程/求助快速救援</h2>
             <p>迷路、太累、下大雨、行李太重時，先用這頁。所有按鈕都是直接行動，不需要再翻長文。</p>
             <div class="panic-grid">
               <a class="today-action primary" href="https://www.google.com/maps/dir/?api=1&destination=Hotel%20Livemax%20Akihabara%20Kita&travelmode=transit" target="_blank" rel="noopener"><span class="material-symbols-outlined">home_pin</span> 回秋葉原酒店</a>
@@ -825,7 +826,7 @@
           <aside class="today-side">
             <section class="today-card panic-card">
               <h3><span class="material-symbols-outlined">flight</span> 回程航班</h3>
-              <p><strong>UO871</strong><br>2026年7月12日 Sun｜NRT T2 17:05 → HKG T1 21:00</p>
+              <p><strong>UO871</strong><br>2026年7月12日 週日｜NRT T2 17:05 → HKG T1 21:00</p>
               <p>建議 13:45-14:00 抵達成田 T2。人形町站 Access 特急直達機場方向，注意不要上錯羽田方向。</p>
             </section>
             <section class="today-card panic-card">
@@ -833,7 +834,7 @@
               <div class="today-checklist">
                 <label class="today-check-row"><input type="checkbox" data-check="panic-passport"><span>護照 / 手機 / 錢包都在身上</span></label>
                 <label class="today-check-row"><input type="checkbox" data-check="panic-signal"><span>eSIM 或 Wi-Fi 可用；不行先截圖酒店地址</span></label>
-                <label class="today-check-row"><input type="checkbox" data-check="panic-train"><span>Google Maps 顯示的是「現在出發」交通</span></label>
+                <label class="today-check-row"><input type="checkbox" data-check="panic-train"><span>Google 地圖顯示的是「現在出發」交通</span></label>
               </div>
             </section>
           </aside>
@@ -841,61 +842,62 @@
         <section class="card offline-card" id="offline-return-card">
           <div class="card-head">
             <div>
-              <p class="eyebrow">Offline Safe Return</p>
+              <p class="eyebrow">離線安全回程</p>
               <h2 class="section-title"><span class="material-symbols-outlined">signal_wifi_off</span> 無網絡回酒店資料</h2>
               <p class="muted" style="margin:6px 0 0">這部分全部會放入離線快取。沒有網絡時，可直接顯示地址、的士日文、最近車站與簡化路線圖。</p>
             </div>
-            <span class="badge badge-amber">Offline Pack</span>
+            <span class="badge badge-amber">離線包</span>
           </div>
           <div class="card-pad">
             <div class="offline-pack-control">
               <div>
                 <strong>出發前先按一次</strong>
-                <span>會把主頁、CSS/JS、酒店資料、回程資料與離線路線圖放入瀏覽器快取。</span>
+                <span>會把主頁、樣式/程式、酒店資料、回程資料與離線路線圖放入瀏覽器快取。</span>
               </div>
-              <button class="offline-pack-btn" id="preload-offline-pack" type="button"><span class="material-symbols-outlined">download_for_offline</span> Download Offline Pack</button>
+              <button class="offline-pack-btn" id="preload-offline-pack" type="button"><span class="material-symbols-outlined">download_for_offline</span> 下載離線包</button>
+              <button class="offline-pack-btn secondary" id="reset-cache-btn" type="button"><span class="material-symbols-outlined">restart_alt</span> 重置離線快取</button>
               <p id="offline-pack-status" class="offline-pack-status" role="status" aria-live="polite"></p>
             </div>
             <div class="offline-return-grid">
               <article class="offline-return-item">
-                <img src="./assets/offline/maps/akihabara-hotel-area.webp" alt="Akihabara hotel offline route diagram" loading="lazy">
+                <img src="./assets/offline/maps/akihabara-hotel-area.webp" alt="秋葉原酒店離線路線圖" loading="lazy">
                 <div class="offline-return-body">
-                  <h3>Hotel Livemax Akihabara Kita</h3>
+                  <h3>秋葉原北 Livemax 酒店</h3>
                   <p><strong>日文地址：</strong><span id="akihabara-address">〒110-0016 東京都台東区台東2-5-2</span></p>
                   <p><strong>英文地址：</strong>2-5-2 Taito, Taito-ku, Tokyo 110-0016</p>
                   <p><strong>最近車站：</strong>仲御徒町站 1號出口約5分鐘；JR 秋葉原站約8分鐘。</p>
                   <p><strong>的士用：</strong><span id="akihabara-taxi">ホテルリブマックス秋葉原北（東京都台東区台東2-5-2）までお願いします。</span></p>
                   <div class="offline-action-row">
-                    <button class="copy-btn" type="button" data-copy="#akihabara-address" data-copy-label="Copy Address">Copy Address</button>
-                    <button class="copy-btn secondary" type="button" data-copy="#akihabara-taxi" data-copy-label="Copy Taxi Text">Copy Taxi Text</button>
-                    <a class="copy-btn secondary" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Livemax%20Akihabara%20Kita" target="_blank" rel="noopener">Google Maps</a>
+                    <button class="copy-btn" type="button" data-copy="#akihabara-address" data-copy-label="複製地址">複製地址</button>
+                    <button class="copy-btn secondary" type="button" data-copy="#akihabara-taxi" data-copy-label="複製的士日文">複製的士日文</button>
+                    <a class="copy-btn secondary" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Livemax%20Akihabara%20Kita" target="_blank" rel="noopener">Google 地圖</a>
                   </div>
                 </div>
               </article>
               <article class="offline-return-item">
-                <img src="./assets/offline/maps/nihonbashi-hotel-area.webp" alt="Nihonbashi hotel offline route diagram" loading="lazy">
+                <img src="./assets/offline/maps/nihonbashi-hotel-area.webp" alt="日本橋酒店離線路線圖" loading="lazy">
                 <div class="offline-return-body">
-                  <h3>Hotel Horidome Villa</h3>
+                  <h3>堀留 Villa 酒店</h3>
                   <p><strong>日文地址：</strong><span id="nihonbashi-address">〒103-0012 東京都中央区日本橋堀留町1-10-10</span></p>
                   <p><strong>英文地址：</strong>1-10-10 Nihonbashi Horidome-cho, Chuo-ku, Tokyo 103-0012</p>
                   <p><strong>最近車站：</strong>小傳馬町 / 人形町一帶，步行約3-5分鐘。</p>
                   <p><strong>的士用：</strong><span id="nihonbashi-taxi">ホテル堀留ヴィラ（東京都中央区日本橋堀留町1-10-10）までお願いします。</span></p>
                   <div class="offline-action-row">
-                    <button class="copy-btn" type="button" data-copy="#nihonbashi-address" data-copy-label="Copy Address">Copy Address</button>
-                    <button class="copy-btn secondary" type="button" data-copy="#nihonbashi-taxi" data-copy-label="Copy Taxi Text">Copy Taxi Text</button>
-                    <a class="copy-btn secondary" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Horidome%20Villa%20Tokyo" target="_blank" rel="noopener">Google Maps</a>
+                    <button class="copy-btn" type="button" data-copy="#nihonbashi-address" data-copy-label="複製地址">複製地址</button>
+                    <button class="copy-btn secondary" type="button" data-copy="#nihonbashi-taxi" data-copy-label="複製的士日文">複製的士日文</button>
+                    <a class="copy-btn secondary" href="https://www.google.com/maps/search/?api=1&query=Hotel%20Horidome%20Villa%20Tokyo" target="_blank" rel="noopener">Google 地圖</a>
                   </div>
                 </div>
               </article>
             </div>
             <div class="offline-map-grid">
               <figure>
-                <img src="./assets/offline/maps/narita-return-summary.webp" alt="Narita Terminal 2 offline return summary" loading="lazy">
+                <img src="./assets/offline/maps/narita-return-summary.webp" alt="成田第2客運大樓離線回程摘要" loading="lazy">
                 <figcaption>回程：日本橋酒店 → 人形町 → 成田 Sky Access 方向 → 成田T2</figcaption>
               </figure>
               <figure>
-                <img src="./assets/offline/maps/disneysea-arrival-summary.webp" alt="DisneySea offline arrival summary" loading="lazy">
-                <figcaption>DisneySea：秋葉原一帶 → 八丁堀 → 舞濱 → DisneySea</figcaption>
+                <img src="./assets/offline/maps/disneysea-arrival-summary.webp" alt="迪士尼海洋離線抵達摘要" loading="lazy">
+                <figcaption>迪士尼海洋：秋葉原一帶 → 八丁堀 → 舞濱 → 迪士尼海洋</figcaption>
               </figure>
             </div>
           </div>
@@ -908,22 +910,22 @@
             <h2 class="section-title"><span class="material-symbols-outlined">checklist</span> 必備行程預約與確認清單</h2>
           </div>
           <div class="card-pad checklist">
-            <label class="check-row"><input type="checkbox" data-check="disney-ticket"><span><strong>Tokyo DisneySea 1-Day Passport（7月1日）</strong><span>官方門票 5月1日 14:00 起可買 7月1日入園票；買票後先加入官方 App，並預設付款卡。</span></span></label>
-            <label class="check-row"><input type="checkbox" data-check="disney-app"><span><strong>Tokyo Disney Resort App / MyDisney Account</strong><span>出發前下載、登入、綁定信用卡，建立同行群組；DPA、Priority Pass、Entry Request、Mobile Order 都依賴 App。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="disney-ticket"><span><strong>東京迪士尼海洋一日護照門票（7月1日）</strong><span>官方門票 5月1日 14:00 起可買 7月1日入園票；買票後先加入官方應用程式，並預設付款卡。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="disney-app"><span><strong>東京迪士尼度假區官方應用程式 / MyDisney 帳戶</strong><span>出發前下載、登入、綁定信用卡，建立同行群組；DPA、優先通行服務、抽選、手機點餐都依賴官方應用程式。</span></span></label>
             <label class="check-row"><input type="checkbox" data-check="chiikawa"><span><strong>Chiikawa Park（6月29日）</strong><span>asoview 預售售完即止且不可取消/改期；若未成功購票，改用 Sunshine City、Pokemon Center、Animate 池袋。</span></span></label>
             <label class="check-row"><input type="checkbox" data-check="shibuya-sky"><span><strong>Shibuya Sky 黃昏展望台</strong><span>6月底東京日落約19:00，建議 18:15-18:45 入場；強風雨可能影響露天區。</span></span></label>
             <label class="check-row"><input type="checkbox" data-check="teamlab"><span><strong>teamLab Borderless 麻布台 Hills（7月6日）</strong><span>改為早上入場，預留接近一整日慢慢看展、拍照、午餐與麻布台 Hills 散策；不要放在轉酒店日。</span></span></label>
-            <label class="check-row"><input type="checkbox" data-check="local-tours"><span><strong>富士山及鎌倉 Local Tour</strong><span>必查 24-48 小時改期/退款政策，保留 Day 12 / Day 14 對調空間。</span></span></label>
-            <label class="check-row"><input type="checkbox" data-check="google-maps-list"><span><strong>Google Maps 收藏清單</strong><span>出發前把新宿 Isetan/Lumine/NEWoMan、澀谷 PARCO、Ginza Six、東京站一番街、台場 DiverCity 收藏到同一個清單。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="local-tours"><span><strong>富士山及鎌倉一日遊</strong><span>必查 24-48 小時改期/退款政策，保留第12日 / 第14日對調空間。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="google-maps-list"><span><strong>Google 地圖收藏清單</strong><span>出發前把新宿 Isetan/Lumine/NEWoMan、澀谷 PARCO、Ginza Six、東京站一番街、台場 DiverCity 收藏到同一個清單。</span></span></label>
             <label class="check-row"><input type="checkbox" data-check="transport-esim"><span><strong>Skyliner / Access 特急 / eSIM</strong><span>去程可用 Skyliner 到上野；回程由人形町優先 Access 特急直達成田T2，Skyliner 不經人形町。</span></span></label>
-            <div class="check-group-title"><span class="material-symbols-outlined">download_for_offline</span> Offline Ready</div>
-            <label class="check-row"><input type="checkbox" data-check="offline-open-latest"><span><strong>Open app once after latest update</strong><span>出發前用 Wi-Fi 開一次 GitHub Pages 版本，確認已是 V12.2 Offline。</span></span></label>
-            <label class="check-row"><input type="checkbox" data-check="offline-home-screen"><span><strong>Add app to iPhone Home Screen</strong><span>Safari 開啟後加入主畫面，旅途中像 App 一樣使用。</span></span></label>
-            <label class="check-row"><input type="checkbox" data-check="offline-download-pack"><span><strong>Download Offline Pack</strong><span>到 Return / Help 按 Download Offline Pack，等待 Ready 訊息。</span></span></label>
-            <label class="check-row"><input type="checkbox" data-check="offline-airplane-test"><span><strong>Airplane Mode 測試</strong><span>開飛行模式後確認 Today / Hotel / Return 可正常打開。</span></span></label>
-            <label class="check-row"><input type="checkbox" data-check="offline-google-area"><span><strong>Save Google Maps offline area</strong><span>在 Google Maps App 預先下載東京 / 成田常用區域。</span></span></label>
-            <label class="check-row"><input type="checkbox" data-check="offline-booking-screenshots"><span><strong>Screenshot hotel / flight bookings</strong><span>酒店、機票、保險、護照頁面分別截圖，亦存到 Notes / iCloud。</span></span></label>
-            <label class="check-row"><input type="checkbox" data-check="offline-address-notes"><span><strong>Save hotel address in Notes</strong><span>把兩間酒店日文地址和的士句子貼到 Apple Notes / Wallet 備份。</span></span></label>
+            <div class="check-group-title"><span class="material-symbols-outlined">download_for_offline</span> 離線就緒</div>
+            <label class="check-row"><input type="checkbox" data-check="offline-open-latest"><span><strong>更新後開一次網站</strong><span>出發前用 Wi-Fi 開一次 GitHub Pages 版本，確認已是 V12.4 全中文。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="offline-home-screen"><span><strong>加入 iPhone 主畫面</strong><span>Safari 開啟後加入主畫面，旅途中像 App 一樣使用。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="offline-download-pack"><span><strong>下載離線包</strong><span>到回程/求助頁按「下載離線包」，等待「離線包已準備好」訊息。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="offline-airplane-test"><span><strong>飛行模式測試</strong><span>開飛行模式後確認今日模式 / 酒店 / 回程可正常打開。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="offline-google-area"><span><strong>預先下載 Google 地圖離線區域</strong><span>在 Google 地圖應用程式預先下載東京 / 成田常用區域。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="offline-booking-screenshots"><span><strong>酒店 / 航班預訂截圖</strong><span>酒店、機票、保險、護照頁面分別截圖，亦存到 Notes / iCloud。</span></span></label>
+            <label class="check-row"><input type="checkbox" data-check="offline-address-notes"><span><strong>酒店地址存到備忘錄</strong><span>把兩間酒店日文地址和的士句子貼到 Apple Notes / Wallet 備份。</span></span></label>
           </div>
         </div>
       </section>

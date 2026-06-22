@@ -1,7 +1,7 @@
 {
-  "name": "Tokyo Travel Dashboard",
-  "short_name": "Tokyo Trip",
-  "description": "Mobile-first Tokyo travel dashboard for Today Mode, maps, hotel return, weather planning and checklist.",
+  "name": "東京旅行行程儀表板",
+  "short_name": "東京旅行",
+  "description": "手機優先的東京旅行儀表板，集中今日模式、地圖、酒店回程、天氣改排與確認清單。",
   "start_url": "./tokyo_itinerary.html?source=pwa",
   "scope": "./",
   "display": "standalone",
@@ -12,12 +12,14 @@
     {
       "src": "./assets/icons/icon-192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "./assets/icons/icon-512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any"
     },
     {
       "src": "./assets/icons/maskable-512.png",
@@ -28,23 +30,23 @@
   ],
   "shortcuts": [
     {
-      "name": "Today",
-      "short_name": "Today",
+      "name": "今日模式",
+      "short_name": "今日",
       "url": "./tokyo_itinerary.html#today-mode"
     },
     {
-      "name": "Map",
-      "short_name": "Map",
+      "name": "地圖",
+      "short_name": "地圖",
       "url": "./tokyo_itinerary.html#shopping-map"
     },
     {
-      "name": "Hotel",
-      "short_name": "Hotel",
+      "name": "酒店",
+      "short_name": "酒店",
       "url": "./tokyo_itinerary.html#hotel-panel"
     },
     {
-      "name": "Return",
-      "short_name": "Return",
+      "name": "回程/求助",
+      "short_name": "回程",
       "url": "./tokyo_itinerary.html#return-help"
     }
   ]

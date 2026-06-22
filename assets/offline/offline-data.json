@@ -1,40 +1,40 @@
 {
-  "version": "12.2-offline",
+  "version": "12.4-zh-hant",
   "trip": {
-    "title": "Tokyo Travel Dashboard",
+    "title": "東京旅行行程儀表板",
     "start": "2026-06-27",
     "end": "2026-07-12",
     "nights": "16日15夜",
-    "people": "2 adults"
+    "people": "2成人"
   },
   "hotels": [
     {
       "key": "akihabara",
-      "name": "Hotel Livemax Akihabara Kita",
-      "period": "2026-06-27 to 2026-07-05",
+      "name": "秋葉原北 Livemax 酒店",
+      "period": "2026-06-27 至 2026-07-05",
       "japaneseAddress": "〒110-0016 東京都台東区台東2-5-2",
       "englishAddress": "2-5-2 Taito, Taito-ku, Tokyo 110-0016",
       "telephone": "+81-3-3834-8900",
-      "nearestStation": "Naka-Okachimachi Station Exit 1, about 5 minutes on foot. JR Akihabara Station, about 8 minutes on foot.",
+      "nearestStation": "仲御徒町站 1號出口步行約5分鐘；JR 秋葉原站步行約8分鐘。",
       "taxiText": "ホテルリブマックス秋葉原北（東京都台東区台東2-5-2）までお願いします。",
-      "returnNote": "If data is weak, go to Naka-Okachimachi Station or Akihabara Station first, then walk to 2-5-2 Taito."
+      "returnNote": "如果網絡訊號弱，先去仲御徒町站或秋葉原站，再步行到台東 2-5-2。"
     },
     {
       "key": "nihonbashi",
-      "name": "Hotel Horidome Villa",
-      "period": "2026-07-05 to 2026-07-12",
+      "name": "堀留 Villa 酒店",
+      "period": "2026-07-05 至 2026-07-12",
       "japaneseAddress": "〒103-0012 東京都中央区日本橋堀留町1-10-10",
       "englishAddress": "1-10-10 Nihonbashi Horidome-cho, Chuo-ku, Tokyo 103-0012",
       "telephone": "+81-3-3664-0840",
-      "nearestStation": "Kodenmacho Station / Ningyocho Station area, about 3-5 minutes on foot.",
+      "nearestStation": "小傳馬町站 / 人形町站一帶，步行約3-5分鐘。",
       "taxiText": "ホテル堀留ヴィラ（東京都中央区日本橋堀留町1-10-10）までお願いします。",
-      "returnNote": "If lost, go to Ningyocho, Kodemmacho, or Bakuro-yokoyama area and show the hotel name/address to station staff."
+      "returnNote": "如果迷路，先去人形町、小傳馬町或馬喰橫山一帶，再向站員出示酒店名稱/地址。"
     }
   ],
   "critical": {
-    "airport": "Return day: Hotel Horidome Villa -> Ningyocho Station -> Toei Asakusa Line through service / Keisei Narita Sky Access direction -> Narita Airport Terminal 2. Do not board a Haneda-bound train.",
-    "flight": "UO871, 2026-07-12 Sun, NRT Terminal 2 17:05 -> HKG Terminal 1 21:00. Target arrival at Narita T2: 13:45-14:00.",
-    "emergency": "First check passport, phone, wallet and travel documents. If data fails, show the hotel taxi text/address to station staff or taxi driver."
+    "airport": "回程日：堀留 Villa 酒店 -> 人形町站 -> 都營淺草線直通 / 京成 Narita Sky Access 成田方向 -> 成田機場第2客運大樓。不要坐上往羽田機場方向的列車。",
+    "flight": "UO871，2026-07-12 週日，NRT 第2客運大樓 17:05 -> HKG 第1客運大樓 21:00。目標 13:45-14:00 抵達成田T2。",
+    "emergency": "先檢查護照、手機、錢包與旅行文件。如果網絡失效，向站員或的士司機出示酒店日文的士句子/地址。"
   },
   "offlineFiles": [
     "./assets/offline/hotel-akihabara.md",

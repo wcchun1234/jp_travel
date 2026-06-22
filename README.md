@@ -1,58 +1,58 @@
-# Tokyo Travel Dashboard
+# 東京旅行行程儀表板
 
-A mobile-first Tokyo travel command centre for a 16-day Japan trip from **2026年6月27日 to 2026年7月12日**.
+這是一個以手機優先設計的東京旅行行程中控台，對應 **2026年6月27日至2026年7月12日** 的 16 日日本旅程。
 
-The app is designed for real trip usage: open phone, see Today Mode, tap the route, check tasks, switch the weather plan, and return to a hotel or airport quickly.
+此網站是為真實旅途中使用而設計：打開手機即可看到今日模式、快速開啟交通路線、檢查任務、按天氣切換備案，並可快速回酒店或前往機場。
 
-## Features
+## 主要功能
 
-- Today Mode with auto trip-day detection and manual Day 1-16 switching
-- Sticky mobile bottom navigation: Today, Map, Hotel, Weather, Return
-- Dedicated Hotel quick card with current-stay detection and direct Google Maps return links
-- Google Maps route buttons for daily transport, hotels, shopping, food, and airport return
-- Return / Help panic screen for hotel return, Narita T2 route, flight info, and stress checks
-- Offline survival pack with hotel addresses, taxi text, airport return notes, route diagrams, and an offline status banner
-- DisneySea day guide with route and App/DPA flow
-- Early Trip Weather Check for Day 1-7 with rain-aware operating advice
-- Weather backup simulator for Day 11-14 swaps
-- Local checklist saving in the browser
-- PWA manifest and service worker for poor-signal loading
+- 今日模式：自動判斷旅程日期，亦可手動切換第 1-16 日
+- 手機底部固定導覽：今日、地圖、酒店、天氣、回程
+- 酒店快捷卡：自動顯示當前住宿，並提供 Google 地圖回酒店捷徑
+- 每日交通、酒店、購物、美食、機場回程的 Google 地圖按鈕
+- 回程/求助頁：酒店回程、成田 T2 路線、航班資料、壓力檢查
+- 離線包：酒店地址、的士日文、機場回程、路線圖、離線狀態提示
+- 迪士尼海洋攻略：交通、入園、App、DPA 流程
+- 早段天氣檢查：第 1-7 日雨天應對建議
+- 第 11-14 日天氣備案模擬器
+- 瀏覽器本機儲存預約及確認清單
+- PWA manifest 與 service worker，支援弱訊號下開啟關鍵內容
 
-## Structure
+## 檔案結構
 
 ```text
 /index.html
 /tokyo_itinerary.html
-/tokyo_itineray.html        # legacy misspelled redirect
+/tokyo_itineray.html        # 舊有拼字連結，保留作重新導向
 /assets/css/style.css
 /assets/js/app.js
 /assets/icons/*.png
 /assets/offline/*
 /manifest.webmanifest
 /service-worker.js
-/sw.js                      # legacy service worker shim
+/sw.js                      # 舊版 service worker 轉接檔
 /offline.html
 /README.md
 ```
 
-## Pages
+## 頁面
 
-- `index.html` - app entrance page
-- `tokyo_itinerary.html` - main trip dashboard
-- `tokyo_itineray.html` - redirect kept for already shared links
+- `index.html`：網站入口
+- `tokyo_itinerary.html`：主要旅行儀表板
+- `tokyo_itineray.html`：保留給已分享舊連結的重新導向頁
 
-## Mobile Usage
+## 手機使用方式
 
-Open the GitHub Pages site on a phone and add it to the home screen. During the trip, start from Today Mode, tap the route button, check the short task list, use Weather Plan when rain changes the schedule, and use Return / Help if you need to get back to a hotel or airport quickly.
+用手機打開 GitHub Pages 網站，並加到主畫面。旅途中由今日模式開始，按交通按鈕開啟路線，查看當日短任務；遇上下雨時切換天氣方案；需要快速返回酒店或前往機場時使用回程/求助頁。
 
-## Offline Prep
+## 出發前離線測試
 
-Before departure, open the app on stable Wi-Fi, go to **Return / Help**, and tap **Download Offline Pack**. Then test once with Airplane Mode:
+出發前，請在穩定 Wi-Fi 下打開網站，到 **回程/求助** 頁按 **下載離線包**。完成後開啟飛行模式測試一次：
 
-- Today Mode loads
-- Hotel quick card loads
-- Return / Help loads
-- Offline hotel addresses and taxi text are visible
-- Offline route diagrams are visible
+- 今日模式可以打開
+- 酒店快捷卡可以打開
+- 回程/求助頁可以打開
+- 離線酒店地址及的士日文可以看到
+- 離線路線圖可以看到
 
-Google Maps, weather, live train changes, and business hours still need internet. The offline pack is for survival information: where to stay, how to return, airport route, flight info, emergency notes, and checklist state.
+Google 地圖、天氣、即時列車變更及店舖營業時間仍需要網絡。離線包用途是保留生存級資訊：住哪裡、如何回酒店、機場路線、航班資料、緊急備註及清單狀態。

@@ -1,15 +1,15 @@
-# Offline Map Notes
+# 離線地圖備忘
 
-These are simplified route notes, not live maps.
+這些是簡化路線備忘，不是即時地圖。
 
-Akihabara hotel area:
-Use Naka-Okachimachi Station Exit 1 or JR Akihabara Station as the return anchor. The hotel address is 2-5-2 Taito.
+秋葉原酒店一帶：
+用仲御徒町站 1號出口或 JR 秋葉原站作回程定位點。酒店地址是台東 2-5-2。
 
-Nihonbashi hotel area:
-Use Ningyocho, Kodemmacho, or Bakuro-yokoyama as return anchors. The hotel address is 1-10-10 Nihonbashi Horidome-cho.
+日本橋酒店一帶：
+用人形町、小傳馬町或馬喰橫山作回程定位點。酒店地址是日本橋堀留町 1-10-10。
 
-Narita return:
-Use Ningyocho Station and confirm Narita Airport direction. Do not board Haneda-bound services.
+成田回程：
+用人形町站，並確認列車是成田機場方向。不要坐上羽田方向列車。
 
-DisneySea:
-Use Hatchobori -> Maihama -> Disney Resort Line. If one route is crowded, station staff can still help with "舞浜駅 / 東京ディズニーシー".
+迪士尼海洋：
+用八丁堀 → 舞濱 → 迪士尼度假區線。如果其中一段太擠，站員仍可用「舞浜駅 / 東京ディズニーシー」協助。

@@ -1,22 +1,22 @@
-# Emergency Offline Notes
+# 緊急離線備忘
 
-First 60 seconds:
-1. Stop walking and move to a safe side area.
-2. Check passport, phone, wallet, Suica/IC, and hotel key.
-3. Check battery. Turn on low power mode only after copying address if needed.
-4. Decide: return to hotel, nearest station, or airport.
+最初 60 秒：
+1. 先停下來，移到安全的路邊或店內。
+2. 檢查護照、手機、錢包、Suica/IC 卡和酒店房卡。
+3. 檢查電量；如有需要，先複製地址後再開低電量模式。
+4. 決定目標：回酒店、去最近車站，或去機場。
 
-Lost mode:
-Show one of these to station staff or taxi driver.
+迷路模式：
+向站員或的士司機出示以下其中一句。
 
-Akihabara hotel:
+秋葉原酒店：
 ホテルリブマックス秋葉原北（東京都台東区台東2-5-2）までお願いします。
 
-Nihonbashi hotel:
+日本橋酒店：
 ホテル堀留ヴィラ（東京都中央区日本橋堀留町1-10-10）までお願いします。
 
-Airport:
+機場：
 成田空港第2ターミナルまで行きたいです。
 
-Do not:
-Do not keep walking with low signal and low battery. Do not split up. Do not rely on live maps if they are not loading.
+不要做：
+訊號弱和電量低時不要一直亂走。不要分開行動。即時地圖載入不到時，不要只依賴即時地圖。

@@ -1,21 +1,21 @@
-# Hotel Livemax Akihabara Kita
+# 秋葉原北 Livemax 酒店
 
-Stay period: 2026-06-27 to 2026-07-05.
+住宿日期：2026-06-27 至 2026-07-05。
 
-Japanese address:
+日文地址：
 〒110-0016 東京都台東区台東2-5-2
 
-English address:
+英文地址：
 2-5-2 Taito, Taito-ku, Tokyo 110-0016
 
-Telephone:
+電話：
 +81-3-3834-8900
 
-Nearest station note:
-Tokyo Metro Hibiya Line Naka-Okachimachi Station Exit 1 is about 5 minutes on foot. JR Akihabara Station is about 8 minutes on foot.
+最近車站：
+東京 Metro 日比谷線仲御徒町站 1號出口步行約5分鐘。JR 秋葉原站步行約8分鐘。
 
-Taxi text:
+的士日文：
 ホテルリブマックス秋葉原北（東京都台東区台東2-5-2）までお願いします。
 
-Offline return:
-If Google Maps cannot load, aim for Naka-Okachimachi Station or Akihabara Station, then show the address to station staff or taxi driver. Do not spend energy searching long routes underground with luggage.
+離線回程：
+如果 Google 地圖載入不到，先以仲御徒町站或秋葉原站為目標，再向站員或的士司機出示地址。拖行李時不要在地下街浪費體力找長路線。

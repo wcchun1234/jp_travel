@@ -963,6 +963,11 @@
       border-color: #fecdd3;
       background: var(--rose);
     }
+    .offline-pack-btn.secondary {
+      border-color: var(--slate-200);
+      background: #fff;
+      color: var(--slate-700);
+    }
     .copy-btn.secondary {
       border-color: var(--slate-200);
       background: #fff;
@@ -2475,6 +2480,14 @@
       font-size: 12px;
       line-height: 1.55;
       font-weight: 700;
+    }
+    .weather-source-note,
+    .weather-version-note {
+      margin: 6px 0 0;
+      color: #92400e;
+      font-size: 11px;
+      line-height: 1.55;
+      font-weight: 800;
     }
     .weather-source-row {
       display: flex;

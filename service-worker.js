@@ -1,4 +1,4 @@
-const CACHE_NAME = "tokyo-trip-v12-3-weather";
+const CACHE_NAME = "tokyo-trip-v12-4-zh-hant";
 const CACHE_PREFIX = "tokyo-trip-";
 const MANUAL_CACHE_PREFIX = "tokyo-trip-manual-offline-pack";
 const APP_SHELL = [
@@ -31,7 +31,17 @@ const APP_SHELL = [
 
 self.addEventListener("install", event => {
   self.skipWaiting();
-  event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_SHELL)));
+  event.waitUntil(
+    caches.open(CACHE_NAME).then(async cache => {
+      for (const asset of APP_SHELL) {
+        try {
+          await cache.add(asset);
+        } catch (error) {
+          console.warn("離線快取失敗：", asset, error);
+        }
+      }
+    })
+  );
 });
 
 self.addEventListener("activate", event => {
