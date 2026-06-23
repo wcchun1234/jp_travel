@@ -1,14 +1,14 @@
     const itinerary = [
       { day: 1, date: "6月27日 週六", plan: "香港 → 成田機場 → Skyliner → 秋葉原酒店辦理入住", base: "秋葉原", strategy: "到埗日休息。", row: "" },
       { day: 2, date: "6月28日 週日", plan: "秋葉原電器街 ＋ 上野 ＋ 阿美橫町購物街 ＋ 御徒町", base: "秋葉原", strategy: "原區輕鬆熟習，大雨可退守室內商場。", row: "" },
-      { day: 3, date: "6月29日 週一", plan: "Chiikawa Park ＋ 池袋 Sunshine City ＋ 澀谷 PARCO / 宮下公園", base: "秋葉原", strategy: "平日避人潮。今日專心角色店、池袋與澀谷購物，不排展望台。", row: "row-indigo" },
+      { day: 3, date: "6月29日 週一", plan: "Chiikawa Park 外圍打卡 ＋ 池袋 Sunshine City ＋ 澀谷 PARCO / 宮下公園", base: "秋葉原", strategy: "不買 Chiikawa Park 入場票，只到外圍與 Sunshine City 周邊打卡；購物主力留給第10日 Chiikawa shop 日。", row: "row-indigo" },
       { day: 4, date: "6月30日 週二", plan: "雨早上先銀座/東京站室內 → 築地 ＋ 東京鐵塔下午散策", base: "秋葉原", strategy: "早上有雨先退守室內；雨弱後再做築地、增上寺、芝公園東京鐵塔。", row: "" },
       { day: 5, date: "7月1日 週三", plan: "東京迪士尼海洋全日爆玩", base: "秋葉原", strategy: "固定門票日。帶雨具，室內表演/餐廳與官方應用程式/DPA 作雨天防線。", row: "row-disney" },
       { day: 6, date: "7月2日 週四", plan: "春日部小新 → 晴空塔 Solamachi 雨天避難購物晚餐", base: "秋葉原", strategy: "春日部輕量化；若驟雨變強，提早轉 Solamachi 室內商場。", row: "row-amber" },
       { day: 7, date: "7月3日 週五", plan: "銀座精品百貨 ＋ 有樂町 ＋ 東京車站一番街拉麵街", base: "秋葉原", strategy: "強雨天無敵日。全日連通地下街與大型室內。", row: "" },
       { day: 8, date: "7月4日 週六", plan: "明治神宮 ＋ 原宿竹下通 ＋ 表參道 ＋ 新宿夜購", base: "秋葉原", strategy: "週末先走大空間神宮/表參道，傍晚轉新宿百貨與夜景。", row: "" },
       { day: 9, date: "7月5日 週日", plan: "轉酒店（的士大移防）＋ 日本橋/東京站輕鬆熟習", base: "日本橋", strategy: "轉酒店不排預約景點，先安頓行李與新住宿基地。", row: "row-indigo" },
-      { day: 10, date: "7月6日 週一", plan: "teamLab Borderless 早場 ＋ 麻布台 Hills 沉浸式約會日", base: "日本橋", strategy: "早上入場，接近預留一整日慢慢看展與拍照。晚上早回酒店為富士山蓄力。", row: "row-indigo" },
+      { day: 10, date: "7月6日 週一", plan: "Chiikawa Shop 補貨日 ＋ 東京站一番街 ＋ 原宿角色店", base: "日本橋", strategy: "改成一整日角色商品與可愛購物線；東京站先買重點，下午按體力加原宿。晚上早回酒店為 Shibuya Sky 保留精神。", row: "row-indigo" },
       { day: 11, date: "7月7日 週二", plan: "澀谷購物 ＋ Shibuya Sky 15:40 已購票入場", base: "日本橋", strategy: "Shibuya Sky 已買7月7日15:40門票。當日固定保留；富士山改由第12-14日搶好天窗口。", row: "row-indigo dynamic-day", dynamic: true },
       { day: 12, date: "7月8日 週三", plan: "富士山 / 河口湖絕景全景一日遊", base: "日本橋", strategy: "富士山第一好天候補日。若雲厚或大雨，與第14日市區緩衝互換。", row: "row-rose dynamic-day", dynamic: true },
       { day: 13, date: "7月9日 週四", plan: "鎌倉古都 / 江之島一日遊（大佛、江之電、湘南海岸）", base: "日本橋", strategy: "次要好天優先日。沿海暴雨強風時隨時與第14日互換。", row: "row-amber dynamic-day", dynamic: true },
@@ -44,15 +44,15 @@
       },
       {
         day: 3,
-        title: "6月29日（週一）｜Chiikawa Park ＋ 池袋 ＋ 澀谷購物",
+        title: "6月29日（週一）｜Chiikawa Park 外圍打卡 ＋ 池袋 ＋ 澀谷購物",
         mood: "fun",
-        type: "預約重點",
+        type: "外圍打卡",
         pace: "中高",
         image: "https://images.unsplash.com/photo-1542931287-023b922fa89b?auto=format&fit=crop&w=300&q=70",
         open: false,
-        focus: "以預約型景點為核心。Chiikawa Park 若未搶到票，改為 Sunshine City / Animate / Pokemon Center。今日只做池袋與澀谷購物，不趕展望台。",
+        focus: "Chiikawa Park 今日只做外圍打卡，不買入場票、不等抽選。重點是 Sunshine City 周邊、池袋角色店與澀谷輕購物；真正 Chiikawa shop 補貨留給第10日。",
         transport: "秋葉原站 JR 山手線到池袋；池袋到澀谷可用 JR 埼京線或副都心線。晚餐後用山手線或銀座線回秋葉原。",
-        timeline: ["10:30 池袋 Sunshine City / 角色商店", "Chiikawa Park 按預約時段入場", "15:30 前往澀谷 PARCO / 宮下公園 / Scramble Square", "18:00 澀谷晚餐與甜品", "20:00 左右回秋葉原，不硬排展望台"]
+        timeline: ["10:30 池袋 Sunshine City / 周邊角色店", "11:30 Chiikawa Park 外圍打卡，不排入場", "13:00 池袋午餐與 Sunshine City 補逛", "15:30 前往澀谷 PARCO / 宮下公園 / Scramble Square", "18:00 澀谷晚餐與甜品", "20:00 左右回秋葉原，不硬排展望台"]
       },
       {
         day: 4,
@@ -122,21 +122,21 @@
         pace: "低壓",
         image: "https://images.unsplash.com/photo-1542931287-023b922fa89b?auto=format&fit=crop&w=300&q=70",
         open: false,
-        focus: "轉酒店日不再安排 teamLab 或其他重預約景點。今日重點是順利搬行李、熟習日本橋/人形町生活圈、補午餐與輕鬆購物。",
+        focus: "轉酒店日不安排重預約景點。今日重點是順利搬行李、熟習日本橋/人形町生活圈、補午餐與輕鬆購物。",
         transport: "秋葉原北 Livemax 酒店 → 的士至堀留 Villa 酒店寄存行李。之後以日本橋、東京站、人形町步行圈為主；買重物可先回酒店放低。",
         timeline: ["10:00 舊酒店退房", "10:15-10:45 的士轉移行李並寄存", "12:00 日本橋/人形町午餐", "14:00 東京站一番街或日本橋百貨輕鬆逛", "17:00 後回堀留 Villa 酒店辦理入住"]
       },
       {
         day: 10,
-        title: "7月6日（週一）｜teamLab Borderless 早場 ＋ 麻布台 Hills",
+        title: "7月6日（週一）｜Chiikawa Shop 補貨日 ＋ 東京站一番街 ＋ 原宿",
         mood: "fun",
-        type: "沉浸約會",
-        pace: "接近全日",
+        type: "可愛購物日",
+        pace: "中等",
         image: "https://images.unsplash.com/photo-1542931287-023b922fa89b?auto=format&fit=crop&w=300&q=70",
         open: false,
-        focus: "teamLab Borderless 不應塞在轉酒店日。今日改為早上入場，預留接近一整日慢慢看展、拍照、休息與麻布台 Hills 約會散策。",
-        transport: "堀留 Villa 酒店 → 人形町/小傳馬町一帶 → 日比谷線到神谷町，步行接麻布台 Hills / teamLab Borderless。回程同線回日本橋，晚上不要排太夜，為翌日 Shibuya Sky 保留體力。",
-        timeline: ["09:00-09:30 日本橋出發往神谷町", "10:00 teamLab Borderless 早場入場", "12:30-13:30 麻布台 Hills 午餐休息", "14:00-16:30 回展區或慢逛麻布台/六本木周邊", "18:00 前後回日本橋，早休息準備第11日澀谷展望台"]
+        focus: "今日改成一日 Chiikawa / 角色商品補貨。由日本橋出發先攻東京站一番街 Chiikawa LAND / Character Street，買重物可先回酒店放低；下午按體力加原宿 Chiikawa LAND / Kiddy Land。",
+        transport: "堀留 Villa 酒店 → 東京站一番街：日本橋/人形町步行、地鐵或短程的士都方便。東京站 → 原宿可用 JR 山手線；若買太多，先回日本橋放低再出第二輪。",
+        timeline: ["10:30 東京站一番街 / Character Street 開局", "11:00 Chiikawa LAND TOKYO Station 主力補貨", "13:00 東京站午餐 / 大丸甜品休息", "15:00 視戰利品先回酒店放低，或轉原宿 Chiikawa LAND / Kiddy Land", "18:00 原宿或日本橋晚餐", "20:00 前回酒店整理戰利品，翌日準備 Shibuya Sky"]
       },
       {
         day: 11,
@@ -226,10 +226,10 @@
         ready: ["列好藥妝/電器清單和退稅護照。", "確認酒店附近超市/便利店。", "第一天不要買太多大件。"]
       },
       3: {
-        budget: { total: "約 ¥6,000-15,000 / 人 + 角色商品", lines: ["交通約 ¥600-1,000；池袋到澀谷可 JR/副都心線。", "Shibuya Sky 已移到7月7日，今日不用計展望台入場。", "Chiikawa Park / 角色商品按實際抽選與購買控制預算。"] },
-        transportSteps: ["秋葉原 → 池袋：JR 山手線最簡單。", "池袋 → 澀谷：JR 埼京線/山手線或副都心線。", "澀谷只做購物、晚餐和甜品，不趕 Shibuya Sky 入場。"],
+        budget: { total: "約 ¥5,000-12,000 / 人 + 小量角色商品", lines: ["交通約 ¥600-1,000；池袋到澀谷可 JR/副都心線。", "Chiikawa Park 今日不買入場票，無需計入場費。", "只買少量現場周邊，主力 Chiikawa shop 預算留給第10日。"] },
+        transportSteps: ["秋葉原 → 池袋：JR 山手線最簡單。", "池袋 Sunshine City / Chiikawa Park 外圍打卡，不入場不等抽選。", "池袋 → 澀谷：JR 埼京線/山手線或副都心線；澀谷只做購物、晚餐和甜品。"],
         food: ["池袋 Sunshine City：午餐選商場餐廳，穩定少風險。", "澀谷：PARCO / Scramble Square 餐廳，適合慢慢晚餐。", "甜品：宮下公園 / 澀谷咖啡店作休息點。"],
-        ready: ["Chiikawa 票/抽選截圖。", "澀谷購物清單與晚餐候補。", "角色商品優先清單，避免失控。"]
+        ready: ["Chiikawa Park 外圍地址與拍照點截圖。", "澀谷購物清單與晚餐候補。", "角色商品優先清單，避免第3日買太多。"]
       },
       4: {
         budget: { total: "約 ¥5,000-10,000 / 人", lines: ["地鐵/JR 約 ¥500-900；短程的士備用約 ¥1,500-2,500 / 車。", "築地早午餐約 ¥2,500-5,000；咖啡/甜品約 ¥800-1,500。", "東京鐵塔若入場需另計門票，純外拍免費。"] },
@@ -268,10 +268,10 @@
         ready: ["兩間酒店地址與入住時間截圖。", "行李重新分配，把後半段要用的放易取。", "洗衣/補給日用品。"]
       },
       10: {
-        budget: { total: "約 ¥9,000-18,000 / 人", lines: ["teamLab Borderless 門票以官方日期價格為準，需預約早場。", "地鐵約 ¥400-800；麻布台 Hills 餐飲約 ¥2,500-6,000。", "拍照/咖啡/甜品另計。"] },
-        transportSteps: ["日本橋/人形町 → 神谷町方向，步行接麻布台 Hills。", "teamLab 早場入場，預留 3-4 小時以上。", "晚餐不要排太遠，翌日還要留精神去 Shibuya Sky 15:40。"],
-        food: ["麻布台 Hills：午餐、咖啡、甜品集中，適合慢慢拍照休息。", "六本木/神谷町周邊可作候補。", "晚餐回日本橋會更穩。"],
-        ready: ["teamLab QR、入場時間、充電。", "穿淺色/好拍但好走的鞋。", "相機/手機容量清空。"]
+        budget: { total: "約 ¥6,000-20,000+ / 人", lines: ["無展覽門票；預算主要留給 Chiikawa / 角色商品。", "日本橋往返東京站/原宿交通約 ¥500-1,200。", "午餐、甜品、晚餐約 ¥3,000-7,000；購物另計，建議先定上限。"] },
+        transportSteps: ["日本橋/人形町 → 東京站一番街：可地鐵/JR/短程的士，重點是少走冤枉路。", "東京站 Chiikawa LAND / Character Street 買完重物，可先回日本橋酒店放低。", "下午若體力足，再 JR 山手線去原宿 Chiikawa LAND / Kiddy Land；晚上早回酒店。"],
+        food: ["東京站：拉麵街、Character Street 附近餐廳、大丸食品樓都方便。", "原宿：咖啡、甜品、輕食多，但避開太熱門長隊。", "買太多時回日本橋附近晚餐，減少拎袋移動。"],
+        ready: ["Chiikawa 欲買清單與預算上限。", "東京站一番街 / 原宿店 Google 地圖收藏。", "退稅護照、環保袋、可摺購物袋。", "不要太夜，翌日 15:40 Shibuya Sky 固定。"]
       },
       11: {
         budget: { total: "約 ¥8,000-18,000 / 人 + 購物", lines: ["Shibuya Sky 已購買 7月7日 15:40 入場票，票券費用按已付款為準。", "日本橋往返澀谷交通約 ¥500-1,000。", "澀谷午餐/晚餐/甜品約 ¥4,000-8,000；購物另計。"] },
@@ -314,14 +314,14 @@
     const dayShortcuts = {
       1: { origin: "Narita Airport Terminal 2", destination: "Hotel Livemax Akihabara Kita", transportLabel: "成田T2 → 秋葉原酒店", foodQuery: "restaurants near Hotel Livemax Akihabara Kita Akihabara", foodLabel: "酒店附近晚餐" },
       2: { origin: "Hotel Livemax Akihabara Kita", destination: "Ameyoko Shopping District Ueno", transportLabel: "酒店 → 上野/阿美橫町", foodQuery: "restaurants Ameyoko Ueno Tokyo", foodLabel: "阿美橫町美食" },
-      3: { origin: "Hotel Livemax Akihabara Kita", destination: "Shibuya PARCO Tokyo", waypoints: ["Sunshine City Ikebukuro Tokyo"], transportLabel: "秋葉原 → 池袋 → 澀谷購物", foodQuery: "restaurants near Shibuya PARCO Tokyo", foodLabel: "澀谷晚餐" },
+      3: { origin: "Hotel Livemax Akihabara Kita", destination: "Shibuya PARCO Tokyo", waypoints: ["Chiikawa Park Tokyo", "Sunshine City Ikebukuro Tokyo"], transportLabel: "秋葉原 → Chiikawa Park 外圍 → 澀谷", foodQuery: "restaurants near Shibuya PARCO Tokyo", foodLabel: "澀谷晚餐" },
       4: { origin: "Hotel Livemax Akihabara Kita", destination: "Tokyo Tower", waypoints: ["Tsukiji Outer Market"], transportLabel: "秋葉原 → 築地 → 東京鐵塔", foodQuery: "restaurants Tsukiji Outer Market Tokyo", foodLabel: "築地早午餐" },
       5: { origin: "Hotel Livemax Akihabara Kita", destination: "Tokyo DisneySea", transportLabel: "酒店 → 東京迪士尼海洋", foodQuery: "restaurants Tokyo DisneySea", foodLabel: "迪士尼海洋餐廳" },
       6: { origin: "Hotel Livemax Akihabara Kita", destination: "Tokyo Skytree Town Solamachi", waypoints: ["Kasukabe Station"], transportLabel: "秋葉原 → 春日部 → 晴空塔", foodQuery: "restaurants Tokyo Solamachi Skytree", foodLabel: "Solamachi 晚餐" },
       7: { origin: "Hotel Livemax Akihabara Kita", destination: "Tokyo Character Street", waypoints: ["GINZA SIX Tokyo"], transportLabel: "秋葉原 → 銀座 → 東京站", foodQuery: "restaurants Tokyo Ramen Street Tokyo Station", foodLabel: "東京站晚餐" },
       8: { origin: "Hotel Livemax Akihabara Kita", destination: "Isetan Shinjuku Tokyo", waypoints: ["Meiji Jingu Tokyo", "Omotesando Hills"], transportLabel: "秋葉原 → 原宿表參道 → 新宿", foodQuery: "restaurants Shinjuku Isetan Lumine Tokyo", foodLabel: "新宿晚餐" },
       9: { origin: "Hotel Livemax Akihabara Kita", destination: "Hotel Horidome Villa Tokyo", transportLabel: "秋葉原酒店 → 日本橋酒店", foodQuery: "restaurants Ningyocho Nihonbashi Tokyo", foodLabel: "人形町/日本橋午餐" },
-      10: { origin: "Hotel Horidome Villa Tokyo", destination: "teamLab Borderless Azabudai Hills", transportLabel: "日本橋酒店 → teamLab", foodQuery: "restaurants Azabudai Hills Tokyo", foodLabel: "麻布台 Hills 餐廳" },
+      10: { origin: "Hotel Horidome Villa Tokyo", destination: "Chiikawa Land Tokyo Station", waypoints: ["Tokyo Character Street", "Chiikawa Land Harajuku"], transportLabel: "日本橋酒店 → Chiikawa shop", foodQuery: "restaurants Tokyo Character Street Tokyo Station", foodLabel: "東京站/角色街餐廳" },
       11: { origin: "Hotel Horidome Villa Tokyo", destination: "Shibuya Sky Tokyo", waypoints: ["Shibuya PARCO Tokyo"], transportLabel: "日本橋酒店 → 澀谷 → Shibuya Sky", foodQuery: "restaurants near Shibuya Scramble Square", foodLabel: "澀谷展望台晚餐" },
       12: { origin: "Hotel Horidome Villa Tokyo", destination: "Shinjuku Station", transportLabel: "酒店 → 富士山團集合點", foodQuery: "restaurants near Shinjuku Station breakfast", foodLabel: "集合前早餐" },
       13: { origin: "Hotel Horidome Villa Tokyo", destination: "Enoshima Station", waypoints: ["Kamakura Station", "Kotoku-in Kamakura"], transportLabel: "日本橋 → 鎌倉 → 江之島", foodQuery: "restaurants Komachi dori Kamakura", foodLabel: "鎌倉小町通美食" },
@@ -350,14 +350,14 @@
     const todayModeMeta = {
       1: { leave: "14:45 到埗後", target: "18:00 辦理入住", statuses: ["需檢查", "抵達"], checks: ["護照與入境 QR", "eSIM / Suica 可用", "Skyliner / 交通付款準備好", "酒店地址已截圖"] },
       2: { leave: "10:00", target: "上野午餐", statuses: ["彈性", "雨天可行"], checks: ["帶購物袋", "酒店附近車站先收藏", "退稅護照帶身上", "雨具按天氣決定"] },
-      3: { leave: "10:00", target: "澀谷晚餐", statuses: ["角色店", "購物"], checks: ["Chiikawa / 候補方案確認", "池袋路線", "澀谷晚餐候補", "不要趕展望台"] },
+      3: { leave: "10:00", target: "澀谷晚餐", statuses: ["外圍打卡", "購物"], checks: ["不買 Chiikawa Park 票", "池袋路線", "澀谷晚餐候補", "第10日才主力買 Chiikawa"] },
       4: { leave: "09:45", target: "室內開局", statuses: ["留意天氣", "彈性"], checks: ["早上先看雨量雷達", "銀座/東京站室內候補已收藏", "雨弱後再去築地/東京鐵塔", "雨傘/防水鞋"] },
       5: { leave: "06:25-06:40", target: "07:45 迪士尼海洋", statuses: ["固定", "已預約", "帶雨具"], checks: ["東京迪士尼海洋門票已加入官方應用程式", "信用卡已綁定", "雨衣/防水袋/替換襪", "行動電源 + eSIM 可用"] },
       6: { leave: "09:30", target: "17:00 Solamachi", statuses: ["動漫", "避雨基地"], checks: ["春日部/押上路線收藏", "小新核心點優先", "驟雨即提早轉 Solamachi", "買重物後早回酒店"] },
       7: { leave: "10:30", target: "東京站晚餐", statuses: ["雨天可行", "購物"], checks: ["退稅護照", "購物清單", "東京站一番街收藏", "行李空間確認"] },
       8: { leave: "09:30", target: "17:30 新宿", statuses: ["週末", "購物"], checks: ["好走鞋", "明治神宮先去", "新宿百貨收藏", "轉酒店前整理行李"] },
       9: { leave: "10:00", target: "17:00 辦理入住", statuses: ["轉酒店", "低壓"], checks: ["舊酒店退房", "的士/行李路線", "新酒店地址截圖", "不要排預約景點"] },
-      10: { leave: "09:00-09:30", target: "10:00 teamLab", statuses: ["已預約", "拍照日"], checks: ["teamLab QR", "相機/手機容量", "好走鞋", "晚上早回酒店"] },
+      10: { leave: "10:00", target: "Chiikawa shop 補貨", statuses: ["購物日", "低預約"], checks: ["東京站一番街收藏", "原宿店候補", "購物袋/退稅護照", "晚上早回酒店"] },
       11: { leave: "11:30", target: "15:40 Shibuya Sky", statuses: ["已購票", "固定"], checks: ["15:40 票券 QR", "14:45 前到入口", "澀谷晚餐候補", "行動電源"] },
       12: { leave: "06:15-06:25", target: "07:15 集合", statuses: ["看天氣", "自然景"], checks: ["前一晚查能見度", "集合點截圖", "暈車藥/外套", "雨天啟動天氣模擬"] },
       13: { leave: "08:30-09:00", target: "鎌倉午前到", statuses: ["看天氣", "海邊"], checks: ["查沿海風雨", "江之電狀態", "防滑鞋", "強風改第14日"] },
@@ -544,9 +544,11 @@
       "Tokyo DisneySea": "東京迪士尼海洋",
       "Shibuya Sky Tokyo": "Shibuya Sky 澀谷展望台",
       "Isetan Shinjuku Tokyo": "新宿伊勢丹",
-      "teamLab Borderless Azabudai Hills": "teamLab Borderless 麻布台 Hills",
       "Hotel Horidome Villa Tokyo": "堀留 Villa 酒店",
       "Tokyo Character Street": "東京站一番街角色街",
+      "Chiikawa Park Tokyo": "Chiikawa Park 外圍",
+      "Chiikawa Land Tokyo Station": "Chiikawa LAND 東京站",
+      "Chiikawa Land Harajuku": "Chiikawa LAND 原宿",
       "Narita Airport Terminal 2": "成田機場第2客運大樓",
       "Keisei Ueno Station": "京成上野站",
       "Akihabara Station Tokyo": "秋葉原站",
@@ -586,8 +588,8 @@
         desc: "把整趟最常用點位集中在一張地圖：兩間酒店、主要購物區、重點景點與成田回程。",
         origin: "Hotel Livemax Akihabara Kita",
         destination: "Narita Airport Terminal 2",
-        stops: ["Hotel Livemax Akihabara Kita", "Tokyo DisneySea", "Shibuya Sky Tokyo", "Isetan Shinjuku Tokyo", "teamLab Borderless Azabudai Hills", "Hotel Horidome Villa Tokyo", "Tokyo Character Street", "Narita Airport Terminal 2"],
-        query: "Hotel Livemax Akihabara Kita Tokyo DisneySea Shibuya Sky Isetan Shinjuku teamLab Borderless Hotel Horidome Villa Tokyo Character Street Narita Airport Terminal 2",
+        stops: ["Hotel Livemax Akihabara Kita", "Chiikawa Park Tokyo", "Tokyo DisneySea", "Shibuya Sky Tokyo", "Isetan Shinjuku Tokyo", "Hotel Horidome Villa Tokyo", "Chiikawa Land Tokyo Station", "Tokyo Character Street", "Narita Airport Terminal 2"],
+        query: "Hotel Livemax Akihabara Kita Chiikawa Park Tokyo Tokyo DisneySea Shibuya Sky Isetan Shinjuku Hotel Horidome Villa Tokyo Chiikawa Land Tokyo Station Tokyo Character Street Narita Airport Terminal 2",
         embedQuery: "Tokyo Station",
         zoom: 11,
         note: "這個總覽適合出發前收藏重點。實際移動時用下面各區路線，會比一次導航全部點更準。"
@@ -609,7 +611,7 @@
         day: "第9-16日",
         icon: "apartment",
         title: "酒店｜堀留 Villa",
-        desc: "後半段基地。teamLab、富士山/鎌倉集合、東京站手信與成田回程都靠這裡控風險。",
+        desc: "後半段基地。東京站角色街、富士山/鎌倉集合、東京站手信與成田回程都靠這裡控風險。",
         origin: "Hotel Livemax Akihabara Kita",
         destination: "Hotel Horidome Villa Tokyo",
         stops: ["Hotel Livemax Akihabara Kita", "Hotel Horidome Villa Tokyo", "Ningyocho Station Tokyo", "Kodemmacho Station Tokyo", "Tokyo Station"],
@@ -639,6 +641,18 @@
         stops: ["Hotel Horidome Villa Tokyo", "Shibuya PARCO Tokyo", "Miyashita Park Shibuya", "Shibuya Sky Tokyo"],
         query: "Hotel Horidome Villa Shibuya PARCO Miyashita Park Shibuya Sky",
         note: "Shibuya Sky 已購買7月7日15:40票；如果下雨或強風，澀谷購物仍可保留，展望台按官方營運調整。"
+      },
+      chiikawa: {
+        label: "Chiikawa",
+        day: "第3/10日",
+        icon: "favorite",
+        title: "Chiikawa 路線｜Park 外圍 + 官方店補貨",
+        desc: "第3日只到 Chiikawa Park 外圍打卡；第10日主攻東京站一番街 Chiikawa LAND，體力足再加原宿店。",
+        origin: "Hotel Horidome Villa Tokyo",
+        destination: "Chiikawa Land Tokyo Station",
+        stops: ["Chiikawa Park Tokyo", "Chiikawa Land Tokyo Station", "Tokyo Character Street", "Chiikawa Land Harajuku"],
+        query: "Chiikawa Park Tokyo Chiikawa Land Tokyo Station Tokyo Character Street Chiikawa Land Harajuku",
+        note: "Chiikawa Park 不買票不入場；官方店可能有整理券/排隊/缺貨，出發前用官方 X 或店鋪公告再查一次。"
       },
       harajuku: {
         label: "原宿表參道",
@@ -692,7 +706,7 @@
 
     const WEATHER_PLAN_VERSION = "天氣建議根據 2026年6月23日已查預報整理；7月戶外日仍請在出發前 24-48 小時重查。";
 
-    const OFFLINE_PACK_CACHE = "tokyo-trip-manual-offline-pack-v12-5-shibuya-sky-1540";
+    const OFFLINE_PACK_CACHE = "tokyo-trip-manual-offline-pack-v12-6-chiikawa-shop";
     const OFFLINE_PACK = [
       "./",
       "./index.html",

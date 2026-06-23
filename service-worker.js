@@ -1,4 +1,4 @@
-const CACHE_NAME = "tokyo-trip-v12-5-shibuya-sky-1540";
+const CACHE_NAME = "tokyo-trip-v12-6-chiikawa-shop";
 const CACHE_PREFIX = "tokyo-trip-";
 const MANUAL_CACHE_PREFIX = "tokyo-trip-manual-offline-pack";
 const APP_SHELL = [
