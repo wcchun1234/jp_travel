@@ -1,4 +1,4 @@
-const CACHE_NAME = "tokyo-trip-v12-4-zh-hant";
+const CACHE_NAME = "tokyo-trip-v12-5-shibuya-sky-1540";
 const CACHE_PREFIX = "tokyo-trip-";
 const MANUAL_CACHE_PREFIX = "tokyo-trip-manual-offline-pack";
 const APP_SHELL = [
@@ -65,6 +65,32 @@ self.addEventListener("fetch", event => {
   const url = new URL(event.request.url);
   if (url.origin !== self.location.origin) {
     event.respondWith(fetch(event.request));
+    return;
+  }
+  if (
+    event.request.mode === "navigate" ||
+    url.pathname.endsWith(".html") ||
+    url.pathname.endsWith(".js") ||
+    url.pathname.endsWith(".css") ||
+    url.pathname.endsWith(".webmanifest")
+  ) {
+    event.respondWith(
+      fetch(event.request).then(response => {
+        if (response && response.ok) {
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(event.request, copy));
+        }
+        return response;
+      }).catch(() =>
+        caches.match(event.request, { ignoreSearch: true }).then(response => {
+          if (response) return response;
+          if (event.request.mode === "navigate") {
+            return caches.match("./tokyo_itinerary.html").then(fallback => fallback || caches.match("./offline.html"));
+          }
+          return caches.match("./offline.html");
+        })
+      )
+    );
     return;
   }
   event.respondWith(

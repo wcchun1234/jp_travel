@@ -1,7 +1,7 @@
     const itinerary = [
       { day: 1, date: "6月27日 週六", plan: "香港 → 成田機場 → Skyliner → 秋葉原酒店辦理入住", base: "秋葉原", strategy: "到埗日休息。", row: "" },
       { day: 2, date: "6月28日 週日", plan: "秋葉原電器街 ＋ 上野 ＋ 阿美橫町購物街 ＋ 御徒町", base: "秋葉原", strategy: "原區輕鬆熟習，大雨可退守室內商場。", row: "" },
-      { day: 3, date: "6月29日 週一", plan: "Chiikawa Park ＋ 池袋 Sunshine City ＋ 澀谷 PARCO / 宮下公園", base: "秋葉原", strategy: "平日避人潮。Shibuya Sky 已移到7月7日，今日專心角色店與澀谷購物。", row: "row-indigo" },
+      { day: 3, date: "6月29日 週一", plan: "Chiikawa Park ＋ 池袋 Sunshine City ＋ 澀谷 PARCO / 宮下公園", base: "秋葉原", strategy: "平日避人潮。今日專心角色店、池袋與澀谷購物，不排展望台。", row: "row-indigo" },
       { day: 4, date: "6月30日 週二", plan: "雨早上先銀座/東京站室內 → 築地 ＋ 東京鐵塔下午散策", base: "秋葉原", strategy: "早上有雨先退守室內；雨弱後再做築地、增上寺、芝公園東京鐵塔。", row: "" },
       { day: 5, date: "7月1日 週三", plan: "東京迪士尼海洋全日爆玩", base: "秋葉原", strategy: "固定門票日。帶雨具，室內表演/餐廳與官方應用程式/DPA 作雨天防線。", row: "row-disney" },
       { day: 6, date: "7月2日 週四", plan: "春日部小新 → 晴空塔 Solamachi 雨天避難購物晚餐", base: "秋葉原", strategy: "春日部輕量化；若驟雨變強，提早轉 Solamachi 室內商場。", row: "row-amber" },
@@ -9,7 +9,7 @@
       { day: 8, date: "7月4日 週六", plan: "明治神宮 ＋ 原宿竹下通 ＋ 表參道 ＋ 新宿夜購", base: "秋葉原", strategy: "週末先走大空間神宮/表參道，傍晚轉新宿百貨與夜景。", row: "" },
       { day: 9, date: "7月5日 週日", plan: "轉酒店（的士大移防）＋ 日本橋/東京站輕鬆熟習", base: "日本橋", strategy: "轉酒店不排預約景點，先安頓行李與新住宿基地。", row: "row-indigo" },
       { day: 10, date: "7月6日 週一", plan: "teamLab Borderless 早場 ＋ 麻布台 Hills 沉浸式約會日", base: "日本橋", strategy: "早上入場，接近預留一整日慢慢看展與拍照。晚上早回酒店為富士山蓄力。", row: "row-indigo" },
-      { day: 11, date: "7月7日 週二", plan: "澀谷購物 ＋ Shibuya Sky 黃昏展望台", base: "日本橋", strategy: "Shibuya Sky 改到7月7日。黃昏前看風雨與能見度；富士山改由第12-14日搶好天窗口。", row: "row-indigo dynamic-day", dynamic: true },
+      { day: 11, date: "7月7日 週二", plan: "澀谷購物 ＋ Shibuya Sky 15:40 已購票入場", base: "日本橋", strategy: "Shibuya Sky 已買7月7日15:40門票。當日固定保留；富士山改由第12-14日搶好天窗口。", row: "row-indigo dynamic-day", dynamic: true },
       { day: 12, date: "7月8日 週三", plan: "富士山 / 河口湖絕景全景一日遊", base: "日本橋", strategy: "富士山第一好天候補日。若雲厚或大雨，與第14日市區緩衝互換。", row: "row-rose dynamic-day", dynamic: true },
       { day: 13, date: "7月9日 週四", plan: "鎌倉古都 / 江之島一日遊（大佛、江之電、湘南海岸）", base: "日本橋", strategy: "次要好天優先日。沿海暴雨強風時隨時與第14日互換。", row: "row-amber dynamic-day", dynamic: true },
       { day: 14, date: "7月10日 週五", plan: "合羽橋 ＋ 蔵前 ＋ 清澄白河 ＋ 新宿購物緩衝", base: "日本橋", strategy: "終極天氣緩衝日。若第12或13日天氣差，今日優先補富士山或鎌倉；若已完成就做市區咖啡與新宿購物。", row: "row-emerald dynamic-day", dynamic: true },
@@ -50,7 +50,7 @@
         pace: "中高",
         image: "https://images.unsplash.com/photo-1542931287-023b922fa89b?auto=format&fit=crop&w=300&q=70",
         open: false,
-        focus: "以預約型景點為核心。Chiikawa Park 若未搶到票，改為 Sunshine City / Animate / Pokemon Center。Shibuya Sky 已改到7月7日，今日不用再趕黃昏展望台。",
+        focus: "以預約型景點為核心。Chiikawa Park 若未搶到票，改為 Sunshine City / Animate / Pokemon Center。今日只做池袋與澀谷購物，不趕展望台。",
         transport: "秋葉原站 JR 山手線到池袋；池袋到澀谷可用 JR 埼京線或副都心線。晚餐後用山手線或銀座線回秋葉原。",
         timeline: ["10:30 池袋 Sunshine City / 角色商店", "Chiikawa Park 按預約時段入場", "15:30 前往澀谷 PARCO / 宮下公園 / Scramble Square", "18:00 澀谷晚餐與甜品", "20:00 左右回秋葉原，不硬排展望台"]
       },
@@ -140,15 +140,15 @@
       },
       {
         day: 11,
-        title: "7月7日（週二）｜澀谷 ＋ Shibuya Sky 黃昏展望台",
+        title: "7月7日（週二）｜澀谷 ＋ Shibuya Sky 15:40 已購票",
         mood: "fun",
         type: "展望台約會",
         pace: "中等",
         image: "https://images.unsplash.com/photo-1542931287-023b922fa89b?auto=format&fit=crop&w=300&q=70",
         open: false,
-        focus: "Shibuya Sky 改到7月7日。白天用澀谷/新宿室內購物慢慢鋪排，黃昏 18:15-18:45 入場；若強風雨影響露天區，保留室內購物與餐廳作備案。",
-        transport: "日本橋/人形町出發，可用銀座線、半藏門線或 JR 轉乘到澀谷。回程用銀座線/半藏門線轉回日本橋，避免太夜跨區。",
-        timeline: ["11:00 日本橋慢出發", "12:00 澀谷 PARCO / Scramble Square 午餐購物", "15:30 宮下公園 / 咖啡休息", "18:15-18:45 Shibuya Sky 入場", "20:00 澀谷或新宿晚餐，之後回日本橋"]
+        focus: "Shibuya Sky 已買 7月7日 15:40 入場票。白天用澀谷室內購物慢慢鋪排，15:00 前到 Shibuya Scramble Square 找入口；若強風雨影響露天區，仍保留室內展望、商場與餐廳作備案。",
+        transport: "日本橋/人形町出發，可用銀座線、半藏門線或 JR 轉乘到澀谷。建議 13:30-14:00 抵達澀谷，先午餐/寄物/熟習入口，再準時入場。",
+        timeline: ["11:30 日本橋出發往澀谷", "12:30 澀谷 PARCO / Scramble Square 午餐購物", "14:45 到 Shibuya Scramble Square，先找入口與整理票券", "15:40 Shibuya Sky 已購票入場", "17:30 後澀谷晚餐或轉新宿，之後回日本橋"]
       },
       {
         day: 12,
@@ -269,15 +269,15 @@
       },
       10: {
         budget: { total: "約 ¥9,000-18,000 / 人", lines: ["teamLab Borderless 門票以官方日期價格為準，需預約早場。", "地鐵約 ¥400-800；麻布台 Hills 餐飲約 ¥2,500-6,000。", "拍照/咖啡/甜品另計。"] },
-        transportSteps: ["日本橋/人形町 → 神谷町方向，步行接麻布台 Hills。", "teamLab 早場入場，預留 3-4 小時以上。", "晚餐不要排太遠，翌日還要留精神去澀谷黃昏展望台。"],
+        transportSteps: ["日本橋/人形町 → 神谷町方向，步行接麻布台 Hills。", "teamLab 早場入場，預留 3-4 小時以上。", "晚餐不要排太遠，翌日還要留精神去 Shibuya Sky 15:40。"],
         food: ["麻布台 Hills：午餐、咖啡、甜品集中，適合慢慢拍照休息。", "六本木/神谷町周邊可作候補。", "晚餐回日本橋會更穩。"],
         ready: ["teamLab QR、入場時間、充電。", "穿淺色/好拍但好走的鞋。", "相機/手機容量清空。"]
       },
       11: {
-        budget: { total: "約 ¥8,000-18,000 / 人 + 購物", lines: ["Shibuya Sky 票價以官方當日為準，建議黃昏時段。", "日本橋往返澀谷交通約 ¥500-1,000。", "澀谷午餐/晚餐/甜品約 ¥4,000-8,000；購物另計。"] },
-        transportSteps: ["日本橋/人形町 → 澀谷：可用半藏門線/銀座線/JR 轉乘，按 Google 地圖即時選最少轉乘。", "Shibuya Sky 入場前 30-45 分鐘到澀谷 Scramble Square，避免找入口慌張。", "回程用銀座線/半藏門線轉回日本橋，不要太夜才離開。"],
+        budget: { total: "約 ¥8,000-18,000 / 人 + 購物", lines: ["Shibuya Sky 已購買 7月7日 15:40 入場票，票券費用按已付款為準。", "日本橋往返澀谷交通約 ¥500-1,000。", "澀谷午餐/晚餐/甜品約 ¥4,000-8,000；購物另計。"] },
+        transportSteps: ["日本橋/人形町 → 澀谷：可用半藏門線/銀座線/JR 轉乘，按 Google 地圖即時選最少轉乘。", "15:40 入場，建議 14:45-15:00 到澀谷 Scramble Square，避免找入口慌張。", "回程用銀座線/半藏門線轉回日本橋，不要太夜才離開。"],
         food: ["澀谷 PARCO / Scramble Square 餐廳，適合接展望台。", "宮下公園或澀谷咖啡店作下午休息點。", "若天氣差，直接把重點放在商場晚餐與甜品。"],
-        ready: ["Shibuya Sky QR 與入場時間。", "黃昏前確認能見度、風速與官方營運。", "行動電源、外套；露天區有風。"]
+        ready: ["Shibuya Sky 7月7日15:40 QR / 票券截圖。", "14:45 前到場找入口。", "確認能見度、風速與官方營運。", "行動電源、外套；露天區有風。"]
       },
       12: {
         budget: { total: "約 ¥12,000-25,000 / 人", lines: ["一日遊 / 巴士團價格依平台與路線而定；集合交通另計。", "早餐/午餐/晚餐約 ¥3,000-6,000。", "天氣差時不要硬去，改第14日可保護體驗。"] },
@@ -358,7 +358,7 @@
       8: { leave: "09:30", target: "17:30 新宿", statuses: ["週末", "購物"], checks: ["好走鞋", "明治神宮先去", "新宿百貨收藏", "轉酒店前整理行李"] },
       9: { leave: "10:00", target: "17:00 辦理入住", statuses: ["轉酒店", "低壓"], checks: ["舊酒店退房", "的士/行李路線", "新酒店地址截圖", "不要排預約景點"] },
       10: { leave: "09:00-09:30", target: "10:00 teamLab", statuses: ["已預約", "拍照日"], checks: ["teamLab QR", "相機/手機容量", "好走鞋", "晚上早回酒店"] },
-      11: { leave: "11:00", target: "18:15 Shibuya Sky", statuses: ["需預約", "看能見度"], checks: ["Shibuya Sky 票券", "黃昏前查風雨", "澀谷晚餐候補", "行動電源"] },
+      11: { leave: "11:30", target: "15:40 Shibuya Sky", statuses: ["已購票", "固定"], checks: ["15:40 票券 QR", "14:45 前到入口", "澀谷晚餐候補", "行動電源"] },
       12: { leave: "06:15-06:25", target: "07:15 集合", statuses: ["看天氣", "自然景"], checks: ["前一晚查能見度", "集合點截圖", "暈車藥/外套", "雨天啟動天氣模擬"] },
       13: { leave: "08:30-09:00", target: "鎌倉午前到", statuses: ["看天氣", "海邊"], checks: ["查沿海風雨", "江之電狀態", "防滑鞋", "強風改第14日"] },
       14: { leave: "10:30", target: "緩衝日", statuses: ["緩衝", "雨天可行"], checks: ["先決定是否補戶外日", "咖啡店收藏", "購物清單", "買重物先回酒店"] },
@@ -385,7 +385,7 @@
         date: "2026-06-29",
         risk: "多雲，雨勢較低",
         headline: "池袋 + 澀谷購物可保留",
-        advice: "這天適合池袋、澀谷與角色店購物。Shibuya Sky 已改到7月7日，所以今日不用趕黃昏展望台；差天氣就把重點放回 PARCO / Sunshine City。",
+        advice: "這天適合池袋、澀谷與角色店購物。今日不用趕展望台；差天氣就把重點放回 PARCO / Sunshine City。",
         action: "保留體力，澀谷晚餐後回秋葉原。"
       },
       4: {
@@ -429,7 +429,7 @@
       8: ["戶外", "購物"],
       9: ["固定", "轉酒店"],
       10: ["固定", "室內"],
-      11: ["黃昏展望", "需看能見度"],
+      11: ["已購票", "需看能見度"],
       12: ["需看能見度", "可對調"],
       13: ["戶外", "沿海風險"],
       14: ["雨天安全", "終極緩衝"],
@@ -441,13 +441,13 @@
       A: {
         title: "方案 A｜預設好天氣行程",
         items: [
-          "7月7日第11日：澀谷購物 + Shibuya Sky 黃昏展望台。",
+          "7月7日第11日：澀谷購物 + Shibuya Sky 15:40 已購票入場。",
           "7月8日第12日：富士山 / 河口湖一日遊。",
           "7月9日第13日：鎌倉 / 江之島一日遊。",
           "7月10日第14日：合羽橋 + 蔵前 + 清澄白河 + 新宿購物緩衝。"
         ],
         updates: {
-          11: ["澀谷購物 ＋ Shibuya Sky 黃昏展望台", "7月7日固定做 Shibuya Sky；黃昏前再按風雨與能見度確認露天區。"],
+          11: ["澀谷購物 ＋ Shibuya Sky 15:40 已購票入場", "7月7日15:40固定入場；14:45前到 Shibuya Scramble Square 找入口。"],
           12: ["富士山 / 河口湖絕景全景一日遊", "富士山第一好天候補日。視能見度隨時與第14日互換。"],
           13: ["鎌倉古都 / 江之島一日遊（大佛、江之電、湘南海岸）", "次要好天優先日。沿海暴雨強風時隨時與第14日互換。"],
           14: ["合羽橋 ＋ 蔵前 ＋ 清澄白河 ＋ 新宿購物緩衝", "若富士山與鎌倉已完成，今日做市區咖啡與新宿購物；否則用來補戶外日。"]
@@ -456,13 +456,13 @@
       B: {
         title: "方案 B｜7月8日富士山大雨，與第14日對調",
         items: [
-          "7月7日第11日：Shibuya Sky 維持，黃昏前查風雨。",
+          "7月7日第11日：Shibuya Sky 15:40 維持，提早到場。",
           "7月8日第12日：改做合羽橋 + 蔵前 + 清澄白河 / 新宿購物。",
           "7月9日第13日：鎌倉維持。",
           "7月10日第14日：若轉晴，補做富士山 / 河口湖。"
         ],
         updates: {
-          11: ["澀谷購物 ＋ Shibuya Sky 黃昏展望台", "Shibuya Sky 維持7月7日；若露天區受風雨影響，保留室內購物與餐廳。"],
+          11: ["澀谷購物 ＋ Shibuya Sky 15:40 已購票入場", "Shibuya Sky 維持7月7日15:40；若露天區受風雨影響，保留室內展望、購物與餐廳。"],
           12: ["合羽橋 ＋ 蔵前 ＋ 清澄白河 ＋ 新宿購物緩衝", "因富士山天雨，今日改為市區低風險行程。"],
           13: ["鎌倉古都 / 江之島一日遊（大佛、江之電、湘南海岸）", "維持次優先好天日。"],
           14: ["富士山 / 河口湖絕景全景一日遊", "若能見度回升，今日補做富士山。"]
@@ -471,13 +471,13 @@
       C: {
         title: "方案 C｜7月9日鎌倉強風雨，與第14日互換",
         items: [
-          "7月7日第11日：Shibuya Sky 照原定完成。",
+          "7月7日第11日：Shibuya Sky 15:40 照原定完成。",
           "7月8日第12日：富士山照原定完成。",
           "7月9日第13日：改為大型購物補遺。",
           "7月10日第14日：天氣回穩後補鎌倉/江之島。"
         ],
         updates: {
-          11: ["澀谷購物 ＋ Shibuya Sky 黃昏展望台", "已順利完成。"],
+          11: ["澀谷購物 ＋ Shibuya Sky 15:40 已購票入場", "已順利完成。"],
           12: ["富士山 / 河口湖絕景全景一日遊", "已順利完成。"],
           13: ["全東京最大購物補遺（新宿/澀谷/東京站）", "因沿海強風雨，今日與第14日互換，先做室內購物。"],
           14: ["鎌倉古都 / 江之島一日遊（大佛、江之電、湘南海岸）", "利用緩衝日補上鎌倉。"]
@@ -486,13 +486,13 @@
       D: {
         title: "方案 D｜富士山與鎌倉兩日皆遇雨",
         items: [
-          "7月7日第11日：Shibuya Sky 維持，露天區視風雨決定。",
+          "7月7日第11日：Shibuya Sky 15:40 維持，露天區視風雨決定。",
           "7月8日第12日：退守市區咖啡 / 新宿購物。",
           "7月9日第13日：若沿海仍差，改室內購物補遺。",
           "7月10日第14日：搶較好天補富士山或鎌倉，二選一保體驗。"
         ],
         updates: {
-          11: ["澀谷購物 ＋ Shibuya Sky 黃昏展望台", "Shibuya Sky 維持7月7日；若露天區關閉或能見度差，保留室內澀谷約會。"],
+          11: ["澀谷購物 ＋ Shibuya Sky 15:40 已購票入場", "Shibuya Sky 維持7月7日15:40；若露天區關閉或能見度差，保留室內澀谷約會。"],
           12: ["合羽橋 ＋ 蔵前 ＋ 清澄白河 ＋ 新宿購物緩衝", "全面退守市區低風險行程。"],
           13: ["全東京最大購物補遺（新宿/澀谷/東京站）", "避開沿海惡劣天氣，保留鎌倉給明日；台場不作雨天優先。"],
           14: ["富士山 / 河口湖 或 鎌倉 / 江之島二選一", "按當天能見度與沿海風雨，選體驗較好的戶外日；另一個放棄或改市區。"]
@@ -632,13 +632,13 @@
         label: "澀谷",
         day: "第11日",
         icon: "favorite",
-        title: "第11日｜澀谷 → Shibuya Sky 黃昏",
-        desc: "把展望台移到7月7日，白天慢逛澀谷，黃昏上 Shibuya Sky 看天氣窗口。",
+        title: "第11日｜澀谷 → Shibuya Sky 15:40",
+        desc: "Shibuya Sky 已買7月7日15:40入場票，白天慢逛澀谷，14:45前到入口。",
         origin: "Hotel Horidome Villa Tokyo",
         destination: "Shibuya Sky Tokyo",
         stops: ["Hotel Horidome Villa Tokyo", "Shibuya PARCO Tokyo", "Miyashita Park Shibuya", "Shibuya Sky Tokyo"],
         query: "Hotel Horidome Villa Shibuya PARCO Miyashita Park Shibuya Sky",
-        note: "Shibuya Sky 要預約黃昏票；如果下雨或強風，澀谷購物仍可保留，展望台按官方營運調整。"
+        note: "Shibuya Sky 已購買7月7日15:40票；如果下雨或強風，澀谷購物仍可保留，展望台按官方營運調整。"
       },
       harajuku: {
         label: "原宿表參道",
@@ -692,7 +692,7 @@
 
     const WEATHER_PLAN_VERSION = "天氣建議根據 2026年6月23日已查預報整理；7月戶外日仍請在出發前 24-48 小時重查。";
 
-    const OFFLINE_PACK_CACHE = "tokyo-trip-manual-offline-pack-v12-4-zh-hant";
+    const OFFLINE_PACK_CACHE = "tokyo-trip-manual-offline-pack-v12-5-shibuya-sky-1540";
     const OFFLINE_PACK = [
       "./",
       "./index.html",
@@ -732,7 +732,6 @@
       "雨天安全": "rain-safe",
       "室內先行": "indoor-first",
       "需看能見度": "visibility-needed",
-      "黃昏展望": "evening-view",
       "留意天氣": "rain-aware",
       "戶外順延": "outdoor-later",
       "固定": "fixed",
@@ -809,9 +808,9 @@
       if (day === 11) {
         return {
           risk: "展望台風雨檢查",
-          headline: "Shibuya Sky 看黃昏能見度",
-          advice: "Shibuya Sky 已移到7月7日。出發前先查風雨、能見度與官方營運；若露天區受影響，仍可保留澀谷 PARCO、Scramble Square、宮下公園與晚餐。",
-          action: "黃昏前重查一次；不要為低能見度硬上露天區。"
+          headline: "Shibuya Sky 15:40 已購票",
+          advice: "Shibuya Sky 已買7月7日15:40入場票。出發前先查風雨、能見度與官方營運；若露天區受影響，仍可保留室內展望、澀谷 PARCO、Scramble Square、宮下公園與晚餐。",
+          action: "14:45 前到 Shibuya Scramble Square 找入口；不要為低能見度硬上露天區。"
         };
       }
       if (day === 12) {
