@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#171343">
+  <title>強制更新｜東京旅行行程計劃</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans HK", "Segoe UI", sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    main {
+      width: min(100%, 520px);
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.12);
+      padding: 28px;
+    }
+
+    .badge {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #4338ca;
+      font-weight: 800;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 7vw, 36px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 18px;
+      color: #475569;
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    .status {
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: #f1f5f9;
+      color: #334155;
+      font-weight: 700;
+      margin: 18px 0;
+    }
+
+    a, button {
+      min-height: 48px;
+      border: 0;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    button {
+      width: 100%;
+      background: #4f46e5;
+      color: #ffffff;
+    }
+
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #4f46e5;
+      text-decoration: none;
+      padding-inline: 0;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <span class="badge">V12.7 強制更新</span>
+    <h1>正在清除舊版快取</h1>
+    <p>如果你仍然看到粉紅色舊版 DisneySea 標籤，代表手機仍由舊離線快取控制。這頁會移除舊 service worker 和離線包，再開啟最新版。</p>
+    <div class="status" id="status">準備更新...</div>
+    <button type="button" id="retry">重新執行強制更新</button>
+    <a href="./tokyo_itinerary.html?fresh=v12-7-clean">直接開啟最新版</a>
+  </main>
+
+  <script>
+    const statusNode = document.getElementById("status");
+    const retryButton = document.getElementById("retry");
+
+    async function forceUpdate() {
+      const stamp = Date.now().toString();
+      statusNode.textContent = "正在移除舊 service worker...";
+
+      if ("serviceWorker" in navigator) {
+        const registrations = await navigator.serviceWorker.getRegistrations();
+        await Promise.all(registrations.map(registration => registration.unregister()));
+      }
+
+      statusNode.textContent = "正在清除舊離線快取...";
+      if ("caches" in window) {
+        const keys = await caches.keys();
+        await Promise.all(keys.map(key => caches.delete(key)));
+      }
+
+      statusNode.textContent = "完成，正在開啟 V12.7 最新版...";
+      window.location.replace(`./tokyo_itinerary.html?fresh=v12-7-${stamp}`);
+    }
+
+    retryButton.addEventListener("click", () => {
+      forceUpdate().catch(error => {
+        statusNode.textContent = `更新失敗，請再按一次。${error?.message || ""}`;
+      });
+    });
+
+    forceUpdate().catch(error => {
+      statusNode.textContent = `更新失敗，請再按一次。${error?.message || ""}`;
+    });
+  </script>
+</body>
+</html>

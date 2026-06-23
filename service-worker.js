@@ -1,4 +1,4 @@
-const CACHE_NAME = "tokyo-trip-v12-7-clean-version-labels";
+const CACHE_NAME = "tokyo-trip-v12-8-force-update";
 const CACHE_PREFIX = "tokyo-trip-";
 const MANUAL_CACHE_PREFIX = "tokyo-trip-manual-offline-pack";
 const APP_SHELL = [
@@ -6,6 +6,7 @@ const APP_SHELL = [
   "./index.html",
   "./tokyo_itinerary.html",
   "./tokyo_itineray.html",
+  "./force-update.html",
   "./offline.html",
   "./manifest.webmanifest",
   "./service-worker.js",
