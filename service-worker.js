@@ -1,4 +1,4 @@
-const CACHE_NAME = "tokyo-trip-v12-6-chiikawa-shop";
+const CACHE_NAME = "tokyo-trip-v12-7-clean-version-labels";
 const CACHE_PREFIX = "tokyo-trip-";
 const MANUAL_CACHE_PREFIX = "tokyo-trip-manual-offline-pack";
 const APP_SHELL = [

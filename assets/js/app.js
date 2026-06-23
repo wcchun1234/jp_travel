@@ -74,7 +74,7 @@
         pace: "高",
         image: "https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=300&q=70",
         open: true,
-        focus: "V12.1 最大新增日。官方 2026/7/1 開放 9:00-21:00，成人一日護照門票 7,900円；此日固定性高，不建議隨便對調。若有微雨，改用雨衣、防水袋、室內表演/餐廳與官方應用程式/DPA 控節奏。",
+        focus: "迪士尼海洋是7月1日固定重點日。官方 2026/7/1 開放 9:00-21:00，成人一日護照門票 7,900円；此日固定性高，不建議隨便對調。若有微雨，改用雨衣、防水袋、室內表演/餐廳與官方應用程式/DPA 控節奏。",
         transport: "早到首選鐵路：酒店 → 仲御徒町/秋葉原 → 日比谷線八丁堀 → JR 京葉/武藏野線舞濱 → 迪士尼度假區線到東京迪士尼海洋站。巴士可作少轉乘方案，但官方秋葉原巴士約50-60分鐘，班次要另查。",
         timeline: ["06:25-06:40 酒店出發", "07:45 目標抵達入園排隊", "入園即開官方應用程式購買 DPA / 查優先通行服務", "上午優先 Fantasy Springs 熱門項目", "20:45-21:30 視體力看 Believe! Sea of Dreams 或提早離園"]
       },
@@ -706,7 +706,7 @@
 
     const WEATHER_PLAN_VERSION = "天氣建議根據 2026年6月23日已查預報整理；7月戶外日仍請在出發前 24-48 小時重查。";
 
-    const OFFLINE_PACK_CACHE = "tokyo-trip-manual-offline-pack-v12-6-chiikawa-shop";
+    const OFFLINE_PACK_CACHE = "tokyo-trip-manual-offline-pack-v12-7-clean-version-labels";
     const OFFLINE_PACK = [
       "./",
       "./index.html",
